@@ -1,0 +1,5 @@
+namespace: metallb-system
+
+resources:
+- ./resources/all.yaml
+- ./configs/metallb-address-pools.yaml

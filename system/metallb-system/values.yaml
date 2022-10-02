@@ -1,0 +1,12 @@
+metallb:
+  rbac:
+    create: true
+
+  controller:
+    enabled: true
+
+  speaker:
+    enabled: true
+
+  crds:
+    enabled: true
