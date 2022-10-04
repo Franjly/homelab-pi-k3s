@@ -1,0 +1,126 @@
+gitea:
+
+  ## @section Service
+  service:
+    ## @param service.http.type Kubernetes service type for web traffic
+    ## @param service.http.port Port number for web traffic
+    ## @param service.http.clusterIP ClusterIP setting for http autosetup for statefulset is None
+    ## @param service.http.loadBalancerIP LoadBalancer IP setting
+    ## @param service.http.nodePort NodePort for http service
+    ## @param service.http.externalTrafficPolicy If `service.http.type` is `NodePort` or `LoadBalancer`, set this to `Local` to enable source IP preservation
+    ## @param service.http.externalIPs External IPs for service
+    ## @param service.http.ipFamilyPolicy HTTP service dual-stack policy
+    ## @param service.http.ipFamilies HTTP service dual-stack familiy selection,for dual-stack parameters see official kubernetes [dual-stack concept documentation](https://kubernetes.io/docs/concepts/services-networking/dual-stack/).
+    ## @param service.http.loadBalancerSourceRanges Source range filter for http loadbalancer
+    ## @param service.http.annotations HTTP service annotations
+    http:
+      type: ClusterIP
+      port: 3000
+      clusterIP: None
+      loadBalancerIP:
+      nodePort:
+      externalTrafficPolicy:
+      externalIPs:
+      ipFamilyPolicy:
+      ipFamilies:
+      loadBalancerSourceRanges: []
+      annotations: {}
+    ## @param service.ssh.type Kubernetes service type for ssh traffic
+    ## @param service.ssh.port Port number for ssh traffic
+    ## @param service.ssh.clusterIP ClusterIP setting for ssh autosetup for statefulset is None
+    ## @param service.ssh.loadBalancerIP LoadBalancer IP setting
+    ## @param service.ssh.nodePort NodePort for ssh service
+    ## @param service.ssh.externalTrafficPolicy If `service.ssh.type` is `NodePort` or `LoadBalancer`, set this to `Local` to enable source IP preservation
+    ## @param service.ssh.externalIPs External IPs for service
+    ## @param service.ssh.ipFamilyPolicy SSH service dual-stack policy
+    ## @param service.ssh.ipFamilies SSH service dual-stack familiy selection,for dual-stack parameters see official kubernetes [dual-stack concept documentation](https://kubernetes.io/docs/concepts/services-networking/dual-stack/).
+    ## @param service.ssh.hostPort HostPort for ssh service
+    ## @param service.ssh.loadBalancerSourceRanges Source range filter for ssh loadbalancer
+    ## @param service.ssh.annotations SSH service annotations
+    ssh:
+      type: ClusterIP
+      port: 22
+      clusterIP: None
+      loadBalancerIP:
+      nodePort:
+      externalTrafficPolicy:
+      externalIPs:
+      ipFamilyPolicy:
+      ipFamilies:
+      hostPort:
+      loadBalancerSourceRanges: []
+      annotations: {}
+
+  ingress:
+    enabled: true
+
+    className: nginx
+    annotations:
+      cert-manager.io/cluster-issuer: letsencrypt-staging
+      # kubernetes.io/tls-acme: "true"
+    hosts:
+      - host: gitea.local.tecno-fly.com
+        paths:
+          - path: /
+            pathType: Prefix
+    tls:
+     - secretName: gitea-tls
+       hosts:
+         - gitea.local.tecno-fly.com
+
+  persistence:
+    enabled: true
+    storageClass: longhorn
+
+  gitea:
+    admin:
+      existingSecret: gitea-admin-secret
+
+    ## @param gitea.ldap LDAP configuration
+    ldap: []
+      # - name: "LDAP 1"
+      #  existingSecret:
+      #  securityProtocol:
+      #  host:
+      #  port:
+      #  userSearchBase:
+      #  userFilter:
+      #  adminFilter:
+      #  emailAttribute:
+      #  bindDn:
+      #  bindPassword:
+      #  usernameAttribute:
+      #  publicSSHKeyAttribute:
+
+    # Either specify inline `key` and `secret` or refer to them via `existingSecret`
+    ## @param gitea.oauth OAuth configuration
+    oauth: []
+      # - name: 'OAuth 1'
+      #   provider:
+      #   key:
+      #   secret:
+      #   existingSecret:
+      #   autoDiscoverUrl:
+      #   useCustomUrls:
+      #   customAuthUrl:
+      #   customTokenUrl:
+      #   customProfileUrl:
+      #   customEmailUrl:
+
+  memcached:
+    enabled: true
+    image:
+      registry: ghcr.io
+      repository: zcube/bitnami-compat/memcached
+      tag: 1.6.17
+    service:
+      port: 11211
+
+  postgresql:
+    enabled: true
+    image:
+      registry: ghcr.io
+      repository: zcube/bitnami-compat/postgresql
+      tag: 11.17.0
+    persistence:
+      storageClass: longhorn
