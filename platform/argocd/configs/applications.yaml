@@ -1,0 +1,303 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: kube-prometheus-stack
+  namespace: argocd
+spec:
+  destination:
+    namespace: monitoring-system
+    server: https://kubernetes.default.svc
+  project: kube-prometheus-stack
+  source:
+    path: system/monitoring-system
+    plugin:
+      name: vault-kustomized-helm
+    repoURL: https://gitea.192.168.40.200.nip.io/homelab/pi-k3s.git
+    targetRevision: HEAD
+  ignoreDifferences:
+    - group: admissionregistration.k8s.io
+      kind: '*'
+      jqPathExpressions:
+        - '.webhooks[]?.failurePolicy'
+  syncPolicy:
+    syncOptions:
+    - CreateNamespace=true
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: loki
+  namespace: argocd
+spec:
+  destination:
+    namespace: monitoring-system
+    server: https://kubernetes.default.svc
+  project: monitoring-system
+  source:
+    path: system/loki
+    plugin:
+      name: vault-kustomized-helm
+    repoURL: https://gitea.192.168.40.200.nip.io/homelab/pi-k3s.git
+    targetRevision: HEAD
+  syncPolicy:
+    automated: {}
+    syncOptions:
+    - CreateNamespace=true
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: longhorn-system
+  namespace: argocd
+spec:
+  destination:
+    namespace: longhorn-system
+    server: https://kubernetes.default.svc
+  project: longhorn-system
+  source:
+    path: system/longhorn-system
+    plugin:
+      name: vault-kustomized-helm
+    repoURL: https://gitea.192.168.40.200.nip.io/homelab/pi-k3s.git
+    targetRevision: HEAD
+  syncPolicy:
+    syncOptions:
+    automated: {}
+    - CreateNamespace=true
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: ingress-nginx
+  namespace: argocd
+spec:
+  destination:
+    namespace: ingress-nginx
+    server: https://kubernetes.default.svc
+  project: ingress-nginx
+  source:
+    path: system/ingress-nginx
+    plugin:
+      name: vault-kustomized-helm
+    repoURL: https://gitea.192.168.40.200.nip.io/homelab/pi-k3s.git
+    targetRevision: HEAD
+  syncPolicy:
+    syncOptions:
+    automated: {}
+    - CreateNamespace=true
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: gitea
+  namespace: argocd
+spec:
+  destination:
+    namespace: gitea
+    server: https://kubernetes.default.svc
+  project: gitea
+  source:
+    path: platform/gitea
+    plugin:
+      name: vault-kustomized-helm
+    repoURL: https://gitea.192.168.40.200.nip.io/homelab/pi-k3s.git
+    targetRevision: HEAD
+  syncPolicy:
+    automated: {}
+    syncOptions:
+    - CreateNamespace=true
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: metallb-system
+  namespace: argocd
+spec:
+  destination:
+    namespace: metallb-system
+    server: https://kubernetes.default.svc
+  project: metallb-system
+  source:
+    path: system/metallb-system
+    plugin:
+      name: vault-kustomized-helm
+    repoURL: https://gitea.192.168.40.200.nip.io/homelab/pi-k3s.git
+    targetRevision: HEAD
+  syncPolicy:
+    automated: {}
+    syncOptions:
+    - CreateNamespace=true
+  ignoreDifferences:
+    - group: apiextensions.k8s.io
+      kind: CustomResourceDefinition
+      jqPathExpressions:
+        - '.webhooks[]?.clientConfig.caBundle'
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: velero
+  namespace: argocd
+spec:
+  destination:
+    namespace: velero
+    server: https://kubernetes.default.svc
+  project: velero
+  source:
+    path: system/velero
+    plugin:
+      name: vault-kustomized-helm
+    repoURL: https://gitea.192.168.40.200.nip.io/homelab/pi-k3s.git
+    targetRevision: HEAD
+  syncPolicy:
+    automated: {}
+    syncOptions:
+    - CreateNamespace=true
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: cert-manager
+  namespace: argocd
+spec:
+  destination:
+    namespace: cert-manager
+    server: https://kubernetes.default.svc
+  project: cert-manager
+  source:
+    path: system/cert-manager
+    plugin:
+      name: vault-kustomized-helm
+    repoURL: https://gitea.192.168.40.200.nip.io/homelab/pi-k3s.git
+    targetRevision: HEAD
+  syncPolicy:
+    automated: {}
+    syncOptions:
+    - CreateNamespace=true
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: argocd
+  namespace: argocd
+spec:
+  destination:
+    namespace: argocd
+    server: https://kubernetes.default.svc
+  project: argocd
+  source:
+    path: platform/argocd
+    plugin:
+      name: vault-kustomized-helm
+    repoURL: https://gitea.192.168.40.200.nip.io/homelab/pi-k3s.git
+    targetRevision: HEAD
+  syncPolicy:
+    syncOptions:
+    - CreateNamespace=true
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: vault
+  namespace: argocd
+spec:
+  destination:
+    namespace: vault
+    server: https://kubernetes.default.svc
+  project: vault
+  source:
+    path: platform/vault
+    plugin:
+      name: vault-kustomized-helm
+    repoURL: https://gitea.192.168.40.200.nip.io/homelab/pi-k3s.git
+    targetRevision: HEAD
+  syncPolicy:
+    automated: {}
+    syncOptions:
+    - CreateNamespace=true
+  ignoreDifferences:
+    - group: admissionregistration.k8s.io
+      kind: MutatingWebhookConfiguration
+      jqPathExpressions:
+        - '.webhooks[]?.clientConfig.caBundle'
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: k8tz
+  namespace: argocd
+spec:
+  destination:
+    namespace: k8tz
+    server: https://kubernetes.default.svc
+  project: k8tz
+  source:
+    path: system/k8tz
+    plugin:
+      name: vault-kustomized-helm
+    repoURL: https://gitea.192.168.40.200.nip.io/homelab/pi-k3s.git
+    targetRevision: HEAD
+  syncPolicy:
+    syncOptions:
+    - CreateNamespace=true
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: home-assistant
+  namespace: argocd
+spec:
+  destination:
+    namespace: home-assistant
+    server: https://kubernetes.default.svc
+  project: home-assistant
+  source:
+    path: apps/home-assistant
+    plugin:
+      name: vault-kustomized-helm
+    repoURL: https://gitea.192.168.40.200.nip.io/homelab/pi-k3s.git
+    targetRevision: HEAD
+  syncPolicy:
+    syncOptions:
+    - CreateNamespace=true
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: pi-hole
+  namespace: argocd
+spec:
+  destination:
+    namespace: pi-hole
+    server: https://kubernetes.default.svc
+  project: pi-hole
+  source:
+    path: apps/pi-hole
+    plugin:
+      name: vault-kustomized-helm
+    repoURL: https://gitea.192.168.40.200.nip.io/homelab/pi-k3s.git
+    targetRevision: HEAD
+  syncPolicy:
+    syncOptions:
+    - CreateNamespace=true
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: hajimari
+  namespace: argocd
+spec:
+  destination:
+    namespace: dashboard
+    server: https://kubernetes.default.svc
+  project: dashboard
+  source:
+    path: apps/hajimari
+    plugin:
+      name: vault-kustomized-helm
+    repoURL: https://gitea.192.168.40.200.nip.io/homelab/pi-k3s.git
+    targetRevision: HEAD
+  syncPolicy:
+    syncOptions:
+    - CreateNamespace=true
