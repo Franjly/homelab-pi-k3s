@@ -133,7 +133,7 @@ kube-prometheus-stack:
           - grafana.local.tecno-fly.com
 
     persistence:
-      enabled: true
+      enabled: false
       storageClassName: longhorn
       size: 10Gi
 
