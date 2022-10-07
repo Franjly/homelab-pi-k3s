@@ -1,0 +1,19 @@
+vault:
+  server:
+    enabled: true
+
+    ingress:
+      enabled: true
+      annotations:
+        cert-manager.io/cluster-issuer: letsencrypt-staging
+        # kubernetes.io/tls-acme: "true"
+      ingressClassName: "nginx"
+      hosts:
+        - host: vault.local.tecno-fly.com
+      tls:
+        - secretName: vault-tls
+          hosts:
+            - vault.local.tecno-fly.com
+            
+    dataStorage:
+      storageClass: longhorn
