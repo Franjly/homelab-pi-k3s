@@ -6,10 +6,7 @@ home-assistant:
       annotations:
         metallb.universe.tf/address-pool: iot
       type: LoadBalancer
-    loadBalancerIP: 192.168.60.250
-    ports:
-      http:
-        port: 8123
+      loadBalancerIP: 192.168.60.250
       ports:
         http:
           port: 8123
