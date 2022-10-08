@@ -5,5 +5,5 @@ resources:
 - ./resources/all.yaml
 - ./configs/longhorn-recurring-job.yaml
 
-patches:
+patchesStrategicMerge:
 - ./patches/local-path.yaml
