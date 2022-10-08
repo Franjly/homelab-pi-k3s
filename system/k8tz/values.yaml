@@ -1,0 +1,7 @@
+k8tz:
+  replicaCount: 1
+  injectionStrategy: initContainer
+  timezone: Europe/Madrid
+  injectAll: true
+  cronJobTimeZone: false  # requires kubernetes >=1.24.0-beta.0 with 'CronJobTimeZone' feature gate enabled (alpha)
+  verbose: false

@@ -1,0 +1,4 @@
+namespace: k8tz
+
+resources:
+- ./resources/all.yaml
