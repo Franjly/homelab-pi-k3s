@@ -5,14 +5,14 @@ metadata:
   name: letsencrypt-prod
 spec:
   acme:
-    email: <path:pi-k3s/data/cert-manager/issuer#email>
+    email: <path:pi-k3s/data/system/cert-manager/issuer#email>
     server: https://acme-v02.api.letsencrypt.org/directory
     privateKeySecretRef:
       name: letsencrypt-prod
     solvers:
       - dns01:
           cloudflare:
-            email: <path:pi-k3s/data/cert-manager/issuer#email>
+            email: <path:pi-k3s/data/system/cert-manager/issuer#email>
             apiTokenSecretRef:
               name: cloudflare-api-token-secret
               key: api-token
@@ -26,14 +26,14 @@ metadata:
   name: letsencrypt-staging
 spec:
   acme:
-    email: <path:pi-k3s/data/cert-manager/issuer#email>
+    email: <path:pi-k3s/data/system/cert-manager/issuer#email>
     server: https://acme-staging-v02.api.letsencrypt.org/directory
     privateKeySecretRef:
       name: letsencrypt-staging
     solvers:
       - dns01:
           cloudflare:
-            email: <path:pi-k3s/data/cert-manager/issuer#email>
+            email: <path:pi-k3s/data/system/cert-manager/issuer#email>
             apiTokenSecretRef:
               name: cloudflare-api-token-secret
               key: api-token
