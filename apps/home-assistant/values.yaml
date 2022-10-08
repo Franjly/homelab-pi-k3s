@@ -1,7 +1,7 @@
 home-assistant:
   image:
       repository: ghcr.io/home-assistant/home-assistant
-      tag: latest
+      tag: 2022.10.1
 
   service:
     main:
