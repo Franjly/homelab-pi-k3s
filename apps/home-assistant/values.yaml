@@ -1,6 +1,8 @@
 home-assistant:
-  # -- Configures service settings for the chart. Normally this does not need to be modified.
-  # @default -- See values.yaml
+  image:
+      repository: ghcr.io/home-assistant/home-assistant
+      tag: latest
+
   service:
     main:
       annotations:
