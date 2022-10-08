@@ -1,0 +1,4 @@
+namespace: ingress-nginx
+
+resources:
+- ./resources/all.yaml

@@ -1,0 +1,20 @@
+ingress-nginx:
+  controller:
+    tcp:
+      # -- Allows customization of the tcp-services-configmap; defaults to $(POD_NAMESPACE)
+      configMapNamespace: ""
+      # -- Annotations to be added to the tcp config configmap
+      annotations: {}
+
+    udp:
+      # -- Allows customization of the udp-services-configmap; defaults to $(POD_NAMESPACE)
+      configMapNamespace: ""
+      # -- Annotations to be added to the udp config configmap
+      annotations: {}
+
+    extraArgs:
+      enable-ssl-passthrough: "true"
+      # default-ssl-certificate: "<namespace>/<secret_name>"
+
+    service:
+      loadBalancerIP: "192.168.40.200"
