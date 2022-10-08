@@ -1,0 +1,24 @@
+longhorn:
+  persistence:
+    defaultClassReplicaCount: 2
+    reclaimPolicy: Retain
+    recurringJobSelector:
+      enable: True
+      jobList: '[{"name":"snapshot-default","task":"snapshot","cron":"0 5 * * *","retain":3},{"name":"backup-default","task":"backup","cron":"0 6 * * *","retain":3}]'
+
+  defaultSettings:
+    backupTarget: s3://<path:pi-k3s/data/system/longhorn-system#bucket>@us-east-1/
+    backupTargetCredentialSecret: longhorn-backup-target-credential-secret
+    defaultDataPath: /data/longhorn
+
+  ingress:
+    enabled: true
+    ingressClassName: nginx
+    host: longhorn.local.tecno-fly.com
+    tls: true
+    secureBackends: true
+    tlsSecret: longhorn-tls
+
+    annotations:
+      cert-manager.io/cluster-issuer: letsencrypt-staging
+      # kubernetes.io/tls-acme: true

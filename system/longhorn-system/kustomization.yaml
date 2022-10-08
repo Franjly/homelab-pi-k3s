@@ -1,0 +1,9 @@
+namespace: longhorn-system
+
+resources:
+- ./secrets/longhorn-backup-target-credential-secret.yaml
+- ./resources/all.yaml
+- ./configs/longhorn-recurring-job.yaml
+
+patches:
+- patches/local-path.yaml
