@@ -6,4 +6,4 @@ resources:
 - ./configs/longhorn-recurring-job.yaml
 
 patches:
-- patches/local-path.yaml
+#- patches/local-path.yaml
