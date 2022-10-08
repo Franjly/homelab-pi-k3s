@@ -1,4 +1,8 @@
 namespace: external-endpoints
 
 resources:
-- ./resources/*.yaml
+- ./resources/truenas.yaml
+- ./resources/s3.yaml
+- ./resources/minio.yaml
+- ./resources/qbittorrent.yaml
+- ./resources/plex.yaml
