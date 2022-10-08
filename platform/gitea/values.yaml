@@ -1,5 +1,4 @@
 gitea:
-
   ## @section Service
   service:
     ## @param service.http.type Kubernetes service type for web traffic
