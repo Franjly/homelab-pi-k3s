@@ -25,7 +25,7 @@ argo-cd:
         type: git
       gitea-pi-k3s:
         name: gitea-pi-k3s
-        url: https://gitea.192.168.40.200.nip.io/homelab/pi-k3s.git
+        url: https://gitea.local.tecno-fly.com/homelab/pi-k3s.git
         type: git
         insecure: "true"
 
@@ -136,7 +136,7 @@ argo-cd:
       ingressClassName: "nginx"
 
       hosts:
-        - argocd.192.168.40.200.nip.io
+        - argocd.local.tecno-fly.com
 
       paths:
         - /
@@ -144,7 +144,7 @@ argo-cd:
       tls:
         - secretName: argocd-tls-certificate
           hosts:
-            - argocd.192.168.40.200.nip.io
+            - argocd.local.tecno-fly.com
 
     # dedicated ingress for gRPC as documented at
     # Ref: https://argo-cd.readthedocs.io/en/stable/operator-manual/ingress/

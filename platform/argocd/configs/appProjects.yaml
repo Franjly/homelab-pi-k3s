@@ -2,7 +2,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: AppProject
 metadata:
-  name: kube-prometheus-stack
+  name: monitoring-system
   namespace: argocd
 spec:
   clusterResourceWhitelist:
@@ -16,26 +16,7 @@ spec:
   - group: '*'
     kind: '*'
   sourceRepos:
-  - https://gitea.192.168.40.200.nip.io/homelab/pi-k3s.git
----
-apiVersion: argoproj.io/v1alpha1
-kind: AppProject
-metadata:
-  name: k8up
-  namespace: argocd
-spec:
-  clusterResourceWhitelist:
-  - group: '*'
-    kind: '*'
-  destinations:
-  - name: in-cluster
-    namespace: k8up
-    server: https://kubernetes.default.svc
-  namespaceResourceWhitelist:
-  - group: '*'
-    kind: '*'
-  sourceRepos:
-  - https://gitea.192.168.40.200.nip.io/homelab/pi-k3s.git
+  - https://github.com/Franjly/homelab-pi-k3s.git
 ---
 apiVersion: argoproj.io/v1alpha1
 kind: AppProject
@@ -54,7 +35,7 @@ spec:
   - group: '*'
     kind: '*'
   sourceRepos:
-  - https://gitea.192.168.40.200.nip.io/homelab/pi-k3s.git
+  - https://github.com/Franjly/homelab-pi-k3s.git
 ---
 apiVersion: argoproj.io/v1alpha1
 kind: AppProject
@@ -73,7 +54,7 @@ spec:
   - group: '*'
     kind: '*'
   sourceRepos:
-  - https://gitea.192.168.40.200.nip.io/homelab/pi-k3s.git
+  - https://github.com/Franjly/homelab-pi-k3s.git
 ---
 apiVersion: argoproj.io/v1alpha1
 kind: AppProject
@@ -92,7 +73,7 @@ spec:
   - group: '*'
     kind: '*'
   sourceRepos:
-  - https://gitea.192.168.40.200.nip.io/homelab/pi-k3s.git
+  - https://github.com/Franjly/homelab-pi-k3s.git
 ---
 apiVersion: argoproj.io/v1alpha1
 kind: AppProject
@@ -111,7 +92,7 @@ spec:
   - group: '*'
     kind: '*'
   sourceRepos:
-  - https://gitea.192.168.40.200.nip.io/homelab/pi-k3s.git
+  - https://github.com/Franjly/homelab-pi-k3s.git
 ---
 apiVersion: argoproj.io/v1alpha1
 kind: AppProject
@@ -130,7 +111,7 @@ spec:
   - group: '*'
     kind: '*'
   sourceRepos:
-  - https://gitea.192.168.40.200.nip.io/homelab/pi-k3s.git
+  - https://github.com/Franjly/homelab-pi-k3s.git
 ---
 apiVersion: argoproj.io/v1alpha1
 kind: AppProject
@@ -149,7 +130,7 @@ spec:
   - group: '*'
     kind: '*'
   sourceRepos:
-  - https://gitea.192.168.40.200.nip.io/homelab/pi-k3s.git
+  - https://github.com/Franjly/homelab-pi-k3s.git
 ---
 apiVersion: argoproj.io/v1alpha1
 kind: AppProject
@@ -168,7 +149,7 @@ spec:
   - group: '*'
     kind: '*'
   sourceRepos:
-  - https://gitea.192.168.40.200.nip.io/homelab/pi-k3s.git
+  - https://github.com/Franjly/homelab-pi-k3s.git
 ---
 apiVersion: argoproj.io/v1alpha1
 kind: AppProject
@@ -187,7 +168,7 @@ spec:
   - group: '*'
     kind: '*'
   sourceRepos:
-  - https://gitea.192.168.40.200.nip.io/homelab/pi-k3s.git
+  - https://github.com/Franjly/homelab-pi-k3s.git
 ---
 apiVersion: argoproj.io/v1alpha1
 kind: AppProject
@@ -206,7 +187,7 @@ spec:
   - group: '*'
     kind: '*'
   sourceRepos:
-  - https://gitea.192.168.40.200.nip.io/homelab/pi-k3s.git
+  - https://github.com/Franjly/homelab-pi-k3s.git
 ---
 apiVersion: argoproj.io/v1alpha1
 kind: AppProject
@@ -225,7 +206,7 @@ spec:
   - group: '*'
     kind: '*'
   sourceRepos:
-  - https://gitea.192.168.40.200.nip.io/homelab/pi-k3s.git
+  - https://github.com/Franjly/homelab-pi-k3s.git
 ---
 apiVersion: argoproj.io/v1alpha1
 kind: AppProject
@@ -244,12 +225,12 @@ spec:
   - group: '*'
     kind: '*'
   sourceRepos:
-  - https://gitea.192.168.40.200.nip.io/homelab/pi-k3s.git
+  - https://github.com/Franjly/homelab-pi-k3s.git
 ---
 apiVersion: argoproj.io/v1alpha1
 kind: AppProject
 metadata:
-  name: dashboard
+  name: dashboards
   namespace: argocd
 spec:
   clusterResourceWhitelist:
@@ -257,10 +238,48 @@ spec:
     kind: '*'
   destinations:
   - name: in-cluster
-    namespace: dashboard
+    namespace: dashboards
     server: https://kubernetes.default.svc
   namespaceResourceWhitelist:
   - group: '*'
     kind: '*'
   sourceRepos:
-  - https://gitea.192.168.40.200.nip.io/homelab/pi-k3s.git
+  - https://github.com/Franjly/homelab-pi-k3s.git
+---
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: nfs-provisioner
+  namespace: argocd
+spec:
+  clusterResourceWhitelist:
+  - group: '*'
+    kind: '*'
+  destinations:
+  - name: in-cluster
+    namespace: nfs-provisioner
+    server: https://kubernetes.default.svc
+  namespaceResourceWhitelist:
+  - group: '*'
+    kind: '*'
+  sourceRepos:
+  - https://github.com/Franjly/homelab-pi-k3s.git
+---
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: external-endpoints
+  namespace: argocd
+spec:
+  clusterResourceWhitelist:
+  - group: '*'
+    kind: '*'
+  destinations:
+  - name: in-cluster
+    namespace: external-endpoints
+    server: https://kubernetes.default.svc
+  namespaceResourceWhitelist:
+  - group: '*'
+    kind: '*'
+  sourceRepos:
+  - https://github.com/Franjly/homelab-pi-k3s.git
