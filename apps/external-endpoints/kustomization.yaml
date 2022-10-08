@@ -1,5 +1,4 @@
 namespace: external-endpoints
 
 resources:
-- ./resources/qbittorrent.yaml
-- ./resources/plex.yaml
+- ./resources/*.yaml
