@@ -1,0 +1,52 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: qbittorrent-external-service
+  namespace: external-endpoints
+spec:
+  ports:
+  - name: http
+    port: 10095
+    protocol: TCP
+    targetPort: 10095
+  clusterIP: None
+  type: ClusterIP
+---
+apiVersion: v1
+kind: Endpoints
+metadata:
+  name: qbittorrent-external-service
+  namespace: external-endpoints
+subsets:
+- addresses:
+  - ip: 192.168.40.250
+  ports:
+  - name: http
+    port: 10095
+    protocol: TCP
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-staging
+  name: qbittorrent-external-ingress
+  namespace: external-endpoints
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: qbittorrent.local.tecno-fly.com
+    http:
+      paths:
+      - backend:
+          service:
+            name: qbittorrent-external-service
+            port:
+              number: 10095
+        path: /
+        pathType: Prefix
+  tls:
+  - hosts:
+    - qbittorrent.local.tecno-fly.com
+    secretName: qbittorrent-tls
