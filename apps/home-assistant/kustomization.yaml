@@ -1,0 +1,4 @@
+namespace: home-assistant
+
+resources:
+- ./resources/all.yaml
