@@ -1,4 +1,4 @@
-namespace: dashboard
+namespace: dashboards
 
 resources:
 - ./resources/all.yaml
