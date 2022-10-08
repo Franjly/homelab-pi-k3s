@@ -1,0 +1,4 @@
+namespace: pi-hole
+
+resources:
+- ./resources/all.yaml
