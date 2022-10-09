@@ -1,6 +1,6 @@
 longhorn:
   persistence:
-    defaultClassReplicaCount: 2
+    defaultClassReplicaCount: 3
     reclaimPolicy: Retain
     recurringJobSelector:
       enable: true
