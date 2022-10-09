@@ -10,6 +10,7 @@ longhorn:
     backupTarget: s3://<path:pi-k3s/data/system/longhorn-system#bucket>@us-east-1/
     backupTargetCredentialSecret: longhorn-backup-target-credential-secret
     defaultDataPath: /data/longhorn
+    taintToleration: node-role.kubernetes.io/master=true:NoSchedule
 
   ingress:
     enabled: true
