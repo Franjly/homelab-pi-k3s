@@ -16,21 +16,21 @@ longhorn:
     tolerations:
     - key: node-role.kubernetes.io/master
       operator: Equal
-      value: true
+      value: "true"
       effect: NoSchedule
 
   longhornDriver:
     tolerations:
     - key: node-role.kubernetes.io/master
       operator: Equal
-      value: true
+      value: "true"
       effect: NoSchedule
 
   longhornUI:
     tolerations:
     - key: node-role.kubernetes.io/master
       operator: Equal
-      value: true
+      value: "true"
       effect: NoSchedule 
 
   ingress:
