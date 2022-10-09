@@ -11,27 +11,6 @@ longhorn:
     backupTargetCredentialSecret: longhorn-backup-target-credential-secret
     defaultDataPath: /data/longhorn
 
-  longhornManager:
-    tolerations:
-    - key: node-role.kubernetes.io/master
-      operator: Equal
-      value: true
-      effect: NoSchedule
-
-  longhornDriver:
-    tolerations:
-    - key: node-role.kubernetes.io/master
-      operator: Equal
-      value: true
-      effect: NoSchedule
-
-  longhornUI:
-    tolerations:
-    - key: node-role.kubernetes.io/master
-      operator: Equal
-      value: true
-      effect: NoSchedule 
-
   ingress:
     enabled: true
     ingressClassName: nginx
