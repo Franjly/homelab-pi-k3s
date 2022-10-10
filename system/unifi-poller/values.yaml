@@ -19,6 +19,8 @@ unifi-poller:
       ports:
         http:
           enabled: true
+          protocol: TCP
+          port: 80
         metrics:
           enabled: true
           protocol: TCP
