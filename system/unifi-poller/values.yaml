@@ -21,7 +21,7 @@ unifi-poller:
         http:
           enabled: true
           protocol: TCP
-          port: 37228
+          port: 37288
         metrics:
           enabled: true
           protocol: TCP
@@ -44,7 +44,7 @@ unifi-poller:
               pathType: Prefix
               service:
                 name: unifi-poller
-                port: 37228
+                port: 37288
       tls:
         - secretName: unifi-poller-tls
           hosts:
