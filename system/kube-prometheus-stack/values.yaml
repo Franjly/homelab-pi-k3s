@@ -311,3 +311,8 @@ kube-prometheus-stack:
             resources:
               requests:
                 storage: 25Gi
+      additionalScrapeConfigs:
+        - job_name: 'unifipoller'
+          scrape_interval: 30s
+          static_configs:
+          - targets: ['unifi-poller.monitoring-system.svc.cluster.local:9130']
