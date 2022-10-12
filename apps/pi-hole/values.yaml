@@ -128,7 +128,7 @@ pihole:
 
   # -- `spec.PersitentVolumeClaim` configuration
   persistentVolumeClaim:
-    enabled: true
+    enabled: false
     storageClass: "longhorn"
     size: "1Gi"
 
