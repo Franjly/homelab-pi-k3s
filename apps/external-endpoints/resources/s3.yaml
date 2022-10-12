@@ -31,6 +31,7 @@ kind: Ingress
 metadata:
   annotations:
     cert-manager.io/cluster-issuer: letsencrypt-staging
+    nginx.ingress.kubernetes.io/backend-protocol: HTTPS
   name: s3-external-ingress
   namespace: external-endpoints
 spec:
