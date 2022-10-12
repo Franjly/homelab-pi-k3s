@@ -254,22 +254,22 @@ kube-prometheus-stack:
       unifi-poller:
         USG-Insights:
           gnetId: 11313
-          datasource: Prometheus
+          datasource: prometheus
         USW-Insights:
           gnetId: 11312
-          datasource: Prometheus
+          datasource: prometheus
         UAP-Insights:
           gnetId: 11314
-          datasource: Prometheus
+          datasource: prometheus
         Client-Insights:
           gnetId: 11315
-          datasource: Prometheus
+          datasource: prometheus
         Network-Sites:
           gnetId: 11311
-          datasource: Prometheus
+          datasource: prometheus
         Client-DPI:
           gnetId: 11310
-          datasource: Prometheus
+          datasource: prometheus
         # custom-dashboard:
         #   file: dashboards/custom-dashboard.json
         # prometheus-stats:
