@@ -132,14 +132,14 @@ pihole:
     storageClass: "longhorn"
     size: "1Gi"
 
-  # nodeSelector:
-  #   kubernetes.io/role: master
+  nodeSelector:
+    kubernetes.io/role: master
 
-  # tolerations:
-  #   - key: node-role.kubernetes.io/master
-  #     operator: Equal
-  #     value: "true"
-  #     effect: NoSchedule 
+  tolerations:
+    - key: node-role.kubernetes.io/master
+      operator: Equal
+      value: "true"
+      effect: NoSchedule 
 
   # -- Administrator password when not using an existing secret (see below)
   adminPassword: <path:pi-k3s/data/apps/pi-hole#adminPassword>
