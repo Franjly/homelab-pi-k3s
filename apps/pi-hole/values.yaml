@@ -239,7 +239,7 @@ pihole:
     #   - cname=cname record,dns record
 
   # -- list of adlists to import during initial start of the container
-  adlists: {}
+  adlists:
     # - https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts
     - https://raw.githubusercontent.com/PolishFiltersTeam/KADhosts/master/KADhosts.txt
     - https://raw.githubusercontent.com/FadeMind/hosts.extras/master/add.Spam/hosts
