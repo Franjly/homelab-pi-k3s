@@ -112,6 +112,7 @@ kube-prometheus-stack:
 
     defaultDashboardsTimezone: Europe/Madrid
 
+    adminUser: <path:pi-k3s/data/system/monitoring-system/grafana#admin-user>
     adminPassword: <path:pi-k3s/data/system/monitoring-system/grafana#admin-passwd>
 
     ingress:
@@ -188,6 +189,9 @@ kube-prometheus-stack:
         exemplarTraceIdDestinations: {}
           # datasourceUid: Jaeger
           # traceIdLabelName: trace_id
+
+    plugins:
+      - grafana-piechart-panel
 
     extraConfigmapMounts: []
     # - name: certs-configmap
