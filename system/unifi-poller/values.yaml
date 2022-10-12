@@ -12,8 +12,10 @@ unifi-poller:
     UP_UNIFI_DEFAULT_USER: <path:pi-k3s/data/system/monitoring-system/unifi-poller#UP_UNIFI_DEFAULT_USER>
     UP_UNIFI_DEFAULT_PASS: <path:pi-k3s/data/system/monitoring-system/unifi-poller#UP_UNIFI_DEFAULT_PASS>
     UP_WEBSERVER_ENABLE: true
+    UP_INFLUXDB_DISABLE: true
+    UP_UNIFI_DEFAULT_SAVE_DPI: true
+    UP_UNIFI_DEFAULT_SAVE_SITES: true
     # UP_PROMETHEUS_DISABLE: true
-    # UP_INFLUXDB_DISABLE: true
 
   service:
     main:
@@ -50,34 +52,12 @@ unifi-poller:
           hosts:
             - unifi-poller.local.tecno-fly.com
 
-  influxdb:
-    # -- Create an InfluxDB instance as a [unifi-poller storage backend](https://unifipoller.com/docs/dependencies/influxdb).
-    #    See [bitnami/influxdb](https://github.com/bitnami/charts/tree/master/bitnami/influxdb) for more options.
-    enabled: false
-    # -- InfluxDB cluster deployment architecture.
-    architecture: standalone
-    # -- Database name to automatically initialize.
-    #    Be sure to match in unifi-poller's [influxdb config](https://unifipoller.com/docs/install/configuration#influxdb).
-    database: unifi
-    # -- Enable InfluxDB authentication, supported by unifi-poller.
-    #    Be sure to match in unifi-poller's [influxdb config](https://unifipoller.com/docs/install/configuration#influxdb).
-    authEnabled: false
-    persistence:
-      # -- Enable persistence to store in a PV so data survives pod restarts.
-      enabled: false
-      # storageClass: ""
-      # size: 8Gi
-
   metrics:
-    # -- Enable and configure a Prometheus serviceMonitor for the chart under this key.
-    # @default -- See values.yaml
     enabled: true
     serviceMonitor:
       interval: 1m
       scrapeTimeout: 30s
       labels: {}
-    # -- Enable and configure Prometheus Rules for the chart under this key.
-    # @default -- See values.yaml
     prometheusRule:
       enabled: false
       labels: {}
