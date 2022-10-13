@@ -1,0 +1,4 @@
+namespace: tigera-operator
+
+resources:
+- ./resources/all.yaml
