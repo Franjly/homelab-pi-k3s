@@ -16,3 +16,5 @@ spec:
     digest: "sha256:614893368de45f76a18dd060d73528349fcb773d864ce601c143d4e1ed8167a8"
   - image: "calico/windows-upgrade"
     digest: "sha256:a5a13097f70940483a0d26cd347f6757e11e01c4805af4f7794b28ad2fe1f071"
+  - image: "calico/csi"
+    digest: "sha256:14d14ab7f50a16d6df1fef5da249602fe4a5de8f2148f4aa9491fdca12a10317"
