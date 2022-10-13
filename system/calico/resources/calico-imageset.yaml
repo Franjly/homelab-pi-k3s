@@ -1,0 +1,8 @@
+apiVersion: operator.tigera.io/v1
+kind: ImageSet
+metadata:
+  name: calico-v3.24.1
+spec:
+  images:
+  - image: "calico/node"
+    digest: "sha256:b3f8a42a43507d3aa07413f3762dd7929b02dd19cd468de447a93da285960edc"

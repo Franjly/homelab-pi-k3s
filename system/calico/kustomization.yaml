@@ -2,6 +2,7 @@ namespace: tigera-operator
 
 resources:
 - ./resources/all.yaml
+- ./resources/calico-imageset.yaml
 
 patches:
 - ./patches/crd-installations.yaml
