@@ -1,7 +1,7 @@
 apiVersion: operator.tigera.io/v1
 kind: ImageSet
 metadata:
-  name: calico-v3.24.1
+  name: calico-master
 spec:
   images:
   - image: "calico/node"
