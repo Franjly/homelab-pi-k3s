@@ -18,3 +18,5 @@ spec:
     digest: "sha256:a5a13097f70940483a0d26cd347f6757e11e01c4805af4f7794b28ad2fe1f071"
   - image: "calico/csi"
     digest: "sha256:14d14ab7f50a16d6df1fef5da249602fe4a5de8f2148f4aa9491fdca12a10317"
+  - image: "calico/node-driver-registrar"
+    digest: "sha256:45814a04f8a6922d0a5c3a0cd102732d07c4f960203b91b287050e54d8a3ade4"
