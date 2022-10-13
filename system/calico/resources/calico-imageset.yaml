@@ -5,4 +5,4 @@ metadata:
 spec:
   images:
   - image: "calico/node"
-    digest: "sha256:b3f8a42a43507d3aa07413f3762dd7929b02dd19cd468de447a93da285960edc"
+    digest: "sha256:8694683b9bd0d13caef2e67f1486ded0e843c810f1eb9d4c021a5ffdedd4af8d"
