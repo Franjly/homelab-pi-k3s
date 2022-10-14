@@ -5,8 +5,17 @@ metallb:
   controller:
     enabled: true
 
+    nodeSelector:
+      kubernetes.io/role: master
+
+    tolerations:
+      - key: node-role.kubernetes.io/master
+        operator: Equal
+        value: "true"
+        effect: NoSchedule
+
   speaker:
-    enabled: true
+    enabled: false
 
   crds:
     enabled: true
