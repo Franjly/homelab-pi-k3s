@@ -3,7 +3,6 @@ tigera-operator:
 
   installation:
     enabled: true
-    kubernetesProvider: ""
     calicoNetwork:
       ipPools:
       - cidr: 10.42.0.0/16
