@@ -6,7 +6,7 @@ metallb:
     enabled: true
 
     nodeSelector:
-      kubernetes.io/role: master
+      node.kubernetes.io/role: master
 
     tolerations:
       - key: node-role.kubernetes.io/master
