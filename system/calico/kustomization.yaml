@@ -3,7 +3,7 @@ namespace: tigera-operator
 resources:
 # - https://raw.githubusercontent.com/projectcalico/calico/v3.24.1/manifests/custom-resources.yaml
 - ./resources/all.yaml
-- ./resources/calico-imageset.yaml
+# - ./resources/calico-imageset.yaml
 
 patches:
 - ./patches/crd-installations.yaml
