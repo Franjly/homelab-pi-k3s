@@ -6,9 +6,8 @@ metadata:
   namespace: metallb-system
 spec:
   addresses:
-  - 192.168.30.201-192.168.30.254
+  - 192.168.30.200-192.168.30.254
   autoAssign: false
-  protocol: bgp
 ---
 apiVersion: metallb.io/v1beta1
 kind: IPAddressPool
@@ -19,7 +18,6 @@ spec:
   addresses:
   - 192.168.40.200-192.168.40.254
   autoAssign: false
-  protocol: bgp
 ---
 apiVersion: metallb.io/v1beta1
 kind: IPAddressPool
@@ -28,9 +26,8 @@ metadata:
   namespace: metallb-system
 spec:
   addresses:
-  - 192.168.60.201-192.168.60.254
+  - 192.168.60.200-192.168.60.254
   autoAssign: false
-  protocol: bgp
 # ---
 # apiVersion: metallb.io/v1beta1
 # kind: L2Advertisement
