@@ -1,12 +1,11 @@
 namespace: tigera-operator
 
 resources:
+# - https://raw.githubusercontent.com/projectcalico/calico/v3.24.1/manifests/tigera-operator.yaml
 - https://raw.githubusercontent.com/projectcalico/calico/v3.24.1/manifests/custom-resources.yaml
-- https://raw.githubusercontent.com/projectcalico/calico/v3.24.1/manifests/tigera-operator.yaml
-# - https://raw.githubusercontent.com/projectcalico/calico/v3.24.1/manifests/custom-resources.yaml
-# - ./resources/all.yaml
+- ./resources/all.yaml
 # - ./resources/calico-imageset.yaml
 
 patches:
 - ./patches/crd-installations.yaml
-- ./resources/calico-installation.yaml
+# - ./resources/calico-installation.yaml
