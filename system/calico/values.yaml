@@ -4,8 +4,26 @@ tigera-operator:
   installation:
     enabled: true
     calicoNetwork:
+      bgp: Enabled
       ipPools:
-      - cidr: 10.42.0.0/16
+        - cidr: 10.42.0.0/16
+          disableBGPExport: false
+          encapsulation: VXLAN
+          natOutgoing: Enabled
+          nodeSelector: all()
+        # - cidr: 10.43.0.0/16
+        #   natOutgoing: Enabled
+        #   nodeSelector: all()
+      containerIPForwarding: Enabled
+      linuxDataplane: Iptables
+      multiInterfaceMode: None
+      nodeAddressAutodetectionV4:
+        # firstFound: true
+        # interface: eth0
+        cidrs:
+        - "192.168.30.0/24"
+        - "192.168.40.0/24"
+        - "192.168.60.0/24"
 
   apiServer:
     enabled: true
