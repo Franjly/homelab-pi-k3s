@@ -79,7 +79,7 @@ spec:
   source:
     path: system/ingress-nginx
     plugin:
-      name: vault-kustomized-helm
+      name: kustomized-helm
     repoURL: https://github.com/Franjly/homelab-pi-k3s.git
     targetRevision: HEAD
   syncPolicy:
@@ -121,7 +121,7 @@ spec:
   source:
     path: system/metallb-system
     plugin:
-      name: vault-kustomized-helm
+      name: kustomized-helm
     repoURL: https://github.com/Franjly/homelab-pi-k3s.git
     targetRevision: HEAD
   syncPolicy:
@@ -360,6 +360,27 @@ spec:
     path: system/unifi-poller
     plugin:
       name: vault-kustomized-helm
+    repoURL: https://github.com/Franjly/homelab-pi-k3s.git
+    targetRevision: HEAD
+  syncPolicy:
+    automated: {}
+    syncOptions:
+    - CreateNamespace=true
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: calico
+  namespace: argocd
+spec:
+  destination:
+    namespace: tigera-operator
+    server: https://kubernetes.default.svc
+  project: calico
+  source:
+    path: system/calico
+    plugin:
+      name: kustomized-helm
     repoURL: https://github.com/Franjly/homelab-pi-k3s.git
     targetRevision: HEAD
   syncPolicy:

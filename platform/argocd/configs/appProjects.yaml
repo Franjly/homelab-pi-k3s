@@ -283,3 +283,22 @@ spec:
     kind: '*'
   sourceRepos:
   - https://github.com/Franjly/homelab-pi-k3s.git
+---
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: calico
+  namespace: argocd
+spec:
+  clusterResourceWhitelist:
+  - group: '*'
+    kind: '*'
+  destinations:
+  - name: in-cluster
+    namespace: tigera-operator
+    server: https://kubernetes.default.svc
+  namespaceResourceWhitelist:
+  - group: '*'
+    kind: '*'
+  sourceRepos:
+  - https://github.com/Franjly/homelab-pi-k3s.git
