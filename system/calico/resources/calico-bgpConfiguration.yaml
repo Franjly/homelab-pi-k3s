@@ -1,0 +1,35 @@
+apiVersion: projectcalico.org/v3
+kind: BGPConfiguration
+metadata:
+  name: default
+spec:
+  logSeverityScreen: Info
+  nodeToNodeMeshEnabled: true
+  nodeMeshMaxRestartTime: 120s
+  asNumber: 63400
+  # serviceClusterIPs:
+  # - cidr: 10.96.0.0/12
+  # serviceExternalIPs:
+  # - cidr: 104.244.42.129/32
+  # - cidr: 172.217.3.0/24
+  listenPort: 178
+  bindMode: NodeIP
+  # communities:
+  # - name: bgp-large-community
+  #   value: 63400:300:100
+  # prefixAdvertisements:
+  # - cidr: 172.218.4.0/26
+  #   communities:
+  #   - bgp-large-community
+  #   - 63400:120
+  serviceLoadBalancerIPs:
+    - cidr: 192.168.60.250/32
+    - cidr: 192.168.40.200/32
+---
+apiVersion: crd.projectcalico.org/v1
+kind: BGPConfiguration
+metadata:
+  name: default
+spec:
+  serviceLoadBalancerIPs:
+  - cidr: 192.168.40.200/32
