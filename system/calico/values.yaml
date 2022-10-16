@@ -8,7 +8,7 @@ tigera-operator:
       ipPools:
         - cidr: 10.42.0.0/16
           disableBGPExport: false
-          encapsulation: VXLAN
+          encapsulation: VXLANCrossSubnet
           natOutgoing: Enabled
           nodeSelector: all()
         # - cidr: 10.43.0.0/16
