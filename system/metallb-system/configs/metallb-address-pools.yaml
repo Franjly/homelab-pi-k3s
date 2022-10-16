@@ -28,14 +28,14 @@ spec:
   addresses:
   - 192.168.60.200-192.168.60.254
   autoAssign: false
-# ---
-# apiVersion: metallb.io/v1beta1
-# kind: L2Advertisement
-# metadata:
-#   name: l2-advertisement
-#   namespace: metallb-system
-# spec:
-#   ipAddressPools:
-#   - k3s
-#   - network
-#   - iot
+---
+apiVersion: metallb.io/v1beta1
+kind: L2Advertisement
+metadata:
+  name: l2-advertisement
+  namespace: metallb-system
+spec:
+  ipAddressPools:
+  - k3s
+  - network
+  - iot
