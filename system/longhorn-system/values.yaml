@@ -26,12 +26,12 @@ longhorn:
       value: "true"
       effect: NoSchedule
 
-  longhornUI:
-    tolerations:
-    - key: node-role.kubernetes.io/master
-      operator: Equal
-      value: "true"
-      effect: NoSchedule 
+  # longhornUI:
+  #   tolerations:
+  #   - key: node-role.kubernetes.io/master
+  #     operator: Equal
+  #     value: "true"
+  #     effect: NoSchedule 
 
   ingress:
     enabled: true
