@@ -44,6 +44,3 @@ longhorn:
     annotations:
       cert-manager.io/cluster-issuer: letsencrypt-staging
       # kubernetes.io/tls-acme: true
-
-  # TODO: Deprecated on 1.25+
-  enablePSP: false
