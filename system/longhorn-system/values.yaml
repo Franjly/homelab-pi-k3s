@@ -19,12 +19,12 @@ longhorn:
       value: "true"
       effect: NoSchedule
 
-  longhornDriver:
-    tolerations:
-    - key: node-role.kubernetes.io/master
-      operator: Equal
-      value: "true"
-      effect: NoSchedule
+  # longhornDriver:
+  #   tolerations:
+  #   - key: node-role.kubernetes.io/master
+  #     operator: Equal
+  #     value: "true"
+  #     effect: NoSchedule
 
   # longhornUI:
   #   tolerations:
