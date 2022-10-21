@@ -1,0 +1,40 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: k8tz
+  namespace: argocd
+spec:
+  clusterResourceWhitelist:
+  - group: '*'
+    kind: '*'
+  destinations:
+  - name: in-cluster
+    namespace: k8tz
+    server: https://kubernetes.default.svc
+  namespaceResourceWhitelist:
+  - group: '*'
+    kind: '*'
+  sourceRepos:
+  - https://github.com/Franjly/homelab-pi-k3s.git
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: k8tz
+  namespace: argocd
+spec:
+  destination:
+    namespace: k8tz
+    server: https://kubernetes.default.svc
+  project: k8tz
+  source:
+    path: system/k8tz
+    plugin:
+      name: vault-kustomized-helm
+    repoURL: https://github.com/Franjly/homelab-pi-k3s.git
+    targetRevision: HEAD
+  syncPolicy:
+    automated: {}
+    syncOptions:
+    - CreateNamespace=true
