@@ -1,6 +1,3 @@
 resources:
 - ./resources/felix-metrics-svc.yaml
 - ./resources/typha-metrics-svc.yaml
-
-patches:
-- ./patches/felix-configuration.yaml
