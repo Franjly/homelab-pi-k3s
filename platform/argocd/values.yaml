@@ -220,7 +220,7 @@ argo-cd:
     # @default -- See [values.yaml]
     config:
       exec.enabled: "true"
-      admin.enabled: "true"
+      admin.enabled: "false"
       accounts.fly: apiKey, login, exec
       accounts.argocd: apiKey, login, exec
       configManagementPlugins: |-
