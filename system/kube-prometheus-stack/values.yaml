@@ -255,6 +255,14 @@ kube-prometheus-stack:
           editable: true
           options:
             path: /var/lib/grafana/dashboards/pi-hole
+        - name: 'calico'
+          orgId: 1
+          folder: 'Calico'
+          type: file
+          disableDeletion: true
+          editable: true
+          options:
+            path: /var/lib/grafana/dashboards/calico
 
     ## Configure grafana dashboard to import
     ## NOTE: To use dashboards you must also enable/configure dashboardProviders
@@ -306,6 +314,15 @@ kube-prometheus-stack:
       pi-hole:
         PI-Hole-Exporter:
           url: https://raw.githubusercontent.com/eko/pihole-exporter/master/grafana/dashboard.json
+          datasource: prometheus
+      calico:
+        Felix-Dashboard:
+          gnetId: 12175
+          revision: 5
+          datasource: prometheus
+        Kubernetes-Calico:
+          gnetId: 3244
+          revision: 1
           datasource: prometheus
         # custom-dashboard:
         #   file: dashboards/custom-dashboard.json
