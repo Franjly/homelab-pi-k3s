@@ -128,7 +128,7 @@ pihole:
 
   # -- `spec.PersitentVolumeClaim` configuration
   persistentVolumeClaim:
-    enabled: false
+    enabled: true
     storageClass: "longhorn"
     size: "1Gi"
 
@@ -211,7 +211,6 @@ pihole:
 
     # -- Dnsmasq reads the /etc/hosts file to resolve ips. You can add additional entries if you like
     additionalHostsEntries:
-    # - 192.168.40.250  nas.local.tecno-fly.com
     # - 192.168.0.4     host5
 
     # -- Static DHCP config
