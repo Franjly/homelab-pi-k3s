@@ -3,7 +3,7 @@ apiVersion: monitoring.coreos.com/v1
 kind: ServiceMonitor
 metadata:
   labels:
-    app.kubernetes.io/service.name: calico-kube-controllers-metrics
+    k8s-app: calico-kube-controllers
   name: calico-kube-controllers
   namespace: calico-system
 spec:
@@ -15,13 +15,13 @@ spec:
     - calico-system
   selector:
     matchLabels:
-      app.kubernetes.io/service.name: calico-kube-controllers-metrics
+      k8s-app: calico-kube-controllers
 ---
 apiVersion: monitoring.coreos.com/v1
 kind: ServiceMonitor
 metadata:
   labels:
-    app.kubernetes.io/service.name: felix-metrics-svc
+    argocd.argoproj.io/instance: calico-metrics
   name: calico-felix
   namespace: calico-system
 spec:
@@ -33,14 +33,13 @@ spec:
     - calico-system
   selector:
     matchLabels:
-      app.kubernetes.io/service.name: felix-metrics-svc
+      argocd.argoproj.io/instance: calico-metrics
 ---
 apiVersion: monitoring.coreos.com/v1
 kind: ServiceMonitor
 metadata:
   labels:
-    app.kubernetes.io/service.name: typha-metrics-svc
-    app.kubernetes.io/pod.container.port.name: calico-typha
+    argocd.argoproj.io/instance: calico-metrics
   name: calico-typha
   namespace: calico-system
 spec:
@@ -52,5 +51,4 @@ spec:
     - calico-system
   selector:
     matchLabels:
-      app.kubernetes.io/service.name: typha-metrics-svc
-      app.kubernetes.io/pod.container.port.name: calico-typha
+      argocd.argoproj.io/instance: calico-metrics
