@@ -5,5 +5,5 @@ resources:
 - ./resources/typha-metrics-svc.yaml
 - ./resources/service-monitors.yaml
 
-patches:
+patchesStrategicMerge:
 - ./patches/calico-kube-controllers-metrics-svc.yaml
