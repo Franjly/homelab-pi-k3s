@@ -227,7 +227,7 @@ kube-prometheus-stack:
           orgId: 1
           folder: 'Loki'
           type: file
-          disableDeletion: false
+          disableDeletion: true
           editable: true
           options:
             path: /var/lib/grafana/dashboards/loki
@@ -235,10 +235,18 @@ kube-prometheus-stack:
           orgId: 1
           folder: 'UniFi-Poller'
           type: file
-          disableDeletion: false
+          disableDeletion: true
           editable: true
           options:
             path: /var/lib/grafana/dashboards/unifi-poller
+        - name: 'ingress-nginx'
+          orgId: 1
+          folder: 'NGINX Ingress'
+          type: file
+          disableDeletion: true
+          editable: true
+          options:
+            path: /var/lib/grafana/dashboards/ingress-nginx
 
     ## Configure grafana dashboard to import
     ## NOTE: To use dashboards you must also enable/configure dashboardProviders
@@ -275,6 +283,17 @@ kube-prometheus-stack:
         Client-DPI:
           gnetId: 11310
           revision: 4
+          datasource: prometheus
+      ingress-nginx:
+        Kubernetes-Nginx-Ingress-Controller:
+          gnetId: 14314
+          revision: 2
+          datasource: prometheus
+        NGINX-Ingress-Controller:
+          url: https://raw.githubusercontent.com/kubernetes/ingress-nginx/main/deploy/grafana/dashboards/nginx.json
+          datasource: prometheus
+        Request-Handling-Performance:
+          url: https://raw.githubusercontent.com/kubernetes/ingress-nginx/main/deploy/grafana/dashboards/request-handling-performance.json
           datasource: prometheus
         # custom-dashboard:
         #   file: dashboards/custom-dashboard.json
