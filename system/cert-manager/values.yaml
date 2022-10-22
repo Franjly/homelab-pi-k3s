@@ -1,7 +1,7 @@
 cert-manager:
   global:
     leaderElection:
-      namespace: ""
+      namespace: "cert-manager"
   installCRDs: false
   replicaCount: 1
   extraArgs:
