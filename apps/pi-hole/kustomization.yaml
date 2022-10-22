@@ -2,4 +2,3 @@ namespace: pi-hole
 
 resources:
 - ./resources/all.yaml
-# - ./resources/service-monitor.yaml
