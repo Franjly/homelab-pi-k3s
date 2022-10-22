@@ -21,7 +21,7 @@ apiVersion: monitoring.coreos.com/v1
 kind: ServiceMonitor
 metadata:
   labels:
-    argocd.argoproj.io/instance: calico-metrics
+    k8s-app: calico-node
   name: calico-felix
   namespace: calico-system
 spec:
@@ -33,13 +33,13 @@ spec:
     - calico-system
   selector:
     matchLabels:
-      argocd.argoproj.io/instance: calico-metrics
+      k8s-app: calico-node
 ---
 apiVersion: monitoring.coreos.com/v1
 kind: ServiceMonitor
 metadata:
   labels:
-    argocd.argoproj.io/instance: calico-metrics
+    k8s-app: calico-typha
   name: calico-typha
   namespace: calico-system
 spec:
@@ -51,4 +51,4 @@ spec:
     - calico-system
   selector:
     matchLabels:
-      argocd.argoproj.io/instance: calico-metrics
+      k8s-app: calico-typha
