@@ -247,6 +247,14 @@ kube-prometheus-stack:
           editable: true
           options:
             path: /var/lib/grafana/dashboards/ingress-nginx
+        - name: 'pi-hole'
+          orgId: 1
+          folder: 'Pi-hole'
+          type: file
+          disableDeletion: true
+          editable: true
+          options:
+            path: /var/lib/grafana/dashboards/pi-hole
 
     ## Configure grafana dashboard to import
     ## NOTE: To use dashboards you must also enable/configure dashboardProviders
@@ -294,6 +302,10 @@ kube-prometheus-stack:
           datasource: prometheus
         Request-Handling-Performance:
           url: https://raw.githubusercontent.com/kubernetes/ingress-nginx/main/deploy/grafana/dashboards/request-handling-performance.json
+          datasource: prometheus
+      pi-hole:
+        PI-Hole-Exporter:
+          url: https://raw.githubusercontent.com/eko/pihole-exporter/master/grafana/dashboard.json
           datasource: prometheus
         # custom-dashboard:
         #   file: dashboards/custom-dashboard.json
