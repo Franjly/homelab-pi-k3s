@@ -1,37 +1,7 @@
 pihole:
-  # Default values for pihole.
-  # This is a YAML-formatted file.
-  # Declare variables to be passed into your templates.
-
-  # -- The number of replicas
-  replicaCount: 1
-
-  # -- The `spec.strategyTpye` for updates
-  strategyType: RollingUpdate
-
-  # -- The maximum number of Pods that can be created over the desired number of `ReplicaSet` during updating.
-  maxSurge: 1
-
-  # -- The maximum number of Pods that can be unavailable during updating
-  maxUnavailable: 1
-
   image:
-    # -- the repostory to pull the image from
     repository: "pihole/pihole"
-    # -- the docker tag, if left empty it will get it from the chart's appVersion
     tag: "2022.10"
-    # -- the pull policy
-    pullPolicy: IfNotPresent
-
-  dualStack:
-    # -- set this to true to enable creation of DualStack services or creation of separate IPv6 services if `serviceDns.type` is set to `"LoadBalancer"`
-    enabled: false
-
-  dnsHostPort:
-    # -- set this to true to enable dnsHostPort
-    enabled: false
-    # -- default port for this pod
-    port: 53
 
   # -- Configuration for the DNS service on port 53
   serviceDns:
@@ -143,13 +113,6 @@ pihole:
 
   # -- Administrator password when not using an existing secret (see below)
   adminPassword: <path:pi-k3s/data/apps/pi-hole#adminPassword>
-
-  # -- Use an existing secret for the admin password.
-  admin:
-    # -- Specify an existing secret to use as admin password
-    existingSecret: ""
-    # -- Specify the key inside the secret to use
-    passwordKey: "password"
 
   # -- extraEnvironmentVars is a list of extra enviroment variables to set for pihole to use
   extraEnvVars: {}
@@ -275,23 +238,23 @@ pihole:
     - https://urlhaus.abuse.ch/downloads/hostfile/
     - https://zerodot1.gitlab.io/CoinBlockerLists/hosts_browser
     # Firebog - Extra Links (Blue)
-    - https://raw.githubusercontent.com/matomo-org/referrer-spam-blacklist/master/spammers.txt
-    - https://someonewhocares.org/hosts/zero/hosts
-    - https://raw.githubusercontent.com/VeleSila/yhosts/master/hosts
-    - https://winhelp2002.mvps.org/hosts.txt
-    - https://v.firebog.net/hosts/neohostsbasic.txt
-    - https://raw.githubusercontent.com/RooneyMcNibNug/pihole-stuff/master/SNAFU.txt
-    - https://paulgb.github.io/BarbBlock/blacklists/hosts-file.txt
-    - https://raw.githubusercontent.com/jdlingyu/ad-wars/master/hosts
-    - https://www.github.developerdan.com/hosts/lists/ads-and-tracking-extended.txt
-    - https://raw.githubusercontent.com/Perflyst/PiHoleBlocklist/master/android-tracking.txt
-    - https://raw.githubusercontent.com/Perflyst/PiHoleBlocklist/master/SmartTV.txt
-    - https://raw.githubusercontent.com/Perflyst/PiHoleBlocklist/master/AmazonFireTV.txt
-    - https://gitlab.com/quidsup/notrack-blocklists/raw/master/notrack-blocklist.txt
-    - https://v.firebog.net/hosts/Prigent-Malware.txt
-    - https://raw.githubusercontent.com/chadmayfield/my-pihole-blocklists/master/lists/pi_blocklist_porn_top1m.list
-    - https://v.firebog.net/hosts/Prigent-Adult.txt
-    - https://raw.githubusercontent.com/anudeepND/blacklist/master/facebook.txt
+    # - https://raw.githubusercontent.com/matomo-org/referrer-spam-blacklist/master/spammers.txt
+    # - https://someonewhocares.org/hosts/zero/hosts
+    # - https://raw.githubusercontent.com/VeleSila/yhosts/master/hosts
+    # - https://winhelp2002.mvps.org/hosts.txt
+    # - https://v.firebog.net/hosts/neohostsbasic.txt
+    # - https://raw.githubusercontent.com/RooneyMcNibNug/pihole-stuff/master/SNAFU.txt
+    # - https://paulgb.github.io/BarbBlock/blacklists/hosts-file.txt
+    # - https://raw.githubusercontent.com/jdlingyu/ad-wars/master/hosts
+    # - https://www.github.developerdan.com/hosts/lists/ads-and-tracking-extended.txt
+    # - https://raw.githubusercontent.com/Perflyst/PiHoleBlocklist/master/android-tracking.txt
+    # - https://raw.githubusercontent.com/Perflyst/PiHoleBlocklist/master/SmartTV.txt
+    # - https://raw.githubusercontent.com/Perflyst/PiHoleBlocklist/master/AmazonFireTV.txt
+    # - https://gitlab.com/quidsup/notrack-blocklists/raw/master/notrack-blocklist.txt
+    # - https://v.firebog.net/hosts/Prigent-Malware.txt
+    # - https://raw.githubusercontent.com/chadmayfield/my-pihole-blocklists/master/lists/pi_blocklist_porn_top1m.list
+    # - https://v.firebog.net/hosts/Prigent-Adult.txt
+    # - https://raw.githubusercontent.com/anudeepND/blacklist/master/facebook.txt
 
   # -- list of whitelisted domains to import during initial start of the container
   whitelist: {}
@@ -349,31 +312,20 @@ pihole:
     #   subPath: external.conf
 
   # -- Additional annotations for pods
-  podAnnotations: {}
-    # Example below allows Prometheus to scape on metric port (requires pihole-exporter sidecar enabled)
-    # prometheus.io/port: '9617'
-    # prometheus.io/scrape: 'true'
+  podAnnotations:
+    prometheus.io/port: '9617'
+    prometheus.io/scrape: 'true'
 
   monitoring:
-    # -- Preferably adding prometheus scrape annotations rather than enabling podMonitor.
     podMonitor:
-      # -- set this to true to enable podMonitor
       enabled: false
-    # -- Sidecar configuration
     sidecar:
-      # -- set this to true to enable podMonitor as sidecar
-      enabled: false
+      enabled: true
       port: 9617
       image:
         repository: ekofr/pihole-exporter
         tag: v0.3.0
         pullPolicy: IfNotPresent
-      resources:
-        limits:
-          memory: 128Mi
-        # requests:
-        #  cpu: 100m
-        #  memory: 128Mi
 
   podDnsConfig:
     enabled: true
