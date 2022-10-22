@@ -4,6 +4,3 @@ resources:
 - ./resources/felix-metrics-svc.yaml
 - ./resources/typha-metrics-svc.yaml
 - ./resources/service-monitors.yaml
-
-patchesStrategicMerge:
-- ./patches/calico-kube-controllers-metrics-svc.yaml
