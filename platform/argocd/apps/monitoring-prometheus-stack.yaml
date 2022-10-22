@@ -40,47 +40,6 @@ spec:
       jqPathExpressions:
         - '.webhooks[]?.failurePolicy'
   syncPolicy:
-    syncOptions:
-    - CreateNamespace=true
----
-apiVersion: argoproj.io/v1alpha1
-kind: Application
-metadata:
-  name: loki
-  namespace: argocd
-spec:
-  destination:
-    namespace: monitoring-system
-    server: https://kubernetes.default.svc
-  project: monitoring-system
-  source:
-    path: system/loki
-    plugin:
-      name: vault-kustomized-helm
-    repoURL: https://github.com/Franjly/homelab-pi-k3s.git
-    targetRevision: HEAD
-  syncPolicy:
-    automated: {}
-    syncOptions:
-    - CreateNamespace=true
----
-apiVersion: argoproj.io/v1alpha1
-kind: Application
-metadata:
-  name: unifi-poller
-  namespace: argocd
-spec:
-  destination:
-    namespace: monitoring-system
-    server: https://kubernetes.default.svc
-  project: monitoring-system
-  source:
-    path: system/unifi-poller
-    plugin:
-      name: vault-kustomized-helm
-    repoURL: https://github.com/Franjly/homelab-pi-k3s.git
-    targetRevision: HEAD
-  syncPolicy:
     automated: {}
     syncOptions:
     - CreateNamespace=true
