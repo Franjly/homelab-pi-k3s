@@ -1,0 +1,66 @@
+---
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  labels:
+    app.kubernetes.io/component: calico-kube-controllers
+    app.kubernetes.io/instance: calico-system
+    app.kubernetes.io/name: calico-system
+  name: calico-kube-controllers
+  namespace: calico-system
+spec:
+  endpoints:
+  - interval: 30s
+    port: metrics-port
+  namespaceSelector:
+    matchNames:
+    - calico-system
+  selector:
+    matchLabels:
+      app.kubernetes.io/component: calico-kube-controllers
+      app.kubernetes.io/instance: calico-system
+      app.kubernetes.io/name: calico-system
+---
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  labels:
+    app.kubernetes.io/component: calico-felix
+    app.kubernetes.io/instance: calico-system
+    app.kubernetes.io/name: calico-system
+  name: calico-felix
+  namespace: calico-system
+spec:
+  endpoints:
+  - interval: 30s
+    port: metrics-port
+  namespaceSelector:
+    matchNames:
+    - calico-system
+  selector:
+    matchLabels:
+      app.kubernetes.io/component: calico-felix
+      app.kubernetes.io/instance: calico-system
+      app.kubernetes.io/name: calico-system
+---
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  labels:
+    app.kubernetes.io/component: calico-typha
+    app.kubernetes.io/instance: calico-system
+    app.kubernetes.io/name: calico-system
+  name: calico-typha
+  namespace: calico-system
+spec:
+  endpoints:
+  - interval: 30s
+    port: metrics-port
+  namespaceSelector:
+    matchNames:
+    - calico-system
+  selector:
+    matchLabels:
+      app.kubernetes.io/component: calico-typha
+      app.kubernetes.io/instance: calico-system
+      app.kubernetes.io/name: calico-system

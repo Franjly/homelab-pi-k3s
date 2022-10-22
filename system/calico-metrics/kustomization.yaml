@@ -1,3 +1,9 @@
+namespace: calico-system
+
 resources:
 - ./resources/felix-metrics-svc.yaml
 - ./resources/typha-metrics-svc.yaml
+- ./resources/service-monitors.yaml
+
+patches:
+- ./patches/calico-kube-controllers-metrics-svc.yaml
