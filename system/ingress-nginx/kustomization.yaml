@@ -2,3 +2,4 @@ namespace: ingress-nginx
 
 resources:
 - ./resources/all.yaml
+- ./resources/prometheus-rules.yaml
