@@ -5,6 +5,7 @@ resources:
 - ./resources/all.yaml
 - ./configs/longhorn-recurring-job.yaml
 - ./resources/service-monitor.yaml
+- ./resources/prometheus-rules.yaml
 
 patches:
 - ./patches/longhorn-backend-svc.yaml
