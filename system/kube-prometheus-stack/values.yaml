@@ -346,6 +346,7 @@ kube-prometheus-stack:
       longhorn:
         longhorn-dashboard:
           gnetId: 16888
+          name: longhorn-dashboard
           revision: 5
           datasource: prometheus
 
