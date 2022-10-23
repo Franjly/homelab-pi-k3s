@@ -4,6 +4,7 @@ resources:
 - ./secrets/longhorn-backup-target-credential-secret.yaml
 - ./resources/all.yaml
 - ./configs/longhorn-recurring-job.yaml
+- ./resources/service-monitor.yaml
 
 patches:
 #- ./patches/local-path.yaml
