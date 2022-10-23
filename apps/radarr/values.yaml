@@ -1,7 +1,7 @@
 radarr:
   image:
-    repository: linuxserver/radarr
-    tag: 4.2.4.6635-ls153
+    repository: hotio/radarr
+    tag: release-4.2.4.6635
 
   env:
     TZ: Europe/Madrid
