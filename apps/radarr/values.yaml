@@ -37,6 +37,11 @@ radarr:
     config:
       enabled: true
       storageClass: longhorn
+    
+    downloads:
+      enabled: true
+      storageClass: longhorn
+      mountPath: /downloads
 
     media:
       enabled: false
