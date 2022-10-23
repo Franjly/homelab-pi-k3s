@@ -273,7 +273,7 @@ kube-prometheus-stack:
             path: /var/lib/grafana/dashboards/cert-manager
         - name: 'longhorn'
           orgId: 1
-          folder: 'Longhorn'
+          folder: 'Longhorn-System'
           type: file
           disableDeletion: true
           editable: true
