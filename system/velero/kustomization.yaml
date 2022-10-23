@@ -2,3 +2,4 @@ namespace: velero
 
 resources:
 - ./resources/all.yaml
+- ./resources/service-monitor.yaml
