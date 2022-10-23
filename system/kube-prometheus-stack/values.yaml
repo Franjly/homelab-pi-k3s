@@ -263,6 +263,14 @@ kube-prometheus-stack:
           editable: true
           options:
             path: /var/lib/grafana/dashboards/calico
+        - name: 'cert-manager'
+          orgId: 1
+          folder: 'Cert-Manager'
+          type: file
+          disableDeletion: true
+          editable: true
+          options:
+            path: /var/lib/grafana/dashboards/cert-manager
 
     ## Configure grafana dashboard to import
     ## NOTE: To use dashboards you must also enable/configure dashboardProviders
@@ -322,6 +330,11 @@ kube-prometheus-stack:
           datasource: prometheus
         Kubernetes-Calico:
           gnetId: 3244
+          revision: 1
+          datasource: prometheus
+      cert-manager:
+        cert-manager:
+          gnetId: 11001
           revision: 1
           datasource: prometheus
         # custom-dashboard:
