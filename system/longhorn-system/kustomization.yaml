@@ -7,4 +7,5 @@ resources:
 - ./resources/service-monitor.yaml
 
 patches:
+- ./patches/service-backend.yaml
 #- ./patches/local-path.yaml
