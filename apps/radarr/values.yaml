@@ -41,6 +41,7 @@ radarr:
     downloads:
       enabled: true
       storageClass: longhorn
+      accessMode: ReadWriteOnce
       mountPath: /downloads
 
     media:
