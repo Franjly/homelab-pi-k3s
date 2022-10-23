@@ -44,7 +44,7 @@ radarr:
   metrics:
     # -- Enable and configure Exportarr sidecar and Prometheus serviceMonitor.
     # @default -- See values.yaml
-    enabled: false
+    enabled: true
     serviceMonitor:
       interval: 3m
       scrapeTimeout: 1m
@@ -71,7 +71,7 @@ radarr:
         # -- image repository
         repository: ghcr.io/onedr0p/exportarr
         # -- image tag
-        tag: v1.0.0
+        tag: v1.1.0
         # -- image pull policy
         pullPolicy: IfNotPresent
       env:
