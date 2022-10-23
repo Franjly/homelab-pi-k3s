@@ -7,5 +7,5 @@ resources:
 - ./resources/service-monitor.yaml
 
 patches:
-- ./patches/service-backend.yaml
+- ./patches/longhorn-backend-svc.yaml
 #- ./patches/local-path.yaml
