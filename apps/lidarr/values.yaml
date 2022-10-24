@@ -1,0 +1,84 @@
+lidarr:
+  image:
+    repository: hotio/lidarr
+    tag: release-1.0.2.2592
+
+  env:
+    TZ: Europe/Madrid
+
+  ingress:
+    main:
+      enabled: true
+      primary: true
+
+      annotations:
+        cert-manager.io/cluster-issuer: letsencrypt-staging
+        # kubernetes.io/tls-acme: "true"
+
+      ingressClassName: "nginx"
+
+      hosts:
+        - host: lidarr.local.tecno-fly.com
+          paths:
+            - path: /
+              pathType: Prefix
+              service:
+                name: lidarr
+                port: 8686
+      tls:
+       - secretName: lidarr-tls
+         hosts:
+           - lidarr.local.tecno-fly.com
+
+  persistence:
+    config:
+      enabled: true
+      storageClass: longhorn
+
+    media:
+      enabled: true
+      storageClass: longhorn
+      accessMode: ReadWriteOnce
+      size: 1Gi
+      mountPath: /media
+
+  metrics:
+    # -- Enable and configure Exportarr sidecar and Prometheus serviceMonitor.
+    # @default -- See values.yaml
+    enabled: false
+    serviceMonitor:
+      interval: 3m
+      scrapeTimeout: 1m
+      labels: {}
+    # -- Enable and configure Prometheus Rules for the chart under this key.
+    # @default -- See values.yaml
+    prometheusRule:
+      enabled: false
+      labels: {}
+      # -- Configure additionial rules for the chart under this key.
+      # @default -- See prometheusrules.yaml
+      rules: []
+        # - alert: LidarrDown
+        #   annotations:
+        #     description: Lidarr service is down.
+        #     summary: Lidarr is down.
+        #   expr: |
+        #     lidarr_system_status == 0
+        #   for: 5m
+        #   labels:
+        #     severity: critical
+    exporter:
+      image:
+        # -- image repository
+        repository: ghcr.io/onedr0p/exportarr
+        # -- image tag
+        tag: v1.0.0
+        # -- image pull policy
+        pullPolicy: IfNotPresent
+      env:
+        # -- metrics port
+        port: 9792
+        # -- Set to true to enable gathering of additional metrics (slow)
+        additionalMetrics: false
+        # -- Set to true to enable gathering unknown queue items
+        unknownQueueItems: false
