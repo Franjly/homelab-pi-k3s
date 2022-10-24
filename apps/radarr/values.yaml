@@ -37,16 +37,12 @@ radarr:
     config:
       enabled: true
       storageClass: longhorn
-    
-    downloads:
+
+    media:
       enabled: true
       storageClass: longhorn
       accessMode: ReadWriteOnce
       size: 1Gi
-      mountPath: /downloads
-
-    media:
-      enabled: false
       mountPath: /media
 
   metrics:
