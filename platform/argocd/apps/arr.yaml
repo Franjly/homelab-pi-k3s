@@ -59,3 +59,24 @@ spec:
     automated: {}
     syncOptions:
     - CreateNamespace=true
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: lidarr
+  namespace: argocd
+spec:
+  destination:
+    namespace: arr
+    server: https://kubernetes.default.svc
+  project: arr
+  source:
+    path: apps/lidarr
+    plugin:
+      name: vault-kustomized-helm
+    repoURL: https://github.com/Franjly/homelab-pi-k3s.git
+    targetRevision: HEAD
+  syncPolicy:
+    automated: {}
+    syncOptions:
+    - CreateNamespace=true
