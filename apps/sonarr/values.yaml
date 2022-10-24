@@ -38,6 +38,8 @@ sonarr:
     media:
       enabled: true
       storageClass: longhorn
+      accessMode: ReadWriteOnce
+      size: 1Gi
       mountPath: /media
 
   metrics:
