@@ -31,15 +31,15 @@ radarr:
 
   persistence:
     config:
-      enabled: true
+      enabled: false
       storageClass: longhorn
 
-    media:
-      enabled: true
-      storageClass: longhorn
-      accessMode: ReadWriteOnce
-      size: 1Gi
-      mountPath: /media
+    # media:
+    #   enabled: false
+    #   storageClass: nfs-provisioner
+    #   accessMode: ReadWriteOnce
+    #   size: 1Gi
+    #   mountPath: /media
 
   metrics:
     # -- Enable and configure Exportarr sidecar and Prometheus serviceMonitor.

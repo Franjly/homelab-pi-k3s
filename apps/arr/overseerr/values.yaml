@@ -32,6 +32,6 @@ overseerr:
 
   persistence:
     config:
-      enabled: true
+      enabled: false
       storageClass: longhorn
       mountPath: /app/config
