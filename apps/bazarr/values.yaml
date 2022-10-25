@@ -1,0 +1,44 @@
+bazarr:
+  image:
+    repository: hotio/bazarr
+    tag: release-1.1.2
+
+  env:
+    TZ: Europe/Madrid
+
+  ingress:
+    main:
+      enabled: true
+
+      annotations:
+        cert-manager.io/cluster-issuer: letsencrypt-staging
+        # kubernetes.io/tls-acme: "true"
+
+      ingressClassName: "nginx"
+
+      hosts:
+        - host: bazarr.local.tecno-fly.com
+          paths:
+            - path: /
+              pathType: Prefix
+              service:
+                name: bazarr
+                port: 6767
+      tls:
+       - secretName: bazarr-tls
+         hosts:
+           - bazarr.local.tecno-fly.com
+
+  # -- Configure persistence settings for the chart under this key.
+  # @default -- See values.yaml
+  persistence:
+    config:
+      enabled: true
+      storageClass: longhorn
+
+    media:
+      enabled: true
+      storageClass: longhorn
+      accessMode: ReadWriteOnce
+      size: 1Gi
+      mountPath: /media
