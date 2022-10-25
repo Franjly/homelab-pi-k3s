@@ -59,7 +59,7 @@ hajimari:
 
   persistence:
     data:
-      enabled: true
+      enabled: false
       storageClass: longhorn
   
   initContainers: {}
