@@ -1,0 +1,66 @@
+tdarr:
+  image:
+    repository: haveagitgat/tdarr
+    tag: 2.00.18.2
+
+  env:
+    # -- Set the container timezone
+    TZ: Europe/Madrid
+
+  ingress:
+    main:
+      enabled: true
+
+      annotations:
+        cert-manager.io/cluster-issuer: letsencrypt-staging
+        # kubernetes.io/tls-acme: "true"
+
+      ingressClassName: "nginx"
+
+      hosts:
+        - host: tdarr.local.tecno-fly.com
+          paths:
+            - path: /
+              pathType: Prefix
+              service:
+                name: tdarr
+                port: 8265
+      tls:
+       - secretName: tdarr-tls
+         hosts:
+           - tdarr.local.tecno-fly.com
+
+  node:
+    enabled: true
+    id: node
+    image:
+      repository: haveagitgat/tdarr_node
+      tag: 2.00.18.2
+    resources: {}
+
+  # -- Configure persistence settings for the chart under this key.
+  # @default -- See below
+  persistence:
+    # -- Volume used for configuration
+    # @default -- See values.yaml
+    config:
+      enabled: false
+      mountPath: /app/configs
+
+    # -- Volume used for tdarr server database
+    # @default -- See values.yaml
+    data:
+      enabled: false
+      mountPath: /app/server
+
+    # -- Volume used for media libraries
+    # @default -- See values.yaml
+    media:
+      enabled: false
+      mountPath: /media
+
+    # -- Volume used for shared storage. e.g. emptydir transcode
+    # @default -- See values.yaml
+    shared:
+      enabled: false
+      mountPath: /shared
