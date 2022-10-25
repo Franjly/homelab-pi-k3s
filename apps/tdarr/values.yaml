@@ -4,7 +4,6 @@ tdarr:
     tag: 2.00.18.2
 
   env:
-    # -- Set the container timezone
     TZ: Europe/Madrid
 
   ingress:
