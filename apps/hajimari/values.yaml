@@ -63,9 +63,9 @@ hajimari:
       storageClass: longhorn
   
   initContainers:
-  - name: volume-mount-hack
-    image: busybox
-    command: ["sh", "-c", "chown -R 100:101 /data"]
-    volumeMounts:
-    - name: hajimari-data
-      mountPath: /data
+    volume-mount-hack:
+      image: busybox
+      command: ["sh", "-c", "chown -R 100:101 /data"]
+      volumeMounts:
+      - name: hajimari-data
+        mountPath: /data
