@@ -32,3 +32,4 @@ prowlarr:
   persistence:
     config:
       enabled: true
+      storageClass: longhorn
