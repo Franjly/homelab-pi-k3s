@@ -14,6 +14,9 @@ hajimari:
     # -- Override the title of the Hajimari pages
     title: null
 
+    lightTheme: tron
+    darkTheme: tron
+
     # -- Default name for welcome message
     name: "FLY"
 
@@ -58,3 +61,5 @@ hajimari:
     data:
       enabled: true
       storageClass: longhorn
+  
+  initContainers: {}
