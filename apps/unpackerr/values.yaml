@@ -1,0 +1,26 @@
+unpackerr:
+  image:
+    repository: hotio/unpackerr
+    tag: release-0.10.1
+
+  env:
+    TZ: Europe/Madrid
+
+  # -- Configures service settings for the chart.
+  # @default -- Disabled
+  service:
+    main:
+      enabled: false
+
+  ingress:
+    # -- Enable and configure ingress settings for the chart under this key.
+    # @default -- Disabled
+    main:
+      enabled: false
+
+  # -- Configure persistence settings for the chart under this key.
+  # @default -- See values.yaml
+  persistence:
+    downloads:
+      enabled: false
+      mountPath: /downloads
