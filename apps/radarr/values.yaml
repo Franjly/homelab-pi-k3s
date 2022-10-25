@@ -9,7 +9,6 @@ radarr:
   ingress:
     main:
       enabled: true
-      primary: true
 
       annotations:
         cert-manager.io/cluster-issuer: letsencrypt-staging
