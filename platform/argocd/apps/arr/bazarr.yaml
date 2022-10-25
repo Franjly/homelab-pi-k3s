@@ -2,7 +2,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: arr
+  name: bazarr
   namespace: argocd
 spec:
   destination:
@@ -10,7 +10,9 @@ spec:
     server: https://kubernetes.default.svc
   project: arr
   source:
-    path: platform/argocd/apps/arr
+    path: apps/arr/bazarr
+    plugin:
+      name: vault-kustomized-helm
     repoURL: https://github.com/Franjly/homelab-pi-k3s.git
     targetRevision: HEAD
   syncPolicy:
