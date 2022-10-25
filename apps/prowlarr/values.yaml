@@ -1,0 +1,34 @@
+prowlarr:
+  image:
+    repository: hotio/prowlarr
+    tag: testing-0.4.7.2016
+
+  env:
+    TZ: Europe/Madrid
+
+  ingress:
+    main:
+      enabled: true
+
+      annotations:
+        cert-manager.io/cluster-issuer: letsencrypt-staging
+        # kubernetes.io/tls-acme: "true"
+
+      ingressClassName: "nginx"
+
+      hosts:
+        - host: prowlarr.local.tecno-fly.com
+          paths:
+            - path: /
+              pathType: Prefix
+              service:
+                name: prowlarr
+                port: 9696
+      tls:
+       - secretName: prowlarr-tls
+         hosts:
+           - prowlarr.local.tecno-fly.com
+
+  persistence:
+    config:
+      enabled: true
