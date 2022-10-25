@@ -3,7 +3,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: readarr
-  namespace: argocd
+  namespace: arr
 spec:
   destination:
     namespace: arr
