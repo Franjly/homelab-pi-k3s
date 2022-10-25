@@ -59,7 +59,13 @@ hajimari:
 
   persistence:
     data:
-      enabled: false
+      enabled: true
       storageClass: longhorn
   
-  initContainers: {}
+  initContainers:
+    - name: volume-mount-hack
+    image: busybox
+    command: ["sh", "-c", "chown -R 100:101 /data"]
+    volumeMounts:
+    - name: hajimari-data
+      mountPath: /data
