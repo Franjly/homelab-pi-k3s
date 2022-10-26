@@ -473,27 +473,27 @@ kube-prometheus-stack:
     prometheusSpec:
       ruleSelectorNilUsesHelmValues: false
       serviceMonitorSelectorNilUsesHelmValues: false
-      serviceMonitorSelector:
-        matchExpressions:
-          - key: app.kubernetes.io/instance
-            operator: In
-            values:
-              - kube-prometheus-stack
-              - unifi-poller
-              - ingress-nginx
-              - calico-metrics
-              - cert-manager
-              - longhorn-system
-              - velero
-          - key: k8s-app
-            operator: In
-            values:
-              - calico-kube-controllers 
-              - calico-node
-              - calico-typha
+      # serviceMonitorSelector:
+      #   matchExpressions:
+      #     - key: app.kubernetes.io/instance
+      #       operator: In
+      #       values:
+      #         - kube-prometheus-stack
+      #         - unifi-poller
+      #         - ingress-nginx
+      #         - calico-metrics
+      #         - cert-manager
+      #         - longhorn-system
+      #         - velero
+      #     - key: k8s-app
+      #       operator: In
+      #       values:
+      #         - calico-kube-controllers 
+      #         - calico-node
+      #         - calico-typha
 
-        # matchLabels:
-        #   k8s-app: kube-proxy
+      #   # matchLabels:
+      #   #   k8s-app: kube-proxy
       podMonitorSelectorNilUsesHelmValues: false
       probeSelectorNilUsesHelmValues: false
       storageSpec:
