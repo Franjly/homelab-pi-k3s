@@ -473,6 +473,14 @@ kube-prometheus-stack:
     prometheusSpec:
       ruleSelectorNilUsesHelmValues: false
       serviceMonitorSelectorNilUsesHelmValues: false
+      serviceMonitorSelector:
+        matchExpressions:
+        - key: app
+          operator: In
+          values:
+          - kube-prometheus-stack-kube-proxy
+        # matchLabels:
+        #   k8s-app: kube-proxy
       podMonitorSelectorNilUsesHelmValues: false
       probeSelectorNilUsesHelmValues: false
       storageSpec:
