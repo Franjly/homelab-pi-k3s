@@ -400,8 +400,17 @@ kube-prometheus-stack:
 
     endpoints:
       - 192.168.30.10
+        targetRef:
+          kind: Node
+          name: pi-kube-master-0
       - 192.168.30.20
+        targetRef:
+          kind: Node
+          name: pi-kube-worker-0
       - 192.168.30.21
+        targetRef:
+          kind: Node
+          name: pi-kube-worker-1
 
     service:
       enabled: true
