@@ -485,6 +485,13 @@ kube-prometheus-stack:
               - cert-manager
               - longhorn-system
               - velero
+          - key: k8s-app
+            operator: In
+            values:
+              - calico-kube-controllers 
+              - calico-node
+              - calico-typha
+
         # matchLabels:
         #   k8s-app: kube-proxy
       podMonitorSelectorNilUsesHelmValues: false
