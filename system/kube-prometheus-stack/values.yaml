@@ -399,9 +399,9 @@ kube-prometheus-stack:
     enabled: true
 
     endpoints:
-    - 192.168.30.10
-    - 192.168.30.20
-    - 192.168.30.21
+      - 192.168.30.10
+      - 192.168.30.20
+      - 192.168.30.21
 
     service:
       enabled: true
@@ -417,9 +417,9 @@ kube-prometheus-stack:
     enabled: true
 
     endpoints:
-    - 192.168.30.10
-    - 192.168.30.20
-    - 192.168.30.21
+      - 192.168.30.10
+      - 192.168.30.20
+      - 192.168.30.21
 
     service:
       enabled: true
@@ -435,9 +435,9 @@ kube-prometheus-stack:
     enabled: true
 
     endpoints:
-    - 192.168.30.10
-    - 192.168.30.20
-    - 192.168.30.21
+      - 192.168.30.10
+      - 192.168.30.20
+      - 192.168.30.21
 
     service:
       enabled: true
