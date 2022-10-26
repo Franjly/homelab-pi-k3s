@@ -395,81 +395,45 @@ kube-prometheus-stack:
       #   token_url: https://dex.khuedoan.com/token
       #   api_url: https://dex.khuedoan.com/userinfo
 
-  ## Component scraping the kube controller manager
-  ##
   kubeControllerManager:
     enabled: true
 
-    ## If your kube controller manager is not deployed as a pod, specify IPs it can be found on
-    ##
     endpoints:
     - 192.168.30.10
     - 192.168.30.20
     - 192.168.30.21
 
-    ## If using kubeControllerManager.endpoints only the port and targetPort are used
-    ##
     service:
       enabled: true
-      ## If null or unset, the value is determined dynamically based on target Kubernetes version due to change
-      ## of default port in Kubernetes 1.22.
-      ##
       port: 10257
       targetPort: 10257
-      # selector:
-      #   component: kube-controller-manager
 
     serviceMonitor:
       enabled: true
-
-      ## Enable scraping kube-controller-manager over https.
-      ## Requires proper certs (not self-signed) and delegated authentication/authorization checks.
-      ## If null or unset, the value is determined dynamically based on target Kubernetes version.
-      ##
       https: true
-
-      # Skip TLS certificate validation when scraping
       insecureSkipVerify: true
 
-  ## Component scraping kube scheduler
-  ##
   kubeScheduler:
     enabled: true
 
-    ## If your kube scheduler is not deployed as a pod, specify IPs it can be found on
-    ##
     endpoints:
     - 192.168.30.10
     - 192.168.30.20
     - 192.168.30.21
 
-    ## If using kubeScheduler.endpoints only the port and targetPort are used
-    ##
     service:
       enabled: true
-      ## If null or unset, the value is determined dynamically based on target Kubernetes version due to change
-      ## of default port in Kubernetes 1.23.
-      ##
       port: 10259
       targetPort: 10259
-      # selector:
-      #   component: kube-scheduler
 
     serviceMonitor:
       enabled: true
-
       https: true
-
-      ## Skip TLS certificate validation when scraping
       insecureSkipVerify: true
 
-  ## Component scraping kube proxy
-  ##
   kubeProxy:
     enabled: true
 
-    ## If your kube proxy is not deployed as a pod, specify IPs it can be found on
-    ##
     endpoints:
     - 192.168.30.10
     - 192.168.30.20
@@ -479,15 +443,9 @@ kube-prometheus-stack:
       enabled: true
       port: 10249
       targetPort: 10249
-      # selector:
-      #   k8s-app: kube-proxy
 
     serviceMonitor:
       enabled: true
-
-      ## Enable scraping kube-proxy over https.
-      ## Requires proper certs (not self-signed) and delegated authentication/authorization checks
-      ##
       https: false
 
   prometheus:
