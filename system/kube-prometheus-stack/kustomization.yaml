@@ -6,3 +6,4 @@ resources:
 
 patches:
 - ./patches/crd-prometheuses.yaml
+- ./patches/kube-prometheus-stack-kube-proxy-service-monitor.yaml
