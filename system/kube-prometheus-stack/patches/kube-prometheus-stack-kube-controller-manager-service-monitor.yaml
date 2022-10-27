@@ -1,0 +1,8 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: kube-prometheus-stack-kube-controller-manager
+  namespace: monitoring-system
+spec:
+  namespaceSelector:
+    any: true
