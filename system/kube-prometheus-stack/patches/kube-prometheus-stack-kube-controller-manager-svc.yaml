@@ -6,3 +6,4 @@ metadata:
   name: kube-prometheus-stack-kube-controller-manager
   namespace: monitoring-system
 spec:
+  sessionAffinity: None
