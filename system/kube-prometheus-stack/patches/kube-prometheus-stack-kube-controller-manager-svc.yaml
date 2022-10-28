@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    component: kube-controller-manager
+  name: kube-prometheus-stack-kube-controller-manager
+  namespace: monitoring-system
+spec:
