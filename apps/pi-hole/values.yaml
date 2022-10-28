@@ -312,9 +312,9 @@ pihole:
     #   subPath: external.conf
 
   # -- Additional annotations for pods
-  podAnnotations:
-    prometheus.io/port: '9617'
-    prometheus.io/scrape: 'true'
+  # podAnnotations:
+  #   prometheus.io/port: '9617'
+  #   prometheus.io/scrape: 'true'
 
   monitoring:
     podMonitor:
