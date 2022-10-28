@@ -12,14 +12,7 @@ patches:
 # - ./patches/kube-prometheus-stack-kube-scheduler-svc.yaml
 # - ./patches/kube-prometheus-stack-kube-controller-manager-svc.yaml
 
-patchesJson6902:
-- target:
-    group: core
-    version: v1 
-    kind: Service
-    name: kube-prometheus-stack-kube-controller-manager
-    namespace: monitoring-system
-  patch: |
-    - op: add
-      path: /spec/selector/component1
-      value: kube-controller-manager1
+# kubectl label svc kube-prometheus-stack-kube-controller-manager -n monitoring-system prueba=true
+
+transformers:
+- ./transformers/kube-prometheus-stack-kube-controller-manager-svc.yaml
