@@ -18,29 +18,8 @@ velero:
     scrapeInterval: 30s
     scrapeTimeout: 10s
 
-    # service metdata if metrics are enabled
-    service:
-      annotations:
-        prometheus.io/scrape: "true"
-        prometheus.io/port: "8085"
-        prometheus.io/path: "/metrics"
-      labels: {}
-
-    # Pod annotations for Prometheus
-    podAnnotations:
-      prometheus.io/scrape: "true"
-      prometheus.io/port: "8085"
-      prometheus.io/path: "/metrics"
-
     serviceMonitor:
       enabled: true
-      additionalLabels: {}
-      # ServiceMonitor namespace. Default to Velero namespace.
-      # namespace:
-      # ServiceMonitor connection scheme. Defaults to HTTP.
-      # scheme: ""
-      # ServiceMonitor connection tlsConfig. Defaults to {}.
-      # tlsConfig: {}
 
     prometheusRule:
       enabled: true
