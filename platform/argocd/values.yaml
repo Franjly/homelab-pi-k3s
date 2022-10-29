@@ -91,6 +91,168 @@ argo-cd:
           AVP_AUTH_TYPE: azhz
           AVP_K8S_ROLE: YXJnb2Nk
 
+  controller:
+    metrics:
+      enabled: true
+      applicationLabels:
+        # -- Enables additional labels in argocd_app_labels metric
+        enabled: false
+        # -- Additional labels
+        labels: []
+      service:
+        # -- Metrics service annotations
+        annotations: {}
+        # -- Metrics service labels
+        labels: {}
+        # -- Metrics service port
+        servicePort: 8082
+        # -- Metrics service port name
+        portName: http-metrics
+      serviceMonitor:
+        # -- Enable a prometheus ServiceMonitor
+        enabled: true
+        # -- Prometheus ServiceMonitor interval
+        interval: 30s
+        # -- Prometheus [RelabelConfigs] to apply to samples before scraping
+        relabelings: []
+        # -- Prometheus [MetricRelabelConfigs] to apply to samples before ingestion
+        metricRelabelings: []
+        # -- Prometheus ServiceMonitor selector
+        selector: {}
+          # prometheus: kube-prometheus
+
+        # -- Prometheus ServiceMonitor scheme
+        scheme: ""
+        # -- Prometheus ServiceMonitor tlsConfig
+        tlsConfig: {}
+        # -- Prometheus ServiceMonitor namespace
+        namespace: "" # "monitoring"
+        # -- Prometheus ServiceMonitor labels
+        additionalLabels: {}
+      rules:
+        # -- Deploy a PrometheusRule for the application controller
+        enabled: true
+        # -- PrometheusRule.Spec for the application controller
+        spec:
+        - alert: ArgoAppMissing
+          expr: |
+            absent(argocd_app_info)
+          for: 15m
+          labels:
+            severity: critical
+          annotations:
+            summary: "[Argo CD] No reported applications"
+            description: >
+              Argo CD has not reported any applications data for the past 15 minutes which
+              means that it must be down or not functioning properly.  This needs to be
+              resolved for this cloud to continue to maintain state.
+        - alert: ArgoAppNotSynced
+          expr: |
+            argocd_app_info{sync_status!="Synced"} == 1
+          for: 12h
+          labels:
+            severity: warning
+          annotations:
+            summary: "[{{`{{$labels.name}}`}}] Application not synchronized"
+            description: >
+              The application [{{`{{$labels.name}}`}} has not been synchronized for over
+              12 hours which means that the state of this cloud has drifted away from the
+              state inside Git.
+      #   selector:
+      #     prometheus: kube-prometheus
+      #   namespace: monitoring
+      #   additionalLabels: {}
+
+  ## Dex
+  dex:
+    metrics:
+      # -- Deploy metrics service
+      enabled: true
+      service:
+        # -- Metrics service annotations
+        annotations: {}
+        # -- Metrics service labels
+        labels: {}
+        # -- Metrics service port name
+        portName: http-metrics
+      serviceMonitor:
+        # -- Enable a prometheus ServiceMonitor
+        enabled: true
+        # -- Prometheus ServiceMonitor interval
+        interval: 30s
+        # -- Prometheus [RelabelConfigs] to apply to samples before scraping
+        relabelings: []
+        # -- Prometheus [MetricRelabelConfigs] to apply to samples before ingestion
+        metricRelabelings: []
+        # -- Prometheus ServiceMonitor selector
+        selector: {}
+          # prometheus: kube-prometheus
+
+        # -- Prometheus ServiceMonitor scheme
+        scheme: ""
+        # -- Prometheus ServiceMonitor tlsConfig
+        tlsConfig: {}
+        # -- Prometheus ServiceMonitor namespace
+        namespace: "" # "monitoring"
+        # -- Prometheus ServiceMonitor labels
+        additionalLabels: {}
+
+  redis:
+    metrics:
+      # -- Deploy metrics service and redis-exporter sidecar
+      enabled: false
+      image:
+        # -- redis-exporter image repository
+        repository: public.ecr.aws/bitnami/redis-exporter
+        # -- redis-exporter image tag
+        tag: 1.26.0-debian-10-r2
+        # -- redis-exporter image PullPolicy
+        imagePullPolicy: IfNotPresent
+      # -- Port to use for redis-exporter sidecar
+      containerPort: 9121
+      # -- Resource limits and requests for redis-exporter sidecar
+      resources: {}
+        # limits:
+        #   cpu: 50m
+        #   memory: 64Mi
+        # requests:
+        #   cpu: 10m
+        #   memory: 32Mi
+      service:
+        # -- Metrics service type
+        type: ClusterIP
+        # -- Metrics service clusterIP. `None` makes a "headless service" (no virtual IP)
+        clusterIP: None
+        # -- Metrics service annotations
+        annotations: {}
+        # -- Metrics service labels
+        labels: {}
+        # -- Metrics service port
+        servicePort: 9121
+        # -- Metrics service port name
+        portName: http-metrics
+      serviceMonitor:
+        # -- Enable a prometheus ServiceMonitor
+        enabled: false
+        # -- Interval at which metrics should be scraped
+        interval: 30s
+        # -- Prometheus [RelabelConfigs] to apply to samples before scraping
+        relabelings: []
+        # -- Prometheus [MetricRelabelConfigs] to apply to samples before ingestion
+        metricRelabelings: []
+        # -- Prometheus ServiceMonitor selector
+        selector: {}
+          # prometheus: kube-prometheus
+
+        # -- Prometheus ServiceMonitor scheme
+        scheme: ""
+        # -- Prometheus ServiceMonitor tlsConfig
+        tlsConfig: {}
+        # -- Prometheus ServiceMonitor namespace
+        namespace: "" # "monitoring"
+        # -- Prometheus ServiceMonitor labels
+        additionalLabels: {}
+
   ## Server
   server:
     # ## Certificate configuration
@@ -124,6 +286,41 @@ argo-cd:
     #   additionalHosts: []
     #   # -- The name of the Secret that will be automatically created and managed by this Certificate resource
     #   secretName: argocd-server-tls
+
+    ## Server metrics service configuration
+    metrics:
+      # -- Deploy metrics service
+      enabled: true
+      service:
+        # -- Metrics service annotations
+        annotations: {}
+        # -- Metrics service labels
+        labels: {}
+        # -- Metrics service port
+        servicePort: 8083
+        # -- Metrics service port name
+        portName: http-metrics
+      serviceMonitor:
+        # -- Enable a prometheus ServiceMonitor
+        enabled: true
+        # -- Prometheus ServiceMonitor interval
+        interval: 30s
+        # -- Prometheus [RelabelConfigs] to apply to samples before scraping
+        relabelings: []
+        # -- Prometheus [MetricRelabelConfigs] to apply to samples before ingestion
+        metricRelabelings: []
+        # -- Prometheus ServiceMonitor selector
+        selector: {}
+          # prometheus: kube-prometheus
+
+        # -- Prometheus ServiceMonitor scheme
+        scheme: ""
+        # -- Prometheus ServiceMonitor tlsConfig
+        tlsConfig: {}
+        # -- Prometheus ServiceMonitor namespace
+        namespace: ""  # monitoring
+        # -- Prometheus ServiceMonitor labels
+        additionalLabels: {}
 
     ingress:
       enabled: true
@@ -290,6 +487,41 @@ argo-cd:
       - name: custom-tools
         emptyDir: {}
 
+    ## Repo server metrics service configuration
+    metrics:
+      # -- Deploy metrics service
+      enabled: true
+      service:
+        # -- Metrics service annotations
+        annotations: {}
+        # -- Metrics service labels
+        labels: {}
+        # -- Metrics service port
+        servicePort: 8084
+        # -- Metrics service port name
+        portName: http-metrics
+      serviceMonitor:
+        # -- Enable a prometheus ServiceMonitor
+        enabled: true
+        # -- Prometheus ServiceMonitor interval
+        interval: 30s
+        # -- Prometheus [RelabelConfigs] to apply to samples before scraping
+        relabelings: []
+        # -- Prometheus [MetricRelabelConfigs] to apply to samples before ingestion
+        metricRelabelings: []
+        # -- Prometheus ServiceMonitor selector
+        selector: {}
+          # prometheus: kube-prometheus
+
+        # -- Prometheus ServiceMonitor scheme
+        scheme: ""
+        # -- Prometheus ServiceMonitor tlsConfig
+        tlsConfig: {}
+        # -- Prometheus ServiceMonitor namespace
+        namespace: "" # "monitoring"
+        # -- Prometheus ServiceMonitor labels
+        additionalLabels: {}
+
     ## Repo server service account
     ## If create is set to true, make sure to uncomment the name and update the rbac section below
     serviceAccount:
@@ -310,6 +542,42 @@ argo-cd:
         volumeMounts:
           - mountPath: /custom-tools
             name: custom-tools
+
+  applicationSet:
+    ## Metrics service configuration
+    metrics:
+      # -- Deploy metrics service
+      enabled: true
+      service:
+        # -- Metrics service annotations
+        annotations: {}
+        # -- Metrics service labels
+        labels: {}
+        # -- Metrics service port
+        servicePort: 8085
+        # -- Metrics service port name
+        portName: http-metrics
+      serviceMonitor:
+        # -- Enable a prometheus ServiceMonitor
+        enabled: true
+        # -- Prometheus ServiceMonitor interval
+        interval: 30s
+        # -- Prometheus [RelabelConfigs] to apply to samples before scraping
+        relabelings: []
+        # -- Prometheus [MetricRelabelConfigs] to apply to samples before ingestion
+        metricRelabelings: []
+        # -- Prometheus ServiceMonitor selector
+        selector: {}
+          # prometheus: kube-prometheus
+
+        # -- Prometheus ServiceMonitor scheme
+        scheme: ""
+        # -- Prometheus ServiceMonitor tlsConfig
+        tlsConfig: {}
+        # -- Prometheus ServiceMonitor namespace
+        namespace: ""  # monitoring
+        # -- Prometheus ServiceMonitor labels
+        additionalLabels: {}
 
   notifications:
     # -- Enable Notifications controller
@@ -396,6 +664,34 @@ argo-cd:
     extraVolumes: []
       # - name: foobar
       #   emptyDir: {}
+
+    metrics:
+      # -- Enables prometheus metrics server
+      enabled: true
+      # -- Metrics port
+      port: 9001
+      service:
+        # -- Metrics service annotations
+        annotations: {}
+        # -- Metrics service labels
+        labels: {}
+        # -- Metrics service port name
+        portName: http-metrics
+      serviceMonitor:
+        # -- Enable a prometheus ServiceMonitor
+        enabled: true
+        # -- Prometheus ServiceMonitor selector
+        selector: {}
+          # prometheus: kube-prometheus
+        # -- Prometheus ServiceMonitor labels
+        additionalLabels: {}
+        # namespace: monitoring
+        # interval: 30s
+        # scrapeTimeout: 10s
+        # -- Prometheus ServiceMonitor scheme
+        scheme: ""
+        # -- Prometheus ServiceMonitor tlsConfig
+        tlsConfig: {}
 
     # -- Configures notification services such as slack, email or custom webhook
     # @default -- See [values.yaml]
