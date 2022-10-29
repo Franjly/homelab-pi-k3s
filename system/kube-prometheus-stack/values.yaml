@@ -287,6 +287,14 @@ kube-prometheus-stack:
           editable: true
           options:
             path: /var/lib/grafana/dashboards/velero
+        - name: 'argocd'
+          orgId: 1
+          folder: 'ArgoCD'
+          type: file
+          disableDeletion: true
+          editable: true
+          options:
+            path: /var/lib/grafana/dashboards/argocd
 
     ## Configure grafana dashboard to import
     ## NOTE: To use dashboards you must also enable/configure dashboardProviders
@@ -358,6 +366,11 @@ kube-prometheus-stack:
       longhorn:
         longhorn-dashboard:
           url: https://raw.githubusercontent.com/Franjly/grafana-dashboards-pi-k3s/main/longhorn/longhorn-dashboard.json
+          datasource: prometheus
+      argocd:
+        argocd-dashboard:
+          gnetId: 14584
+          revision: 1
           datasource: prometheus
 
         # custom-dashboard:
