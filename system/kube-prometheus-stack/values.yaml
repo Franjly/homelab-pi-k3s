@@ -369,8 +369,7 @@ kube-prometheus-stack:
           datasource: prometheus
       argocd:
         argocd-dashboard:
-          gnetId: 14584
-          revision: 1
+          url: https://raw.githubusercontent.com/Franjly/grafana-dashboards-pi-k3s/main/argocd/argocd-dashboard.json
           datasource: prometheus
 
         # custom-dashboard:
