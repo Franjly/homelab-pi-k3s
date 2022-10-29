@@ -257,7 +257,8 @@ pihole:
     # - https://raw.githubusercontent.com/anudeepND/blacklist/master/facebook.txt
 
   # -- list of whitelisted domains to import during initial start of the container
-  whitelist: {}
+  whitelist:
+    - https://raw.githubusercontent.com/anudeepND/whitelist/master/domains/whitelist.txt
     # If you want to provide whitelisted domains, add them here.
     # - clients4.google.com
 
