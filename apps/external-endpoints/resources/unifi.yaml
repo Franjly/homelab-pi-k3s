@@ -20,7 +20,7 @@ metadata:
   namespace: external-endpoints
 subsets:
 - addresses:
-  - ip: 192.168.40.250
+  - ip: 192.168.0.1
   ports:
   - name: http
     port: 443
