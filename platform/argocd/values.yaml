@@ -167,7 +167,7 @@ argo-cd:
   dex:
     metrics:
       # -- Deploy metrics service
-      enabled: true
+      enabled: false
       service:
         # -- Metrics service annotations
         annotations: {}
@@ -177,7 +177,7 @@ argo-cd:
         portName: http-metrics
       serviceMonitor:
         # -- Enable a prometheus ServiceMonitor
-        enabled: true
+        enabled: false
         # -- Prometheus ServiceMonitor interval
         interval: 30s
         # -- Prometheus [RelabelConfigs] to apply to samples before scraping
