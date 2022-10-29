@@ -131,14 +131,15 @@ pihole:
 
   doh:
     # -- set to true to enabled DNS over HTTPs via cloudflared
-    enabled: false
+    enabled: true
     name: "cloudflared"
     repository: "crazymax/cloudflared"
     tag: latest
     pullPolicy: IfNotPresent
     # -- Here you can pass environment variables to the DoH container, for example:
-    envVars: {}
-      # TUNNEL_DNS_UPSTREAM: "https://1.1.1.2/dns-query,https://1.0.0.2/dns-query"
+    envVars: 
+      TZ: Europe/Madrid
+      TUNNEL_DNS_UPSTREAM: "https://1.1.1.1/dns-query,https://8.8.8.8/dns-query"
 
     # -- Probes configuration
     probes:
