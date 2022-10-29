@@ -8,5 +8,4 @@ resources:
 - ./resources/prometheus-rules.yaml
 
 patches:
-- ./patches/longhorn-backend-svc.yaml
 #- ./patches/local-path.yaml
