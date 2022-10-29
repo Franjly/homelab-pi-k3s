@@ -34,4 +34,5 @@ uptime-kuma:
     data:
       enabled: true
       storageClass: longhorn
+      accessMode: ReadWriteOnce
       mountPath: /app/data
