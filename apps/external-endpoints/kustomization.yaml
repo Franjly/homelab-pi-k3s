@@ -7,3 +7,5 @@ resources:
 - ./resources/qbittorrent.yaml
 - ./resources/plex.yaml
 - ./resources/pi-hole-alt.yaml
+- ./resources/netdata.yaml
+- ./resources/unifi.yaml
