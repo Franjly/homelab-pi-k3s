@@ -296,6 +296,14 @@ kube-prometheus-stack:
           editable: true
           options:
             path: /var/lib/grafana/dashboards/argocd
+        - name: 'truenas'
+          orgId: 1
+          folder: 'TrueNAS'
+          type: file
+          disableDeletion: true
+          editable: true
+          options:
+            path: /var/lib/grafana/dashboards/truenas
 
     ## Configure grafana dashboard to import
     ## NOTE: To use dashboards you must also enable/configure dashboardProviders
@@ -371,6 +379,10 @@ kube-prometheus-stack:
       argocd:
         argocd-dashboard:
           url: https://raw.githubusercontent.com/Franjly/grafana-dashboards-pi-k3s/main/argocd/argocd-dashboard.json
+          datasource: prometheus
+      truenas:
+        truenas-netdata:
+          url: https://raw.githubusercontent.com/Franjly/grafana-dashboards-pi-k3s/main/truenas/netdata.json
           datasource: prometheus
 
         # custom-dashboard:
