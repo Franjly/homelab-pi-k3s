@@ -499,6 +499,9 @@ kube-prometheus-stack:
       additionalScrapeConfigs:
         - job_name: 'truenas-netdata'
           scrape_interval: 30s
-          metrics_path: '/api/v1/allmetrics?format=prometheus'
+          metrics_path: '/api/v1/allmetrics'
+          params:
+            format: [prometheus]
+          honor_labels: true
           static_configs:
-          - targets: ['http://192.168.40.250:19999']
+            - targets: ['http://192.168.40.250:19999']
