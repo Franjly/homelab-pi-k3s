@@ -192,6 +192,7 @@ kube-prometheus-stack:
 
     plugins:
       - grafana-piechart-panel
+      - grafana-clock-panel
 
     extraConfigmapMounts: []
     # - name: certs-configmap
