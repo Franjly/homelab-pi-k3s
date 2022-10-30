@@ -494,7 +494,7 @@ kube-prometheus-stack:
             storageClassName: longhorn
             resources:
               requests:
-                storage: 50Gi
+                storage: 80Gi
       # additionalScrapeConfigs:
       #   - job_name: 'unifipoller'
       #     scrape_interval: 30s
