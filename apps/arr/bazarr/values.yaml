@@ -38,7 +38,7 @@ bazarr:
 
     media:
       enabled: true
-      storageClass: nfs-provisioner
+      storageClass: nfs-client
       accessMode: ReadWriteOnce
       size: 1Gi
       mountPath: /media
