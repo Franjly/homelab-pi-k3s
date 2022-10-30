@@ -37,7 +37,7 @@ bazarr:
       storageClass: longhorn
 
     media:
-      enabled: false
+      enabled: true
       storageClass: nfs-provisioner
       accessMode: ReadWriteOnce
       size: 1Gi
