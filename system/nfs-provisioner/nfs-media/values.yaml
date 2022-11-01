@@ -7,6 +7,7 @@ nfs-subdir-external-provisioner:
     path: <path:pi-k3s/data/system/nfs-provisioner#path-media>
     mountOptions:
       - nfsvers=4
+      - all_squash
     volumeName: nfs-media
     reclaimPolicy: Retain
 
