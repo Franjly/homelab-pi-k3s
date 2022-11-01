@@ -48,6 +48,13 @@ radarr:
       size: 6Ti
       mountPath: /media
 
+    test:
+      enabled: false
+      storageClass: nfs-test
+      accessMode: ReadWriteOnce
+      size: 1Gi
+      mountPath: /test
+
   metrics:
     # -- Enable and configure Exportarr sidecar and Prometheus serviceMonitor.
     # @default -- See values.yaml
