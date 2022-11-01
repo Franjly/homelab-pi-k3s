@@ -35,14 +35,14 @@ radarr:
       storageClass: longhorn
 
     downloads:
-      enabled: false
+      enabled: true
       storageClass: nfs-downloads
       accessMode: ReadWriteOnce
       size: 2Ti
       mountPath: /downloads
 
     media:
-      enabled: false
+      enabled: true
       storageClass: nfs-media
       accessMode: ReadWriteOnce
       size: 6Ti
