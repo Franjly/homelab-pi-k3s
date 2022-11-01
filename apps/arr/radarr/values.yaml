@@ -31,14 +31,21 @@ radarr:
 
   persistence:
     config:
-      enabled: false
+      enabled: true
       storageClass: longhorn
 
-    media:
-      enabled: false
-      storageClass: nfs-client
+    downloads:
+      enabled: true
+      storageClass: nfs-downloads
       accessMode: ReadWriteOnce
-      size: 1Gi
+      size: 2Ti
+      mountPath: /downloads
+
+    media:
+      enabled: true
+      storageClass: nfs-media
+      accessMode: ReadWriteOnce
+      size: 6Ti
       mountPath: /media
 
   metrics:
