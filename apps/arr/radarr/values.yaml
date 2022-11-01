@@ -42,18 +42,11 @@ radarr:
       mountPath: /downloads
 
     media:
-      enabled: true
+      enabled: false
       storageClass: nfs-media
       accessMode: ReadWriteOnce
       size: 6Ti
       mountPath: /media
-
-    test:
-      enabled: false
-      storageClass: nfs-test
-      accessMode: ReadWriteOnce
-      size: 1Gi
-      mountPath: /test
 
   metrics:
     # -- Enable and configure Exportarr sidecar and Prometheus serviceMonitor.
