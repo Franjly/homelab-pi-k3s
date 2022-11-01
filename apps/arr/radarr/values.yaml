@@ -35,7 +35,7 @@ radarr:
       storageClass: longhorn
 
     media:
-      enabled: false
+      enabled: true
       storageClass: nfs-client
       accessMode: ReadWriteOnce
       size: 1Gi
