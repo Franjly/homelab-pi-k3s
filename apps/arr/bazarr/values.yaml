@@ -33,7 +33,7 @@ bazarr:
   # @default -- See values.yaml
   persistence:
     config:
-      enabled: false
+      enabled: true
       storageClass: longhorn
 
     media:
