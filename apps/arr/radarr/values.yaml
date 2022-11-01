@@ -42,7 +42,7 @@ radarr:
       mountPath: /downloads
 
     media:
-      enabled: false
+      enabled: true
       storageClass: nfs-media
       accessMode: ReadWriteOnce
       size: 6Ti
