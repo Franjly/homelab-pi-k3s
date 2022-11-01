@@ -19,13 +19,22 @@ argo-cd:
     ## Creates a secret for each key/value specified below to create repositories
     ## Note: the last example in the list would use a repository credential template, configured under "configs.repositoryCredentials".
     repositories:
-      github-pi-k3s:
-        name: github-pi-k3s
+      github-homelab-pi-k3s:
+        name: github-homelab-pi-k3s
         url: https://github.com/Franjly/homelab-pi-k3s.git
         type: git
-      gitea-pi-k3s:
-        name: gitea-pi-k3s
-        url: https://gitea.local.tecno-fly.com/homelab/pi-k3s.git
+      github-argocd-homelab-pi-k3s:
+        name: github-argocd-homelab-pi-k3s
+        url: https://github.com/Franjly/argocd-homelab-pi-k3s.git
+        type: git
+      gitea-homelab-pi-k3s:
+        name: gitea-homelab-pi-k3s
+        url: https://gitea.local.tecno-fly.com/homelab/homelab-pi-k3s.git
+        type: git
+        insecure: "true"
+      gitea-argocd-homelab-pi-k3s:
+        name: gitea-argocd-homelab-pi-k3s
+        url: https://gitea.local.tecno-fly.com/homelab/argocd-homelab-pi-k3s.git
         type: git
         insecure: "true"
 
