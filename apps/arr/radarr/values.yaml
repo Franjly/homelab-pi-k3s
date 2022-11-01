@@ -49,7 +49,7 @@ radarr:
       mountPath: /media
 
     test:
-      enabled: false
+      enabled: true
       storageClass: nfs-test
       accessMode: ReadWriteOnce
       size: 1Gi
