@@ -4,15 +4,15 @@ nfs-subdir-external-provisioner:
 
   nfs:
     server: <path:pi-k3s/data/system/nfs-provisioner#server>
-    path: <path:pi-k3s/data/system/nfs-provisioner#path>
+    path: <path:pi-k3s/data/system/nfs-provisioner#path-media>
     mountOptions:
       - nfsvers=4
-    volumeName: nfs-provisioner-root
+    volumeName: nfs-media
     reclaimPolicy: Retain
 
   storageClass:
     create: true
     defaultClass: false
-    name: nfs-client
+    name: nfs-media
     reclaimPolicy: Retain
     pathPattern: /
