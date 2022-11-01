@@ -31,5 +31,5 @@ prowlarr:
 
   persistence:
     config:
-      enabled: false
+      enabled: true
       storageClass: longhorn
