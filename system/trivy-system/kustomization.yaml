@@ -1,0 +1,4 @@
+namespace: trivy-system
+
+resources:
+- ./resources/all.yaml
