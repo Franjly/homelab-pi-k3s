@@ -2,3 +2,4 @@ namespace: trivy-system
 
 resources:
 - ./resources/all.yaml
+- ./resources/trivy-ingress.yaml
