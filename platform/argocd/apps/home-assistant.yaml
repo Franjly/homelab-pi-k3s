@@ -38,3 +38,8 @@ spec:
     automated: {}
     syncOptions:
     - CreateNamespace=true
+    - RespectIgnoreDifferences=true
+  ignoreDifferences:
+    - kind: PersistentVolumeClaim
+      jqPathExpressions:
+        - .spec.storageClassName
