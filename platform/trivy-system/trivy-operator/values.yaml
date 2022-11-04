@@ -78,19 +78,6 @@ trivy-operator:
     # privateRegistryScanSecretsNames is map of namespace:secrets which can be used to authenticate in private registries in case if there no imagePullSecrets provided
     privateRegistryScanSecretsNames: {}
 
-  image:
-    repository: "ghcr.io/aquasecurity/trivy-operator"
-    # tag is an override of the image tag, which is by default set by the
-    # appVersion field in Chart.yaml.
-    tag: ""
-    pullPolicy: IfNotPresent
-    pullSecrets: []
-
-  # service only expose a metrics endpoint for prometheus to scrape,
-  # trivy-operator does not have a user interface.
-  service:
-    metricsPort: 80
-
   # Prometheus ServiceMonitor configuration
   serviceMonitor:
     # enabled determines whether a serviceMonitor should be deployed
@@ -165,36 +152,11 @@ trivy-operator:
     metricsResourceLabelsPrefix: "k8s_label_"
 
   trivy:
-    # createConfig indicates whether to create config objects
-    createConfig: true
-
-    # repository of the Trivy image
-    repository: ghcr.io/aquasecurity/trivy
-    # tag version of the Trivy image
-    tag: 0.33.0
-    # imagePullSecret is the secret name to be used when pulling trivy image from private registries example : reg-secret
-    # It is the user responsibility to create the secret for the private registry in `trivy-operator` namespace
-    #imagePullSecret:
-
-    # mode is the Trivy client mode. Either Standalone or ClientServer. Depending
-    # on the active mode other settings might be applicable or required.
     mode: ClientServer
 
     # additionalVulnerabilityReportFields is a comma separated list of additional fields which
     # can be added to the VulnerabilityReport. Supported parameters: Description, Links, CVSS, Target and Class
     additionalVulnerabilityReportFields: ""
-
-    # httpProxy is the HTTP proxy used by Trivy to download the vulnerabilities database from GitHub.
-    #
-    # httpProxy:
-
-    # httpsProxy is the HTTPS proxy used by Trivy to download the vulnerabilities database from GitHub.
-    #
-    # httpsProxy:
-
-    # noProxy is a comma separated list of IPs and domain names that are not subject to proxy settings.
-    #
-    # noProxy:
 
     # Registries without SSL. There can be multiple registries with different keys.
     nonSslRegistries: {}
@@ -231,23 +193,9 @@ trivy-operator:
     #   CVE-1970-0001
     #   CVE-1970-0002
 
-    # resources resource requests and limits
-    resources:
-      requests:
-        cpu: 100m
-        memory: 100M
-      limits:
-        cpu: 500m
-        memory: 500M
-
-    # githubToken is the GitHub access token used by Trivy to download the vulnerabilities
-    # database from GitHub. Only applicable in Standalone mode.
-    #
-    # githubToken: "*****"
-
     # serverURL is the endpoint URL of the Trivy server. Required in ClientServer mode.
     #
-    # serverURL: "https://trivy.trivy:4975"
+    serverURL: "http://trivy.trivy-system.svc.cluster.local:4954"
 
     # serverInsecure is the flag to enable insecure connection to the Trivy server.
     #
@@ -255,7 +203,7 @@ trivy-operator:
     # serverToken is the token to authenticate Trivy client with Trivy server. Only
     # applicable in ClientServer mode.
     #
-    # serverToken: "*****"
+    serverToken: <path:pi-k3s/data/platform/trivy-system#serverToken>
 
     # serverTokenHeader is the name of the HTTP header used to send the authentication
     # token to Trivy server. Only application in ClientServer mode when
@@ -285,54 +233,3 @@ trivy-operator:
     # For 'filesystem' scanning, ensure that the `trivyOperator.scanJobPodTemplateContainerSecurityContext` is configured
     # to run as the root user (runAsUser = 0).
     command: image
-
-  compliance:
-    # failEntriesLimit the flag to limit the number of fail entries per control check in the cluster compliance detail report
-    failEntriesLimit: 10
-
-  rbac:
-    create: true
-  serviceAccount:
-    # Specifies whether a service account should be created.
-    create: true
-    annotations: {}
-    # name specifies the name of the k8s Service Account. If not set and create is
-    # true, a name is generated using the fullname template.
-    name: ""
-
-  # podAnnotations annotations added to the operator's pod
-  podAnnotations: {}
-
-  podSecurityContext: {}
-    # fsGroup: 2000
-
-  securityContext:
-    privileged: false
-    allowPrivilegeEscalation: false
-    readOnlyRootFilesystem: true
-    capabilities:
-      drop:
-        - ALL
-
-  resources: {}
-    # We usually recommend not to specify default resources and to leave this as a conscious
-    # choice for the user. This also increases chances charts run on environments with little
-    # resources, such as Minikube. If you do want to specify resources, uncomment the following
-    # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
-    # limits:
-    #   cpu: 100m
-    #   memory: 128Mi
-    # requests:
-    #   cpu: 100m
-    #   memory: 128Mi
-
-  nodeSelector: {}
-
-  tolerations: []
-
-  affinity: {}
-
-  priorityClassName: ""
-
-    # automountServiceAccountToken the flag to enable automount for service account token
-  automountServiceAccountToken: true
