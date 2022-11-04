@@ -8,7 +8,7 @@ trivy-operator:
   # excludeNamespaces is a comma separated list of namespaces (or glob patterns)
   # to be excluded from scanning. Only applicable in the all namespaces install
   # mode, i.e. when the targetNamespaces values is a blank string.
-  excludeNamespaces: "kube-system,calico-system,calico-apiserver,argocd"
+  excludeNamespaces: "kube-system,calico-system,calico-apiserver,metallb-system,longhorn-system,trivy-system,monitoring-system,argocd"
 
   # targetWorkloads is a comma seperated list of Kubernetes workload resources
   # to be included in the vulnerability and config-audit scans
