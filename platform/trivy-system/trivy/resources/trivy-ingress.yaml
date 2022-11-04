@@ -20,8 +20,10 @@ spec:
       http:
         paths:
           - backend:
-              serviceName: trivy
-              servicePort: 4954
+              service:
+                name: trivy
+                port: 
+                  number: 4954
             path: /
             pathType: Prefix
   tls:
