@@ -158,7 +158,7 @@ argo-cd:
         - alert: ArgoAppNotSynced
           expr: |
             argocd_app_info{sync_status!="Synced"} == 1
-          for: 5m
+          for: 12h
           labels:
             severity: warning
           annotations:
