@@ -23,6 +23,7 @@ spec:
               serviceName: trivy
               servicePort: 4954
             path: /
+            pathType: Prefix
   tls:
     - hosts:
         - trivy.local.tecno-fly.com
