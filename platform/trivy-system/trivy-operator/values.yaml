@@ -8,7 +8,7 @@ trivy-operator:
   # excludeNamespaces is a comma separated list of namespaces (or glob patterns)
   # to be excluded from scanning. Only applicable in the all namespaces install
   # mode, i.e. when the targetNamespaces values is a blank string.
-  excludeNamespaces: "kube-system,calico-system"
+  excludeNamespaces: "kube-system,calico-system,calico-apiserver,argocd"
 
   # targetWorkloads is a comma seperated list of Kubernetes workload resources
   # to be included in the vulnerability and config-audit scans
@@ -178,7 +178,7 @@ trivy-operator:
 
     # mode is the Trivy client mode. Either Standalone or ClientServer. Depending
     # on the active mode other settings might be applicable or required.
-    mode: Standalone
+    mode: ClientServer
 
     # additionalVulnerabilityReportFields is a comma separated list of additional fields which
     # can be added to the VulnerabilityReport. Supported parameters: Description, Links, CVSS, Target and Class

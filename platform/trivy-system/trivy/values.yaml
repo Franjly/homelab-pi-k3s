@@ -1,0 +1,29 @@
+trivy:
+  persistence:
+    enabled: true
+    storageClass: longhorn
+    accessMode: ReadWriteOnce
+    size: 5Gi
+
+  trivy:
+    skipUpdate: false
+    gitHubToken: <path:pi-k3s/data/platform/trivy-system#gitHubToken>
+    serverToken: <path:pi-k3s/data/platform/trivy-system#serverToken>
+
+  ingress:
+    enabled: true
+    ingressClassName: nginx
+
+    annotations:
+      cert-manager.io/cluster-issuer: letsencrypt-staging
+      # kubernetes.io/tls-acme: "true"
+
+    hosts:
+      - host: trivy.local.tecno-fly.com
+    path: "/"
+    pathType: Prefix
+
+    tls:
+     - secretName: trivy-tls
+       hosts:
+         - trivy.local.tecno-fly.com
