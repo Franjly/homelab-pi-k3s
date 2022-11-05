@@ -37,8 +37,8 @@ bazarr:
       storageClass: longhorn
 
     media:
-      enabled: false
-      storageClass: nfs-client
+      enabled: true
+      storageClass: nfs-media
       accessMode: ReadWriteOnce
-      size: 1Gi
+      size: 6Ti
       mountPath: /media
