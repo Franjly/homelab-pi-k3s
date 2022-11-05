@@ -1,0 +1,4 @@
+namespace: kyverno
+
+resources:
+- ./resources/all.yaml
