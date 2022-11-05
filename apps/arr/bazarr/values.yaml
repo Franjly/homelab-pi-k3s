@@ -37,7 +37,7 @@ bazarr:
       storageClass: longhorn
 
     media:
-      enabled: true
+      enabled: false
       storageClass: nfs-media
       accessMode: ReadWriteOnce
       size: 6Ti
