@@ -448,6 +448,19 @@ argo-cd:
           generate:
             command: [sh, -c]
             args: ["helm template $ARGOCD_APP_NAME --include-crds --namespace $ARGOCD_APP_NAMESPACE . > resources/all.yaml && kustomize build | argocd-vault-plugin generate -"]
+      resource.customizations.health.argoproj.io_Application: |
+        hs = {}
+        hs.status = "Progressing"
+        hs.message = ""
+        if obj.status ~= nil then
+          if obj.status.health ~= nil then
+            hs.status = obj.status.health.status
+            if obj.status.health.message ~= nil then
+              hs.message = obj.status.health.message
+            end
+          end
+        end
+        return hs
 
       # dex.config: |
       #   connectors:
