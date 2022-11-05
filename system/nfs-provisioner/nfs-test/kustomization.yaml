@@ -1,4 +1,0 @@
-namespace: nfs-provisioner
-
-resources:
-- ./resources/all.yaml
