@@ -11,6 +11,7 @@ longhorn:
     backupTargetCredentialSecret: longhorn-backup-target-credential-secret
     defaultDataPath: /data/longhorn
     taintToleration: node-role.kubernetes.io/master=true:NoSchedule
+    defaultLonghornStaticStorageClass: longhorn
 
   longhornManager:
     tolerations:
