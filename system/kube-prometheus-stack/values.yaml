@@ -140,7 +140,7 @@ kube-prometheus-stack:
             storageClassName: longhorn
             resources:
               requests:
-                storage: 50Gi
+                storage: 25Gi
 
   grafana:
     enabled: true
@@ -542,7 +542,7 @@ kube-prometheus-stack:
             storageClassName: longhorn
             resources:
               requests:
-                storage: 80Gi
+                storage: 100Gi
       additionalScrapeConfigs:
         - job_name: 'truenas-netdata'
           scrape_interval: 1m
