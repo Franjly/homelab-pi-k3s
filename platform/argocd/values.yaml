@@ -800,7 +800,7 @@ argo-cd:
                 "content": null,
                 "embeds": [
                   {
-                    "title": "{{ .app.metadata.name}}",
+                    "title": "[{{ .app.metadata.name}}] - New version of an application {{.app.metadata.name}} is up and running.",
                     "description": "Application {{.app.metadata.name}} is now running new version of deployments manifests.",
                     "url": "{{.context.argocdUrl}}/applications/{{.app.metadata.name}}",
                     "color": 1621586,
@@ -817,6 +817,14 @@ argo-cd:
                         "name": "Revision",
                         "value": "{{.app.status.sync.revision}}"
                       }
+                      {{range $index, $c := .app.status.conditions}}
+                      {{if not $index}},{{end}}
+                      {{if $index}},{{end}}
+                      {
+                        "name": "{{$c.type}}",
+                        "value": "{{$c.message}}",
+                      }
+                      {{end}}
                     ]
                   }
                 ],
@@ -1000,7 +1008,42 @@ argo-cd:
       #         {{end}}
       #         ]
       #       }]
-      # template.app-sync-succeeded: |
+      template.app-sync-succeeded: |
+        webhook:
+          discord:
+            method: POST
+            body: |
+              {
+                "content": null,
+                "embeds": [
+                  {
+                    "title": "[{{ .app.metadata.name}}] - Application {{.app.metadata.name}} has been successfully synced.",
+                    "description": "Application {{.app.metadata.name}} has been successfully synced at {{.app.status.operationState.finishedAt}}.\nSync operation details are available at: {{.context.argocdUrl}}/applications/{{.app.metadata.name}}?operation=true .",
+                    "url": "{{.context.argocdUrl}}/applications/{{.app.metadata.name}}",
+                    "color": 1621586,
+                    "fields": [
+                      {
+                        "name": "Sync Status",
+                        "value": "{{.app.status.sync.status}}"
+                      },
+                      {
+                        "name": "Repository",
+                        "value": "{{.app.spec.source.repoURL}}"
+                      }
+                      {{range $index, $c := .app.status.conditions}}
+                      {{if not $index}},{{end}}
+                      {{if $index}},{{end}}
+                      {
+                        "title": "{{$c.type}}",
+                        "value": "{{$c.message}}",
+                        "short": true
+                      }
+                      {{end}}
+                    ]
+                  }
+                ],
+                "attachments": []
+              }  
       #   email:
       #     subject: Application {{.app.metadata.name}} has been successfully synced.
       #   message: |
