@@ -612,7 +612,7 @@ argo-cd:
     affinity: {}
 
     # -- Argo CD dashboard url; used in place of {{.context.argocdUrl}} in templates
-    argocdUrl:
+    argocdUrl: https://argocd.local.tecno-fly.com
 
     image:
       # -- Repository to use for the notifications controller
