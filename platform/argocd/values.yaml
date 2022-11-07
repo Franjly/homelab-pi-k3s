@@ -867,7 +867,41 @@ argo-cd:
       #         {{end}}
       #         ]
       #       }]
-      # template.app-health-degraded: |
+      template.app-health-degraded: |
+        webhook:
+          discord:
+            method: POST
+            body: |
+              {
+                "content": null,
+                "embeds": [
+                  {
+                    "title": "[{{ .app.metadata.name}}] - Application {{.app.metadata.name}} has degraded.",
+                    "description": "Application {{.app.metadata.name}} has degraded.\nApplication details: {{.context.argocdUrl}}/applications/{{.app.metadata.name}}.",
+                    "url": "{{.context.argocdUrl}}/applications/{{.app.metadata.name}}",
+                    "color": 16039984,
+                    "fields": [
+                      {
+                        "name": "Sync Status",
+                        "value": "{{.app.status.sync.status}}"
+                      },
+                      {
+                        "name": "Repository",
+                        "value": "{{.app.spec.source.repoURL}}"
+                      }
+                      {{range $index, $c := .app.status.conditions}}
+                      {{if not $index}},{{end}}
+                      {{if $index}},{{end}}
+                      {
+                        "name": "{{$c.type}}",
+                        "value": "{{$c.message}}"
+                      }
+                      {{end}}
+                    ]
+                  }
+                ],
+                "attachments": []
+              } 
       #   email:
       #     subject: Application {{.app.metadata.name}} has degraded.
       #   message: |
@@ -901,7 +935,41 @@ argo-cd:
       #         {{end}}
       #         ]
       #       }]
-      # template.app-sync-failed: |
+      template.app-sync-failed: |
+        webhook:
+          discord:
+            method: POST
+            body: |
+              {
+                "content": null,
+                "embeds": [
+                  {
+                    "title": "[{{ .app.metadata.name}}] - Failed to sync application {{.app.metadata.name}}.",
+                    "description": "The sync operation of application {{.app.metadata.name}} has failed at {{.app.status.operationState.finishedAt}} with the following error: {{.app.status.operationState.message}}\nSync operation details are available at: {{.context.argocdUrl}}/applications/{{.app.metadata.name}}?operation=true .",
+                    "url": "{{.context.argocdUrl}}/applications/{{.app.metadata.name}}",
+                    "color": 15297910,
+                    "fields": [
+                      {
+                        "name": "Sync Status",
+                        "value": "{{.app.status.sync.status}}"
+                      },
+                      {
+                        "name": "Repository",
+                        "value": "{{.app.spec.source.repoURL}}"
+                      }
+                      {{range $index, $c := .app.status.conditions}}
+                      {{if not $index}},{{end}}
+                      {{if $index}},{{end}}
+                      {
+                        "name": "{{$c.type}}",
+                        "value": "{{$c.message}}"
+                      }
+                      {{end}}
+                    ]
+                  }
+                ],
+                "attachments": []
+              } 
       #   email:
       #     subject: Failed to sync application {{.app.metadata.name}}.
       #   message: |
@@ -935,7 +1003,41 @@ argo-cd:
       #         {{end}}
       #         ]
       #       }]
-      # template.app-sync-running: |
+      template.app-sync-running: |
+        webhook:
+          discord:
+            method: POST
+            body: |
+              {
+                "content": null,
+                "embeds": [
+                  {
+                    "title": "[{{ .app.metadata.name}}] - Start syncing application {{.app.metadata.name}}.",
+                    "description": "The sync operation of application {{.app.metadata.name}} has started at {{.app.status.operationState.startedAt}}.\nSync operation details are available at: {{.context.argocdUrl}}/applications/{{.app.metadata.name}}?operation=true .",
+                    "url": "{{.context.argocdUrl}}/applications/{{.app.metadata.name}}",
+                    "color": 896490,
+                    "fields": [
+                      {
+                        "name": "Sync Status",
+                        "value": "{{.app.status.sync.status}}"
+                      },
+                      {
+                        "name": "Repository",
+                        "value": "{{.app.spec.source.repoURL}}"
+                      }
+                      {{range $index, $c := .app.status.conditions}}
+                      {{if not $index}},{{end}}
+                      {{if $index}},{{end}}
+                      {
+                        "name": "{{$c.type}}",
+                        "value": "{{$c.message}}"
+                      }
+                      {{end}}
+                    ]
+                  }
+                ],
+                "attachments": []
+              } 
       #   email:
       #     subject: Start syncing application {{.app.metadata.name}}.
       #   message: |
@@ -969,7 +1071,41 @@ argo-cd:
       #         {{end}}
       #         ]
       #       }]
-      # template.app-sync-status-unknown: |
+      template.app-sync-status-unknown: |
+        webhook:
+          discord:
+            method: POST
+            body: |
+              {
+                "content": null,
+                "embeds": [
+                  {
+                    "title": "[{{ .app.metadata.name}}] - Application {{.app.metadata.name}} sync status is 'Unknown'",
+                    "description": "Application {{.app.metadata.name}} sync is 'Unknown'.\nApplication details: {{.context.argocdUrl}}/applications/{{.app.metadata.name}}.",
+                    "url": "{{.context.argocdUrl}}/applications/{{.app.metadata.name}}",
+                    "color": 15297910,
+                    "fields": [
+                      {
+                        "name": "Sync Status",
+                        "value": "{{.app.status.sync.status}}"
+                      },
+                      {
+                        "name": "Repository",
+                        "value": "{{.app.spec.source.repoURL}}"
+                      }
+                      {{range $index, $c := .app.status.conditions}}
+                      {{if not $index}},{{end}}
+                      {{if $index}},{{end}}
+                      {
+                        "name": "{{$c.type}}",
+                        "value": "{{$c.message}}"
+                      }
+                      {{end}}
+                    ]
+                  }
+                ],
+                "attachments": []
+              }  
       #   email:
       #     subject: Application {{.app.metadata.name}} sync status is 'Unknown'
       #   message: |
@@ -1034,9 +1170,8 @@ argo-cd:
                       {{if not $index}},{{end}}
                       {{if $index}},{{end}}
                       {
-                        "title": "{{$c.type}}",
-                        "value": "{{$c.message}}",
-                        "short": true
+                        "name": "{{$c.type}}",
+                        "value": "{{$c.message}}"
                       }
                       {{end}}
                     ]
