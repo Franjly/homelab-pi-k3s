@@ -721,6 +721,9 @@ argo-cd:
     notifiers:
       service.webhook.discord: |
         url: <path:pi-k3s/data/platform/argocd#DISCORD_WEBHOOK>
+        headers:
+        - name: content-type
+          value: application/json
 
     # -- Annotations to be applied to the controller Pods
     podAnnotations: {}
