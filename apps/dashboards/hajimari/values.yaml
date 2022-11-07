@@ -14,8 +14,8 @@ hajimari:
     # -- Override the title of the Hajimari pages
     title: null
 
-    lightTheme: tron
-    darkTheme: tron
+    lightTheme: lime
+    darkTheme: lime
 
     # -- Default name for welcome message
     name: "FLY"
