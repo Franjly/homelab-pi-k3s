@@ -484,6 +484,7 @@ argo-cd:
           g, argocd, role:argocd
 
   repoServer:
+    replicas: 2
 
     # -- Additional command line arguments to pass to repo server
     extraArgs: []
