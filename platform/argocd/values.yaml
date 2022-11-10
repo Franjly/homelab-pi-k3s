@@ -22,10 +22,12 @@ argo-cd:
       github-homelab-pi-k3s:
         name: github-homelab-pi-k3s
         url: https://github.com/Franjly/homelab-pi-k3s.git
+        password: <path:pi-k3s/data/platform/argocd#github_accessToken>
         type: git
       github-argocd-homelab-pi-k3s:
         name: github-argocd-homelab-pi-k3s
         url: https://github.com/Franjly/argocd-homelab-pi-k3s.git
+        password: <path:pi-k3s/data/platform/argocd#github_accessToken>
         type: git
       gitea-homelab-pi-k3s:
         name: gitea-homelab-pi-k3s
