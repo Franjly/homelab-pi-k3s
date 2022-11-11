@@ -1,7 +1,7 @@
 prowlarr:
   image:
     repository: hotio/prowlarr
-    tag: testing-0.4.7.2016
+    tag: testing-0.4.8.2072
 
   env:
     TZ: Europe/Madrid
