@@ -2,6 +2,7 @@ namespace: external-endpoints
 
 resources:
 - ./resources/truenas.yaml
+- ./resources/truenas-browser.yaml
 - ./resources/s3.yaml
 - ./resources/minio.yaml
 - ./resources/qbittorrent.yaml
