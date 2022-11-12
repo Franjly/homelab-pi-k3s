@@ -1,0 +1,4 @@
+namespace: calibre
+
+resources:
+- ./resources/all.yaml

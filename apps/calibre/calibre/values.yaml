@@ -1,0 +1,38 @@
+calibre:
+  image:
+    repository: linuxserver/calibre
+    tag: v6.8.0-ls191
+
+  env:
+    TZ: Europe/Madrid
+    GUAC_USER: <path:pi-k3s/data/apps/calibre#username>
+    GUAC_PASS: <path:pi-k3s/data/apps/calibre#password>
+    # CLI_ARGS:
+
+  # -- Configures service settings for the chart.
+  # @default -- See values.yaml
+  service:
+    main:
+      ports:
+        http:
+          port: 8080
+    webserver:
+      enabled: false
+      type: ClusterIP
+      ports:
+        webserver:
+          enabled: true
+          port: 8081
+          protocol: TCP
+          targetPort: 8081
+
+  ingress:
+    # -- Enable and configure ingress settings for the chart under this key.
+    # @default -- See values.yaml
+    main:
+      enabled: false
+
+  persistence:
+    config:
+      enabled: true
+      storageClass: longhorn
