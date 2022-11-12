@@ -9,6 +9,10 @@ calibre:
     GUAC_PASS: <path:pi-k3s/data/apps/calibre#password>
     # CLI_ARGS:
 
+  service:
+    webserver:
+      enabled: true
+
   ingress:
     main:
       enabled: true
