@@ -62,7 +62,7 @@ argo-cd:
 
     params:
       server.insecure: false
-      timeout.reconciliation: "300"
+      timeout.reconciliation: "600"
 
   # -- Array of extra K8s manifests to deploy
   extraObjects:
