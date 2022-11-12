@@ -25,7 +25,7 @@ calibre:
             - path: /
               pathType: Prefix
               service:
-                name: calibre
+                name: calibre-server
                 port: 8080
       tls:
        - secretName: calibre-tls
