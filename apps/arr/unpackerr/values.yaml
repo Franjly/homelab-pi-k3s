@@ -5,22 +5,27 @@ unpackerr:
 
   env:
     TZ: Europe/Madrid
+    UN_SONARR_0_URL: http://sonarr.arr.svc.cluster.local:8989
+    UN_SONARR_0_API_KEY: <path:pi-k3s/data/apps/arr/sonarr#apikey>
+    UN_SONARR_0_PATHS_0: /downloads/qbittorrent
+    UN_SONARR_0_PROTOCOLS: torrent
+    UN_RADARR_0_URL: http://radarr.arr.svc.cluster.local:7878 
+    UN_RADARR_0_API_KEY: <path:pi-k3s/data/apps/arr/radarr#apikey>
+    UN_RADARR_0_PATHS_0: /downloads/qbittorrent
+    UN_RADARR_0_PROTOCOLS: torrent
+    UN_LIDARR_0_URL: http://lidarr.arr.svc.cluster.local:8686
+    UN_LIDARR_0_API_KEY: <path:pi-k3s/data/apps/arr/lidarr#apikey>
+    UN_LIDARR_0_PATHS_0: /downloads/qbittorrent
+    UN_LIDARR_0_PROTOCOLS: torrent
+    UN_READARR_0_URL: http://readarr.arr.svc.cluster.local:8787
+    UN_READARR_0_API_KEY: <path:pi-k3s/data/apps/arr/readarr#apikey>
+    UN_READARR_0_PATHS_0: /downloads/qbittorrent
+    UN_READARR_0_PROTOCOLS: torrent
 
-  # -- Configures service settings for the chart.
-  # @default -- Disabled
-  service:
-    main:
-      enabled: false
-
-  ingress:
-    # -- Enable and configure ingress settings for the chart under this key.
-    # @default -- Disabled
-    main:
-      enabled: false
-
-  # -- Configure persistence settings for the chart under this key.
-  # @default -- See values.yaml
   persistence:
     downloads:
-      enabled: false
+      enabled: true
+      storageClass: nfs-downloads
+      accessMode: ReadWriteOnce
+      size: 2Ti
       mountPath: /downloads
