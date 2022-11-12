@@ -35,6 +35,27 @@ calibre:
        - secretName: calibre-tls
          hosts:
            - calibre.local.tecno-fly.com
+    server:
+      enabled: true
+
+      annotations:
+        cert-manager.io/cluster-issuer: letsencrypt-staging
+        # kubernetes.io/tls-acme: "true"
+
+      ingressClassName: "nginx"
+
+      hosts:
+        - host: calibre-server.local.tecno-fly.com
+          paths:
+            - path: /
+              pathType: Prefix
+              service:
+                name: calibre-server-webserver
+                port: 8081
+      tls:
+       - secretName: calibre-server-tls
+         hosts:
+           - calibre-server.local.tecno-fly.com
 
   persistence:
     config:
