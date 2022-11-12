@@ -428,6 +428,7 @@ argo-cd:
     # -- [General Argo CD configuration]
     # @default -- See [values.yaml]
     config:
+      url: "https://argocd.local.tecno-fly.com"
       exec.enabled: "true"
       admin.enabled: "false"
       accounts.fly: apiKey, login, exec
