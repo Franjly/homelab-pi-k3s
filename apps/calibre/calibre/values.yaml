@@ -17,7 +17,7 @@ calibre:
         http:
           port: 8080
     webserver:
-      enabled: false
+      enabled: true
       type: ClusterIP
       ports:
         webserver:
