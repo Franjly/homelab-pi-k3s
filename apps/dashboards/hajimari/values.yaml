@@ -17,6 +17,8 @@ hajimari:
     lightTheme: tron
     darkTheme: tron
 
+    showAppGroups: true
+
     # -- Default name for welcome message
     name: "FLY"
 
