@@ -31,6 +31,10 @@ kind: Ingress
 metadata:
   annotations:
     cert-manager.io/cluster-issuer: letsencrypt-staging
+    hajimari.io/appName: TrueNAS - NetData
+    hajimari.io/icon: chart-bar
+    hajimari.io/group: Monitoring
+    hajimari.io/targetBlank: 'false'
   name: netdata-external-ingress
   namespace: external-endpoints
 spec:

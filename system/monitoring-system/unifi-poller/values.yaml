@@ -41,6 +41,10 @@ unifi-poller:
       annotations:
         cert-manager.io/cluster-issuer: letsencrypt-staging
         # kubernetes.io/tls-acme: "true"
+        hajimari.io/appName: UniFi-Poller
+        hajimari.io/icon: chart-bar
+        hajimari.io/group: Monitoring
+        hajimari.io/targetBlank: 'false'
 
       ingressClassName: "nginx"
 
