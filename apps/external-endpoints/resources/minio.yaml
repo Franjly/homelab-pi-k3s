@@ -32,6 +32,10 @@ metadata:
   annotations:
     cert-manager.io/cluster-issuer: letsencrypt-staging
     nginx.ingress.kubernetes.io/backend-protocol: HTTPS
+    hajimari.io/appName: MinIO
+    hajimari.io/icon: bucket
+    hajimari.io/group: NAS
+    hajimari.io/targetBlank: 'false'
   name: minio-external-ingress
   namespace: external-endpoints
 spec:

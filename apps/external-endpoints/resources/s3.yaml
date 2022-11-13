@@ -32,6 +32,10 @@ metadata:
   annotations:
     cert-manager.io/cluster-issuer: letsencrypt-staging
     nginx.ingress.kubernetes.io/backend-protocol: HTTPS
+    hajimari.io/appName: S3
+    hajimari.io/icon: bucket-outline
+    hajimari.io/group: NAS
+    hajimari.io/targetBlank: 'false'
   name: s3-external-ingress
   namespace: external-endpoints
 spec:

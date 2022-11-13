@@ -32,6 +32,10 @@ metadata:
   annotations:
     cert-manager.io/cluster-issuer: letsencrypt-staging
     nginx.ingress.kubernetes.io/backend-protocol: HTTPS
+    hajimari.io/appName: TrueNAS
+    hajimari.io/icon: nas
+    hajimari.io/group: NAS
+    hajimari.io/targetBlank: 'false'
   name: truenas-external-ingress
   namespace: external-endpoints
 spec:

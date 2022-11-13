@@ -31,6 +31,10 @@ kind: Ingress
 metadata:
   annotations:
     cert-manager.io/cluster-issuer: letsencrypt-staging
+    hajimari.io/appName: File Browser
+    hajimari.io/icon: file-tree
+    hajimari.io/group: NAS
+    hajimari.io/targetBlank: 'false'
   name: truenas-browser-external-ingress
   namespace: external-endpoints
 spec:
