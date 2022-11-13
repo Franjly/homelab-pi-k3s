@@ -123,7 +123,7 @@ kube-prometheus-stack:
         cert-manager.io/cluster-issuer: letsencrypt-staging
         # kubernetes.io/tls-acme: "true"
         hajimari.io/appName: AlertManager
-        hajimari.io/icon: chart-bar
+        hajimari.io/icon: comment-alert
         hajimari.io/group: Monitoring
         hajimari.io/targetBlank: 'false'
       hosts:
@@ -161,7 +161,7 @@ kube-prometheus-stack:
         cert-manager.io/cluster-issuer: letsencrypt-staging
         # kubernetes.io/tls-acme: "true"
         hajimari.io/appName: Grafana
-        hajimari.io/icon: chart-bar
+        hajimari.io/icon: chart-pie
         hajimari.io/group: Monitoring
         hajimari.io/targetBlank: 'false'
       hosts:
@@ -525,7 +525,7 @@ kube-prometheus-stack:
         cert-manager.io/cluster-issuer: letsencrypt-staging
         # kubernetes.io/tls-acme: "true"
         hajimari.io/appName: Prometheus
-        hajimari.io/icon: chart-bar
+        hajimari.io/icon: chart-areaspline
         hajimari.io/group: Monitoring
         hajimari.io/targetBlank: 'false'
       hosts:

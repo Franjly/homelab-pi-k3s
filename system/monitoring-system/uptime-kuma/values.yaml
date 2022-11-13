@@ -15,7 +15,7 @@ uptime-kuma:
         cert-manager.io/cluster-issuer: letsencrypt-staging
         # kubernetes.io/tls-acme: "true"
         hajimari.io/appName: Uptime Kuma
-        hajimari.io/icon: chart-bar
+        hajimari.io/icon: alert
         hajimari.io/group: Monitoring
         hajimari.io/targetBlank: 'false'
 

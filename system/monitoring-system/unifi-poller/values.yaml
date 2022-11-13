@@ -42,7 +42,7 @@ unifi-poller:
         cert-manager.io/cluster-issuer: letsencrypt-staging
         # kubernetes.io/tls-acme: "true"
         hajimari.io/appName: UniFi-Poller
-        hajimari.io/icon: chart-bar
+        hajimari.io/icon: chart-bell-curve-cumulative
         hajimari.io/group: Monitoring
         hajimari.io/targetBlank: 'false'
 
