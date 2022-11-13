@@ -20,6 +20,10 @@ calibre:
       annotations:
         cert-manager.io/cluster-issuer: letsencrypt-staging
         # kubernetes.io/tls-acme: "true"
+        hajimari.io/appName: Calibre
+        hajimari.io/icon: book
+        hajimari.io/group: Media
+        hajimari.io/targetBlank: 'false'
 
       ingressClassName: "nginx"
 
@@ -41,6 +45,10 @@ calibre:
       annotations:
         cert-manager.io/cluster-issuer: letsencrypt-staging
         # kubernetes.io/tls-acme: "true"
+        hajimari.io/appName: Calibre - Server
+        hajimari.io/icon: book-sync
+        hajimari.io/group: Media
+        hajimari.io/targetBlank: 'false'
 
       ingressClassName: "nginx"
 

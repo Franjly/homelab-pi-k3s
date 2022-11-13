@@ -13,6 +13,10 @@ calibre-web:
       annotations:
         cert-manager.io/cluster-issuer: letsencrypt-staging
         # kubernetes.io/tls-acme: "true"
+        hajimari.io/appName: Calibre - Web
+        hajimari.io/icon: book-open-page-variant
+        hajimari.io/group: Media
+        hajimari.io/targetBlank: 'false'
 
       ingressClassName: "nginx"
 

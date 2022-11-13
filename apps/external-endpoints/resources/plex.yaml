@@ -31,6 +31,10 @@ kind: Ingress
 metadata:
   annotations:
     cert-manager.io/cluster-issuer: letsencrypt-staging
+    hajimari.io/appName: Plex
+    hajimari.io/icon: play-box
+    hajimari.io/group: Media
+    hajimari.io/targetBlank: 'false'
   name: plex-external-ingress
   namespace: external-endpoints
 spec:
