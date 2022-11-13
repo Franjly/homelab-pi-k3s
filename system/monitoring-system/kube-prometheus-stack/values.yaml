@@ -125,7 +125,7 @@ kube-prometheus-stack:
         hajimari.io/appName: AlertManager
         hajimari.io/icon: chart-bar
         hajimari.io/group: Monitoring
-        hajimari.io/targetBlank: true 
+        hajimari.io/targetBlank: 'false'
       hosts:
         - alertmanager.local.tecno-fly.com
       paths:
@@ -163,7 +163,7 @@ kube-prometheus-stack:
         hajimari.io/appName: Grafana
         hajimari.io/icon: chart-bar
         hajimari.io/group: Monitoring
-        hajimari.io/targetBlank: true 
+        hajimari.io/targetBlank: 'false'
       hosts:
         - grafana.local.tecno-fly.com
       path: /
@@ -527,7 +527,7 @@ kube-prometheus-stack:
         hajimari.io/appName: Prometheus
         hajimari.io/icon: chart-bar
         hajimari.io/group: Monitoring
-        hajimari.io/targetBlank: true 
+        hajimari.io/targetBlank: 'false'
       hosts:
         - prometheus.local.tecno-fly.com
       paths:
