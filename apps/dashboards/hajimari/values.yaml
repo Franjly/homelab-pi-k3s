@@ -6,10 +6,6 @@ hajimari:
 
     # -- Set to true to show all discovered applications by default.
     defaultEnable: true
-
-    # -- Namespace selector to use for discovering applications
-    namespaceSelector:
-      any: true
       
     # -- Override the title of the Hajimari pages
     title: null
@@ -41,6 +37,10 @@ hajimari:
     #     url: 'http://gmail.com'
     #   - name: Slack
     #     url: 'https://slack.com/signin'
+
+    # -- Namespace selector to use for discovering applications
+    namespaceSelector:
+      any: true
 
   ingress:
     main:
