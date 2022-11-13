@@ -58,6 +58,10 @@ gitea:
     annotations:
       cert-manager.io/cluster-issuer: letsencrypt-staging
       # kubernetes.io/tls-acme: "true"
+      hajimari.io/appName: Gitea
+      hajimari.io/icon: git
+      hajimari.io/group: Platform
+      hajimari.io/targetBlank: 'false'
     hosts:
       - host: gitea.local.tecno-fly.com
         paths:

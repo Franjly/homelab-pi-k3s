@@ -341,6 +341,10 @@ argo-cd:
         nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
         nginx.ingress.kubernetes.io/ssl-passthrough: "true"
         cert-manager.io/cluster-issuer: letsencrypt-staging
+        hajimari.io/appName: ArgoCD
+        hajimari.io/icon: sync-circle
+        hajimari.io/group: Platform
+        hajimari.io/targetBlank: 'false'
       
       ingressClassName: "nginx"
 

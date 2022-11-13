@@ -7,6 +7,10 @@ vault:
       annotations:
         cert-manager.io/cluster-issuer: letsencrypt-staging
         # kubernetes.io/tls-acme: "true"
+        hajimari.io/appName: Vault
+        hajimari.io/icon: file-cancel
+        hajimari.io/group: Platform
+        hajimari.io/targetBlank: 'false'
       ingressClassName: "nginx"
       hosts:
         - host: vault.local.tecno-fly.com
