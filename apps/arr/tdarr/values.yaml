@@ -13,7 +13,7 @@ tdarr:
       annotations:
         cert-manager.io/cluster-issuer: letsencrypt-staging
         # kubernetes.io/tls-acme: "true"
-        hajimari.io/appName: Sonarr
+        hajimari.io/appName: Tdarr
         hajimari.io/icon: swap-horizontal
         hajimari.io/group: Downloads
         hajimari.io/targetBlank: 'false'
