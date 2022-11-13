@@ -13,6 +13,10 @@ readarr:
       annotations:
         cert-manager.io/cluster-issuer: letsencrypt-staging
         # kubernetes.io/tls-acme: "true"
+        hajimari.io/appName: Readarr
+        hajimari.io/icon: book-open-blank-variant
+        hajimari.io/group: Downloads
+        hajimari.io/targetBlank: 'false'
 
       ingressClassName: "nginx"
 

@@ -13,6 +13,10 @@ prowlarr:
       annotations:
         cert-manager.io/cluster-issuer: letsencrypt-staging
         # kubernetes.io/tls-acme: "true"
+        hajimari.io/appName: Prowlarr
+        hajimari.io/icon: format-list-bulleted-square
+        hajimari.io/group: Downloads
+        hajimari.io/targetBlank: 'false'
 
       ingressClassName: "nginx"
 

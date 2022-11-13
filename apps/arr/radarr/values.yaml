@@ -13,6 +13,10 @@ radarr:
       annotations:
         cert-manager.io/cluster-issuer: letsencrypt-staging
         # kubernetes.io/tls-acme: "true"
+        hajimari.io/appName: Radarr
+        hajimari.io/icon: filmstrip
+        hajimari.io/group: Downloads
+        hajimari.io/targetBlank: 'false'
 
       ingressClassName: "nginx"
 

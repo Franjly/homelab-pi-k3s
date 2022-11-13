@@ -31,6 +31,10 @@ kind: Ingress
 metadata:
   annotations:
     cert-manager.io/cluster-issuer: letsencrypt-staging
+    hajimari.io/appName: qBittorrent
+    hajimari.io/icon: cloud-download
+    hajimari.io/group: Downloads
+    hajimari.io/targetBlank: 'false'
   name: qbittorrent-external-ingress
   namespace: external-endpoints
 spec:
