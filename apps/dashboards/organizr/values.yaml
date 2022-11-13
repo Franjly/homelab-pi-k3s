@@ -17,7 +17,7 @@ organizr:
         # hajimari.io/appName: 
         hajimari.io/group: Dashboards
         hajimari.io/icon: view-dashboard
-        # hajimari.io/targetBlank: true 
+        hajimari.io/targetBlank: "false" 
 
       ingressClassName: "nginx"
 
