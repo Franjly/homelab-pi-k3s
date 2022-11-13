@@ -21,6 +21,10 @@ home-assistant:
       annotations:
         cert-manager.io/cluster-issuer: letsencrypt-staging
         # kubernetes.io/tls-acme: "true"
+        hajimari.io/appName: Home Assistant
+        hajimari.io/icon: home
+        hajimari.io/group: Home Automation
+        hajimari.io/targetBlank: 'false'
 
       ingressClassName: "nginx"
 
