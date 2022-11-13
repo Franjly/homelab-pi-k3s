@@ -31,6 +31,10 @@ kind: Ingress
 metadata:
   annotations:
     cert-manager.io/cluster-issuer: letsencrypt-staging
+    hajimari.io/appName: Pi-Hole - Alt
+    hajimari.io/icon: dns-outline
+    hajimari.io/group: Network
+    hajimari.io/targetBlank: 'false'
   name: pi-hole-external-ingress
   namespace: external-endpoints
 spec:

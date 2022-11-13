@@ -32,6 +32,10 @@ metadata:
   annotations:
     cert-manager.io/cluster-issuer: letsencrypt-staging
     nginx.ingress.kubernetes.io/backend-protocol: HTTPS
+    hajimari.io/appName: UniFi
+    hajimari.io/icon: lan
+    hajimari.io/group: Network
+    hajimari.io/targetBlank: 'false'
   name: unifi-external-ingress
   namespace: external-endpoints
 spec:

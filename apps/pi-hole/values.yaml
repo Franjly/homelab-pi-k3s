@@ -87,6 +87,10 @@ pihole:
     annotations:
       cert-manager.io/cluster-issuer: letsencrypt-staging
       # kubernetes.io/tls-acme: "true"
+      hajimari.io/appName: Pi-Hole
+      hajimari.io/icon: dns
+      hajimari.io/group: Network
+      hajimari.io/targetBlank: 'false'
 
     path: /
     hosts:
