@@ -122,8 +122,10 @@ kube-prometheus-stack:
       annotations:
         cert-manager.io/cluster-issuer: letsencrypt-staging
         # kubernetes.io/tls-acme: "true"
-        # hajimari.io/appName: AlertManager
-        # hajimari.io/icon: chart-bar
+        hajimari.io/appName: AlertManager
+        hajimari.io/icon: chart-bar
+        hajimari.io/group: Monitoring
+        hajimari.io/targetBlank: true 
       hosts:
         - alertmanager.local.tecno-fly.com
       paths:
@@ -158,8 +160,10 @@ kube-prometheus-stack:
       annotations:
         cert-manager.io/cluster-issuer: letsencrypt-staging
         # kubernetes.io/tls-acme: "true"
-        # hajimari.io/appName: Grafana
-        # hajimari.io/icon: chart-bar
+        hajimari.io/appName: Grafana
+        hajimari.io/icon: chart-bar
+        hajimari.io/group: Monitoring
+        hajimari.io/targetBlank: true 
       hosts:
         - grafana.local.tecno-fly.com
       path: /
@@ -520,8 +524,10 @@ kube-prometheus-stack:
       annotations:
         cert-manager.io/cluster-issuer: letsencrypt-staging
         # kubernetes.io/tls-acme: "true"
-        # hajimari.io/appName: Prometheus
-        # hajimari.io/icon: chart-bar
+        hajimari.io/appName: Prometheus
+        hajimari.io/icon: chart-bar
+        hajimari.io/group: Monitoring
+        hajimari.io/targetBlank: true 
       hosts:
         - prometheus.local.tecno-fly.com
       paths:
