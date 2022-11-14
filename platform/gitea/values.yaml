@@ -126,5 +126,9 @@ gitea:
       registry: ghcr.io
       repository: zcube/bitnami-compat/postgresql
       tag: 11.17.0
+    global:
+      postgresql:
+        postgresqlUsername: <path:pi-k3s/data/platform/gitea#psql_username>
+        postgresqlPassword: <path:pi-k3s/data/platform/gitea#psql_password>
     persistence:
       storageClass: longhorn
