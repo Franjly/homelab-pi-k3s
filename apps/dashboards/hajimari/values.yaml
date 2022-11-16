@@ -40,8 +40,7 @@ hajimari:
     #     url: 'https://slack.com/signin'
 
     # -- Namespace selector to use for discovering applications
-    namespaceSelector:
-      any: true
+    namespaceSelector: []
 
   ingress:
     main:
