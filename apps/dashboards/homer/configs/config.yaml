@@ -79,7 +79,7 @@ services:
     icon: "fas fa-tools"
     items:
       - name: "Pi-hole"
-        logo: "assets/icons/png/pihole.png"
+        logo: "https://raw.githubusercontent.com/walkxcode/Dashboard-Icons/main/svg/pihole.svg"
         subtitle: "Network-wide Ad Blocking"
         tag: "app"
         url: "https://pi-hole.local.tecno-fly.com/admin/index.php"
