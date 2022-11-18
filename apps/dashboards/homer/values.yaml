@@ -1,0 +1,46 @@
+homer:
+  image:
+    repository: b4bz/homer
+    tag: v22.11.1
+
+  env:
+    TZ: Europe/Madrid
+
+  ingress:
+    main:
+      enabled: true
+
+      annotations:
+        cert-manager.io/cluster-issuer: letsencrypt-staging
+        # kubernetes.io/tls-acme: "true"
+        hajimari.io/appName: Homer
+        hajimari.io/group: Dashboards
+        hajimari.io/icon: view-dashboard
+        hajimari.io/targetBlank: "false" 
+
+      ingressClassName: "nginx"
+
+      hosts:
+        - host: homer.local.tecno-fly.com
+          paths:
+            - path: /
+              pathType: Prefix
+              service:
+                name: homer
+                port: 8080
+      tls:
+       - secretName: homer-tls
+         hosts:
+           - homer.local.tecno-fly.com
+
+  persistence:
+    config:
+      enabled: false
+      mountPath: /www/assets
+
+  configmap:
+    config:
+      enabled: true
+      data:
+        config.yml: |
+          externalConfig: https://raw.githubusercontent.com/Franjly/homelab-pi-k3s/main/apps/dashboards/homer/configs/config.yaml
