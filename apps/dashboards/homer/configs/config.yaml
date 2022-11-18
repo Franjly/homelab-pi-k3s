@@ -70,7 +70,7 @@ services:
     icon: "fas fa-network-wired"
     items:
       - name: "UniFi OS"
-        logo: "assets/icons/png/unifi.png"
+        logo: "https://github.com/walkxcode/Dashboard-Icons/raw/main/png/unifi.png"
         subtitle: "Network configuration"
         tag: "app"
         url: "https://unifi.local.tecno-fly.com/"
