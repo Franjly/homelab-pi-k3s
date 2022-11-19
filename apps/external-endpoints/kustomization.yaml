@@ -10,3 +10,4 @@ resources:
 - ./resources/pi-hole-alt.yaml
 - ./resources/netdata.yaml
 - ./resources/unifi.yaml
+- ./resources/jellyfin.yaml
