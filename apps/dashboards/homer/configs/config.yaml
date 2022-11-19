@@ -155,7 +155,7 @@ services:
         tag: "app"
         url: "https://prometheus.local.tecno-fly.com"
         target: "_blank"
-        type: Prometheus
+        # type: Prometheus
       - name: "AlertManager"
         logo: "https://github.com/walkxcode/Dashboard-Icons/raw/main/png/alertmanager.png"
         subtitle: "Alerts system"
