@@ -77,16 +77,18 @@ services:
         target: "_blank" # optional html a tag target attribute
       - name: "Pi-hole"
         logo: "https://raw.githubusercontent.com/walkxcode/Dashboard-Icons/main/svg/pihole.svg"
-        subtitle: "Network-wide Ad Blocking"
+        # subtitle: "Network-wide Ad Blocking"
         tag: "app"
         url: "https://pi-hole.local.tecno-fly.com/admin/index.php"
         target: "_blank" # optional html a tag target attribute
+        type: "PiHole"
       - name: "Pi-hole Alt"
         logo: "https://raw.githubusercontent.com/walkxcode/Dashboard-Icons/main/svg/pihole.svg"
-        subtitle: "Network-wide Ad Blocking"
+        # subtitle: "Network-wide Ad Blocking"
         tag: "app"
         url: "https://pi-hole-alt.local.tecno-fly.com/admin/index.php"
         target: "_blank" # optional html a tag target attribute
+        type: "PiHole"
   - name: "Tools"
     icon: "fas fa-tools"
     items:
