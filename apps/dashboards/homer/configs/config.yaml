@@ -120,7 +120,7 @@ services:
         url: "https://jellyfin.local.tecno-fly.com"
         target: "_blank" # optional html a tag target attribute
         type: "Emby"
-        apikey: "97ae1ecb69a946c198334182df038ba9"
+        apikey: <path:pi-k3s/data/apps/dashboards/homer#jellyfin_apikey>
         libraryType: "movies"
   - name: "Monitoring"
     icon: "fas fa-chart-bar"
