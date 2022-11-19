@@ -195,10 +195,10 @@ services:
     items:
       - name: "qBittorrent"
         logo: "https://raw.githubusercontent.com/walkxcode/Dashboard-Icons/main/svg/qbittorrent.svg"
-        url: "http://192.168.40.250:10095"
-        type: "qBittorrent"
-        rateInterval: 2000
-        torrentInterval: 5000
+        url: "https://qbittorrent.local.tecno-fly.com"
+        # type: "qBittorrent"
+        # rateInterval: 2000
+        # torrentInterval: 5000
         target: "_blank"
       - name: "Radarr"
         # type: "Radarr"
