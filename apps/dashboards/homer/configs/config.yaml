@@ -195,7 +195,7 @@ services:
     items:
       - name: "qBittorrent"
         logo: "https://raw.githubusercontent.com/walkxcode/Dashboard-Icons/main/svg/qbittorrent.svg"
-        url: "https://qbittorrent.local.tecno-fly.com"
+        url: "http://192.168.40.250:10095"
         type: "qBittorrent"
         rateInterval: 2000
         torrentInterval: 5000
@@ -206,3 +206,10 @@ services:
         # apikey: "MY-SUPER-SECRET-API-KEY"
         target: "_blank"
         # legacyApi: true
+  - name: "NAS"
+    icon: "fa-solid fa-server"
+    items:
+      - name: "TrueNAS"
+        logo: "https://github.com/walkxcode/Dashboard-Icons/raw/main/png/truenas-scale.png"
+        url: "https://truenas.local.tecno-fly.com"
+        target: "_blank"
