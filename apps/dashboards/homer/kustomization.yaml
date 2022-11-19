@@ -4,4 +4,4 @@ resources:
 - ./resources/all.yaml
 
 patches:
-- ./configs/config.yaml
+# - ./configs/config.yaml
