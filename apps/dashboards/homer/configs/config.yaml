@@ -203,10 +203,18 @@ services:
         target: "_blank"
       - name: "Radarr"
         # type: "Radarr"
-        url: "https://radarr.local.tecno-fly.com"
         # apikey: "MY-SUPER-SECRET-API-KEY"
-        target: "_blank"
         # legacyApi: true
+        logo: "https://raw.githubusercontent.com/walkxcode/Dashboard-Icons/main/svg/radarr.svg"
+        url: "https://radarr.local.tecno-fly.com"
+        target: "_blank"
+      - name: "Sonarr"
+        # type: "Sonarr"
+        # apikey: "MY-SUPER-SECRET-API-KEY"
+        # legacyApi: true
+        logo: "https://raw.githubusercontent.com/walkxcode/Dashboard-Icons/main/svg/sonarr.svg"
+        url: "https://sonarr.local.tecno-fly.com"
+        target: "_blank"    
   - name: "NAS"
     icon: "fa-solid fa-server"
     items:
