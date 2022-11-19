@@ -35,7 +35,7 @@ homer:
 
   configmap:
     config:
-      enabled: true
+      enabled: false
       # data:
       #   config.yml: |
       #     externalConfig: https://raw.githubusercontent.com/Franjly/homelab-pi-k3s/main/apps/dashboards/homer/configs/config.yaml
