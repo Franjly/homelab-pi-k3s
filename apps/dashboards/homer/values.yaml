@@ -38,7 +38,7 @@ homer:
       enabled: true
       data:
         config.yml: |
-          externalConfig: https://raw.githubusercontent.com/Franjly/homelab-pi-k3s/main/apps/dashboards/homer/configs/config-aux.yaml
+          externalConfig: https://raw.githubusercontent.com/Franjly/homelab-pi-k3s/main/apps/dashboards/homer/configs/config.yaml
 
 
 # https://github.com/walkxcode/dashboard-icons
