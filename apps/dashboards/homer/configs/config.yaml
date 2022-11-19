@@ -114,14 +114,14 @@ services:
         url: "https://plex.local.tecno-fly.com"
         target: "_blank"
       - name: "Jellyfin"
+        # type: "Emby"
+        # apikey: <path:pi-k3s/data/apps/dashboards/homer#jellyfin_apikey>
+        # libraryType: "movies"
         logo: "https://raw.githubusercontent.com/walkxcode/Dashboard-Icons/main/svg/jellyfin.svg"
         # subtitle: ""
         tag: "app"
         url: "https://jellyfin.local.tecno-fly.com"
         target: "_blank"
-        type: "Emby"
-        apikey: <path:pi-k3s/data/apps/dashboards/homer#jellyfin_apikey>
-        libraryType: "movies"
       - name: "Calibre"
         logo: "https://github.com/walkxcode/Dashboard-Icons/raw/main/png/calibre.png"
         # subtitle: ""
