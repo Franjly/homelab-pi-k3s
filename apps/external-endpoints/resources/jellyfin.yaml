@@ -47,7 +47,7 @@ spec:
           service:
             name: jellyfin-external-service
             port:
-              number: 32400
+              number: 8096
         path: /
         pathType: Prefix
   tls:
