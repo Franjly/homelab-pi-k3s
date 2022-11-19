@@ -30,7 +30,7 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   annotations:
-    nginx.ingress.kubernetes.io/cors-allow-origin: "*"
+    nginx.ingress.kubernetes.io/cors-allow-origin: "https://homer.local.tecno-fly.com"
     cert-manager.io/cluster-issuer: letsencrypt-staging
     hajimari.io/appName: Pi-Hole - Alt
     hajimari.io/icon: dns-outline
