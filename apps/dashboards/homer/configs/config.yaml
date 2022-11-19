@@ -75,15 +75,21 @@ services:
         tag: "app"
         url: "https://unifi.local.tecno-fly.com/"
         target: "_blank" # optional html a tag target attribute
-  - name: "Tools"
-    icon: "fas fa-tools"
-    items:
       - name: "Pi-hole"
         logo: "https://raw.githubusercontent.com/walkxcode/Dashboard-Icons/main/svg/pihole.svg"
         subtitle: "Network-wide Ad Blocking"
         tag: "app"
         url: "https://pi-hole.local.tecno-fly.com/admin/index.php"
         target: "_blank" # optional html a tag target attribute
+      - name: "Pi-hole Alt"
+        logo: "https://raw.githubusercontent.com/walkxcode/Dashboard-Icons/main/svg/pihole.svg"
+        subtitle: "Network-wide Ad Blocking"
+        tag: "app"
+        url: "https://pi-hole-alt.local.tecno-fly.com/admin/index.php"
+        target: "_blank" # optional html a tag target attribute
+  - name: "Tools"
+    icon: "fas fa-tools"
+    items:
       - name: "Longhorn"
         logo: "assets/icons/png/longhorn.png"
         subtitle: "Distributed block storage system for Kubernetes"
@@ -106,25 +112,25 @@ services:
     icon: "fas fa-chart-bar"
     items:
       - name: "Grafana"
-        logo: "assets/icons/svg/grafana.svg"
+        logo: "https://raw.githubusercontent.com/walkxcode/Dashboard-Icons/main/svg/grafana.svg"
         subtitle: "Operational dashboards"
         tag: "app"
         url: "https://grafana.local.tecno-fly.com"
         target: "_blank" # optional html a tag target attribute
       - name: "Prometheus"
-        logo: "assets/icons/png/prometheus.png"
+        logo: "https://raw.githubusercontent.com/walkxcode/Dashboard-Icons/main/svg/prometheus.svg"
         subtitle: "Monitoring system & time series database"
         tag: "app"
         url: "https://prometheus.local.tecno-fly.com"
         target: "_blank" # optional html a tag target attribute
       - name: "AlertManager"
-        logo: "assets/icons/png/alertmanager.png"
+        logo: "https://github.com/walkxcode/Dashboard-Icons/raw/main/png/alertmanager.png"
         subtitle: "Alerts system"
         tag: "app"
         url: "https://alertmanager.local.tecno-fly.com"
         target: "_blank" # optional html a tag target attribute
       - name: "Uptime Kuma"
-        logo: "assets/icons/png/uptime-kuma.png"
+        logo: "https://raw.githubusercontent.com/walkxcode/Dashboard-Icons/main/svg/uptime-kuma.svg"
         subtitle: "Monitoring tool"
         tag: "app"
         url: "https://uptime-kuma.local.tecno-fly.com"
@@ -133,7 +139,7 @@ services:
     icon: "fas fa-home"
     items:
       - name: "Home Assistant"
-        logo: "assets/icons/svg/home-assistant.svg"
+        logo: "https://raw.githubusercontent.com/walkxcode/Dashboard-Icons/main/svg/home-assistant.svg"
         subtitle: "Open source home automation"
         tag: "app"
         url: "https://home-assistant.local.tecno-fly.com/"
