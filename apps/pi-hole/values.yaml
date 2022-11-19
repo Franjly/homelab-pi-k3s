@@ -119,7 +119,8 @@ pihole:
   adminPassword: <path:pi-k3s/data/apps/pi-hole#adminPassword>
 
   # -- extraEnvironmentVars is a list of extra enviroment variables to set for pihole to use
-  extraEnvVars: {}
+  extraEnvVars:
+    CORS_HOSTS: homer.local.tecno-fly.com
     # TZ: UTC
 
   # -- extraEnvVarsSecret is a list of secrets to load in as environment variables.
