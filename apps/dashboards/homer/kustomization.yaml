@@ -1,7 +1,5 @@
 namespace: dashboards
 
 resources:
-- ./resources/all.yaml
-
-patches:
 - ./configs/config.yaml
+- ./resources/all.yaml
