@@ -91,23 +91,35 @@ services:
     icon: "fas fa-tools"
     items:
       - name: "Longhorn"
-        logo: "assets/icons/png/longhorn.png"
+        logo: "https://github.com/walkxcode/Dashboard-Icons/raw/main/png/longhorn.png"
         subtitle: "Distributed block storage system for Kubernetes"
         tag: "app"
         url: "https://longhorn.local.tecno-fly.com"
         target: "_blank" # optional html a tag target attribute
       - name: "MinIO"
-        logo: "assets/icons/png/minio.png"
+        logo: "https://github.com/walkxcode/Dashboard-Icons/raw/main/png/minio.png"
         subtitle: "Kubernetes Native Object Storage"
         tag: "app"
         url: "https://console-minio.local.tecno-fly.com"
         target: "_blank" # optional html a tag target attribute
-      - name: "Kubernetes Dashboard"
-        logo: "assets/icons/png/kubernetes-dashboard.png"
-        subtitle: "Web-based UI for Kubernetes clusters"
+  - name: "Media"
+    icon: "fa-regular fa-photo-film-music"
+    items:
+      - name: "Plex"
+        logo: "https://raw.githubusercontent.com/walkxcode/Dashboard-Icons/main/svg/plex-new.svg"
+        # subtitle: "Distributed block storage system for Kubernetes"
         tag: "app"
-        url: "https://kubernetes-dashboard.local.tecno-fly.com/"
+        url: "https://plex.local.tecno-fly.com"
         target: "_blank" # optional html a tag target attribute
+      - name: "Jellyfin"
+        logo: "https://raw.githubusercontent.com/walkxcode/Dashboard-Icons/main/svg/jellyfin.svg"
+        # subtitle: "Distributed block storage system for Kubernetes"
+        tag: "app"
+        url: "https://jellyfin.local.tecno-fly.com"
+        target: "_blank" # optional html a tag target attribute
+        type: "Emby"
+        apikey: "97ae1ecb69a946c198334182df038ba9"
+        libraryType: "movies"
   - name: "Monitoring"
     icon: "fas fa-chart-bar"
     items:
