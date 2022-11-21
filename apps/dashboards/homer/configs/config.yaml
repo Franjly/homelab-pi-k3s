@@ -38,17 +38,16 @@ colors:
     card-shadow: rgba(0, 0, 0, 0.4)
     link-hover: "#ffdd57"
 
-definitions: 
-  tags: 
-    Favourite: &Favourite
-      - tag: "Favourite"
-        tagstyle: "is-medium is-primary"
-    CI: &CI
-      - tag: "CI"
-        tagstyle: "is-medium is-success"
-    Apps: &Apps
-      - tag: "App"
-        tagstyle: "is-medium is-info"  
+tags: 
+  Favourite: &Favourite
+    - tag: "Favourite"
+      tagstyle: "is-medium is-primary"
+  CI: &CI
+    - tag: "CI"
+      tagstyle: "is-medium is-success"
+  Apps: &Apps
+    - tag: "App"
+      # tagstyle: "is-medium is-info"  
 
 # Optional message
 # message:
