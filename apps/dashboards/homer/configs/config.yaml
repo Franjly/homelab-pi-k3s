@@ -38,17 +38,6 @@ colors:
     card-shadow: rgba(0, 0, 0, 0.4)
     link-hover: "#ffdd57"
 
-
-Favourite: &Favourite
-  - tag: "Favourite"
-    tagstyle: "is-medium is-primary"
-CI: &CI
-  - tag: "CI"
-    tagstyle: "is-medium is-success"
-Apps: &Apps
-  - tag: "App"
-    tagstyle: "is-medium is-info"  
-
 # Optional message
 # message:
 #   #url: https://b4bz.io
@@ -84,21 +73,21 @@ services:
         logo: "https://github.com/walkxcode/Dashboard-Icons/raw/main/png/unifi.png"
         url: "https://unifi.local.tecno-fly.com/"
         subtitle: "Network configuration"
-        <<: *Apps
+        tag: Apps
         target: "_blank"
       - name: "Pi-hole"
         type: "PiHole"
         logo: "https://raw.githubusercontent.com/walkxcode/Dashboard-Icons/main/svg/pihole.svg"
         url: "https://pi-hole.local.tecno-fly.com/admin"
         # subtitle: "Network-wide Ad Blocking"
-        # <<: *Apps
+        # tag: Apps
         target: "_blank"
       - name: "Pi-hole Alt"
         type: "PiHole"
         logo: "https://raw.githubusercontent.com/walkxcode/Dashboard-Icons/main/svg/pihole.svg"
         url: "https://pi-hole-alt.local.tecno-fly.com/admin"
         # subtitle: "Network-wide Ad Blocking"
-        # <<: *Apps
+        # tag: Apps
         target: "_blank"
   - name: "DevOps"
     icon: "fa-solid fa-rotate"
@@ -107,19 +96,19 @@ services:
         logo: "https://github.com/walkxcode/Dashboard-Icons/raw/main/png/argocd.png"
         url: "https://argocd.local.tecno-fly.com"
         subtitle: "Declarative GitOps CD for Kubernetes"
-        <<: *Apps
+        tag: Apps
         target: "_blank"
       - name: "Gitea"
         logo: "https://raw.githubusercontent.com/walkxcode/Dashboard-Icons/main/svg/gitea.svg"
         url: "https://gitea.local.tecno-fly.com"
         subtitle: "Git with a cup of tea"
-        <<: *Apps
+        tag: Apps
         target: "_blank"
       - name: "Vault"
         logo: "https://github.com/walkxcode/Dashboard-Icons/raw/main/png/vault.png"
         url: "https://vault.local.tecno-fly.com"
         subtitle: "Manage Secrets & Protect Sensitive Data"
-        <<: *Apps
+        tag: Apps
         target: "_blank"
   - name: "K8s Tools"
     icon: "fas fa-tools"
@@ -128,7 +117,7 @@ services:
         logo: "https://github.com/walkxcode/Dashboard-Icons/raw/main/png/longhorn.png"
         url: "https://longhorn.local.tecno-fly.com"
         subtitle: "Distributed block storage system for Kubernetes"
-        <<: *Apps
+        tag: Apps
         target: "_blank"
   - name: "Media"
     icon: "fa-solid fa-play"
@@ -137,7 +126,7 @@ services:
         logo: "https://github.com/walkxcode/Dashboard-Icons/raw/main/png/plex.png"
         url: "https://plex.local.tecno-fly.com"
         subtitle: "Stream Movies & TV Shows"
-        <<: *Apps
+        tag: Apps
         target: "_blank"
       - name: "Jellyfin"
         # type: "Emby"
@@ -146,25 +135,25 @@ services:
         logo: "https://raw.githubusercontent.com/walkxcode/Dashboard-Icons/main/svg/jellyfin.svg"
         url: "https://jellyfin.local.tecno-fly.com"
         subtitle: "The Free Software Media System"
-        <<: *Apps
+        tag: Apps
         target: "_blank"
       - name: "Calibre"
         logo: "https://github.com/walkxcode/Dashboard-Icons/raw/main/png/calibre.png"
         url: "https://calibre.local.tecno-fly.com"
         subtitle: "eBook Management"
-        <<: *Apps
+        tag: Apps
         target: "_blank"
       - name: "Calibre Server"
         logo: "https://github.com/walkxcode/Dashboard-Icons/raw/main/png/calibreweb.png"
         url: "https://calibre-server.local.tecno-fly.com"
         subtitle: "Calibre Content Server"
-        <<: *Apps
+        tag: Apps
         target: "_blank"
       - name: "Calibre Web"
         logo: "https://raw.githubusercontent.com/walkxcode/Dashboard-Icons/main/svg/calibreweb.svg"
         url: "https://calibre-web.local.tecno-fly.com"
         subtitle: "Web Interface for Calibre"
-        <<: *Apps
+        tag: Apps
         target: "_blank"
   - name: "Downloads"
     icon: "fa-solid fa-cloud-arrow-down"
@@ -176,7 +165,7 @@ services:
         logo: "https://raw.githubusercontent.com/walkxcode/Dashboard-Icons/main/svg/qbittorrent.svg"
         url: "https://qbittorrent.local.tecno-fly.com"
         subtitle: "P2P Bittorrent Client"
-        <<: *Apps
+        tag: Apps
         target: "_blank"
       - name: "Radarr"
         # type: "Radarr"
@@ -185,7 +174,7 @@ services:
         logo: "https://raw.githubusercontent.com/walkxcode/Dashboard-Icons/main/svg/radarr.svg"
         url: "https://radarr.local.tecno-fly.com"
         subtitle: "Movie Library"
-        <<: *Apps
+        tag: Apps
         target: "_blank"
       - name: "Sonarr"
         # type: "Sonarr"
@@ -194,7 +183,7 @@ services:
         logo: "https://raw.githubusercontent.com/walkxcode/Dashboard-Icons/main/svg/sonarr.svg"
         url: "https://sonarr.local.tecno-fly.com"
         subtitle: "TV Show Library"
-        <<: *Apps
+        tag: Apps
         target: "_blank"
       - name: "Lidarr"
         # type: "Lidarr"
@@ -203,7 +192,7 @@ services:
         logo: "https://github.com/walkxcode/Dashboard-Icons/raw/main/png/lidarr.png"
         url: "https://lidarr.local.tecno-fly.com"
         subtitle: "Music Library"
-        <<: *Apps
+        tag: Apps
         target: "_blank"
       - name: "Prowlarr"
         # type: "Prowlarr"
@@ -212,25 +201,25 @@ services:
         logo: "https://raw.githubusercontent.com/walkxcode/Dashboard-Icons/main/svg/prowlarr.svg"
         url: "https://prowlarr.local.tecno-fly.com"
         subtitle: "Torrent Indexer"
-        <<: *Apps
+        tag: Apps
         target: "_blank"
       - name: "Bazarr"
         logo: "https://raw.githubusercontent.com/walkxcode/Dashboard-Icons/main/svg/bazarr.svg"
         url: "https://bazarr.local.tecno-fly.com"
         subtitle: "Subtitle Library"
-        <<: *Apps
+        tag: Apps
         target: "_blank"
       - name: "Readarr"
         logo: "https://github.com/walkxcode/Dashboard-Icons/raw/main/png/readarr.png"
         url: "https://readarr.local.tecno-fly.com"
         subtitle: "eBook Library"
-        <<: *Apps
+        tag: Apps
         target: "_blank"
       - name: "Tdarr"
         logo: "https://github.com/walkxcode/Dashboard-Icons/raw/main/png/tdarr.png"
         url: "https://tdarr.local.tecno-fly.com"
         subtitle: "Distributed Transcoding System"
-        <<: *Apps
+        tag: Apps
         target: "_blank"
   - name: "Monitoring"
     icon: "fas fa-chart-bar"
@@ -239,20 +228,20 @@ services:
         logo: "https://raw.githubusercontent.com/walkxcode/Dashboard-Icons/main/svg/grafana.svg"
         url: "https://grafana.local.tecno-fly.com"
         subtitle: "Operational dashboards"
-        <<: *Apps
+        tag: Apps
         target: "_blank"
       - name: "Prometheus"
         # type: Prometheus
         logo: "https://raw.githubusercontent.com/walkxcode/Dashboard-Icons/main/svg/prometheus.svg"
         url: "https://prometheus.local.tecno-fly.com"
         subtitle: "Monitoring system & time series database"
-        <<: *Apps
+        tag: Apps
         target: "_blank"
       - name: "AlertManager"
         logo: "https://github.com/walkxcode/Dashboard-Icons/raw/main/png/alertmanager.png"
         url: "https://alertmanager.local.tecno-fly.com"
         subtitle: "Alerts system"
-        <<: *Apps
+        tag: Apps
         target: "_blank"
       - name: "Uptime Kuma"
         # type: "UptimeKuma"
@@ -260,19 +249,19 @@ services:
         logo: "https://raw.githubusercontent.com/walkxcode/Dashboard-Icons/main/svg/uptime-kuma.svg"
         url: "https://uptime-kuma.local.tecno-fly.com"
         subtitle: "Monitoring tool"
-        <<: *Apps
+        tag: Apps
         target: "_blank"
       - name: "UniFi Poller"
         logo: "https://github.com/walkxcode/Dashboard-Icons/raw/main/png/unifi-controller.png"
         url: "https://unifi-poller.local.tecno-fly.com"
         subtitle: "Telemetry and Observability of UniFi Network"
-        <<: *Apps
+        tag: Apps
         target: "_blank"
       - name: "TrueNAS NetData"
         logo: "https://github.com/walkxcode/Dashboard-Icons/raw/main/png/netdata.png"
         url: "https://netdata.local.tecno-fly.com"
         subtitle: "Real-time performance monitoring"
-        <<: *Apps
+        tag: Apps
         target: "_blank"
   - name: "NAS"
     icon: "fa-solid fa-server"
@@ -281,19 +270,19 @@ services:
         logo: "https://github.com/walkxcode/Dashboard-Icons/raw/main/png/truenas-scale.png"
         url: "https://truenas.local.tecno-fly.com"
         subtitle: "Network Attached Storage"
-        <<: *Apps
+        tag: Apps
         target: "_blank"
       - name: "File Browser"
         logo: "https://raw.githubusercontent.com/walkxcode/Dashboard-Icons/main/svg/filebrowser.svg"
         url: "https://truenas-browser.local.tecno-fly.com"
         subtitle: "Web File Browser"
-        <<: *Apps
+        tag: Apps
         target: "_blank"
       - name: "MinIO"
         logo: "https://github.com/walkxcode/Dashboard-Icons/raw/main/png/minio.png"
         url: "https://console-minio.local.tecno-fly.com"
         subtitle: "Kubernetes Native Object Storage"
-        <<: *Apps
+        tag: Apps
         target: "_blank"
   - name: "IoT"
     icon: "fas fa-home"
@@ -302,5 +291,5 @@ services:
         logo: "https://raw.githubusercontent.com/walkxcode/Dashboard-Icons/main/svg/home-assistant.svg"
         url: "https://home-assistant.local.tecno-fly.com/"
         subtitle: "Open source home automation"
-        <<: *Apps
+        tag: Apps
         target: "_blank"
