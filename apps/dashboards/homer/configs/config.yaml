@@ -38,16 +38,16 @@ colors:
     card-shadow: rgba(0, 0, 0, 0.4)
     link-hover: "#ffdd57"
 
-tags: 
-  Favourite: &Favourite
-    - tag: "Favourite"
-      tagstyle: "is-medium is-primary"
-  CI: &CI
-    - tag: "CI"
-      tagstyle: "is-medium is-success"
-  Apps: &Apps
-    - tag: "App"
-      tagstyle: "is-medium is-info"  
+
+Favourite: &Favourite
+  - tag: "Favourite"
+    tagstyle: "is-medium is-primary"
+CI: &CI
+  - tag: "CI"
+    tagstyle: "is-medium is-success"
+Apps: &Apps
+  - tag: "App"
+    tagstyle: "is-medium is-info"  
 
 # Optional message
 # message:
@@ -84,8 +84,7 @@ services:
         logo: "https://github.com/walkxcode/Dashboard-Icons/raw/main/png/unifi.png"
         url: "https://unifi.local.tecno-fly.com/"
         subtitle: "Network configuration"
-        tag: "App"
-        tagstyle: "is-medium is-primary"
+        <<: *Apps
         target: "_blank"
       - name: "Pi-hole"
         type: "PiHole"
