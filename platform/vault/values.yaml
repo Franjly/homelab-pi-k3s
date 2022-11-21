@@ -9,7 +9,7 @@ vault:
         # kubernetes.io/tls-acme: "true"
         hajimari.io/appName: Vault
         hajimari.io/icon: file-cancel
-        hajimari.io/group: Platform
+        hajimari.io/group: DevOps
         hajimari.io/targetBlank: 'false'
       ingressClassName: "nginx"
       hosts:

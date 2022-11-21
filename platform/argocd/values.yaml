@@ -343,7 +343,7 @@ argo-cd:
         cert-manager.io/cluster-issuer: letsencrypt-staging
         hajimari.io/appName: ArgoCD
         hajimari.io/icon: sync-circle
-        hajimari.io/group: Platform
+        hajimari.io/group: DevOps
         hajimari.io/targetBlank: 'false'
       
       ingressClassName: "nginx"

@@ -60,7 +60,7 @@ gitea:
       # kubernetes.io/tls-acme: "true"
       hajimari.io/appName: Gitea
       hajimari.io/icon: git
-      hajimari.io/group: Platform
+      hajimari.io/group: DevOps
       hajimari.io/targetBlank: 'false'
     hosts:
       - host: gitea.local.tecno-fly.com

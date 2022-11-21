@@ -19,7 +19,7 @@ trivy:
       # kubernetes.io/tls-acme: "true"
       hajimari.io/appName: Trivy
       hajimari.io/icon: skull-scan
-      hajimari.io/group: Platform
+      hajimari.io/group: DevOps
       hajimari.io/targetBlank: 'false'
 
     hosts:
