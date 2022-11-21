@@ -280,7 +280,7 @@ services:
         target: "_blank"
       - name: "MinIO"
         logo: "https://github.com/walkxcode/Dashboard-Icons/raw/main/png/minio.png"
-        url: "https://console-minio.local.tecno-fly.com"
+        url: "https://minio.local.tecno-fly.com"
         subtitle: "Kubernetes Native Object Storage"
         tag: Apps
         target: "_blank"
