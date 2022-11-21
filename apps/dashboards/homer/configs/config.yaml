@@ -263,7 +263,7 @@ services:
       - name: "File Browser"
         logo: "https://raw.githubusercontent.com/walkxcode/Dashboard-Icons/main/svg/filebrowser.svg"
         url: "https://truenas-browser.local.tecno-fly.com"
-        subtitle: "Kubernetes Native Object Storage"
+        subtitle: "Web File Browser"
         tag: "app"
         target: "_blank"
       - name: "MinIO"
