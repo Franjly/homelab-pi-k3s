@@ -85,7 +85,7 @@ services:
         url: "https://unifi.local.tecno-fly.com/"
         subtitle: "Network configuration"
         tag: "App"
-        tagstyle: "is-medium is-info" 
+        tagstyle: "is-medium is-success"
         target: "_blank"
       - name: "Pi-hole"
         type: "PiHole"
