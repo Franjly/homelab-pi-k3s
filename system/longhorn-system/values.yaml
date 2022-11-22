@@ -2,9 +2,9 @@ longhorn:
   persistence:
     defaultClassReplicaCount: 3
     reclaimPolicy: Retain
-    # recurringJobSelector:
-    #   enable: true
-    #   jobList: '[{"name":"snapshot-default","task":"snapshot","cron":"0 5 * * *","retain":1},{"name":"backup-default","task":"backup","cron":"0 6 * * *","retain":3}]'
+    recurringJobSelector:
+      enable: true
+      jobList: '[{"name":"snapshot-default","task":"snapshot","cron":"0 5 * * *","retain":1},{"name":"backup-default","task":"backup","cron":"0 6 * * *","retain":3}]'
 
   defaultSettings:
     backupTarget: s3://longhorn-backups@us-east-1/
@@ -47,7 +47,7 @@ longhorn:
       # kubernetes.io/tls-acme: true
       hajimari.io/appName: Longhorn
       hajimari.io/icon: server
-      hajimari.io/group: K3s - Storage
+      hajimari.io/group: K8s - Tools
       hajimari.io/targetBlank: 'false'
 
   enablePSP: false
