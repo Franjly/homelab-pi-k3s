@@ -142,7 +142,7 @@ kube-prometheus-stack:
             storageClassName: longhorn
             resources:
               requests:
-                storage: 25Gi
+                storage: 5Gi
 
   grafana:
     enabled: true
@@ -548,7 +548,7 @@ kube-prometheus-stack:
             storageClassName: longhorn
             resources:
               requests:
-                storage: 100Gi
+                storage: 150Gi
       additionalScrapeConfigs:
         - job_name: 'truenas-netdata'
           scrape_interval: 1m
@@ -563,3 +563,11 @@ kube-prometheus-stack:
           metrics_path: '/metrics'
           static_configs:
           - targets: ['192.168.40.250:9108']
+        - job_name: minio-job
+          bearer_token: eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJleHAiOjQ4MjI4MjYxOTQsImlzcyI6InByb21ldGhldXMiLCJzdWIiOiJncmFmYW5hX2xva2kifQ.M4hlYjgclA66sAsBk_kI4zwypHU25VVvgdOKiCPMAIU6FbemCXPev56hTFFw37OLsZ8s_xCtDIQ4MYhkPN8ggQ
+          metrics_path: /minio/v2/metrics/cluster
+          scheme: https
+          tls_config:
+            insecure_skip_verify: true
+          static_configs:
+          - targets: ['192.168.40.250.nip.io:9000']
