@@ -37,6 +37,7 @@ lidarr:
     config:
       enabled: true
       storageClass: longhorn
+      size: 5Gi
 
     downloads:
       enabled: true
