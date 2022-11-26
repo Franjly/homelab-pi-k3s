@@ -175,7 +175,7 @@ kube-prometheus-stack:
     persistence:
       enabled: false
       storageClassName: longhorn
-      size: 10Gi
+      size: 5Gi
 
     sidecar:
       dashboards:
