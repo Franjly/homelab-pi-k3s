@@ -27,16 +27,16 @@ argo-cd:
         name: github-argocd-homelab-pi-k3s
         url: https://github.com/Franjly/argocd-homelab-pi-k3s.git
         type: git
-      gitea-homelab-pi-k3s:
-        name: gitea-homelab-pi-k3s
-        url: https://gitea.local.tecno-fly.com/homelab/homelab-pi-k3s.git
-        type: git
-        insecure: "true"
-      gitea-argocd-homelab-pi-k3s:
-        name: gitea-argocd-homelab-pi-k3s
-        url: https://gitea.local.tecno-fly.com/homelab/argocd-homelab-pi-k3s.git
-        type: git
-        insecure: "true"
+      # gitea-homelab-pi-k3s:
+      #   name: gitea-homelab-pi-k3s
+      #   url: https://gitea.local.tecno-fly.com/homelab/homelab-pi-k3s.git
+      #   type: git
+      #   insecure: "true"
+      # gitea-argocd-homelab-pi-k3s:
+      #   name: gitea-argocd-homelab-pi-k3s
+      #   url: https://gitea.local.tecno-fly.com/homelab/argocd-homelab-pi-k3s.git
+      #   type: git
+      #   insecure: "true"
 
     # -- Annotations to be added to `configs.repositories` Secret
     repositoriesAnnotations: {}
