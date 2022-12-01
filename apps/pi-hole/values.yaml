@@ -1,7 +1,7 @@
 pihole:
   image:
     repository: "pihole/pihole"
-    tag: "2022.10"
+    tag: "2022.11.2"
 
   # -- Configuration for the DNS service on port 53
   serviceDns:
