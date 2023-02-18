@@ -59,6 +59,7 @@ velero:
       bucket: <path:pi-k3s/data/system/velero#bucket>
       # caCert defines a base64 encoded CA bundle to use when verifying TLS connections to the provider. Optional.
       caCert: <path:pi-k3s/data/system/minio#ca-cert | base64encode>
+      insecureSkipTLSVerify: true
       config: 
         region: minio
         s3ForcePathStyle: "true"
