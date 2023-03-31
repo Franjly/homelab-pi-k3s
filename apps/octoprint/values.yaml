@@ -29,7 +29,7 @@ octoprint:
         cert-manager.io/cluster-issuer: letsencrypt-staging
         # kubernetes.io/tls-acme: "true"
         hajimari.io/appName: Octoprint
-        hajimari.io/icon: mdiPrinter3d
+        hajimari.io/icon: printer
         hajimari.io/group: Home Automation
         hajimari.io/targetBlank: 'false'
 
