@@ -59,6 +59,7 @@ octoprint:
       enabled: true
       mountPath: /octoprint
       storageClass: longhorn
+      accessMode: ReadWriteOnce
       size: 5Gi
     # -- Configure a hostPathMount to mount a USB device in the container.
     # @default -- See values.yaml
