@@ -1,0 +1,68 @@
+octoprint:
+  image:
+    repository: octoprint/octoprint
+    tag: 1.6.1
+
+  env:
+    TZ: Europe/Madrid
+    # -- Enable MJPG Streamer
+    # Enable this to ensure camera streaming is enabled you add a video device.
+    ENABLE_MJPG_STREAMER: "false"
+    # -- MJPG Streamer input parameters
+    MJPG_STREAMER_INPUT:  # "-y -n -r 640x480"
+    # -- MJPG Streamer camera device
+    CAMERA_DEV:  # /dev/video0
+
+  # -- Configures service settings for the chart.
+  # @default -- See values.yaml
+  service:
+    main:
+      ports:
+        http:
+          port: 80
+
+  ingress:
+    main:
+      enabled: false
+
+      annotations:
+        cert-manager.io/cluster-issuer: letsencrypt-staging
+        # kubernetes.io/tls-acme: "true"
+        hajimari.io/appName: Octoprint
+        hajimari.io/icon: mdiPrinter3d
+        hajimari.io/group: Home Automation
+        hajimari.io/targetBlank: 'false'
+
+      ingressClassName: "nginx"
+
+      hosts:
+        - host: octoprint.local.tecno-fly.com
+          paths:
+            - path: /
+              pathType: Prefix
+              service:
+                name: octoprint
+                port: 80
+      tls:
+       - secretName: octoprint-tls
+         hosts:
+           - octoprint.local.tecno-fly.com
+
+  securityContext:
+    # -- (bool) Privileged securityContext may be required if USB devics are accessed directly through the host machine
+    privileged: true
+
+  # -- Configure persistence settings for the chart under this key.
+  # @default -- See values.yaml
+  persistence:
+    data:
+      enabled: true
+      mountPath: /octoprint
+      storageClass: longhorn
+      size: 5Gi
+    # -- Configure a hostPathMount to mount a USB device in the container.
+    # @default -- See values.yaml
+    printer:
+      enabled: true
+      type: hostPath
+      hostPath: /dev/ttyUSB0

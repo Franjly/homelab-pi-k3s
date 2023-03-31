@@ -1,0 +1,4 @@
+namespace: octoprint
+
+resources:
+- ./resources/all.yaml
