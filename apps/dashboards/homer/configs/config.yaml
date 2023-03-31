@@ -294,7 +294,7 @@ services:
         tag: Apps
         target: "_blank"
       - name: "Octoprint"
-        logo: "https://github.com/walkxcode/dashboard-icons/blob/main/png/octoprint.png"
+        logo: "https://raw.githubusercontent.com/walkxcode/dashboard-icons/main/png/octoprint.png"
         url: "https://octoprint.local.tecno-fly.com/"
         subtitle: "The snappy web interface for your 3D printer"
         tag: Apps
