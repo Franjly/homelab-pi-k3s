@@ -5,6 +5,7 @@ octoprint:
 
   env:
     TZ: Europe/Madrid
+    OCTOPRINT_PORT: 5000
     # -- Enable MJPG Streamer
     # Enable this to ensure camera streaming is enabled you add a video device.
     ENABLE_MJPG_STREAMER: "false"
