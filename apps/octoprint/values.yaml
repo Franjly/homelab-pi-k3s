@@ -30,6 +30,7 @@ octoprint:
       enabled: true
 
       annotations:
+        nginx.ingress.kubernetes.io/proxy-body-size: 50m
         cert-manager.io/cluster-issuer: letsencrypt-staging
         # kubernetes.io/tls-acme: "true"
         hajimari.io/appName: Octoprint
