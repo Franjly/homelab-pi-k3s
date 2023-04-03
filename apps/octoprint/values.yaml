@@ -71,4 +71,4 @@ octoprint:
     printer:
       enabled: true
       type: hostPath
-      hostPath: /dev/serial
+      hostPath: /dev/ttyUSB0
