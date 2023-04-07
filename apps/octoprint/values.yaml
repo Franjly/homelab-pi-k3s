@@ -68,7 +68,7 @@ octoprint:
       size: 5Gi
     # -- Configure a hostPathMount to mount a USB device in the container.
     # @default -- See values.yaml
-    printer:
-      enabled: true
-      type: hostPath
-      hostPath: /dev/ttyUSB0
+    # printer:
+    #   enabled: true
+    #   type: hostPath
+    #   hostPath: /dev/ttyUSB0
