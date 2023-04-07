@@ -15,7 +15,7 @@ octoprint:
     CAMERA_DEV:  # /dev/video0
 
   nodeSelector:
-    kubernetes.io/hostname: pi-kube-worker-0
+    kubernetes.io/hostname: pi-kube-worker-1
 
   # -- Configures service settings for the chart.
   # @default -- See values.yaml
