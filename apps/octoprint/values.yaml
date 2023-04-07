@@ -15,7 +15,7 @@ octoprint:
     CAMERA_DEV:  # /dev/video0
 
   nodeSelector:
-    kubernetes.io/hostname: pi-kube-worker-1
+    kubernetes.io/hostname: pi-kube-worker-0
 
   # -- Configures service settings for the chart.
   # @default -- See values.yaml
@@ -31,7 +31,7 @@ octoprint:
 
       annotations:
         nginx.ingress.kubernetes.io/proxy-body-size: 50m
-        cert-manager.io/cluster-issuer: letsencrypt-staging
+        cert-manager.io/cluster-issuer: letsencrypt-prod
         # kubernetes.io/tls-acme: "true"
         hajimari.io/appName: Octoprint
         hajimari.io/icon: printer
