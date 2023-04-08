@@ -72,3 +72,15 @@ octoprint:
       enabled: true
       type: hostPath
       hostPath: /dev/ttyUSB0
+    vcgencmd:
+      enabled: true
+      type: hostPath
+      hostPath: /usr/bin/vcgencmd
+    "libvcos.so":
+      enabled: true
+      type: hostPath
+      hostPath: /usr/lib/aarch64-linux-gnu/libvcos.so
+    "libvchiq_arm.so":
+      enabled: true
+      type: hostPath
+      hostPath: /usr/lib/aarch64-linux-gnu/libvchiq_arm.so
