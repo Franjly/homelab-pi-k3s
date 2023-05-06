@@ -77,14 +77,14 @@ services:
         target: "_blank"
       - name: "Pi-hole"
         type: "PiHole"
-        logo: "https://raw.githubusercontent.com/walkxcode/Dashboard-Icons/main/svg/pihole.svg"
+        logo: "https://raw.githubusercontent.com/walkxcode/Dashboard-Icons/main/svg/pi-hole.svg"
         url: "https://pi-hole.local.tecno-fly.com/admin"
         # subtitle: "Network-wide Ad Blocking"
         # tag: Apps
         target: "_blank"
       - name: "Pi-hole Alt"
         type: "PiHole"
-        logo: "https://raw.githubusercontent.com/walkxcode/Dashboard-Icons/main/svg/pihole.svg"
+        logo: "https://raw.githubusercontent.com/walkxcode/Dashboard-Icons/main/svg/pi-hole.svg"
         url: "https://pi-hole-alt.local.tecno-fly.com/admin"
         # subtitle: "Network-wide Ad Blocking"
         # tag: Apps
@@ -144,13 +144,13 @@ services:
         tag: Apps
         target: "_blank"
       - name: "Calibre Server"
-        logo: "https://github.com/walkxcode/Dashboard-Icons/raw/main/png/calibreweb.png"
+        logo: "https://github.com/walkxcode/Dashboard-Icons/raw/main/png/calibre-web.png"
         url: "https://calibre-server.local.tecno-fly.com"
         subtitle: "Calibre Content Server"
         tag: Apps
         target: "_blank"
       - name: "Calibre Web"
-        logo: "https://raw.githubusercontent.com/walkxcode/Dashboard-Icons/main/svg/calibreweb.svg"
+        logo: "https://raw.githubusercontent.com/walkxcode/Dashboard-Icons/main/svg/calibre-web.svg"
         url: "https://calibre-web.local.tecno-fly.com"
         subtitle: "Web Interface for Calibre"
         tag: Apps
