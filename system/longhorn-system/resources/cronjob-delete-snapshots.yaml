@@ -1,0 +1,57 @@
+# Create file cron-job.yaml
+---
+kind: ServiceAccount
+apiVersion: v1
+metadata:
+  name: delete-snapshots
+  namespace: longhorn-system
+
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: delete-snapshots
+  namespace: longhorn-system
+rules:
+  - apiGroups: ["longhorn.io"]
+    resources: ["snapshots"]
+    verbs: ["get", "delete", "list"] 
+
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: delete-snapshots
+  namespace: longhorn-system
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: delete-snapshots
+subjects:
+  - kind: ServiceAccount
+    name: delete-snapshots
+
+---
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: delete-snapshots
+  namespace: longhorn-system
+spec:
+  concurrencyPolicy: Forbid
+  successfulJobsHistoryLimit: 1
+  failedJobsHistoryLimit: 1
+  schedule: "0 * * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          serviceAccountName: delete-snapshots 
+          restartPolicy: Never
+          containers:
+            - name: kubectl
+              image: bitnami/kubectl
+              command:
+                - /bin/sh
+                - -c
+                - kubectl get snapshots.longhorn.io -n longhorn-system --no-headers --sort-by=.metadata.creationTimestamp | awk 'match($7,/[0-9]d/) {print $0}' | grep -Ev '^backup|^snapshot' | awk '{print $1}' | xargs -I %s kubectl delete snapshots.longhorn.io %s -n longhorn-system
