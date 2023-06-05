@@ -1,0 +1,4 @@
+namespace: cloudflare
+
+resources:
+- ./resources/deployment.yaml
