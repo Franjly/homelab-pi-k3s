@@ -457,8 +457,6 @@ argo-cd:
             command: [sh, -c]
             args: ["helm template $ARGOCD_APP_NAME --include-crds --namespace $ARGOCD_APP_NAMESPACE . > resources/all.yaml && kustomize build | argocd-vault-plugin generate -"]
         - name: vault-kustomized
-          init:
-            command: ["/bin/sh", "-c"]
           generate:
             command: [sh, -c]
             args: ["kustomize build | argocd-vault-plugin generate -"]
