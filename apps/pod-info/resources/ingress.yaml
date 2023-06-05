@@ -18,3 +18,7 @@ spec:
             name: pod-info
             port:
               number: 80
+  tls:
+  - hosts:
+    - pod-info.local.tecno-fly.com
+    secretName: pod-info-tls
