@@ -18,3 +18,14 @@ spec:
     - namespaceSelector:
         matchLabels:
           name: pod-info
+  egress:
+  - to:
+    - namespaceSelector:
+        matchLabels:
+          name: cloudflare
+    - namespaceSelector:
+        matchLabels:
+          name: ingress-nginx
+    - namespaceSelector:
+        matchLabels:
+          name: pod-info
