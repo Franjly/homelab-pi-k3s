@@ -11,6 +11,9 @@ spec:
   - from:
     - namespaceSelector:
         matchLabels:
+          name: cert-manager
+    - namespaceSelector:
+        matchLabels:
           name: cloudflare
     - namespaceSelector:
         matchLabels:
@@ -20,6 +23,9 @@ spec:
           name: pod-info
   egress:
   - to:
+    - namespaceSelector:
+        matchLabels:
+          name: cert-manager
     - namespaceSelector:
         matchLabels:
           name: cloudflare
