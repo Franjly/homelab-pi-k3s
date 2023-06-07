@@ -11,27 +11,15 @@ spec:
   - from:
     - namespaceSelector:
         matchLabels:
-          kubernetes.io/metadata.name: cert-manager
-    - namespaceSelector:
-        matchLabels:
           kubernetes.io/metadata.name: cloudflare
     - namespaceSelector:
         matchLabels:
           kubernetes.io/metadata.name: ingress-nginx
-    - namespaceSelector:
-        matchLabels:
-          kubernetes.io/metadata.name: pod-info
   egress:
   - to:
     - namespaceSelector:
         matchLabels:
-          kubernetes.io/metadata.name: cert-manager
-    - namespaceSelector:
-        matchLabels:
           kubernetes.io/metadata.name: cloudflare
     - namespaceSelector:
         matchLabels:
           kubernetes.io/metadata.name: ingress-nginx
-    - namespaceSelector:
-        matchLabels:
-          kubernetes.io/metadata.name: pod-info
