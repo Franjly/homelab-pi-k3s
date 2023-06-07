@@ -14,10 +14,10 @@ spec:
           name: cert-manager
     - namespaceSelector:
         matchLabels:
-          name: cloudflare
+          kubernetes.io/metadata.name: cloudflare
     - namespaceSelector:
         matchLabels:
-          name: ingress-nginx
+          kubernetes.io/metadata.name: ingress-nginx
     - namespaceSelector:
         matchLabels:
           name: pod-info
@@ -28,10 +28,10 @@ spec:
           name: cert-manager
     - namespaceSelector:
         matchLabels:
-          name: cloudflare
+          kubernetes.io/metadata.name: cloudflare
     - namespaceSelector:
         matchLabels:
-          name: ingress-nginx
+          kubernetes.io/metadata.name: ingress-nginx
     - namespaceSelector:
         matchLabels:
           name: pod-info
