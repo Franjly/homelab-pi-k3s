@@ -1,7 +1,7 @@
 sonarr:
   image:
     repository: hotio/sonarr
-    tag: release-3.0.9.1549
+    tag: release-3.0.10.1567
 
   env:
     TZ: Europe/Madrid
