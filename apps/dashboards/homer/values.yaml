@@ -1,7 +1,7 @@
 homer:
   image:
     repository: b4bz/homer
-    tag: v22.11.1
+    tag: v23.05.1
 
   env:
     TZ: Europe/Madrid
