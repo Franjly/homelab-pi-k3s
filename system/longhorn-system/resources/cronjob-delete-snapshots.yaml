@@ -43,14 +43,17 @@ spec:
   schedule: "0 * * * *"
   jobTemplate:
     spec:
+      backoffLimit: 3
       template:
         spec:
           serviceAccountName: delete-snapshots 
-          restartPolicy: Never
+          restartPolicy: OnFailure
+          terminationGracePeriodSeconds: 30
           containers:
-            - name: kubectl
+            - name: delete-snapshots
               image: bitnami/kubectl
+              imagePullPolicy: IfNotPresent
               command:
                 - /bin/sh
                 - -c
-                - kubectl get snapshots.longhorn.io -n longhorn-system --no-headers --sort-by=.metadata.creationTimestamp | awk 'match($7,/[0-9]d/) {print $0}' | grep -Ev '^backup|^snapshot' | awk '{print $1}' | xargs -I %s kubectl delete snapshots.longhorn.io %s -n longhorn-system
+                - kubectl get snapshots.longhorn.io -n longhorn-system --no-headers --sort-by=.metadata.creationTimestamp | awk 'match($7,/[0-9]d/) {print $0}' | grep -Ev '^backup|^snapshot' | awk '{print $1}' | xargs -I %s kubectl delete snapshots.longhorn.io %s -n longhorn-system  
