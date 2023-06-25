@@ -37,4 +37,4 @@ prowlarr:
     config:
       enabled: true
       storageClass: longhorn
-      size: 5Gi
+      size: 10Gi
