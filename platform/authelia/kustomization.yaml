@@ -1,0 +1,4 @@
+namespace: authelia
+
+resources:
+- ./resources/all.yaml
