@@ -1,7 +1,7 @@
 namespace: longhorn-system
 
 resources:
-- ./secrets/longhorn-backup-target-credential-secret.yaml
+#- ./secrets/longhorn-backup-target-credential-secret.yaml
 - ./resources/all.yaml
 - ./configs/longhorn-recurring-job.yaml
 #- ./resources/service-monitor.yaml
