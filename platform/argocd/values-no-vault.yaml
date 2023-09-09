@@ -439,6 +439,10 @@ argo-cd:
           generate:
             command: [sh, -c]
             args: ["helm template $ARGOCD_APP_NAME --include-crds --namespace $ARGOCD_APP_NAMESPACE . > resources/all.yaml && kustomize build | argocd-vault-plugin generate -"]
+        - name: vault-kustomized
+          generate:
+            command: [sh, -c]
+            args: ["kustomize build | argocd-vault-plugin generate -"]
       resource.customizations.health.argoproj.io_Application: |
         hs = {}
         hs.status = "Progressing"
