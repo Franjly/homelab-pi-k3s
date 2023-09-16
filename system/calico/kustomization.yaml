@@ -3,5 +3,5 @@ namespace: tigera-operator
 resources:
 - ./resources/all.yaml
 
-patches:
-- ./patches/crd-installations.yaml
+# patches:
+# - ./patches/crd-installations.yaml
