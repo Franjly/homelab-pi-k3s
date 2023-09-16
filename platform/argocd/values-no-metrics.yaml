@@ -1988,6 +1988,11 @@ argo-cd:
         nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
         nginx.ingress.kubernetes.io/ssl-passthrough: "true"
         cert-manager.io/cluster-issuer: letsencrypt-staging
+        hajimari.io/appName: ArgoCD
+        hajimari.io/icon: sync-circle
+        hajimari.io/group: DevOps
+        hajimari.io/targetBlank: 'false'
+
       # -- Additional ingress labels
       labels: {}
       # -- Defines which ingress controller will implement the resource
@@ -2879,7 +2884,7 @@ argo-cd:
     name: notifications-controller
 
     # -- Argo CD dashboard url; used in place of {{.context.argocdUrl}} in templates
-    argocdUrl:
+    argocdUrl: https://argocd.local.tecno-fly.com
 
     ## Notifications controller Pod Disruption Budget
     ## Ref: https://kubernetes.io/docs/tasks/run-application/configure-pdb/
