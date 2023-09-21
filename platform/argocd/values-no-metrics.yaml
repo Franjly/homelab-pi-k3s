@@ -2232,7 +2232,7 @@ argo-cd:
     extraContainers:
       - name: kustomized-helm
         command: [/var/run/argocd/argocd-cmp-server]
-        image: franjlytools/argocd-plugins-helm-kustomize-vault
+        image: franjlytools/argocd-plugins-vault
         securityContext:
           runAsNonRoot: true
           runAsUser: 999
