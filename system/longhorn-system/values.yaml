@@ -12,6 +12,7 @@ longhorn:
     defaultDataPath: /data/longhorn
     taintToleration: node-role.kubernetes.io/master=true:NoSchedule
     defaultLonghornStaticStorageClass: longhorn
+    deletingConfirmationFlag: true
 
   longhornManager:
     tolerations:
