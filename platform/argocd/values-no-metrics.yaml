@@ -2294,7 +2294,7 @@ argo-cd:
     # -- Init containers to add to the repo server pods
     initContainers:
       - name: download-tools
-        image: alpine:3.8
+        image: alpine
         command: [sh, -c]
         args:
           - wget -O argocd-vault-plugin
