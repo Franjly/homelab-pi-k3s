@@ -2265,6 +2265,9 @@ argo-cd:
       - name: vault-kustomized-helm
         command: [/var/run/argocd/argocd-cmp-server]
         image: franjlytools/argocd-plugins-vault
+        envFrom:
+        - secretRef:
+            name: argocd-vault-plugin-credentials
         securityContext:
           runAsNonRoot: true
           runAsUser: 999
@@ -2284,6 +2287,9 @@ argo-cd:
       - name: vault-kustomized
         command: [/var/run/argocd/argocd-cmp-server]
         image: franjlytools/argocd-plugins-vault
+        envFrom:
+        - secretRef:
+            name: argocd-vault-plugin-credentials
         securityContext:
           runAsNonRoot: true
           runAsUser: 999

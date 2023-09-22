@@ -19,7 +19,8 @@ data:
         command: ["argocd-vault-plugin"]
         args: ["generate", "./"]
       discover:
-        fileName: "./subdir/s*.yaml"
+        find:
+          command: [sh, -c, find . -name kustomization.yaml] 
 ---
 apiVersion: v1
 kind: ConfigMap
@@ -64,7 +65,8 @@ data:
         command: [sh, -c]
         args: ["helm template $ARGOCD_APP_NAME --include-crds --namespace $ARGOCD_APP_NAMESPACE . > resources/all.yaml && kustomize build | argocd-vault-plugin generate -"]
       discover:
-        fileName: "./subdir/s*.yaml"
+        find:
+          command: [sh, -c, find . -name kustomization.yaml] 
 ---
 apiVersion: v1
 kind: ConfigMap
@@ -86,4 +88,5 @@ data:
         command: [sh, -c]
         args: ["kustomize build | argocd-vault-plugin generate -"]
       discover:
-        fileName: "./subdir/s*.yaml"
+        find:
+          command: [sh, -c, find . -name kustomization.yaml] 
