@@ -3300,9 +3300,7 @@ kube-prometheus-stack:
       query: {}
 
       ## If nil, select own namespace. Namespaces to be selected for PrometheusRules discovery.
-      ruleNamespaceSelector:
-        any: true
-        
+      ruleNamespaceSelector: {}
       ## Example which selects PrometheusRules in namespaces with label "prometheus" set to "somelabel"
       # ruleNamespaceSelector:
       #   matchLabels:
@@ -3350,9 +3348,7 @@ kube-prometheus-stack:
 
       ## Namespaces to be selected for ServiceMonitor discovery.
       ##
-      serviceMonitorNamespaceSelector:
-        any: true
-
+      serviceMonitorNamespaceSelector: {}
       ## Example which selects ServiceMonitors in namespaces with label "prometheus" set to "somelabel"
       # serviceMonitorNamespaceSelector:
       #   matchLabels:
@@ -3374,9 +3370,7 @@ kube-prometheus-stack:
       #     prometheus: somelabel
 
       ## If nil, select own namespace. Namespaces to be selected for PodMonitor discovery.
-      podMonitorNamespaceSelector:
-        any: true
-        
+      podMonitorNamespaceSelector: {}
       ## Example which selects PodMonitor in namespaces with label "prometheus" set to "somelabel"
       # podMonitorNamespaceSelector:
       #   matchLabels:
