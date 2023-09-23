@@ -5,21 +5,21 @@ resources:
 - ./resources/all.yaml
 
 patches:
-  # - path: ./patches/kube-prometheus-stack-kube-proxy-service-monitor.yaml
-  #   target:
-  #     kind: ServiceMonitor
-  #     name: kube-prometheus-stack-kube-proxy
-  #     namespace: monitoring-system
-  # - path: ./patches/kube-prometheus-stack-kube-controller-manager-service-monitor.yaml
-  #   target:
-  #     kind: ServiceMonitor
-  #     name: kube-prometheus-stack-kube-controller-manager
-  #     namespace: monitoring-system
-  # - path: ./patches/kube-prometheus-stack-kube-scheduler-service-monitor.yaml
-  #   target:
-  #     kind: ServiceMonitor
-  #     name: kube-prometheus-stack-kube-scheduler
-  #     namespace: monitoring-system
+  - path: ./patches/kube-prometheus-stack-kube-proxy-service-monitor.yaml
+    target:
+      kind: ServiceMonitor
+      name: kube-prometheus-stack-kube-proxy
+      namespace: monitoring-system
+  - path: ./patches/kube-prometheus-stack-kube-controller-manager-service-monitor.yaml
+    target:
+      kind: ServiceMonitor
+      name: kube-prometheus-stack-kube-controller-manager
+      namespace: monitoring-system
+  - path: ./patches/kube-prometheus-stack-kube-scheduler-service-monitor.yaml
+    target:
+      kind: ServiceMonitor
+      name: kube-prometheus-stack-kube-scheduler
+      namespace: monitoring-system
   # - path: ./patches/kube-prometheus-stack-kube-scheduler-svc.yaml
   #   target:
   #     kind: Service
