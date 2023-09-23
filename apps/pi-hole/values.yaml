@@ -1,7 +1,7 @@
 pihole:
   image:
     repository: "pihole/pihole"
-    tag: "2022.11.2"
+    tag: ""
 
   # -- Configuration for the DNS service on port 53
   serviceDns:
@@ -121,7 +121,7 @@ pihole:
   # -- extraEnvironmentVars is a list of extra enviroment variables to set for pihole to use
   extraEnvVars:
     CORS_HOSTS: homer.local.tecno-fly.com
-    # TZ: UTC
+    TZ: Europe/Madrid
 
   # -- extraEnvVarsSecret is a list of secrets to load in as environment variables.
   extraEnvVarsSecret: {}
