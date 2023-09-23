@@ -20,16 +20,16 @@ patches:
       kind: ServiceMonitor
       name: kube-prometheus-stack-kube-scheduler
       namespace: monitoring-system
-  - path: ./patches/kube-prometheus-stack-kube-scheduler-svc.yaml
-    target:
-      kind: Service
-      name: kube-prometheus-stack-kube-scheduler
-      namespace: monitoring-system
-  - path: ./patches/kube-prometheus-stack-kube-controller-manager-svc.yaml
-    target:
-      kind: Service
-      name: kube-prometheus-stack-kube-controller-manager
-      namespace: monitoring-system
+  # - path: ./patches/kube-prometheus-stack-kube-scheduler-svc.yaml
+  #   target:
+  #     kind: Service
+  #     name: kube-prometheus-stack-kube-scheduler
+  #     namespace: monitoring-system
+  # - path: ./patches/kube-prometheus-stack-kube-controller-manager-svc.yaml
+  #   target:
+  #     kind: Service
+  #     name: kube-prometheus-stack-kube-controller-manager
+  #     namespace: monitoring-system
 
 # - ./patches/kube-prometheus-stack-kube-proxy-service-monitor.yaml
 # - ./patches/kube-prometheus-stack-kube-controller-manager-service-monitor.yaml
