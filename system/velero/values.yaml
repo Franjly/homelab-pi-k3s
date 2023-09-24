@@ -51,35 +51,34 @@ velero:
       repository: docker.io/zcube/bitnami-compat-kubectl
 
   configuration:
-    provider: aws
-
     backupStorageLocation:
-      provider: aws
-      # bucket is the name of the bucket to store backups in. Required.
-      bucket: <path:pi-k3s/data/system/velero#bucket>
-      # caCert defines a base64 encoded CA bundle to use when verifying TLS connections to the provider. Optional.
-      caCert: <path:pi-k3s/data/system/minio#ca-cert | base64encode>
-      config: 
-        region: minio
-        s3ForcePathStyle: "true"
-        s3Url: https://<path:pi-k3s/data/system/minio#host>:<path:pi-k3s/data/system/minio#port>
-        insecureSkipTLSVerify: true
+      - name: minio
+        provider: aws
+        # bucket is the name of the bucket to store backups in. Required.
+        bucket: <path:pi-k3s/data/system/velero#bucket>
+        # caCert defines a base64 encoded CA bundle to use when verifying TLS connections to the provider. Optional.
+        caCert: <path:pi-k3s/data/system/minio#ca-cert | base64encode>
+        config: 
+          region: minio
+          s3ForcePathStyle: "true"
+          s3Url: https://<path:pi-k3s/data/system/minio#host>:<path:pi-k3s/data/system/minio#port>
+          insecureSkipTLSVerify: true
 
     volumeSnapshotLocation:
-      name: longhorn
-      provider: longhorn.io/longhorn
-      # Additional provider-specific configuration. See link above
-      # for details of required/optional fields for your provider.
-      config:
-        snapshotLocation: longhorn
-    #    region:
-    #    apiTimeout:
-    #    resourceGroup:
-    #    The ID of the subscription where volume snapshots should be stored, if different from the cluster’s subscription. If specified, also requires `configuration.volumeSnapshotLocation.config.resourceGroup`to be set. (Azure only)
-    #    subscriptionId:
-    #    incremental:
-    #    snapshotLocation:
-    #    project:
+      - name: longhorn
+        provider: longhorn.io/longhorn
+        # Additional provider-specific configuration. See link above
+        # for details of required/optional fields for your provider.
+        config:
+          snapshotLocation: longhorn
+      #    region:
+      #    apiTimeout:
+      #    resourceGroup:
+      #    The ID of the subscription where volume snapshots should be stored, if different from the cluster’s subscription. If specified, also requires `configuration.volumeSnapshotLocation.config.resourceGroup`to be set. (Azure only)
+      #    subscriptionId:
+      #    incremental:
+      #    snapshotLocation:
+      #    project:
 
   credentials:
     useSecret: true
