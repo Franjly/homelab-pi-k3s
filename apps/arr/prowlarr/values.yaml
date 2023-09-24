@@ -1,7 +1,7 @@
 prowlarr:
   image:
     repository: hotio/prowlarr
-    tag: nightly-1.9.2.3982
+    tag: release-1.6.3.3608
 
   env:
     TZ: Europe/Madrid
