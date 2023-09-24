@@ -1,7 +1,7 @@
 radarr:
   image:
     repository: hotio/radarr
-    tag: release-4.5.2.7388
+    tag: release-4.7.5.7809
 
   env:
     TZ: Europe/Madrid

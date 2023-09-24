@@ -1,7 +1,7 @@
 readarr:
   image:
     repository: hotio/readarr
-    tag: testing-0.1.7.1882
+    tag: testing-0.3.5.2217
 
   env:
     TZ: Europe/Madrid

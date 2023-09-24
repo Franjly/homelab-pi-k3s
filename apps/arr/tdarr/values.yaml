@@ -1,7 +1,7 @@
 tdarr:
   image:
     repository: haveagitgat/tdarr
-    tag: 2.00.20.1
+    tag: 2.11.01
 
   env:
     TZ: Europe/Madrid
