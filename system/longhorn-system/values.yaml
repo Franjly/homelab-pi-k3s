@@ -12,16 +12,16 @@ longhorn:
     backupTarget: s3://longhorn-backups@us-east-1/
     backupTargetCredentialSecret: longhorn-backup-target-credential-secret
     defaultDataPath: /data/longhorn
-    taintToleration: node-role.kubernetes.io/master=true:NoSchedule
+    # taintToleration: node-role.kubernetes.io/master=true:NoSchedule
     defaultLonghornStaticStorageClass: longhorn
     deletingConfirmationFlag: true
 
-  longhornManager:
-    tolerations:
-    - key: node-role.kubernetes.io/master
-      operator: Equal
-      value: "true"
-      effect: NoSchedule
+  # longhornManager:
+  #   tolerations:
+  #   - key: node-role.kubernetes.io/master
+  #     operator: Equal
+  #     value: "true"
+  #     effect: NoSchedule
 
   # longhornDriver:
   #   tolerations:
