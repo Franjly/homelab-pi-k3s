@@ -30,7 +30,8 @@ longhorn:
   #     value: "true"
   #     effect: NoSchedule
 
-  # longhornUI:
+  longhornUI:
+    replicas: 1
   #   tolerations:
   #   - key: node-role.kubernetes.io/master
   #     operator: Equal
