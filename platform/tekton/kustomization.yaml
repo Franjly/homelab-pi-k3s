@@ -1,0 +1,4 @@
+namespace: tekton
+
+resources:
+- ./resources/all.yaml
