@@ -5,3 +5,4 @@ resources:
 # - https://storage.googleapis.com/tekton-releases/dashboard/previous/v0.43.0/release-full.yaml
 - ./resources/tekton-dashboard.yaml
 - ./resources/tekton-dashboard-ingress.yaml
+- https://api.hub.tekton.dev/v1/resource/tekton/task/kaniko/0.6/raw
