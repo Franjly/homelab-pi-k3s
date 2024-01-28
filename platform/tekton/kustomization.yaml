@@ -2,7 +2,8 @@ namespace: tekton-pipelines
 
 resources:
 # - ./resources/all.yaml
-- https://storage.googleapis.com/tekton-releases/pipeline/previous/v0.56.0/release.yaml
+# - https://storage.googleapis.com/tekton-releases/pipeline/previous/v0.56.0/release.yaml
+- ./resources/tekton-pipelines.yaml
 # - https://storage.googleapis.com/tekton-releases/dashboard/previous/v0.43.0/release.yaml
 # - https://storage.googleapis.com/tekton-releases/dashboard/previous/v0.43.0/release-full.yaml
 # - ./resources/tekton-dashboard.yaml
