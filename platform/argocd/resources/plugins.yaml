@@ -40,7 +40,7 @@ data:
         args: ["helm dependency build"]
       generate:
         command: [sh, -c]
-        args: ["helm template $ARGOCD_APP_NAME --include-crds --namespace $ARGOCD_APP_NAMESPACE . > resources/all.yaml && kustomize build"]
+        args: ["helm template $ARGOCD_APP_NAME --include-crds --api-versions monitoring.coreos.com/v1 --namespace $ARGOCD_APP_NAMESPACE . > resources/all.yaml && kustomize build"]
       discover:
         find:
           command: [sh, -c, find . -name kustomization.yaml] 
@@ -63,7 +63,7 @@ data:
         args: ["helm dependency build"]
       generate:
         command: [sh, -c]
-        args: ["helm template $ARGOCD_APP_NAME --include-crds --namespace $ARGOCD_APP_NAMESPACE . > resources/all.yaml && kustomize build | argocd-vault-plugin generate -"]
+        args: ["helm template $ARGOCD_APP_NAME --include-crds --api-versions monitoring.coreos.com/v1 --namespace $ARGOCD_APP_NAMESPACE . > resources/all.yaml && kustomize build | argocd-vault-plugin generate -"]
       discover:
         find:
           command: [sh, -c, find . -name kustomization.yaml] 
