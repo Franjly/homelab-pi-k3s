@@ -15,6 +15,10 @@ longhorn:
     # taintToleration: node-role.kubernetes.io/master=true:NoSchedule
     defaultLonghornStaticStorageClass: longhorn
     deletingConfirmationFlag: true
+    concurrentReplicaRebuildPerNodeLimit: 2
+    concurrentVolumeBackupRestorePerNodeLimit: 2
+    backupConcurrentLimit: 2
+    restoreConcurrentLimit: 2
 
   # longhornManager:
   #   tolerations:
