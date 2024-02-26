@@ -94,6 +94,9 @@ velero:
       disabled: false
       schedule: "45 7 * * *"
       useOwnerReferencesInBackup: false
+      annotations:
+        argocd.argoproj.io/compare-options: IgnoreExtraneous
+        argocd.argoproj.io/sync-options: Delete=false,Prune=false
       template:
         ttl: "240h"
         includedNamespaces:
