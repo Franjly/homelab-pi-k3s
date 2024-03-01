@@ -1631,6 +1631,7 @@ kube-prometheus-stack:
       targetPort: null
       selector:
         component: kube-controller-manager
+        app: kube-prometheus-stack-kube-controller-manager
 
     serviceMonitor:
       enabled: true
