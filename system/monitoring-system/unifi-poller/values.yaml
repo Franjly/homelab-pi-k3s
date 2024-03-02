@@ -90,6 +90,3 @@ unifi-poller:
         - none
         - --user-data-dir
         - /.vscode
-      volumeMounts:
-      - name: config
-        mountPath: /
