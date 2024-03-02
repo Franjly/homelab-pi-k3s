@@ -89,7 +89,7 @@ unifi-poller:
         - --auth
         - none
         - --user-data-dir
-        - /data/config/.vscode
+        - /.vscode
       volumeMounts:
       - name: config
-        mountPath: /data/config
+        mountPath: /
