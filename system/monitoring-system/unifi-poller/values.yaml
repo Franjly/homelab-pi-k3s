@@ -2,7 +2,7 @@ unifi-poller:
   image:
     repository: golift/unifi-poller
     pullPolicy: IfNotPresent
-    tag: v2.9.2
+    tag: v2.9.5
 
 
   # -- Environment variable configuration options for unifi-poller ([docs](https://unifipoller.com/docs/install/configuration)).
