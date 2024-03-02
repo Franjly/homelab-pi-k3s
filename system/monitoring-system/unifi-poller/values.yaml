@@ -84,7 +84,7 @@ unifi-poller:
     #    This allows for easy access to configuration.yaml
     # @default -- See values.yaml
     codeserver:
-      enabled: false
+      enabled: true
       args:
         - --auth
         - none
