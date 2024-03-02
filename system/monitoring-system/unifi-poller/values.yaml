@@ -67,6 +67,7 @@ unifi-poller:
       type: secret
       name: unifi-poller-config
       mountPath: /etc/unpoller/up.conf
+      subPath: unifi-poller.conf
 
   metrics:
     enabled: true
