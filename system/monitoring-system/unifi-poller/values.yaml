@@ -7,28 +7,28 @@ unifi-poller:
 
   # -- Environment variable configuration options for unifi-poller ([docs](https://unifipoller.com/docs/install/configuration)).
   #    Note: a [configuration file](https://github.com/unifi-poller/unifi-poller/blob/master/examples/up.conf.example) is also supported.
-  env:
-    UP_UNIFI_DEFAULT_URL: "https://192.168.0.1"
-    UP_UNIFI_DEFAULT_USER: <path:pi-k3s/data/system/monitoring-system/unifi-poller#UP_UNIFI_DEFAULT_USER>
-    UP_UNIFI_DEFAULT_PASS: <path:pi-k3s/data/system/monitoring-system/unifi-poller#UP_UNIFI_DEFAULT_PASS>
-    # UP_WEBSERVER_ENABLE: true
-    UP_INFLUXDB_DISABLE: true
-    UP_UNIFI_DEFAULT_SAVE_DPI: true
-    UP_UNIFI_DEFAULT_SAVE_SITES: true
-    # UP_LOKI_URL: http://loki.monitoring-system:3100
-    UP_UNIFI_DEFAULT_SAVE_IDS: true
-    UP_UNIFI_DEFAULT_SAVE_EVENTS: true
-    UP_UNIFI_DEFAULT_SAVE_ALARMS: true
-    UP_UNIFI_DEFAULT_SAVE_ANOMALIES: true
-    # UP_PROMETHEUS_DISABLE: true
+  # env:
+  #   UP_UNIFI_DEFAULT_URL: "https://192.168.0.1"
+  #   UP_UNIFI_DEFAULT_USER: <path:pi-k3s/data/system/monitoring-system/unifi-poller#UP_UNIFI_DEFAULT_USER>
+  #   UP_UNIFI_DEFAULT_PASS: <path:pi-k3s/data/system/monitoring-system/unifi-poller#UP_UNIFI_DEFAULT_PASS>
+  #   # UP_WEBSERVER_ENABLE: true
+  #   UP_INFLUXDB_DISABLE: true
+  #   UP_UNIFI_DEFAULT_SAVE_DPI: true
+  #   UP_UNIFI_DEFAULT_SAVE_SITES: true
+  #   # UP_LOKI_URL: http://loki.monitoring-system:3100
+  #   UP_UNIFI_DEFAULT_SAVE_IDS: true
+  #   UP_UNIFI_DEFAULT_SAVE_EVENTS: true
+  #   UP_UNIFI_DEFAULT_SAVE_ALARMS: true
+  #   UP_UNIFI_DEFAULT_SAVE_ANOMALIES: true
+  #   # UP_PROMETHEUS_DISABLE: true
 
   service:
     main:
       ports:
-        # http:
-        #   enabled: true
-        #   protocol: TCP
-        #   port: 37288
+        http:
+          enabled: true
+          protocol: TCP
+          port: 37288
         metrics:
           enabled: true
           protocol: TCP
@@ -60,6 +60,13 @@ unifi-poller:
         - secretName: unifi-poller-tls
           hosts:
             - unifi-poller.local.tecno-fly.com
+
+  persistence:
+    config:
+      enabled: true
+      type: secret
+      name: unifi-poller-config
+      mountPath: /config/unifi-poller.conf
 
   metrics:
     enabled: true

@@ -1,4 +1,5 @@
 namespace: monitoring-system
 
 resources:
+- ./secrets/unifi-poller-config.yaml
 - ./resources/all.yaml
