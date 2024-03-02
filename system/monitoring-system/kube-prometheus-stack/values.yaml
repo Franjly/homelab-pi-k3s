@@ -1629,9 +1629,9 @@ kube-prometheus-stack:
       ##
       port: null
       targetPort: null
-      selector:
-        component: kube-controller-manager
-        app: kube-prometheus-stack-kube-controller-manager
+      # selector:
+      #   component: kube-controller-manager
+      #   app: kube-prometheus-stack-kube-controller-manager
 
     serviceMonitor:
       enabled: true
@@ -1961,8 +1961,8 @@ kube-prometheus-stack:
       ##
       port: null
       targetPort: null
-      selector:
-        component: kube-scheduler
+      # selector:
+      #   component: kube-scheduler
 
     serviceMonitor:
       enabled: true
@@ -2049,8 +2049,8 @@ kube-prometheus-stack:
       enabled: true
       port: 10249
       targetPort: 10249
-      selector:
-        k8s-app: kube-proxy
+      # selector:
+      #   k8s-app: kube-proxy
 
     serviceMonitor:
       enabled: true
