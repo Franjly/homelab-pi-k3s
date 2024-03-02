@@ -25,10 +25,10 @@ unifi-poller:
   service:
     main:
       ports:
-        # http:
-        #   enabled: true
-        #   protocol: TCP
-        #   port: 37288
+        http:
+          enabled: true
+          protocol: TCP
+          port: 37288
         metrics:
           enabled: true
           protocol: TCP
