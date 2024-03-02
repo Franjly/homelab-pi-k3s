@@ -11,7 +11,7 @@ unifi-poller:
     UP_UNIFI_DEFAULT_URL: "https://192.168.0.1"
     UP_UNIFI_DEFAULT_USER: <path:pi-k3s/data/system/monitoring-system/unifi-poller#UP_UNIFI_DEFAULT_USER>
     UP_UNIFI_DEFAULT_PASS: <path:pi-k3s/data/system/monitoring-system/unifi-poller#UP_UNIFI_DEFAULT_PASS>
-    # UP_WEBSERVER_ENABLE: true
+    UP_WEBSERVER_ENABLE: true
     UP_INFLUXDB_DISABLE: true
     UP_UNIFI_DEFAULT_SAVE_DPI: true
     UP_UNIFI_DEFAULT_SAVE_SITES: true
@@ -25,10 +25,10 @@ unifi-poller:
   service:
     main:
       ports:
-        http:
-          enabled: true
-          protocol: TCP
-          port: 37288
+        # http:
+        #   enabled: true
+        #   protocol: TCP
+        #   port: 37288
         metrics:
           enabled: true
           protocol: TCP
