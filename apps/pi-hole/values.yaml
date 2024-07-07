@@ -106,7 +106,8 @@ pihole:
     storageClass: "longhorn"
     size: "1Gi"
 
-  # nodeSelector:
+  nodeSelector:
+    kubernetes.io/hostname: pi-kube-worker-0
   #   node.kubernetes.io/role: master
 
   # tolerations:
