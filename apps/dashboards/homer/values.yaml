@@ -5,6 +5,7 @@ homer:
 
   env:
     TZ: Europe/Madrid
+    IPV6_DISABLE: 1
 
   ingress:
     main:
