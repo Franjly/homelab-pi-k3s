@@ -67,7 +67,7 @@ pihole:
     externalTrafficPolicy: Local
 
     # -- A fixed `spec.loadBalancerIP` for the web interface Service
-    loadBalancerIP: "192.168.40.254"
+    loadBalancerIP: "192.168.40.253"
     # -- A fixed `spec.loadBalancerIP` for the IPv6 web interface Service
     loadBalancerIPv6: ""
 
