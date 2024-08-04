@@ -7,7 +7,8 @@ resources:
 - ./resources/minio.yaml
 - ./resources/qbittorrent.yaml
 - ./resources/plex.yaml
-- ./resources/pi-hole-alt.yaml
+- ./resources/pi-hole-0.yaml
+- ./resources/pi-hole-truenas.yaml
 - ./resources/netdata.yaml
 - ./resources/unifi.yaml
 - ./resources/jellyfin.yaml
