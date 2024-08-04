@@ -2,7 +2,7 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: pi-hole-external-service
+  name: pi-hole-truenas-service
   namespace: external-endpoints
 spec:
   ports:
@@ -16,7 +16,7 @@ spec:
 apiVersion: v1
 kind: Endpoints
 metadata:
-  name: pi-hole-external-service
+  name: pi-hole-truenas-service
   namespace: external-endpoints
 subsets:
 - addresses:
@@ -31,26 +31,26 @@ kind: Ingress
 metadata:
   annotations:
     cert-manager.io/cluster-issuer: letsencrypt-staging
-    hajimari.io/appName: Pi-Hole - Alt
+    hajimari.io/appName: Pi-Hole - TrueNAS
     hajimari.io/icon: dns-outline
     hajimari.io/group: Network
     hajimari.io/targetBlank: 'false'
-  name: pi-hole-external-ingress
+  name: pi-hole-truenas-ingress
   namespace: external-endpoints
 spec:
   ingressClassName: nginx
   rules:
-  - host: pi-hole-alt.local.tecno-fly.com
+  - host: pi-hole-truenas.local.tecno-fly.com
     http:
       paths:
       - backend:
           service:
-            name: pi-hole-external-service
+            name: pi-hole-truenas-service
             port:
               number: 20720
         path: /
         pathType: Prefix
   tls:
   - hosts:
-    - pi-hole-alt.local.tecno-fly.com
+    - pi-hole-truenas.local.tecno-fly.com
     secretName: pi-hole-tls
