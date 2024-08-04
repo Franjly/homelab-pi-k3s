@@ -2,7 +2,7 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: pi-hole-zero-service
+  name: pi-hole-0-service
   namespace: external-endpoints
 spec:
   ports:
@@ -16,7 +16,7 @@ spec:
 apiVersion: v1
 kind: Endpoints
 metadata:
-  name: pi-hole-zero-service
+  name: pi-hole-0-service
   namespace: external-endpoints
 subsets:
 - addresses:
@@ -35,7 +35,7 @@ metadata:
     hajimari.io/icon: dns-outline
     hajimari.io/group: Network
     hajimari.io/targetBlank: 'false'
-  name: pi-hole-zero-ingress
+  name: pi-hole-0-ingress
   namespace: external-endpoints
 spec:
   ingressClassName: nginx
@@ -45,7 +45,7 @@ spec:
       paths:
       - backend:
           service:
-            name: pi-hole-zero-service
+            name: pi-hole-0-service
             port:
               number: 80
         path: /
