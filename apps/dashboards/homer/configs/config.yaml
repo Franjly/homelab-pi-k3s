@@ -85,7 +85,7 @@ services:
       - name: "Pi-hole - TrueNAS"
         type: "PiHole"
         logo: "https://raw.githubusercontent.com/walkxcode/Dashboard-Icons/main/svg/pi-hole.svg"
-        url: "https://pi-hole-alt.local.tecno-fly.com/admin"
+        url: "https://pi-hole-truenas.local.tecno-fly.com/admin"
         # subtitle: "Network-wide Ad Blocking"
         # tag: Apps
         target: "_blank"
