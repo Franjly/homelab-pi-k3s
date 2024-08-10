@@ -1036,7 +1036,7 @@ argo-cd:
       # -- Dex image repository
       repository: ghcr.io/dexidp/dex
       # -- Dex image tag
-      tag: v2.37.0
+      tag: v2.38.0
       # -- Dex imagePullPolicy
       # @default -- `""` (defaults to global.image.imagePullPolicy)
       imagePullPolicy: ""
@@ -1271,7 +1271,7 @@ argo-cd:
       # -- Redis repository
       repository: public.ecr.aws/docker/library/redis
       # -- Redis tag
-      tag: 7.0.11-alpine
+      tag: 7.2.4-alpine
       # -- Redis image pull policy
       # @default -- `""` (defaults to global.image.imagePullPolicy)
       imagePullPolicy: ""
@@ -1287,7 +1287,7 @@ argo-cd:
         # -- Repository to use for the redis-exporter
         repository: public.ecr.aws/bitnami/redis-exporter
         # -- Tag to use for the redis-exporter
-        tag: 1.53.0
+        tag: 1.58.0
         # -- Image pull policy for the redis-exporter
         # @default -- `""` (defaults to global.image.imagePullPolicy)
         imagePullPolicy: ""
@@ -1490,7 +1490,7 @@ argo-cd:
       # -- Redis repository
       repository: redis
       # -- Redis tag
-      tag: 7.0.11-alpine
+      tag: 7.2.4-alpine
     ## Prometheus redis-exporter sidecar
     exporter:
       # -- Enable Prometheus redis-exporter sidecar
@@ -1498,7 +1498,7 @@ argo-cd:
       # -- Repository to use for the redis-exporter
       image: public.ecr.aws/bitnami/redis-exporter
       # -- Tag to use for the redis-exporter
-      tag: 1.53.0
+      tag: 1.58.0
     persistentVolume:
       # -- Configures persistence on Redis nodes
       enabled: false
@@ -1668,9 +1668,9 @@ argo-cd:
       ## Argo UI extensions image
       image:
         # -- Repository to use for extensions image
-        repository: "ghcr.io/argoproj-labs/argocd-extensions"
+        repository: "quay.io/argoprojlabs/argocd-extension-installer"
         # -- Tag to use for extensions image
-        tag: "v0.2.1"
+        tag: "v0.0.5"
         # -- Image pull policy for extensions
         # @default -- `""` (defaults to global.image.imagePullPolicy)
         imagePullPolicy: ""
