@@ -1,6 +1,6 @@
 overseerr:
   image:
-    repository: hotio/overseerr
+    repository: ghcr.io/hotio/overseerr
     tag: release-1.33.2
 
   env:

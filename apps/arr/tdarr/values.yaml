@@ -1,7 +1,7 @@
 tdarr:
   image:
-    repository: haveagitgat/tdarr
-    tag: 2.11.01
+    repository: ghcr.io/haveagitgat/tdarr
+    tag: 2.24.03
 
   env:
     TZ: Europe/Madrid
