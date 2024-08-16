@@ -263,11 +263,6 @@ argo-cd:
   ## Note: Supports use of custom Helm templates
   extraObjects:
     - apiVersion: v1
-      kind: ServiceAccount
-      metadata:
-        name: argocd-repo-server
-        namespace: argocd
-    - apiVersion: v1
       kind: Secret
       metadata:
         name: argocd-repo-server
