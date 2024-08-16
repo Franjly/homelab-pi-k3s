@@ -17,9 +17,9 @@ longhorn:
 
     recurringJobSelector:
       # -- Setting that allows you to enable the recurring job selector for a Longhorn StorageClass.
-      enable: false
+      enable: true
       # -- Recurring job selector for a Longhorn StorageClass. Ensure that quotes are used correctly when specifying job parameters. (Example: `[{"name":"backup", "isGroup":true}]`)
-      jobList: []
+      jobList: '[{"name":"snapshot-default","task":"snapshot","cron":"0 5 * * *","retain":1},{"name":"backup-default","task":"backup","cron":"0 6 * * *","retain":3}]'
 
   preUpgradeChecker:
     # -- Setting that allows Longhorn to perform pre-upgrade checks. Disable this setting when installing Longhorn using Argo CD or other GitOps solutions.
