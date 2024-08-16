@@ -174,38 +174,47 @@ argo-cd:
       create: false
 
       # -- Plugin yaml files to be added to argocd-cmp-cm
-      plugins: {}
-        # --- First plugin
-        # my-plugin:
-        #   init:
-        #     command: [sh]
-        #     args: [-c, 'echo "Initializing..."']
-        #   generate:
-        #     command: [sh, -c]
-        #     args:
-        #       - |
-        #         echo "{\"kind\": \"ConfigMap\", \"apiVersion\": \"v1\", \"metadata\": { \"name\": \"$ARGOCD_APP_NAME\", \"namespace\": \"$ARGOCD_APP_NAMESPACE\", \"annotations\": {\"Foo\": \"$ARGOCD_ENV_FOO\", \"KubeVersion\": \"$KUBE_VERSION\", \"KubeApiVersion\": \"$KUBE_API_VERSIONS\",\"Bar\": \"baz\"}}}"
-        #   discover:
-        #     fileName: "./subdir/s*.yaml"
-        #     find:
-        #       glob: "**/Chart.yaml"
-        #       command: [sh, -c, find . -name env.yaml]
-
-        # --- Second plugin
-        # my-plugin2:
-        #   init:
-        #     command: [sh]
-        #     args: [-c, 'echo "Initializing..."']
-        #   generate:
-        #     command: [sh, -c]
-        #     args:
-        #       - |
-        #         echo "{\"kind\": \"ConfigMap\", \"apiVersion\": \"v1\", \"metadata\": { \"name\": \"$ARGOCD_APP_NAME\", \"namespace\": \"$ARGOCD_APP_NAMESPACE\", \"annotations\": {\"Foo\": \"$ARGOCD_ENV_FOO\", \"KubeVersion\": \"$KUBE_VERSION\", \"KubeApiVersion\": \"$KUBE_API_VERSIONS\",\"Bar\": \"baz\"}}}"
-        #   discover:
-        #     fileName: "./subdir/s*.yaml"
-        #     find:
-        #       glob: "**/Chart.yaml"
-        #       command: [sh, -c, find . -name env.yaml]
+      plugins:
+        argocd-vault-plugin:
+          init:
+            command: [sh]
+            args: [-c, 'echo "Initializing..."']
+          generate:
+            command: ["argocd-vault-plugin"]
+            args: ["generate", "./"]
+          discover:
+            find:
+              command: [sh, -c, find . -name kustomization.yaml]
+        kustomized-helm:
+          init:
+            command: ["/bin/sh", "-c"]
+            args: ["helm dependency build"]
+          generate:
+            command: [sh, -c]
+            args: ["helm template $ARGOCD_APP_NAME --include-crds $ARGOCD_ENV_EXTRA_ARGS --namespace $ARGOCD_APP_NAMESPACE . > resources/all.yaml && kustomize build | argocd-vault-plugin generate -"]
+          discover:
+            find:
+              command: [sh, -c, find . -name kustomization.yaml]
+        vault-kustomized-helm:
+          init:
+            command: ["/bin/sh", "-c"]
+            args: ["helm dependency build"]
+          generate:
+            command: [sh, -c]
+            args: ["helm template $ARGOCD_APP_NAME --include-crds $ARGOCD_ENV_EXTRA_ARGS --namespace $ARGOCD_APP_NAMESPACE . > resources/all.yaml && kustomize build | argocd-vault-plugin generate -"]
+          discover:
+            find:
+              command: [sh, -c, find . -name kustomization.yaml]
+        vault-kustomized:
+          init:
+            command: [sh]
+            args: [-c, 'echo "Initializing..."']
+          generate:
+            command: [sh, -c]
+            args: ["kustomize build | argocd-vault-plugin generate -"]
+          discover:
+            find:
+              command: [sh, -c, find . -name kustomization.yaml]
 
     # -- Repositories list to be used by applications
     ## Creates a secret for each key/value specified below to create repositories
