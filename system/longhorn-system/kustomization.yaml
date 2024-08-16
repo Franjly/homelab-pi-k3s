@@ -8,5 +8,5 @@ resources:
 - ./resources/prometheus-rules.yaml
 # - ./resources/cronjob-delete-snapshots.yaml
 
-patches:
+# patches:
 #- ./patches/local-path.yaml
