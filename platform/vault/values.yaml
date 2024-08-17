@@ -1,9 +1,63 @@
 vault:
-  server:
+  global:
+    # enabled is the master enabled switch. Setting this to true or false
+    # will enable or disable all the components within this chart by default.
     enabled: true
 
+    serverTelemetry:
+      # Enable integration with the Prometheus Operator
+      # See the top level serverTelemetry section below before enabling this feature.
+      prometheusOperator: false
+
+  injector:
+    # True if you want to enable vault agent injection.
+    # @default: global.enabled
+    enabled: "-"
+
+    replicas: 1
+
+    # Configures the port the injector should listen on
+    port: 8080
+
+    # If multiple replicas are specified, by default a leader will be determined
+    # so that only one injector attempts to create TLS certificates.
+    leaderElector:
+      enabled: true
+
+    # If true, will enable a node exporter metrics endpoint at /metrics.
+    metrics:
+      enabled: false
+
+    # Mount Path of the Vault Kubernetes Auth Method.
+    authPath: "auth/kubernetes"
+
+    # Configures the log verbosity of the injector.
+    # Supported log levels include: trace, debug, info, warn, error
+    logLevel: "info"
+
+    # Configures the log format of the injector. Supported log formats: "standard", "json".
+    logFormat: "standard"
+
+  server:
+    # If true, or "-" with global.enabled true, Vault server will be installed.
+    # See vault.mode in _helpers.tpl for implementation details.
+    enabled: "-"
+
+    # Configure the logging verbosity for the Vault server.
+    # Supported log levels include: trace, debug, info, warn, error
+    logLevel: "info"
+
+    # Configure the logging format for the Vault server.
+    # Supported log formats include: standard, json
+    logFormat: "standard"
+
+    # Ingress allows ingress services to be created to allow external access
+    # from Kubernetes to access Vault pods.
+    # If deployment is on OpenShift, the following block is ignored.
+    # In order to expose the service, use the route section below
     ingress:
       enabled: true
+      
       annotations:
         cert-manager.io/cluster-issuer: letsencrypt-staging
         # kubernetes.io/tls-acme: "true"
@@ -11,13 +65,206 @@ vault:
         hajimari.io/icon: file-cancel
         hajimari.io/group: DevOps
         hajimari.io/targetBlank: 'false'
+
+      # Optionally use ingressClassName instead of deprecated annotation.
+      # See: https://kubernetes.io/docs/concepts/services-networking/ingress/#deprecated-annotation
       ingressClassName: "nginx"
+
       hosts:
         - host: vault.local.tecno-fly.com
+
       tls:
-        - secretName: vault-tls
-          hosts:
-            - vault.local.tecno-fly.com
-            
+       - secretName: vault-tls
+         hosts:
+           - vault.local.tecno-fly.com
+
+    # authDelegator enables a cluster role binding to be attached to the service
+    # account.  This cluster role binding can be used to setup Kubernetes auth
+    # method. See https://developer.hashicorp.com/vault/docs/auth/kubernetes
+    authDelegator:
+      enabled: true
+
+    # extraEnvironmentVars is a list of extra environment variables to set with the stateful set. These could be
+    # used to include variables required for auto-unseal.
+    extraEnvironmentVars: {}
+      # GOOGLE_REGION: global
+      # GOOGLE_PROJECT: myproject
+      # GOOGLE_APPLICATION_CREDENTIALS: /vault/userconfig/myproject/myproject-creds.json
+
+    # extraSecretEnvironmentVars is a list of extra environment variables to set with the stateful set.
+    # These variables take value from existing Secret objects.
+    extraSecretEnvironmentVars: []
+      # - envName: AWS_SECRET_ACCESS_KEY
+      #   secretName: vault
+      #   secretKey: AWS_SECRET_ACCESS_KEY
+
+    # Enables network policy for server pods
+    networkPolicy:
+      enabled: false
+      egress: []
+      # egress:
+      # - to:
+      #   - ipBlock:
+      #       cidr: 10.0.0.0/24
+      #   ports:
+      #   - protocol: TCP
+      #     port: 443
+      ingress:
+        - from:
+          - namespaceSelector: {}
+          ports:
+          - port: 8200
+            protocol: TCP
+          - port: 8201
+            protocol: TCP
+
+    # Enables a headless service to be used by the Vault Statefulset
+    service:
+      enabled: true
+      # Enable or disable the vault-active service, which selects Vault pods that
+      # have labeled themselves as the cluster leader with `vault-active: "true"`.
+      active:
+        enabled: true
+      # Enable or disable the vault-standby service, which selects Vault pods that
+      # have labeled themselves as a cluster follower with `vault-active: "false"`.
+      standby:
+        enabled: true
+      # If enabled, the service selectors will include `app.kubernetes.io/instance: {{ .Release.Name }}`
+      # When disabled, services may select Vault pods not deployed from the chart.
+      # Does not affect the headless vault-internal service with `ClusterIP: None`
+      instanceSelector:
+        enabled: true
+
+    # This configures the Vault Statefulset to create a PVC for data
+    # storage when using the file or raft backend storage engines.
+    # See https://developer.hashicorp.com/vault/docs/configuration/storage to know more
     dataStorage:
+      enabled: true
+      # Size of the PVC created
+      size: 10Gi
+      # Location where the PVC will be mounted.
+      mountPath: "/vault/data"
+      # Name of the storage class to use.  If null it will use the
+      # configured default Storage Class.
       storageClass: longhorn
+      # Access Mode of the storage device being used for the PVC
+      accessMode: ReadWriteOnce
+
+    # Run Vault in "dev" mode. This requires no further setup, no state management,
+    # and no initialization. This is useful for experimenting with Vault without
+    # needing to unseal, store keys, et. al. All data is lost on restart - do not
+    # use dev mode for anything other than experimenting.
+    # See https://developer.hashicorp.com/vault/docs/concepts/dev-server to know more
+    dev:
+      enabled: false
+
+      # Set VAULT_DEV_ROOT_TOKEN_ID value
+      devRootToken: "root"
+
+    # Definition of the serviceAccount used to run Vault.
+    # These options are also used when using an external Vault server to validate
+    # Kubernetes tokens.
+    serviceAccount:
+      # Specifies whether a service account should be created
+      create: true
+
+  # Vault is able to collect and publish various runtime metrics.
+  # Enabling this feature requires setting adding `telemetry{}` stanza to
+  # the Vault configuration. There are a few examples included in the `config` sections above.
+  #
+  # For more information see:
+  # https://developer.hashicorp.com/vault/docs/configuration/telemetry
+  # https://developer.hashicorp.com/vault/docs/internals/telemetry
+  serverTelemetry:
+    # Enable support for the Prometheus Operator. If authorization is not set for authenticating
+    # to Vault's metrics endpoint, the following Vault server `telemetry{}` config must be included
+    # in the `listener "tcp"{}` stanza
+    #  telemetry {
+    #    unauthenticated_metrics_access = "true"
+    #  }
+    #
+    # See the `standalone.config` for a more complete example of this.
+    #
+    # In addition, a top level `telemetry{}` stanza must also be included in the Vault configuration:
+    #
+    # example:
+    #  telemetry {
+    #    prometheus_retention_time = "30s"
+    #    disable_hostname = true
+    #  }
+    #
+    # Configuration for monitoring the Vault server.
+    serviceMonitor:
+      # The Prometheus operator *must* be installed before enabling this feature,
+      # if not the chart will fail to install due to missing CustomResourceDefinitions
+      # provided by the operator.
+      #
+      # Instructions on how to install the Helm chart can be found here:
+      #  https://github.com/prometheus-community/helm-charts/tree/main/charts/kube-prometheus-stack
+      # More information can be found here:
+      #  https://github.com/prometheus-operator/prometheus-operator
+      #  https://github.com/prometheus-operator/kube-prometheus
+
+      # Enable deployment of the Vault Server ServiceMonitor CustomResource.
+      enabled: false
+
+      # Selector labels to add to the ServiceMonitor.
+      # When empty, defaults to:
+      #  release: prometheus
+      selectors: {}
+
+      # Interval at which Prometheus scrapes metrics
+      interval: 30s
+
+      # Timeout for Prometheus scrapes
+      scrapeTimeout: 10s
+
+      # tlsConfig used for scraping the Vault metrics API.
+      # See API reference: https://prometheus-operator.dev/docs/api-reference/api/#monitoring.coreos.com/v1.TLSConfig
+      # example:
+      # tlsConfig:
+      #   ca:
+      #     secret:
+      #       name: vault-metrics-client
+      #       key: ca.crt
+      tlsConfig: {}
+
+      # authorization used for scraping the Vault metrics API.
+      # See API reference: https://prometheus-operator.dev/docs/api-reference/api/#monitoring.coreos.com/v1.SafeAuthorization
+      # example:
+      # authorization:
+      #   credentials:
+      #     name: vault-metrics-client
+      #     key: token
+      authorization: {}
+
+    prometheusRules:
+        # The Prometheus operator *must* be installed before enabling this feature,
+        # if not the chart will fail to install due to missing CustomResourceDefinitions
+        # provided by the operator.
+
+        # Deploy the PrometheusRule custom resource for AlertManager based alerts.
+        # Requires that AlertManager is properly deployed.
+        enabled: false
+
+        # Selector labels to add to the PrometheusRules.
+        # When empty, defaults to:
+        #  release: prometheus
+        selectors: {}
+
+        # Some example rules.
+        rules: []
+        #  - alert: vault-HighResponseTime
+        #    annotations:
+        #      message: The response time of Vault is over 500ms on average over the last 5 minutes.
+        #    expr: vault_core_handle_request{quantile="0.5", namespace="mynamespace"} > 500
+        #    for: 5m
+        #    labels:
+        #      severity: warning
+        #  - alert: vault-HighResponseTime
+        #    annotations:
+        #      message: The response time of Vault is over 1s on average over the last 5 minutes.
+        #    expr: vault_core_handle_request{quantile="0.5", namespace="mynamespace"} > 1000
+        #    for: 5m
+        #    labels:
+        #      severity: critical
