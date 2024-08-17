@@ -613,7 +613,7 @@ kube-prometheus-stack:
           datasource: prometheus
       velero:
         velero-dashboard:
-          url: https://raw.githubusercontent.com/Franjly/grafana-dashboards-pi-k3s/main/velero/velero-dashboard,json
+          url: https://raw.githubusercontent.com/Franjly/grafana-dashboards-pi-k3s/main/velero/velero-dashboard.json
           datasource: prometheus
       longhorn:
         longhorn-dashboard:
