@@ -914,14 +914,6 @@ kube-prometheus-stack:
       # The default webhook port is 10250 in order to work out-of-the-box in GKE private clusters and avoid adding firewall rules.
       internalPort: 10250
 
-    ## Admission webhook support for PrometheusRules resources added in Prometheus Operator 0.30 can be enabled to prevent incorrectly formatted
-    ## rules from making their way into prometheus and potentially preventing the container from starting
-    admissionWebhooks:
-      enabled: true
-
-      namespaceSelector:
-        any: true
-
     ## Namespaces to scope the interaction of the Prometheus Operator and the apiserver (allow list).
     ## This is mutually exclusive with denyNamespaces. Setting this to an empty object will disable the configuration
     ##
