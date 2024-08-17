@@ -552,8 +552,8 @@ argo-cd:
             name: plugins
           # Remove this volumeMount if you've chosen to bake the config file into the sidecar image.
           - mountPath: /home/argocd/cmp-server/config/plugin.yaml
-            subPath: plugin.yaml
-            name: kustomized-helm
+            subPath: kustomized-helm.yaml
+            name: argocd-cmp-cm
           # Starting with v2.4, do NOT mount the same tmp volume as the repo-server container. The filesystem separation helps
           # mitigate path traversal attacks.
           - mountPath: /tmp
@@ -574,8 +574,8 @@ argo-cd:
             name: plugins
           # Remove this volumeMount if you've chosen to bake the config file into the sidecar image.
           - mountPath: /home/argocd/cmp-server/config/plugin.yaml
-            subPath: plugin.yaml
-            name: vault-kustomized-helm
+            subPath: vault-kustomized-helm.yaml
+            name: argocd-cmp-cm
           # Starting with v2.4, do NOT mount the same tmp volume as the repo-server container. The filesystem separation helps
           # mitigate path traversal attacks.
           - mountPath: /tmp
@@ -596,8 +596,8 @@ argo-cd:
             name: plugins
           # Remove this volumeMount if you've chosen to bake the config file into the sidecar image.
           - mountPath: /home/argocd/cmp-server/config/plugin.yaml
-            subPath: plugin.yaml
-            name: vault-kustomized
+            subPath: vault-kustomized.yaml
+            name: argocd-cmp-cm
           # Starting with v2.4, do NOT mount the same tmp volume as the repo-server container. The filesystem separation helps
           # mitigate path traversal attacks.
           - mountPath: /tmp
@@ -628,14 +628,17 @@ argo-cd:
       - name: custom-tools
         emptyDir: {}
       - configMap:
-          name: kustomized-helm
-        name: kustomized-helm
-      - configMap:
-          name: vault-kustomized-helm
-        name: vault-kustomized-helm
-      - configMap:
-          name: vault-kustomized
-        name: vault-kustomized
+          name: argocd-cmp-cm
+        name: argocd-cmp-cm
+      # - configMap:
+      #     name: kustomized-helm
+      #   name: kustomized-helm
+      # - configMap:
+      #     name: vault-kustomized-helm
+      #   name: vault-kustomized-helm
+      # - configMap:
+      #     name: vault-kustomized
+      #   name: vault-kustomized
       - emptyDir: {}
         name: cmp-tmp
 
