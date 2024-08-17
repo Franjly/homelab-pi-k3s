@@ -557,7 +557,7 @@ argo-cd:
             name: cmp-tmp
       - name: vault-kustomized-helm
         command: [/var/run/argocd/argocd-cmp-server]
-        image: franjlytools/argocd-plugins-vault
+        image: alpine
         envFrom:
         - secretRef:
             name: argocd-vault-plugin-credentials
