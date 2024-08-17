@@ -1097,11 +1097,8 @@ kube-prometheus-stack:
       nodeSelector: {}
 
       ## If nil, select own namespace. Namespaces to be selected for PrometheusRules discovery.
-      ruleNamespaceSelector: {}
-      ## Example which selects PrometheusRules in namespaces with label "prometheus" set to "somelabel"
-      # ruleNamespaceSelector:
-      #   matchLabels:
-      #     prometheus: somelabel
+      ruleNamespaceSelector:
+        any: true
 
       ## If true, a nil or {} value for prometheus.prometheusSpec.ruleSelector will cause the
       ## prometheus resource to be created with selectors based on values in the helm deployment,
@@ -1145,11 +1142,8 @@ kube-prometheus-stack:
 
       ## Namespaces to be selected for ServiceMonitor discovery.
       ##
-      serviceMonitorNamespaceSelector: {}
-      ## Example which selects ServiceMonitors in namespaces with label "prometheus" set to "somelabel"
-      # serviceMonitorNamespaceSelector:
-      #   matchLabels:
-      #     prometheus: somelabel
+      serviceMonitorNamespaceSelector:
+        any: true
 
       ## If true, a nil or {} value for prometheus.prometheusSpec.podMonitorSelector will cause the
       ## prometheus resource to be created with selectors based on values in the helm deployment,
@@ -1167,11 +1161,8 @@ kube-prometheus-stack:
       #     prometheus: somelabel
 
       ## If nil, select own namespace. Namespaces to be selected for PodMonitor discovery.
-      podMonitorNamespaceSelector: {}
-      ## Example which selects PodMonitor in namespaces with label "prometheus" set to "somelabel"
-      # podMonitorNamespaceSelector:
-      #   matchLabels:
-      #     prometheus: somelabel
+      podMonitorNamespaceSelector:
+        any: true
 
       ## If true, a nil or {} value for prometheus.prometheusSpec.probeSelector will cause the
       ## prometheus resource to be created with selectors based on values in the helm deployment,
@@ -1189,11 +1180,8 @@ kube-prometheus-stack:
       #     prometheus: somelabel
 
       ## If nil, select own namespace. Namespaces to be selected for Probe discovery.
-      probeNamespaceSelector: {}
-      ## Example which selects Probe in namespaces with label "prometheus" set to "somelabel"
-      # probeNamespaceSelector:
-      #   matchLabels:
-      #     prometheus: somelabel
+      probeNamespaceSelector:
+        any: true
 
       ## If true, a nil or {} value for prometheus.prometheusSpec.scrapeConfigSelector will cause the
       ## prometheus resource to be created with selectors based on values in the helm deployment,
@@ -1211,11 +1199,8 @@ kube-prometheus-stack:
       #     prometheus: somelabel
 
       ## If nil, select own namespace. Namespaces to be selected for scrapeConfig discovery.
-      scrapeConfigNamespaceSelector: {}
-      ## Example which selects scrapeConfig in namespaces with label "prometheus" set to "somelabel"
-      # scrapeConfigNamespaceSelector:
-      #   matchLabels:
-      #     prometheus: somelabel
+      scrapeConfigNamespaceSelector:
+        any: true
 
       ## How long to retain metrics
       ##
