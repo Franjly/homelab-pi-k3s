@@ -105,7 +105,7 @@ velero:
     # See https://velero.io/docs/v1.6/api-types/volumesnapshotlocation/
     volumeSnapshotLocation:
       # name is the name of the volume snapshot location where snapshots are being taken. Required.
-    - name: minio
+    - name: minio-snapshot
       # provider is the name for the volume snapshot provider.
       provider: aws
       # bucket is the name of the bucket to store backups in. Required.
@@ -147,7 +147,7 @@ velero:
     # How long to wait by default before backups can be garbage collected. Default: 72h
     defaultBackupTTL:
     # Name of the default volume snapshot location.
-    defaultVolumeSnapshotLocations: minio
+    defaultVolumeSnapshotLocations: minio-snapshot
     # `velero server` default: empty
     disableControllers:
     # `velero server` default: false
