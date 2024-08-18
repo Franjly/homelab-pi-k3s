@@ -8,12 +8,12 @@ velero:
       volumeMounts:
         - mountPath: /target
           name: plugins
-    - name: velero-plugin-for-csi
-      image: velero/velero-plugin-for-csi:v0.7.1
-      imagePullPolicy: IfNotPresent
-      volumeMounts:
-        - mountPath: /target
-          name: plugins
+    # - name: velero-plugin-for-csi
+    #   image: velero/velero-plugin-for-csi:v0.7.1
+    #   imagePullPolicy: IfNotPresent
+    #   volumeMounts:
+    #     - mountPath: /target
+    #       name: plugins
 
   # Node selector to use for the Velero deployment. Optional.
   nodeSelector: {}
@@ -105,7 +105,7 @@ velero:
     # See https://velero.io/docs/v1.6/api-types/volumesnapshotlocation/
     volumeSnapshotLocation:
       # name is the name of the volume snapshot location where snapshots are being taken. Required.
-    - name: minio-snapshot
+    - name: minio
       # provider is the name for the volume snapshot provider.
       provider: aws
       # bucket is the name of the bucket to store backups in. Required.
