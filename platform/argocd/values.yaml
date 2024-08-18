@@ -106,6 +106,10 @@ argo-cd:
       # -- Repo server RPC call timeout seconds.
       controller.repo.server.timeout.seconds: 60
 
+      ## Server properties
+      # -- Run server without TLS
+      server.insecure: true
+
       ## Repo-server properties
       # -- Limit on number of concurrent manifests generate requests. Any value less the 1 means no limit.
       reposerver.parallelism.limit: 0
