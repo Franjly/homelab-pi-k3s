@@ -108,7 +108,7 @@ argo-cd:
 
       ## Server properties
       # -- Run server without TLS
-      server.insecure: true
+      server.insecure: false
 
       ## Repo-server properties
       # -- Limit on number of concurrent manifests generate requests. Any value less the 1 means no limit.
@@ -493,6 +493,7 @@ argo-cd:
       annotations:
         nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
         nginx.ingress.kubernetes.io/ssl-passthrough: "true"
+        nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
         cert-manager.io/cluster-issuer: letsencrypt-staging
         hajimari.io/appName: ArgoCD
         hajimari.io/icon: sync-circle
