@@ -2,7 +2,7 @@ cert-manager:
   global:
     leaderElection:
       namespace: "cert-manager"
-  installCRDs: false
+  installCRDs: true
   replicaCount: 1
   extraArgs:
     - --dns01-recursive-nameservers=1.1.1.1:53,8.8.8.8:53
