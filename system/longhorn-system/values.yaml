@@ -87,14 +87,13 @@ longhorn:
     #   value: "true"
     #   effect: NoSchedule
 
-  longhornDriver:
-    # -- Toleration for Longhorn Driver on nodes allowed to run Longhorn components.
-    # tolerations:
-    # - key: node-role.kubernetes.io/master
-    #   operator: Equal
-    #   value: "true"
-    #   effect: NoSchedule
-
+  # longhornDriver:
+  #   # -- Toleration for Longhorn Driver on nodes allowed to run Longhorn components.
+  #   # tolerations:
+  #   # - key: node-role.kubernetes.io/master
+  #   #   operator: Equal
+  #   #   value: "true"
+  #   #   effect: NoSchedule
 
   longhornUI:
     # -- Replica count for Longhorn UI.
