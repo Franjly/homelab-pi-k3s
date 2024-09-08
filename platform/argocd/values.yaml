@@ -36,7 +36,8 @@ argo-cd:
 
     # -- Environment variables to pass to all deployed Deployments
     env:
-      TZ: Europe/Madrid
+      - name: TZ
+        value: Europe/Madrid
 
     # -- Annotations for the all deployed Certificates
     certificateAnnotations: {}
