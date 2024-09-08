@@ -4,4 +4,4 @@ version: 0.0.0
 dependencies:
   - name: requestrr
     version: 12.1.5
-    repository: oci://tccr.io/truecharts/requestrr
+    repository: oci://tccr.io/truecharts
