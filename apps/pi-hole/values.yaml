@@ -94,11 +94,11 @@ pihole:
 
     path: /
     hosts:
-      - pi-hole.local.tecno-fly.com
+      - pi-hole-k3s.local.tecno-fly.com
     tls:
      - secretName: pi-hole-tls
        hosts:
-         - pi-hole.local.tecno-fly.com
+         - pi-hole-k3s.local.tecno-fly.com
 
   # -- `spec.PersitentVolumeClaim` configuration
   persistentVolumeClaim:
