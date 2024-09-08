@@ -16,7 +16,34 @@ cert-manager:
       - "1.1.1.1"
       - "8.8.8.8"
 
+  tolerations:
+    - key: node-role.kubernetes.io/master
+      operator: Equal
+      value: "true"
+      effect: NoSchedule
+
   prometheus:
     enabled: true
     servicemonitor:
       enabled: true
+
+  webhook:
+    tolerations:
+      - key: node-role.kubernetes.io/master
+        operator: Equal
+        value: "true"
+        effect: NoSchedule
+
+  cainjector:
+    tolerations:
+      - key: node-role.kubernetes.io/master
+        operator: Equal
+        value: "true"
+        effect: NoSchedule
+
+  startupapicheck:
+    tolerations:
+      - key: node-role.kubernetes.io/master
+        operator: Equal
+        value: "true"
+        effect: NoSchedule
