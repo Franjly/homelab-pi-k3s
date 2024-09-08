@@ -3,8 +3,11 @@ requestrr:
     repository: ghcr.io/hotio/requestrr
     tag: release-2.1.6
 
-  env:
-    TZ: Europe/Madrid
+  podOptions:
+    nodeSelector:
+      kubernetes.io/arch: null
+
+  TZ: Europe/Madrid
 
   ingress:
     main:
