@@ -170,6 +170,9 @@ velero:
     # features: EnableCSI
     features: EnableCSI
 
+    extraEnvVars:
+      TZ: Europe/Madrid
+
   # Information about the Kubernetes service account Velero uses.
   serviceAccount:
     server:
