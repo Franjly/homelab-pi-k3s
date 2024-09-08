@@ -17,3 +17,19 @@ spec:
       - "monitoring-system"
   endpoints:
   - port: http-metrics
+---
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: loki-promtail
+  labels:
+    app.kubernetes.io/name: promtail
+    app.kubernetes.io/instance: loki
+spec:
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: promtail
+      app.kubernetes.io/instance: loki
+  endpoints:
+    - port: http-metrics
+      scheme: http
