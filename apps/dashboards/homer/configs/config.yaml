@@ -92,7 +92,7 @@ services:
       - name: "Pi-hole - K3s"
         type: "PiHole"
         logo: "https://raw.githubusercontent.com/walkxcode/Dashboard-Icons/main/svg/pi-hole.svg"
-        url: "https://pi-hole.local.tecno-fly.com/admin"
+        url: "https://pi-hole-k3s.local.tecno-fly.com/admin"
         # subtitle: "Network-wide Ad Blocking"
         # tag: Apps
         target: "_blank"
