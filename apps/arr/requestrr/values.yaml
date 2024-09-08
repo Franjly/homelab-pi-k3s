@@ -4,6 +4,7 @@ requestrr:
     tag: release-2.1.6
 
   podOptions:
+    hostUsers: false
     nodeSelector:
       kubernetes.io/arch: null
 
