@@ -1,0 +1,56 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: pi-home-assistant-service
+  namespace: external-endpoints
+spec:
+  ports:
+  - name: http
+    port: 8123
+    protocol: TCP
+    targetPort: 8123
+  clusterIP: None
+  type: ClusterIP
+---
+apiVersion: v1
+kind: Endpoints
+metadata:
+  name: pi-home-assistant-service
+  namespace: external-endpoints
+subsets:
+- addresses:
+  - ip: 192.168.60.250
+  ports:
+  - name: http
+    port: 8123
+    protocol: TCP
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-staging
+    hajimari.io/appName: Home Assistant
+    hajimari.io/icon: home
+    hajimari.io/group: Home Automation
+    hajimari.io/targetBlank: 'false'
+  name: pi-home-assistant-ingress
+  namespace: external-endpoints
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: home-assistant.local.tecno-fly.com
+    http:
+      paths:
+      - backend:
+          service:
+            name: pi-home-assistant-service
+            port:
+              number: 8123
+        path: /
+        pathType: Prefix
+  tls:
+  - hosts:
+    - home-assistant.local.tecno-fly.com
+    secretName: pi-hole-tls
