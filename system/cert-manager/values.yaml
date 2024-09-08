@@ -7,6 +7,9 @@ cert-manager:
   extraArgs:
     - --dns01-recursive-nameservers=1.1.1.1:53,8.8.8.8:53
     - --dns01-recursive-nameservers-only
+  extraEnv:
+    - name: TZ
+      value: Europe/Madrid
   podDnsPolicy: None
   podDnsConfig:
     nameservers:
