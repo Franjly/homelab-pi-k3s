@@ -1,0 +1,19 @@
+---
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: loki
+  labels:
+    app: loki
+    release: loki
+spec:
+  selector:
+    matchLabels:
+      app: loki
+      release: "loki"
+      variant: headless
+  namespaceSelector:
+    matchNames:
+      - "monitoring-system"
+  endpoints:
+  - port: http-metrics
