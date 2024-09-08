@@ -32,6 +32,9 @@ requestrr:
         - secretName: radarr-tls
           hosts:
             - requestrr.local.tecno-fly.com
+      integrations:
+        traefik:
+          enabled: false
 
   persistence:
     config:
