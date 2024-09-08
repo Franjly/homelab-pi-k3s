@@ -2,7 +2,7 @@ loki-stack:
   loki:
     enabled: true
     isDefault: false
-    
+
     url: http://loki.monitoring-system.svc.cluster.local:3100
 
     config:
@@ -24,7 +24,7 @@ loki-stack:
           active_index_directory: /data/loki/boltdb-shipper-active
           cache_location: /data/loki/boltdb-shipper-cache
           shared_store: s3
-        s3:
+        aws:
           s3: https://<path:pi-k3s/data/system/monitoring-system/loki#access-key>:<path:pi-k3s/data/system/monitoring-system/loki#secret-key>@<path:pi-k3s/data/system/minio#host>.:<path:pi-k3s/data/system/minio#port>/<path:pi-k3s/data/system/monitoring-system/loki#bucket>
           s3forcepathstyle: true
           http_config:
