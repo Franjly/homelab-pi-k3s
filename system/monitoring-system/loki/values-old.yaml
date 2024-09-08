@@ -1,0 +1,46 @@
+loki-stack:
+  loki:
+    enabled: true
+
+    url: http://loki.monitoring-system.svc.cluster.local:3100
+    isDefault: false
+
+    config:
+      compactor:
+        shared_store: s3
+      limits_config:
+        retention_period: 240h
+      schema_config:
+        configs:
+        - from: "2020-10-24"
+          index:
+            period: 24h
+            prefix: index_
+          object_store: s3
+          schema: v11
+          store: boltdb-shipper
+      storage_config:
+        boltdb_shipper:
+          shared_store: s3
+        aws:
+          s3: https://<path:pi-k3s/data/system/monitoring-system/loki#access-key>:<path:pi-k3s/data/system/monitoring-system/loki#secret-key>@<path:pi-k3s/data/system/minio#host>.:<path:pi-k3s/data/system/minio#port>/<path:pi-k3s/data/system/monitoring-system/loki#bucket>
+          s3forcepathstyle: true
+          http_config:
+            ca_file: "/trusted-ca/minio.cert"
+
+    extraVolumes:
+      - name: trusted-ca
+        secret:
+          secretName: loki-trusted-ca-secret
+    extraVolumeMounts:
+      - name: trusted-ca
+        mountPath: "/trusted-ca/minio.cert"
+        subPath: "minio.cert"
+
+  promtail:
+    enabled: true
+    config:
+      logLevel: info
+      serverPort: 3101
+      clients:
+        - url: http://{{ .Release.Name }}:3100/loki/api/v1/push
