@@ -1,7 +1,7 @@
 home-assistant:
   image:
       repository: homeassistant/home-assistant
-      tag: 2023.9.2
+      tag: 2024.9.1
 
   env:
     TZ: Europe/Madrid
@@ -12,7 +12,7 @@ home-assistant:
       annotations:
         metallb.universe.tf/address-pool: iot
       type: LoadBalancer
-      loadBalancerIP: 192.168.60.250
+      loadBalancerIP: 192.168.60.251
       ports:
         http:
           port: 8123
@@ -33,7 +33,7 @@ home-assistant:
       ingressClassName: "nginx"
 
       hosts:
-        - host: home-assistant.local.tecno-fly.com
+        - host: home-assistant-alt.local.tecno-fly.com
           paths:
             - path: /
               pathType: Prefix
@@ -43,7 +43,7 @@ home-assistant:
       tls:
        - secretName: home-assistant-tls
          hosts:
-           - home-assistant.local.tecno-fly.com
+           - home-assistant-alt.local.tecno-fly.com
 
   # -- Enable devices to be discoverable
   # hostNetwork: true
