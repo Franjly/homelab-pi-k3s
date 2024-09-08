@@ -35,7 +35,8 @@ argo-cd:
       defaultDenyIngress: false
 
     # -- Environment variables to pass to all deployed Deployments
-    env: []
+    env:
+      TZ: Europe/Madrid
 
     # -- Annotations for the all deployed Certificates
     certificateAnnotations: {}
