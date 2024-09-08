@@ -560,8 +560,12 @@ kube-prometheus-stack:
           gnetId: 10880
           revision: 1
           datasource: prometheus
-        loki-loggin-dashboard:
+        loki-logging-dashboard:
           url: https://raw.githubusercontent.com/Franjly/grafana-dashboards-pi-k3s/main/loki/loki-dashboard.json
+          datasource: prometheus
+        loki-another-logging-dashboard:
+          gnetId: 16966
+          revision: 1
           datasource: prometheus
       unifi-poller:
         USG-Insights:
