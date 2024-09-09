@@ -4,7 +4,7 @@ resources:
 - ./secrets/longhorn-backup-target-credential-secret.yaml
 - ./resources/all.yaml
 - ./configs/longhorn-recurring-job.yaml
-#- ./resources/prometheus-rules.yaml
+- ./resources/prometheus-rules.yaml
 # - ./resources/cronjob-delete-snapshots.yaml
 
 # patches:
