@@ -1,5 +1,4 @@
 namespace: argocd
 
 resources:
-# - ./resources/plugins.yaml
 - ./resources/all.yaml

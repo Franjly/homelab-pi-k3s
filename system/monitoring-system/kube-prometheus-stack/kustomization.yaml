@@ -3,6 +3,3 @@
 resources:
 - ./resources/alertmanager-discord.yaml
 - ./resources/all.yaml
-
-# patches:
-# - ./patches/crd-prometheuses.yaml
