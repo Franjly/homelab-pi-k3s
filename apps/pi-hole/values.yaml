@@ -1,7 +1,7 @@
 pihole:
   image:
     repository: "pihole/pihole"
-    tag: "2022.11.2"
+    tag: ""
 
   # -- Configuration for the DNS service on port 53
   serviceDns:
@@ -22,7 +22,7 @@ pihole:
     externalTrafficPolicy: Local
 
     # -- A fixed `spec.loadBalancerIP` for the DNS Service
-    loadBalancerIP: "192.168.40.254"
+    loadBalancerIP: "192.168.40.253"
     # -- A fixed `spec.loadBalancerIP` for the IPv6 DNS Service
     loadBalancerIPv6: ""
 
@@ -67,7 +67,7 @@ pihole:
     externalTrafficPolicy: Local
 
     # -- A fixed `spec.loadBalancerIP` for the web interface Service
-    loadBalancerIP: "192.168.40.254"
+    loadBalancerIP: "192.168.40.253"
     # -- A fixed `spec.loadBalancerIP` for the IPv6 web interface Service
     loadBalancerIPv6: ""
 
@@ -94,11 +94,11 @@ pihole:
 
     path: /
     hosts:
-      - pi-hole.local.tecno-fly.com
+      - pi-hole-k3s.local.tecno-fly.com
     tls:
      - secretName: pi-hole-tls
        hosts:
-         - pi-hole.local.tecno-fly.com
+         - pi-hole-k3s.local.tecno-fly.com
 
   # -- `spec.PersitentVolumeClaim` configuration
   persistentVolumeClaim:
@@ -107,13 +107,14 @@ pihole:
     size: "1Gi"
 
   nodeSelector:
-    node.kubernetes.io/role: master
+    kubernetes.io/hostname: pi-kube-worker-0
+  #   node.kubernetes.io/role: master
 
-  tolerations:
-    - key: node-role.kubernetes.io/master
-      operator: Equal
-      value: "true"
-      effect: NoSchedule 
+  # tolerations:
+  #   - key: node-role.kubernetes.io/master
+  #     operator: Equal
+  #     value: "true"
+  #     effect: NoSchedule 
 
   # -- Administrator password when not using an existing secret (see below)
   adminPassword: <path:pi-k3s/data/apps/pi-hole#adminPassword>
@@ -121,7 +122,7 @@ pihole:
   # -- extraEnvironmentVars is a list of extra enviroment variables to set for pihole to use
   extraEnvVars:
     CORS_HOSTS: homer.local.tecno-fly.com
-    # TZ: UTC
+    TZ: Europe/Madrid
 
   # -- extraEnvVarsSecret is a list of secrets to load in as environment variables.
   extraEnvVarsSecret: {}
@@ -266,6 +267,8 @@ pihole:
   whitelist:
     - https://raw.githubusercontent.com/anudeepND/whitelist/master/domains/whitelist.txt
     - login.microsoftonline.com
+    - cdn.cookielaw.org
+    - smartplugin.youbora.com
     # If you want to provide whitelisted domains, add them here.
     # - clients4.google.com
 

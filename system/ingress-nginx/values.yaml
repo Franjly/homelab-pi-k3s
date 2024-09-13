@@ -16,6 +16,10 @@ ingress-nginx:
       enable-ssl-passthrough: "true"
       # default-ssl-certificate: "<namespace>/<secret_name>"
 
+    extraEnvs:
+      - name: TZ
+        value: Europe/Madrid
+
     service:
       loadBalancerIP: "192.168.40.200"
 

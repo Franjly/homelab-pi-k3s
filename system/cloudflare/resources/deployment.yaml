@@ -16,8 +16,11 @@ spec:
     spec:
       containers:
       - name: cloudflared
-        image: cloudflare/cloudflared:2023.6.1
+        image: cloudflare/cloudflared:2024.8.3
         imagePullPolicy: IfNotPresent
         args: ["tunnel", "--no-autoupdate", "run", "--token=<path:pi-k3s/data/system/cloudflare/tunnel#token>"]
+        env:
+        - name: TZ
+          value: "Europe/Madrid"
       restartPolicy: Always
       terminationGracePeriodSeconds: 60

@@ -2,18 +2,48 @@ cert-manager:
   global:
     leaderElection:
       namespace: "cert-manager"
-  installCRDs: false
+  installCRDs: true
   replicaCount: 1
   extraArgs:
     - --dns01-recursive-nameservers=1.1.1.1:53,8.8.8.8:53
     - --dns01-recursive-nameservers-only
+  extraEnv:
+    - name: TZ
+      value: Europe/Madrid
   podDnsPolicy: None
   podDnsConfig:
     nameservers:
       - "1.1.1.1"
       - "8.8.8.8"
 
+  tolerations:
+    - key: node-role.kubernetes.io/master
+      operator: Equal
+      value: "true"
+      effect: NoSchedule
+
   prometheus:
     enabled: true
     servicemonitor:
       enabled: true
+
+  webhook:
+    tolerations:
+      - key: node-role.kubernetes.io/master
+        operator: Equal
+        value: "true"
+        effect: NoSchedule
+
+  cainjector:
+    tolerations:
+      - key: node-role.kubernetes.io/master
+        operator: Equal
+        value: "true"
+        effect: NoSchedule
+
+  startupapicheck:
+    tolerations:
+      - key: node-role.kubernetes.io/master
+        operator: Equal
+        value: "true"
+        effect: NoSchedule

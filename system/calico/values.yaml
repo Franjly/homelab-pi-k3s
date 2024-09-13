@@ -7,10 +7,15 @@ tigera-operator:
       bgp: Enabled
       ipPools:
         - cidr: 10.42.0.0/16
+          blockSize: 26
+          name: default-ipv4-ippool
           disableBGPExport: false
           encapsulation: VXLANCrossSubnet
           natOutgoing: Enabled
           nodeSelector: all()
+          allowedUses:	
+            - Workload	
+            - Tunnel
         # - cidr: 10.43.0.0/16
         #   natOutgoing: Enabled
         #   nodeSelector: all()
@@ -63,8 +68,8 @@ tigera-operator:
   # Image and registry configuration for the tigera/operator pod.
   tigeraOperator:
     image: tigera/operator
-    version: v1.28.1
+    version: release-v1.35
     registry: quay.io
   calicoctl:
     image: docker.io/calico/ctl
-    tag: v3.24.1
+    tag: release-v3.28

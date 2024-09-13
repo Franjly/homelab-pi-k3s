@@ -1,7 +1,7 @@
 overseerr:
   image:
-    repository: hotio/overseerr
-    tag: release-1.32.5
+    repository: ghcr.io/hotio/overseerr
+    tag: release-1.33.2
 
   env:
     TZ: Europe/Madrid

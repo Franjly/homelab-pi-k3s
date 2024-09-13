@@ -1,7 +1,10 @@
 tdarr:
+  controller:
+    replicas: 0
+
   image:
-    repository: haveagitgat/tdarr
-    tag: 2.00.20.1
+    repository: ghcr.io/haveagitgat/tdarr
+    tag: 2.24.03
 
   env:
     TZ: Europe/Madrid

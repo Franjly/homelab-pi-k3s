@@ -1,7 +1,7 @@
 prowlarr:
   image:
-    repository: hotio/prowlarr
-    tag: release-1.5.2.3484
+    repository: ghcr.io/hotio/prowlarr
+    tag: release-1.23.1.4708
 
   env:
     TZ: Europe/Madrid

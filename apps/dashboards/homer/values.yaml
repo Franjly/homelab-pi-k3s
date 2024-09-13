@@ -1,10 +1,11 @@
 homer:
   image:
     repository: b4bz/homer
-    tag: v23.05.1
+    tag: v24.05.1
 
   env:
     TZ: Europe/Madrid
+    IPV6_DISABLE: 1
 
   ingress:
     main:

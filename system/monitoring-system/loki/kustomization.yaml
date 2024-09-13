@@ -3,3 +3,4 @@ namespace: monitoring-system
 resources:
 - ./secrets/loki-trusted-ca-secret.yaml
 - ./resources/all.yaml
+- ./resources/service-monitor.yaml
