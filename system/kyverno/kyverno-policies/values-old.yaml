@@ -1,8 +1,4 @@
 kyverno-policies:
-  # -- Policy kind (`ClusterPolicy`, `Policy`)
-  # Set to `Policy` if you need namespaced policies and not cluster policies
-  policyKind: ClusterPolicy
-
   # -- Pod Security Standard profile (`baseline`, `restricted`, `privileged`, `custom`).
   # For more info https://kyverno.io/policies/pod-security.
   podSecurityStandard: baseline
@@ -21,20 +17,13 @@ kyverno-policies:
   includeRestrictedPolicies: []
   # - require-run-as-non-root-user
 
-  # -- Additional custom policies to include.
-  customPolicies: []
-  # - apiVersion: kyverno.io/v1
-  #   kind: ClusterPolicy
-  #   metadata: # metadata
-  #   spec: # spec
-
   # -- API server behavior if the webhook fails to respond ('Ignore', 'Fail')
   # For more info: https://kyverno.io/docs/writing-policies/policy-settings/
   failurePolicy: Fail
 
-  # -- Validation failure action (`Audit`, `Enforce`).
+  # -- Validation failure action (`audit`, `enforce`).
   # For more info https://kyverno.io/docs/writing-policies/validate.
-  validationFailureAction: Audit
+  validationFailureAction: audit
 
   # -- Define validationFailureActionByPolicy for specific policies.
   # Override the defined `validationFailureAction` with a individual validationFailureAction for individual Policies.
@@ -96,10 +85,6 @@ kyverno-policies:
     #     operator: NotEquals
     #     value: "dcgm-exporter*"
 
-  # -- Customize the target Pod controllers for the auto-generated rules. (Eg. `none`, `Deployment`, `DaemonSet,Deployment,StatefulSet`)
-  # For more info https://kyverno.io/docs/writing-policies/autogen/.
-  autogenControllers: ""
-
   # -- Name override.
   nameOverride:
 
@@ -108,9 +93,6 @@ kyverno-policies:
 
   # -- Policies background mode
   background: true
-
-  # -- (bool) SkipBackgroundRequests bypasses admission requests that are sent by the background controller
-  skipBackgroundRequests: ~
 
   # -- Kyverno version
   # The default of "autodetect" will try to determine the currently installed version from the deployment
