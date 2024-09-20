@@ -12,7 +12,7 @@ uptime-kuma:
       enabled: true
 
       annotations:
-        cert-manager.io/cluster-issuer: letsencrypt-staging
+        cert-manager.io/cluster-issuer: letsencrypt-prod
         # kubernetes.io/tls-acme: "true"
         hajimari.io/appName: Uptime Kuma
         hajimari.io/icon: alert

@@ -137,7 +137,7 @@ longhorn:
     ## If tls is set to true, annotation ingress.kubernetes.io/secure-backends: "true" will automatically be set
     # -- Ingress annotations in the form of key-value pairs.
     annotations:
-      cert-manager.io/cluster-issuer: letsencrypt-staging
+      cert-manager.io/cluster-issuer: letsencrypt-prod
       # kubernetes.io/tls-acme: true
       hajimari.io/appName: Longhorn
       hajimari.io/icon: server

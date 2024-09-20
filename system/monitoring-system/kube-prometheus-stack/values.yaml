@@ -235,7 +235,7 @@ kube-prometheus-stack:
       ingressClassName: nginx
 
       annotations:
-        cert-manager.io/cluster-issuer: letsencrypt-staging
+        cert-manager.io/cluster-issuer: letsencrypt-prod
         # kubernetes.io/tls-acme: "true"
         hajimari.io/appName: AlertManager
         hajimari.io/icon: comment-alert
@@ -347,7 +347,7 @@ kube-prometheus-stack:
       ## Annotations for Grafana Ingress
       ##
       annotations:
-        cert-manager.io/cluster-issuer: letsencrypt-staging
+        cert-manager.io/cluster-issuer: letsencrypt-prod
         # kubernetes.io/tls-acme: "true"
         hajimari.io/appName: Grafana
         hajimari.io/icon: chart-pie
@@ -1049,7 +1049,7 @@ kube-prometheus-stack:
       ingressClassName: nginx
 
       annotations:
-        cert-manager.io/cluster-issuer: letsencrypt-staging
+        cert-manager.io/cluster-issuer: letsencrypt-prod
         # kubernetes.io/tls-acme: "true"
         hajimari.io/appName: Prometheus
         hajimari.io/icon: chart-areaspline
