@@ -33,7 +33,7 @@ requestrr:
                 name: requestrr
                 port: 4545
       tls:
-        - secretName: radarr-tls
+        - secretName: requestrr-tls
           hosts:
             - requestrr.local.tecno-fly.com
       integrations:
