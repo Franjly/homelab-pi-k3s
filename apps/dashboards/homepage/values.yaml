@@ -1,4 +1,8 @@
 homepage:
+  alpineImage:
+    repository: alpine
+    tag: latest
+
   podOptions:
     hostUsers: false
     nodeSelector:
