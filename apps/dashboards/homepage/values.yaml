@@ -224,12 +224,6 @@ homepage:
       enabled: true
       primary: true
 
-  podOptions:
-    dnsConfig:
-      options:
-        - name: ndots
-          value: "3"
-
   configmap:
     config:
       enabled: true
@@ -322,49 +316,3 @@ homepage:
                   description: "TrueCharts Discord"
 
   forceConfigFromValues: false
-
-  rbac:
-    main:
-      enabled: true
-      primary: true
-      clusterWide: true
-      rules:
-        - apiGroups:
-            - ""
-          resources:
-            - namespaces
-            - pods
-            - nodes
-          verbs:
-            - get
-            - list
-        - apiGroups:
-            - extensions
-            - networking.k8s.io
-          resources:
-            - ingresses
-          verbs:
-            - get
-            - list
-        - apiGroups:
-            - traefik.containo.us
-            - traefik.io
-          resources:
-            - ingressroutes
-          verbs:
-            - get
-            - list
-        - apiGroups:
-            - metrics.k8s.io
-          resources:
-            - nodes
-            - pods
-          verbs:
-            - get
-            - list
-        - apiGroups:
-            - apiextensions.k8s.io
-          resources:
-            - customresourcedefinitions/status
-          verbs:
-            - get
