@@ -222,6 +222,12 @@ services:
         subtitle: "eBook Library"
         tag: Apps
         target: "_blank"
+      - name: "Requestrr"
+        logo: "https://github.com/walkxcode/Dashboard-Icons/raw/main/png/requestrr.png"
+        url: "https://requestrr.local.tecno-fly.com"
+        subtitle: "Chatbot used to simplify using services like Sonarr/Radarr"
+        tag: Apps
+        target: "_blank"
       - name: "Tdarr"
         logo: "https://github.com/walkxcode/Dashboard-Icons/raw/main/png/tdarr.png"
         url: "https://tdarr.local.tecno-fly.com"
@@ -304,5 +310,20 @@ services:
         logo: "https://raw.githubusercontent.com/walkxcode/dashboard-icons/main/png/octoprint.png"
         url: "https://octoprint.local.tecno-fly.com/"
         subtitle: "The snappy web interface for your 3D printer"
+        tag: Apps
+        target: "_blank"
+  - name: "Misc"
+    icon: "fa fa-bug"
+    items:
+      - name: "Pod-Info - Local"
+        logo: "https://raw.githubusercontent.com/walkxcode/Dashboard-Icons/main/svg/kubernetes.svg"
+        url: "https://pod-info.local.tecno-fly.com/"
+        subtitle: "Go microservice template for Kubernetes"
+        tag: Apps
+        target: "_blank"
+      - name: "Pod-Info - Public"
+        logo: "https://raw.githubusercontent.com/walkxcode/Dashboard-Icons/main/svg/kubernetes.svg"
+        url: "https://pod-info.tecno-fly.com/"
+        subtitle: "Go microservice template for Kubernetes"
         tag: Apps
         target: "_blank"
