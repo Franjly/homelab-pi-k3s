@@ -57,13 +57,13 @@ policy-reporter:
     className: "nginx"
     annotations:
       cert-manager.io/cluster-issuer: letsencrypt-staging
+      nginx.ingress.kubernetes.io/rewrite-target: /$1
       # kubernetes.io/ingress.class: nginx
       # kubernetes.io/tls-acme: "true"
     hosts:
       - host: kyverno.local.tecno-fly.com
         paths:
-          - path: /
-            pathType: Prefix
+          - path: "/(.*)"
     tls:
       - secretName: kyverno-tls
         hosts:
