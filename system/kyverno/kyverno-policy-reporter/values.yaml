@@ -138,7 +138,7 @@ policy-reporter:
             - kyverno.local.tecno-fly.com
 
   kyvernoPlugin:
-    enabled: false
+    enabled: true
 
   # Settings for the monitoring subchart
   monitoring:
