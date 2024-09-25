@@ -41,7 +41,7 @@ kyverno:
 
     # -- Additional CRDs annotations
     annotations:
-      argocd.argoproj.io/sync-options: Replace=true
+      argocd.argoproj.io/sync-options: "Replace=true, ServerSideApply=true"
       # strategy.spinnaker.io/replace: 'true'
 
     # -- Additional CRDs labels
