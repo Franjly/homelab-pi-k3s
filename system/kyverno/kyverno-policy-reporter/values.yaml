@@ -64,6 +64,7 @@ policy-reporter:
       - host: kyverno.local.tecno-fly.com
         paths:
           - path: "/(.*)"
+            pathType: Prefix
     tls:
       - secretName: kyverno-tls
         hosts:
