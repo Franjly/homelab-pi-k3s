@@ -126,6 +126,12 @@ services:
         subtitle: "Distributed block storage system for Kubernetes"
         tag: Apps
         target: "_blank"
+      - name: "Kyverno"
+        logo: "https://raw.githubusercontent.com/kyverno/kyverno/main/img/logo.png"
+        url: "https://kyverno.local.tecno-fly.com"
+        subtitle: "Policy engine designed for Kubernetes"
+        tag: Apps
+        target: "_blank"
   - name: "Media"
     icon: "fa-solid fa-play"
     items:
