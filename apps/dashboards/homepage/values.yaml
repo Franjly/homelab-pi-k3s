@@ -1,4 +1,9 @@
 homepage:
+  podOptions:
+    hostUsers: false
+    nodeSelector:
+      kubernetes.io/arch: null
+
   TZ: Europe/Madrid
 
   workload:
