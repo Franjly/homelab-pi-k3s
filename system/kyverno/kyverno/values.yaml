@@ -40,12 +40,26 @@ kyverno:
         policyreports: true
 
     # -- Additional CRDs annotations
-    annotations: {}
-      # argocd.argoproj.io/sync-options: Replace=true
+    annotations:
+      argocd.argoproj.io/sync-options: Replace=true
       # strategy.spinnaker.io/replace: 'true'
 
     # -- Additional CRDs labels
     customLabels: {}
+
+    migration:
+      # -- Enable CRDs migration using helm post upgrade hook
+      enabled: true
+
+      # -- Resources to migrate
+      resources:
+        - cleanuppolicies.kyverno.io
+        - clustercleanuppolicies.kyverno.io
+        - clusterpolicies.kyverno.io
+        - globalcontextentries.kyverno.io
+        - policies.kyverno.io
+        - policyexceptions.kyverno.io
+        - updaterequests.kyverno.io
 
   # Configuration
   config:
