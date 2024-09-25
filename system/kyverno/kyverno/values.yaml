@@ -49,7 +49,7 @@ kyverno:
 
     migration:
       # -- Enable CRDs migration using helm post upgrade hook
-      enabled: true
+      enabled: false
 
       # -- Resources to migrate
       resources:
