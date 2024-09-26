@@ -180,7 +180,7 @@ policy-reporter:
         # Annotation to enable folder storage using the k8s sidecar
         annotation: grafana_folder
         # Grafana folder in which to store the dashboards
-        name: Policy Reporter
+        name: "Policy Reporter"
 
   database:
     # Database Type, supported: mysql, postgres, mariadb
