@@ -53,7 +53,7 @@ policy-reporter:
   ## Set to true to enable ingress record generation
   # ref to: https://kubernetes.io/docs/concepts/services-networking/ingress/
   ingress:
-    enabled: true
+    enabled: false
     className: "nginx"
     annotations:
       cert-manager.io/cluster-issuer: letsencrypt-staging
@@ -145,7 +145,7 @@ policy-reporter:
     enabled: true
 
     ingress:
-      enabled: true
+      enabled: false
       className: "nginx"
       annotations:
         cert-manager.io/cluster-issuer: letsencrypt-staging
