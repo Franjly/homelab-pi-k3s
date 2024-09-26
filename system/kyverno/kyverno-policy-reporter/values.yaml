@@ -144,9 +144,41 @@ policy-reporter:
   kyvernoPlugin:
     enabled: true
 
+    ingress:
+      enabled: true
+      className: "nginx"
+      annotations:
+        cert-manager.io/cluster-issuer: letsencrypt-staging
+        nginx.ingress.kubernetes.io/rewrite-target: /$1
+      hosts:
+        - host: kyverno-plugin.local.tecno-fly.com
+          paths:
+            - path: "/(.*)"
+              pathType: Prefix
+      tls:
+        - secretName: kyverno-plugin-tls
+          hosts:
+            - kyverno-plugin.local.tecno-fly.com
+
   # Settings for the monitoring subchart
   monitoring:
-    enabled: false
+    enabled: true
+
+    grafana:
+      # required: namespace of your Grafana installation
+      namespace: monitoring-system
+      dashboards:
+        # Enable the deployment of grafana dashboards
+        enabled: true 
+        # Label to find dashboards using the k8s sidecar
+        label: grafana_dashboard
+      # works only if it is supported by your Grafana installation
+      folder:
+        # Annotation to enable folder storage using the k8s sidecar
+        annotation: grafana_folder
+        # Grafana folder in which to store the dashboards
+        name: Policy Reporter
+
 
   database:
     # Database Type, supported: mysql, postgres, mariadb
@@ -171,7 +203,7 @@ policy-reporter:
     # available plugins
     plugins:
       # enable kyverno for Policy Reporter UI and monitoring
-      kyverno: false
+      kyverno: true
     # The name of service policy-report. Defaults to ReleaseName.
     backend: ""
     # overwrite the fullname of all resources including subcharts
