@@ -178,9 +178,17 @@ policy-reporter:
       # works only if it is supported by your Grafana installation
       folder:
         # Annotation to enable folder storage using the k8s sidecar
-        annotation: /tmp/dashboards
+        annotation: grafana_folder
         # Grafana folder in which to store the dashboards
         name: Policy Reporter
+      # -- create GrafanaDashboard custom resource referencing to the configMap.
+      # according to https://grafana-operator.github.io/grafana-operator/docs/examples/dashboard_from_configmap/readme/
+      grafanaDashboard:
+        enabled: true
+        folder: kyverno
+        allowCrossNamespaceImport: true
+        matchLabels:
+          dashboards: "grafana"
 
 
   database:
