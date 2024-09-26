@@ -264,9 +264,14 @@ homepage:
           # https://gethomepage.dev/latest/configs/services
 
           - Arr:
-              - My First Service:
-                  href: http://localhost/
-                  description: Homepage is awesome
+              - Radarr:
+                  href: https://radarr.local.tecno-fly.com/
+                  namespace: arr
+                  app: radarr
+                  widget:
+                    type: radarr
+                    url: http://radarr.arr.svc.cluster.local:7878
+                    key: <path:pi-k3s/data/apps/arr/radarr#apikey>
 
           - Media:
               - My Second Service:
