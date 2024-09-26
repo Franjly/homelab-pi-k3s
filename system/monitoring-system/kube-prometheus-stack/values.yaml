@@ -410,6 +410,7 @@ kube-prometheus-stack:
         ##
         annotations:
           k8s-sidecar-target-directory: /tmp/dashboards/kubernetes
+          grafana_folder: "Kubernetes"
         
         provider:
           allowUiUpdates: false
