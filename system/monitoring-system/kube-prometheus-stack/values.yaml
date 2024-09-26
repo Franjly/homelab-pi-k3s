@@ -399,6 +399,7 @@ kube-prometheus-stack:
         label: grafana_dashboard
         labelValue: "1"
         folder: /tmp/dashboards
+        folderAnnotation: grafana_folder
         # Allow discovery in all namespaces for dashboards
         searchNamespace: ALL
 
