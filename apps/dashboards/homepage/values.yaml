@@ -324,4 +324,4 @@ homepage:
                   href: https://truecharts.org/s/discord
                   description: "TrueCharts Discord"
 
-  forceConfigFromValues: false
+  forceConfigFromValues: true
