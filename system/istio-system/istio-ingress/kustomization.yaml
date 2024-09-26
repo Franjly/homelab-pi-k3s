@@ -2,3 +2,4 @@ namespace: istio-system
 
 resources:
 - ./resources/all.yaml
+- ./resources/shared-gateway.yaml
