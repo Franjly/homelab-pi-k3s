@@ -164,6 +164,9 @@ policy-reporter:
   monitoring:
     enabled: true
 
+    plugins:
+      kyverno: true
+
     grafana:
       # required: namespace of your Grafana installation
       namespace: monitoring-system
