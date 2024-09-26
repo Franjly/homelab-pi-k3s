@@ -178,7 +178,7 @@ policy-reporter:
       # works only if it is supported by your Grafana installation
       folder:
         # Annotation to enable folder storage using the k8s sidecar
-        annotation: grafana_folder
+        annotation: /tmp/dashboards
         # Grafana folder in which to store the dashboards
         name: Policy Reporter
 
