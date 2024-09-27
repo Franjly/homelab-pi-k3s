@@ -282,15 +282,65 @@ homepage:
                     type: sonarr
                     url: http://sonarr.arr.svc.cluster.local:8989
                     key: <path:pi-k3s/data/apps/arr/sonarr#apikey>
+              - Lidarr:
+                  icon: lidarr.png
+                  href: https://lidarr.local.tecno-fly.com/
+                  namespace: arr
+                  app: lidarr
+                  widget:
+                    type: lidarr
+                    url: http://lidarr.arr.svc.cluster.local:8686
+                    key: <path:pi-k3s/data/apps/arr/lidarr#apikey>
+              - Readarr:
+                  icon: readarr.png
+                  href: https://readarr.local.tecno-fly.com/
+                  namespace: arr
+                  app: readarr
+                  widget:
+                    type: readarr
+                    url: http://readarr.arr.svc.cluster.local:8787
+                    key: <path:pi-k3s/data/apps/arr/readarr#apikey>
+              - Prowlarr:
+                  icon: prowlarr.png
+                  href: https://prowlarr.local.tecno-fly.com/
+                  namespace: arr
+                  app: prowlarr
+                  widget:
+                    type: prowlarr
+                    url: http://prowlarr.arr.svc.cluster.local:9696
+                    key: <path:pi-k3s/data/apps/arr/prowlarr#apikey>
+              - Bazarr:
+                  icon: bazarr.png
+                  href: https://bazarr.local.tecno-fly.com/
+                  namespace: arr
+                  app: bazarr
+                  widget:
+                    type: bazarr
+                    url: http://bazarr.arr.svc.cluster.local:6767
+                    key: <path:pi-k3s/data/apps/arr/bazarr#apikey>
 
           - Media:
               - Plex:
+                  icon: plex.png
                   href: https://plex.local.tecno-fly.com/
                   description: Stream Movies & TV Shows
                   widget:
                     type: plex
                     url: http://192.168.40.250:32400
                     key: <path:pi-k3s/data/apps/media/plex#device-token>
+              - Jellyfin:
+                  icon: jellyfin.png
+                  href: https://Jellyfin.local.tecno-fly.com/
+                  description: The Free Software Media System
+                  widget:
+                    type: jellyfin
+                    url: http://192.168.40.250:30013
+                    key: <path:pi-k3s/data/apps/media/jellyfin#homepage-apikey>
+                    enableBlocks: true
+                    enableNowPlaying: true
+                    enableUser: true
+                    showEpisodeNumber: true
+                    expandOneStreamToTwoRows: true
 
           - Infra:
               - My Third Service:
