@@ -319,22 +319,14 @@ homepage:
                     accountid: <path:pi-k3s/data/system/cloudflare/tunnel#accountid>
                     tunnelid: <path:pi-k3s/data/system/cloudflare/tunnel#tunnelid>
                     key: <path:pi-k3s/data/system/cloudflare/tunnel#homepage-token>
-          
-          - DevOps:
+
+          - K8s Tools:
               - ArgoCD:
                   icon: argocd.png
                   href: https://argocd.local.tecno-fly.com/
                   description: Declarative GitOps CD for Kubernetes
                   namespace: argocd
                   app: argocd-server
-              - Vault:
-                  icon: vault.png
-                  href: https://vault.local.tecno-fly.com/
-                  description: Manage Secrets & Protect Sensitive Data
-                  namespace: vault
-                  app: vault
-
-          - K8s Tools:
               - Longhorn:
                   icon: longhorn.png
                   href: https://longhorn.local.tecno-fly.com/
@@ -347,6 +339,12 @@ homepage:
                   description: Policy engine designed for Kubernetes
                   namespace: kyverno
                   app: ui
+              - Vault:
+                  icon: vault.png
+                  href: https://vault.local.tecno-fly.com/
+                  description: Manage Secrets & Protect Sensitive Data
+                  namespace: vault
+                  app: vault
 
           - IoT:
               - Octoprint:
@@ -359,6 +357,51 @@ homepage:
                     type: octoprint
                     url: http://octoprint.octoprint.svc.cluster.local:80
                     key: <path:pi-k3s/data/apps/octoprint#homepage-apikey>
+
+          - Monitoring:
+              - Grafana:
+                  icon: grafana.png
+                  href: https://grafana.local.tecno-fly.com/
+                  description: Operational dashboards
+                  namespace: monitoring-system
+                  app: grafana
+                  widget:
+                    type: grafana
+                    url: http://kube-prometheus-stack-grafana.monitoring-system.svc.cluster.local:80
+                    username: <path:pi-k3s/data/system/monitoring-system/grafana#admin-user>
+                    password: <path:pi-k3s/data/system/monitoring-system/grafana#admin-passwd>
+              - Prometheus:
+                  icon: prometheus.png
+                  href: https://prometheus.local.tecno-fly.com/
+                  description: Monitoring system & time series database
+                  namespace: monitoring-system
+                  app: prometheus
+                  widget:
+                    type: prometheus
+                    url: http://kube-prometheus-stack-prometheus.monitoring-system.svc.cluster.local:9090
+              - AlertManager:
+                  icon: alertmanager.png
+                  href: https://alertmanager.local.tecno-fly.com/
+                  description: Alerts system
+                  namespace: monitoring-system
+                  app: alertmanager
+              - Uptime Kuma:
+                  icon: uptime-kuma.png
+                  href: https://uptime-kuma.local.tecno-fly.com/
+                  description: Monitoring tool
+                  namespace: monitoring-system
+                  app: uptime-kuma
+                  widget:
+                    type: uptimekuma
+                    url: http://uptime-kuma.monitoring-system.svc.cluster.local:3001
+                    slug: homelab
+              - NetData - TrueNAS:
+                  icon: netdata.png
+                  href: https://netdata.local.tecno-fly.com/
+                  description: Real-time performance monitoring
+                  widget:
+                    type: netdata
+                    url: http://192.168.40.250:20489
 
           - Downloads:
               - qBittorrent:
@@ -425,6 +468,8 @@ homepage:
                     type: lidarr
                     url: http://lidarr.arr.svc.cluster.local:8686
                     key: <path:pi-k3s/data/apps/arr/lidarr#apikey>
+
+          - Arr
               - Readarr:
                   icon: readarr.png
                   href: https://readarr.local.tecno-fly.com/
@@ -461,51 +506,6 @@ homepage:
                   description: Chatbot used to simplify using services like Sonarr/Radarr
                   namespace: arr
                   app: requestrr
-
-          - Monitoring:
-              - Grafana:
-                  icon: grafana.png
-                  href: https://grafana.local.tecno-fly.com/
-                  description: Operational dashboards
-                  namespace: monitoring-system
-                  app: grafana
-                  widget:
-                    type: grafana
-                    url: http://kube-prometheus-stack-grafana.monitoring-system.svc.cluster.local:80
-                    username: <path:pi-k3s/data/system/monitoring-system/grafana#admin-user>
-                    password: <path:pi-k3s/data/system/monitoring-system/grafana#admin-passwd>
-              - Prometheus:
-                  icon: prometheus.png
-                  href: https://prometheus.local.tecno-fly.com/
-                  description: Monitoring system & time series database
-                  namespace: monitoring-system
-                  app: prometheus
-                  widget:
-                    type: prometheus
-                    url: http://kube-prometheus-stack-prometheus.monitoring-system.svc.cluster.local:9090
-              - AlertManager:
-                  icon: alertmanager.png
-                  href: https://alertmanager.local.tecno-fly.com/
-                  description: Alerts system
-                  namespace: monitoring-system
-                  app: alertmanager
-              - Uptime Kuma:
-                  icon: uptime-kuma.png
-                  href: https://uptime-kuma.local.tecno-fly.com/
-                  description: Monitoring tool
-                  namespace: monitoring-system
-                  app: uptime-kuma
-                  widget:
-                    type: uptimekuma
-                    url: http://uptime-kuma.monitoring-system.svc.cluster.local:3001
-                    slug: homelab
-              - NetData - TrueNAS:
-                  icon: netdata.png
-                  href: https://netdata.local.tecno-fly.com/
-                  description: Real-time performance monitoring
-                  widget:
-                    type: netdata
-                    url: http://192.168.40.250:20489
           
           - NAS:
               - TrueNAS:
