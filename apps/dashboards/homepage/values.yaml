@@ -253,9 +253,28 @@ homepage:
               cpu: true
               memory: true
               disk: /
+          
+          - kubernetes:
+              cluster:
+                show: true
+                cpu: true
+                memory: true
+                showLabel: true
+                label: "pi-k3s"
+              nodes:
+                show: true
+                cpu: true
+                memory: true
+                showLabel: true
+
+          - longhorn:
+              expanded: true
+              total: true
+              labels: true
+              nodes: true
 
           - search:
-              provider: duckduckgo
+              provider: google
               target: _blank
 
         services.yaml: |
@@ -434,7 +453,6 @@ homepage:
               - NetData - TrueNAS:
                   icon: netdata.png
                   href: https://netdata.local.tecno-fly.com/
-                  ping: netdata.local.tecno-fly.com
                   description: Real-time performance monitoring
                   widget:
                     type: netdata
