@@ -437,7 +437,7 @@ homepage:
                     showEpisodeNumber: true
                     expandOneStreamToTwoRows: true
 
-          - Arr:
+          - Arr0:
               - Radarr:
                   icon: radarr.png
                   href: https://radarr.local.tecno-fly.com/
@@ -469,7 +469,7 @@ homepage:
                     url: http://lidarr.arr.svc.cluster.local:8686
                     key: <path:pi-k3s/data/apps/arr/lidarr#apikey>
 
-          - Arr:
+          - Arr1:
               - Readarr:
                   icon: readarr.png
                   href: https://readarr.local.tecno-fly.com/
