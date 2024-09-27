@@ -370,7 +370,7 @@ homepage:
                     username: <path:pi-k3s/data/system/monitoring-system/unifi-poller#UP_UNIFI_DEFAULT_USER>
                     password: <path:pi-k3s/data/system/monitoring-system/unifi-poller#UP_UNIFI_DEFAULT_PASS>
               - Pi-hole:
-                  icon: pihole.png
+                  icon: pi-hole.png
                   href: https://pi-hole-0.local.tecno-fly.com/admin
                   description: Network-wide Ad Blocking
                   widget:
@@ -379,7 +379,7 @@ homepage:
                     version: 5
                     key: <path:pi-k3s/data/apps/pi-hole#apiToken>
               - Pi-hole - TrueNAS:
-                  icon: pihole.png
+                  icon: pi-hole.png
                   href: https://pi-hole-truenas.local.tecno-fly.com/admin
                   description: Network-wide Ad Blocking
                   widget:
@@ -407,16 +407,16 @@ homepage:
                   namespace: monitoring-system
                   app: prometheus-kube-prometheus-stack-prometheus
                   widget:
-                    type: grafana
+                    type: prometheus
                     url: http://kube-prometheus-stack-prometheus.monitoring-system.svc.cluster.local:80
               - AlertManager:
-                  icon: prometheus.png
+                  icon: alertmanager.png
                   href: https://alertmanager.local.tecno-fly.com/
                   description: Alerts system
                   namespace: monitoring-system
                   app: alertmanager-kube-prometheus-stack-alertmanager
               - Uptime Kuma:
-                  icon: uptimekuma.png
+                  icon: uptime-kuma.png
                   href: https://uptime-kuma.local.tecno-fly.com/
                   description: Monitoring tool
                   namespace: monitoring-system
