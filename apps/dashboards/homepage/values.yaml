@@ -424,7 +424,7 @@ homepage:
                   widget:
                     type: uptimekuma
                     url: http://uptime-kuma.monitoring-system.svc.cluster.local:3001
-                    slug: status
+                    slug: homelab
 
         bookmarks.yaml: |
           ---
