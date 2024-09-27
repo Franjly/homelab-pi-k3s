@@ -12,6 +12,7 @@ spec:
     metadata:
       labels:
         app: pod-info
+        app.kubernetes.io/name: pod-info
     spec:
       containers:
       - name: pod-info
