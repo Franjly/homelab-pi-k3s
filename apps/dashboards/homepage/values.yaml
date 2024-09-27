@@ -409,6 +409,13 @@ homepage:
                     url: https://pi-hole-truenas.local.tecno-fly.com
                     version: 5
                     key: <path:pi-k3s/data/apps/pi-hole#apiToken>
+              - Cloudflare Tunnel:
+                  icon: cloudflare-zero-trust.png
+                  widget:
+                    type: cloudflared
+                    accountid: <path:pi-k3s/data/system/cloudflare/tunnel#accountid>
+                    tunnelid: <path:pi-k3s/data/system/cloudflare/tunnel#tunnelid>
+                    key: <path:pi-k3s/data/system/cloudflare/tunnel#homepage-token>
 
           - Monitoring:
               - Grafana:
@@ -466,7 +473,7 @@ homepage:
                   icon: vault.png
                   href: https://vault.local.tecno-fly.com/
                   description: Manage Secrets & Protect Sensitive Data
-                  namespace: longhorn-system
+                  namespace: vault
                   app: vault
 
           - K8s Tools:
@@ -474,7 +481,7 @@ homepage:
                   icon: longhorn.png
                   href: https://longhorn.local.tecno-fly.com/
                   description: Distributed block storage system for Kubernetes
-                  namespace: argocd
+                  namespace: longhorn-system
                   app: longhorn
               - Kyverno:
                   icon: policycontroller.png
