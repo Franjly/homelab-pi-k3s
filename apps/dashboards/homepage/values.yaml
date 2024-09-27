@@ -324,6 +324,12 @@ homepage:
                     type: bazarr
                     url: http://bazarr.arr.svc.cluster.local:6767
                     key: <path:pi-k3s/data/apps/arr/bazarr#apikey>
+              - Requestrr:
+                  icon: requestrr.png
+                  href: https://requestrr.local.tecno-fly.com/
+                  description: Chatbot used to simplify using services like Sonarr/Radarr
+                  namespace: arr
+                  app: requestrr
 
           - Media:
               - Plex:
@@ -425,6 +431,14 @@ homepage:
                     type: uptimekuma
                     url: http://uptime-kuma.monitoring-system.svc.cluster.local:3001
                     slug: homelab
+              - NetData - TrueNAS:
+                  icon: netdata.png
+                  href: https://netdata.local.tecno-fly.com/
+                  ping: netdata.local.tecno-fly.com
+                  description: Real-time performance monitoring
+                  widget:
+                    type: netdata
+                    url: http://192.168.40.250:20489
 
         bookmarks.yaml: |
           ---
