@@ -265,6 +265,7 @@ homepage:
 
           - Arr:
               - Radarr:
+                  icon: radarr.png
                   href: https://radarr.local.tecno-fly.com/
                   namespace: arr
                   app: radarr
@@ -272,11 +273,24 @@ homepage:
                     type: radarr
                     url: http://radarr.arr.svc.cluster.local:7878
                     key: <path:pi-k3s/data/apps/arr/radarr#apikey>
+              - Sonarr:
+                  icon: sonarr.png
+                  href: https://sonarr.local.tecno-fly.com/
+                  namespace: arr
+                  app: sonarr
+                  widget:
+                    type: sonarr
+                    url: http://sonarr.arr.svc.cluster.local:8989
+                    key: <path:pi-k3s/data/apps/arr/sonarr#apikey>
 
           - Media:
-              - My Second Service:
-                  href: http://localhost/
-                  description: Homepage is the best
+              - Plex:
+                  href: https://plex.local.tecno-fly.com/
+                  description: Stream Movies & TV Shows
+                  widget:
+                    type: plex
+                    url: http://192.168.40.250:32400/
+                    key: <path:pi-k3s/data/apps/media/plex#device-token>
 
           - Infra:
               - My Third Service:
