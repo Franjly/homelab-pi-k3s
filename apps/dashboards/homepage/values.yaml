@@ -267,6 +267,7 @@ homepage:
               - Radarr:
                   icon: radarr.png
                   href: https://radarr.local.tecno-fly.com/
+                  description: Movie Library
                   namespace: arr
                   app: radarr
                   widget:
@@ -276,6 +277,7 @@ homepage:
               - Sonarr:
                   icon: sonarr.png
                   href: https://sonarr.local.tecno-fly.com/
+                  description: TV Show Library
                   namespace: arr
                   app: sonarr
                   widget:
@@ -285,6 +287,7 @@ homepage:
               - Lidarr:
                   icon: lidarr.png
                   href: https://lidarr.local.tecno-fly.com/
+                  description: Music Library
                   namespace: arr
                   app: lidarr
                   widget:
@@ -294,6 +297,7 @@ homepage:
               - Readarr:
                   icon: readarr.png
                   href: https://readarr.local.tecno-fly.com/
+                  description: eBook Library
                   namespace: arr
                   app: readarr
                   widget:
@@ -303,6 +307,7 @@ homepage:
               - Prowlarr:
                   icon: prowlarr.png
                   href: https://prowlarr.local.tecno-fly.com/
+                  description: Torrent Indexer
                   namespace: arr
                   app: prowlarr
                   widget:
@@ -312,6 +317,7 @@ homepage:
               - Bazarr:
                   icon: bazarr.png
                   href: https://bazarr.local.tecno-fly.com/
+                  description: Subtitle Library
                   namespace: arr
                   app: bazarr
                   widget:
@@ -342,10 +348,84 @@ homepage:
                     showEpisodeNumber: true
                     expandOneStreamToTwoRows: true
 
-          - Infra:
-              - My Third Service:
-                  href: http://localhost/
-                  description: Homepage is 😎
+          - Downloads:
+              - qBittorrent:
+                  icon: qbittorrent.png
+                  href: https://qbittorrent.local.tecno-fly.com/
+                  description: P2P Bittorrent Client
+                  widget:
+                    type: qbittorrent
+                    url: http://192.168.40.250:10095
+                    username: <path:pi-k3s/data/apps/qBittorrent#username>
+                    password: <path:pi-k3s/data/apps/qBittorrent#password>
+
+          - Network:
+              - Unifi:
+                  icon: unifi.png
+                  href: https://unifi.local.tecno-fly.com/
+                  description: Network configuration
+                  widget:
+                    type: unifi
+                    url: https://192.168.0.1
+                    username: <path:pi-k3s/data/system/monitoring-system/unifi-poller#UP_UNIFI_DEFAULT_USER>
+                    password: <path:pi-k3s/data/system/monitoring-system/unifi-poller#UP_UNIFI_DEFAULT_PASS>
+              - Pi-hole:
+                  icon: pihole.png
+                  href: https://pi-hole-0.local.tecno-fly.com/admin
+                  description: Network-wide Ad Blocking
+                  widget:
+                    type: pihole
+                    url: https://pi-hole-0.local.tecno-fly.com
+                    version: 5
+                    key: <path:pi-k3s/data/apps/pi-hole#apiToken>
+              - Pi-hole - TrueNAS:
+                  icon: pihole.png
+                  href: https://pi-hole-truenas.local.tecno-fly.com/admin
+                  description: Network-wide Ad Blocking
+                  widget:
+                    type: pihole
+                    url: https://pi-hole-truenas.local.tecno-fly.com
+                    version: 5
+                    key: <path:pi-k3s/data/apps/pi-hole#apiToken>
+
+          - Monitoring:
+              - Grafana:
+                  icon: grafana.png
+                  href: https://grafana.local.tecno-fly.com/
+                  description: Operational dashboards
+                  namespace: monitoring-system
+                  app: kube-prometheus-stack-grafana
+                  widget:
+                    type: grafana
+                    url: http://kube-prometheus-stack-grafana.monitoring-system.svc.cluster.local:80
+                    username: <path:pi-k3s/data/system/monitoring-system/grafana#admin-user>
+                    password: <path:pi-k3s/data/system/monitoring-system/grafana#admin-passwd>
+              - Prometheus:
+                  icon: prometheus.png
+                  href: https://prometheus.local.tecno-fly.com/
+                  description: Monitoring system & time series database
+                  namespace: monitoring-system
+                  app: prometheus-kube-prometheus-stack-prometheus
+                  widget:
+                    type: grafana
+                    url: http://kube-prometheus-stack-prometheus.monitoring-system.svc.cluster.local:80
+              - AlertManager:
+                  icon: prometheus.png
+                  href: https://alertmanager.local.tecno-fly.com/
+                  description: Alerts system
+                  namespace: monitoring-system
+                  app: alertmanager-kube-prometheus-stack-alertmanager
+              - Uptime Kuma:
+                  icon: uptimekuma.png
+                  href: https://uptime-kuma.local.tecno-fly.com/
+                  description: Monitoring tool
+                  namespace: monitoring-system
+                  app: uptime-kuma
+                  widget:
+                    type: uptimekuma
+                    url: http://uptime-kuma.monitoring-system.svc.cluster.local:3001
+                    slug: statuspageslug
+
         bookmarks.yaml: |
           ---
           # For configuration options and examples, please see:
