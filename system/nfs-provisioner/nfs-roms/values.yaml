@@ -1,0 +1,18 @@
+nfs-subdir-external-provisioner:
+  replicaCount: 1
+  strategyType: Recreate
+
+  nfs:
+    server: <path:pi-k3s/data/system/nfs-provisioner#server>
+    path: <path:pi-k3s/data/system/nfs-provisioner#path-roms>
+    mountOptions:
+      - nfsvers=4
+    volumeName: nfs-roms
+    reclaimPolicy: Retain
+
+  storageClass:
+    create: true
+    defaultClass: false
+    name: nfs-roms
+    reclaimPolicy: Retain
+    pathPattern: /
