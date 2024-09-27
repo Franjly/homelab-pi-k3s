@@ -251,6 +251,11 @@ homepage:
           # For configuration options and examples, please see:
           # https://gethomepage.dev/latest/configs/widgets
           
+          - unifi_console:
+              url: https://192.168.0.1
+              username: <path:pi-k3s/data/system/monitoring-system/unifi-poller#UP_UNIFI_DEFAULT_USER>
+              password: <path:pi-k3s/data/system/monitoring-system/unifi-poller#UP_UNIFI_DEFAULT_PASS>
+          
           - kubernetes:
               cluster:
                 show: true
@@ -278,6 +283,116 @@ homepage:
           ---
           # For configuration options and examples, please see:
           # https://gethomepage.dev/latest/configs/services
+
+          - Network:
+              - Unifi:
+                  icon: unifi.png
+                  href: https://unifi.local.tecno-fly.com/
+                  description: Network configuration
+                  widget:
+                    type: unifi
+                    url: https://192.168.0.1
+                    username: <path:pi-k3s/data/system/monitoring-system/unifi-poller#UP_UNIFI_DEFAULT_USER>
+                    password: <path:pi-k3s/data/system/monitoring-system/unifi-poller#UP_UNIFI_DEFAULT_PASS>
+              - Pi-hole:
+                  icon: pi-hole.png
+                  href: https://pi-hole-0.local.tecno-fly.com/admin
+                  description: Network-wide Ad Blocking
+                  widget:
+                    type: pihole
+                    url: https://pi-hole-0.local.tecno-fly.com
+                    version: 5
+                    key: <path:pi-k3s/data/apps/pi-hole#apiToken>
+              - Pi-hole - TrueNAS:
+                  icon: pi-hole.png
+                  href: https://pi-hole-truenas.local.tecno-fly.com/admin
+                  description: Network-wide Ad Blocking
+                  widget:
+                    type: pihole
+                    url: https://pi-hole-truenas.local.tecno-fly.com
+                    version: 5
+                    key: <path:pi-k3s/data/apps/pi-hole#apiToken>
+              - Cloudflare Tunnel:
+                  icon: cloudflare.png
+                  widget:
+                    type: cloudflared
+                    accountid: <path:pi-k3s/data/system/cloudflare/tunnel#accountid>
+                    tunnelid: <path:pi-k3s/data/system/cloudflare/tunnel#tunnelid>
+                    key: <path:pi-k3s/data/system/cloudflare/tunnel#homepage-token>
+          
+          - DevOps:
+              - ArgoCD:
+                  icon: argocd.png
+                  href: https://argocd.local.tecno-fly.com/
+                  description: Declarative GitOps CD for Kubernetes
+                  namespace: argocd
+                  app: argocd-server
+              - Vault:
+                  icon: vault.png
+                  href: https://vault.local.tecno-fly.com/
+                  description: Manage Secrets & Protect Sensitive Data
+                  namespace: vault
+                  app: vault
+
+          - K8s Tools:
+              - Longhorn:
+                  icon: longhorn.png
+                  href: https://longhorn.local.tecno-fly.com/
+                  description: Distributed block storage system for Kubernetes
+                  namespace: longhorn-system
+                  app: longhorn
+              - Kyverno:
+                  icon: policycontroller.png
+                  href: https://kyverno.local.tecno-fly.com/
+                  description: Policy engine designed for Kubernetes
+                  namespace: kyverno
+                  app: ui
+
+          - IoT:
+              - Octoprint:
+                  icon: octoprint.png
+                  href: https://octoprint.local.tecno-fly.com/
+                  description: The snappy web interface for your 3D printer
+                  namespace: octoprint
+                  app: octoprint
+                  widget:
+                    type: octoprint
+                    url: http://octoprint.octoprint.svc.cluster.local:80
+                    key: <path:pi-k3s/data/apps/octoprint#homepage-apikey>
+
+          - Downloads:
+              - qBittorrent:
+                  icon: qbittorrent.png
+                  href: https://qbittorrent.local.tecno-fly.com/
+                  description: P2P Bittorrent Client
+                  widget:
+                    type: qbittorrent
+                    url: http://192.168.40.250:10095
+                    username: <path:pi-k3s/data/apps/qBittorrent#username>
+                    password: <path:pi-k3s/data/apps/qBittorrent#password>
+
+          - Media:
+              - Plex:
+                  icon: plex.png
+                  href: https://plex.local.tecno-fly.com/
+                  description: Stream Movies & TV Shows
+                  widget:
+                    type: plex
+                    url: http://192.168.40.250:32400
+                    key: <path:pi-k3s/data/apps/media/plex#device-token>
+              - Jellyfin:
+                  icon: jellyfin.png
+                  href: https://Jellyfin.local.tecno-fly.com/
+                  description: The Free Software Media System
+                  widget:
+                    type: jellyfin
+                    url: http://192.168.40.250:30013
+                    key: <path:pi-k3s/data/apps/media/jellyfin#homepage-apikey>
+                    enableBlocks: true
+                    enableNowPlaying: true
+                    enableUser: true
+                    showEpisodeNumber: true
+                    expandOneStreamToTwoRows: true
 
           - Arr:
               - Radarr:
@@ -347,76 +462,6 @@ homepage:
                   namespace: arr
                   app: requestrr
 
-          - Media:
-              - Plex:
-                  icon: plex.png
-                  href: https://plex.local.tecno-fly.com/
-                  description: Stream Movies & TV Shows
-                  widget:
-                    type: plex
-                    url: http://192.168.40.250:32400
-                    key: <path:pi-k3s/data/apps/media/plex#device-token>
-              - Jellyfin:
-                  icon: jellyfin.png
-                  href: https://Jellyfin.local.tecno-fly.com/
-                  description: The Free Software Media System
-                  widget:
-                    type: jellyfin
-                    url: http://192.168.40.250:30013
-                    key: <path:pi-k3s/data/apps/media/jellyfin#homepage-apikey>
-                    enableBlocks: true
-                    enableNowPlaying: true
-                    enableUser: true
-                    showEpisodeNumber: true
-                    expandOneStreamToTwoRows: true
-
-          - Downloads:
-              - qBittorrent:
-                  icon: qbittorrent.png
-                  href: https://qbittorrent.local.tecno-fly.com/
-                  description: P2P Bittorrent Client
-                  widget:
-                    type: qbittorrent
-                    url: http://192.168.40.250:10095
-                    username: <path:pi-k3s/data/apps/qBittorrent#username>
-                    password: <path:pi-k3s/data/apps/qBittorrent#password>
-
-          - Network:
-              - Unifi:
-                  icon: unifi.png
-                  href: https://unifi.local.tecno-fly.com/
-                  description: Network configuration
-                  widget:
-                    type: unifi
-                    url: https://192.168.0.1
-                    username: <path:pi-k3s/data/system/monitoring-system/unifi-poller#UP_UNIFI_DEFAULT_USER>
-                    password: <path:pi-k3s/data/system/monitoring-system/unifi-poller#UP_UNIFI_DEFAULT_PASS>
-              - Pi-hole:
-                  icon: pi-hole.png
-                  href: https://pi-hole-0.local.tecno-fly.com/admin
-                  description: Network-wide Ad Blocking
-                  widget:
-                    type: pihole
-                    url: https://pi-hole-0.local.tecno-fly.com
-                    version: 5
-                    key: <path:pi-k3s/data/apps/pi-hole#apiToken>
-              - Pi-hole - TrueNAS:
-                  icon: pi-hole.png
-                  href: https://pi-hole-truenas.local.tecno-fly.com/admin
-                  description: Network-wide Ad Blocking
-                  widget:
-                    type: pihole
-                    url: https://pi-hole-truenas.local.tecno-fly.com
-                    version: 5
-                    key: <path:pi-k3s/data/apps/pi-hole#apiToken>
-              - Cloudflare Tunnel:
-                  icon: cloudflare-zero-trust.png
-                  widget:
-                    type: cloudflared
-                    accountid: <path:pi-k3s/data/system/cloudflare/tunnel#accountid>
-                    tunnelid: <path:pi-k3s/data/system/cloudflare/tunnel#tunnelid>
-                    key: <path:pi-k3s/data/system/cloudflare/tunnel#homepage-token>
-
           - Monitoring:
               - Grafana:
                   icon: grafana.png
@@ -461,46 +506,6 @@ homepage:
                   widget:
                     type: netdata
                     url: http://192.168.40.250:20489
-
-          - DevOps:
-              - ArgoCD:
-                  icon: argocd.png
-                  href: https://argocd.local.tecno-fly.com/
-                  description: Declarative GitOps CD for Kubernetes
-                  namespace: argocd
-                  app: argocd-server
-              - Vault:
-                  icon: vault.png
-                  href: https://vault.local.tecno-fly.com/
-                  description: Manage Secrets & Protect Sensitive Data
-                  namespace: vault
-                  app: vault
-
-          - K8s Tools:
-              - Longhorn:
-                  icon: longhorn.png
-                  href: https://longhorn.local.tecno-fly.com/
-                  description: Distributed block storage system for Kubernetes
-                  namespace: longhorn-system
-                  app: longhorn
-              - Kyverno:
-                  icon: policycontroller.png
-                  href: https://kyverno.local.tecno-fly.com/
-                  description: Policy engine designed for Kubernetes
-                  namespace: kyverno
-                  app: ui
-
-          - IoT:
-              - Octoprint:
-                  icon: octoprint.png
-                  href: https://octoprint.local.tecno-fly.com/
-                  description: The snappy web interface for your 3D printer
-                  namespace: octoprint
-                  app: octoprint
-                  widget:
-                    type: octoprint
-                    url: http://octoprint.octoprint.svc.cluster.local:80
-                    key: <path:pi-k3s/data/apps/octoprint#homepage-apikey>
           
           - NAS:
               - TrueNAS:
