@@ -244,15 +244,12 @@ homepage:
           providers:
             openweathermap: openweathermapapikey
             weatherapi: weatherapiapikey
+            longhorn:
+              url: http://longhorn.longhorn-system.svc.cluster.local:80
         widgets.yaml: |
           ---
           # For configuration options and examples, please see:
           # https://gethomepage.dev/latest/configs/widgets
-
-          - resources:
-              cpu: true
-              memory: true
-              disk: /
           
           - kubernetes:
               cluster:
