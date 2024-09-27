@@ -289,7 +289,8 @@ homepage:
                   icon: unifi.png
                   href: https://unifi.local.tecno-fly.com/
                   description: Network configuration
-                  siteMonitor: https://unifi.local.tecno-fly.com
+                  siteMonitor: https://192.168.0.1
+                  statusStyle: 'basic'
                   widget:
                     type: unifi
                     url: https://192.168.0.1
@@ -299,6 +300,8 @@ homepage:
                   icon: pi-hole.png
                   href: https://pi-hole-0.local.tecno-fly.com/admin
                   description: Network-wide Ad Blocking
+                  siteMonitor: http://192.168.40.254/admin
+                  statusStyle: 'basic'
                   widget:
                     type: pihole
                     url: https://pi-hole-0.local.tecno-fly.com
@@ -308,6 +311,8 @@ homepage:
                   icon: pi-hole.png
                   href: https://pi-hole-truenas.local.tecno-fly.com/admin
                   description: Network-wide Ad Blocking
+                  siteMonitor: http://192.168.40.250:20720/admin
+                  statusStyle: 'basic'
                   widget:
                     type: pihole
                     url: https://pi-hole-truenas.local.tecno-fly.com
@@ -400,6 +405,8 @@ homepage:
                   icon: netdata.png
                   href: https://netdata.local.tecno-fly.com/
                   description: Real-time performance monitoring
+                  siteMonitor: http://192.168.40.250:20489
+                  statusStyle: 'basic'
                   widget:
                     type: netdata
                     url: http://192.168.40.250:20489
@@ -409,6 +416,8 @@ homepage:
                   icon: qbittorrent.png
                   href: https://qbittorrent.local.tecno-fly.com/
                   description: P2P Bittorrent Client
+                  siteMonitor: http://192.168.40.250:10095
+                  statusStyle: 'basic'
                   widget:
                     type: qbittorrent
                     url: http://192.168.40.250:10095
@@ -420,6 +429,8 @@ homepage:
                   icon: plex.png
                   href: https://plex.local.tecno-fly.com/
                   description: Stream Movies & TV Shows
+                  siteMonitor: http://192.168.40.250:32400
+                  statusStyle: 'basic'
                   widget:
                     type: plex
                     url: http://192.168.40.250:32400
@@ -428,6 +439,8 @@ homepage:
                   icon: jellyfin.png
                   href: https://Jellyfin.local.tecno-fly.com/
                   description: The Free Software Media System
+                  siteMonitor: http://192.168.40.250:30013
+                  statusStyle: 'basic'
                   widget:
                     type: jellyfin
                     url: http://192.168.40.250:30013
@@ -513,6 +526,8 @@ homepage:
                   icon: truenas-scale.png
                   href: https://truenas.local.tecno-fly.com/
                   description: Network Attached Storage
+                  siteMonitor: https://192.168.40.250
+                  statusStyle: 'basic'
                   widget:
                     type: truenas
                     url: https://truenas.local.tecno-fly.com
@@ -523,18 +538,26 @@ homepage:
                   icon: filebrowser.png
                   href: https://truenas-browser.local.tecno-fly.com/
                   description: Web File Browser
+                  siteMonitor: http://192.168.40.250:30044/
+                  statusStyle: 'basic'
               - MinIO:
                   icon: minio.png
                   href: https://minio.local.tecno-fly.com/
                   description: Kubernetes Native Object Storage
+                  siteMonitor: https://192.168.40.250:9002/
+                  statusStyle: 'basic'
 
           - Misc:
               - Pod-Info - Local:
                   href: https://pod-info.local.tecno-fly.com/
                   description: Go microservice template for Kubernetes
+                  namespace: pod-info
+                  app: pod-info
               - Pod-Info - Public:
                   href: https://pod-info.tecno-fly.com/
                   description: Go microservice template for Kubernetes
+                  siteMonitor: https://pod-info.tecno-fly.com/
+                  statusStyle: 'basic'
 
         bookmarks.yaml: |
           ---
@@ -544,7 +567,7 @@ homepage:
           - Developer:
               - Github:
                   - abbr: GH
-                    href: https://github.com/
+                    href: https://github.com/Franjly
 
           - Social:
               - Reddit:
@@ -552,6 +575,9 @@ homepage:
                     href: https://reddit.com/
 
           - Entertainment:
+              - Twitch:
+                  - abbr: TW
+                    href: https://www.twitch.tv/
               - YouTube:
                   - abbr: YT
                     href: https://youtube.com/
