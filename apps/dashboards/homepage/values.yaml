@@ -455,6 +455,74 @@ homepage:
                     type: netdata
                     url: http://192.168.40.250:20489
 
+          - DevOps:
+              - ArgoCD:
+                  icon: argocd.png
+                  href: https://argocd.local.tecno-fly.com/
+                  description: Declarative GitOps CD for Kubernetes
+                  namespace: argocd
+                  app: argocd-server
+              - Vault:
+                  icon: vault.png
+                  href: https://vault.local.tecno-fly.com/
+                  description: Manage Secrets & Protect Sensitive Data
+                  namespace: longhorn-system
+                  app: vault
+
+          - K8s Tools:
+              - Longhorn:
+                  icon: longhorn.png
+                  href: https://longhorn.local.tecno-fly.com/
+                  description: Distributed block storage system for Kubernetes
+                  namespace: argocd
+                  app: longhorn
+              - Kyverno:
+                  icon: policycontroller.png
+                  href: https://kyverno.local.tecno-fly.com/
+                  description: Policy engine designed for Kubernetes
+                  namespace: kyverno
+                  app: ui
+
+          - IoT:
+              - Octoprint:
+                  icon: octoprint.png
+                  href: https://octoprint.local.tecno-fly.com/
+                  description: The snappy web interface for your 3D printer
+                  namespace: octoprint
+                  app: octoprint
+                  widget:
+                    type: octoprint
+                    url: http://octoprint.octoprint.svc.cluster.local:80
+                    key: <path:pi-k3s/data/apps/octoprint#homepage-apikey>
+          
+          - NAS:
+              - TrueNAS:
+                  icon: truenas-scale.png
+                  href: https://truenas.local.tecno-fly.com/
+                  description: Network Attached Storage
+                  widget:
+                    type: truenas
+                    url: https://truenas.local.tecno-fly.com
+                    key: <path:pi-k3s/data/apps/dashboards/homepage#truenas-apikey>
+                    enablePools: true
+                    nasType: scale
+              - File Browser:
+                  icon: filebrowser.png
+                  href: https://truenas-browser.local.tecno-fly.com/
+                  description: Web File Browser
+              - MinIO:
+                  icon: minio.png
+                  href: https://minio.local.tecno-fly.com/
+                  description: Kubernetes Native Object Storage
+
+          - Misc:
+              - Pod-Info - Local:
+                  href: https://pod-info.local.tecno-fly.com/
+                  description: Go microservice template for Kubernetes
+              - Pod-Info - Public:
+                  href: https://pod-info.tecno-fly.com/
+                  description: Go microservice template for Kubernetes
+
         bookmarks.yaml: |
           ---
           # For configuration options and examples, please see:
