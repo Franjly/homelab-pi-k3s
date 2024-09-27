@@ -289,7 +289,7 @@ homepage:
                   description: Stream Movies & TV Shows
                   widget:
                     type: plex
-                    url: http://192.168.40.250:32400/
+                    url: http://192.168.40.250:32400
                     key: <path:pi-k3s/data/apps/media/plex#device-token>
 
           - Infra:
