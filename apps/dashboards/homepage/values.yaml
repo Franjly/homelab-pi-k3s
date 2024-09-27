@@ -394,7 +394,7 @@ homepage:
                   href: https://grafana.local.tecno-fly.com/
                   description: Operational dashboards
                   namespace: monitoring-system
-                  app: kube-prometheus-stack-grafana
+                  app: grafana
                   widget:
                     type: grafana
                     url: http://kube-prometheus-stack-grafana.monitoring-system.svc.cluster.local:80
@@ -405,16 +405,16 @@ homepage:
                   href: https://prometheus.local.tecno-fly.com/
                   description: Monitoring system & time series database
                   namespace: monitoring-system
-                  app: prometheus-kube-prometheus-stack-prometheus
+                  app: prometheus
                   widget:
                     type: prometheus
-                    url: http://kube-prometheus-stack-prometheus.monitoring-system.svc.cluster.local:80
+                    url: http://kube-prometheus-stack-prometheus.monitoring-system.svc.cluster.local:9090
               - AlertManager:
                   icon: alertmanager.png
                   href: https://alertmanager.local.tecno-fly.com/
                   description: Alerts system
                   namespace: monitoring-system
-                  app: alertmanager-kube-prometheus-stack-alertmanager
+                  app: alertmanager
               - Uptime Kuma:
                   icon: uptime-kuma.png
                   href: https://uptime-kuma.local.tecno-fly.com/
