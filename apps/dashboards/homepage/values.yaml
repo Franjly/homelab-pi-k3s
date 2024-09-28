@@ -547,6 +547,20 @@ homepage:
                   siteMonitor: https://192.168.40.250:9002/
                   statusStyle: 'basic'
 
+          - Games:
+              - Romm:
+                  icon: romm.png
+                  href: https://romm.local.tecno-fly.com/
+                  description: Self-hosted Rom Manager
+                  namespace: romm
+                  app: romm
+                  widget:
+                    type: romm
+                    url: http://romm.romm.svc.cluster.local:10680
+                    username: <path:pi-k3s/data/apps/romm#user>
+                    password: <path:pi-k3s/data/apps/romm#pass>
+                    fields: ["platforms", "totalRoms", "saves", "states"]
+
           - Misc:
               - Pod-Info - Local:
                   href: https://pod-info.local.tecno-fly.com/
