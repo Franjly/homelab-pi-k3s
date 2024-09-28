@@ -117,6 +117,10 @@ romm:
     mariadbUsername: <path:pi-k3s/data/apps/romm#mariadbUsername>
     mariadbDatabase: romm
 
+    podOptions:
+      nodeSelector:
+        kubernetes.io/arch: null
+
     persistence:
       data:
         enabled: true
@@ -127,6 +131,10 @@ romm:
   redis:
     enabled: true
     includeCommon: true
+
+    podOptions:
+      nodeSelector:
+        kubernetes.io/arch: null
 
   portal:
     open:
