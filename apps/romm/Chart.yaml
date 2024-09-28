@@ -1,0 +1,7 @@
+apiVersion: v2
+name: romm
+version: 0.0.0
+dependencies:
+  - name: romm
+    version: 10.8.12
+    repository: oci://tccr.io/truecharts
