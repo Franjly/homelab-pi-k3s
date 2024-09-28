@@ -1,0 +1,7 @@
+apiVersion: v2
+name: myspeed
+version: 0.0.0
+dependencies:
+  - name: myspeed
+    version: 0.0.4
+    repository: oci://tccr.io/truecharts

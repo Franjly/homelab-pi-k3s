@@ -1,0 +1,58 @@
+myspeed:
+  image:
+    repository: germannewsmaker/myspeed
+    tag: 1.0.9@sha256:3a3e774b3f78d930a5a962d625b99bcb3d71730bfeb4a6b93e04fd38cfe7d9a9
+  
+  podOptions:
+    nodeSelector:
+      kubernetes.io/arch: null
+
+  service:
+    main:
+      ports:
+        main:
+          port: 5216
+
+  ingress:
+    main:
+      enabled: true
+
+      annotations:
+        cert-manager.io/cluster-issuer: letsencrypt-staging
+        # kubernetes.io/tls-acme: "true"
+
+      ingressClassName: "nginx"
+
+      hosts:
+        - host: myspeed.local.tecno-fly.com
+          paths:
+            - path: /
+              pathType: Prefix
+              service:
+                name: myspeed
+                port: 10680
+      tls:
+        - secretName: myspeed-tls
+          hosts:
+            - myspeed.local.tecno-fly.com
+      integrations:
+        traefik:
+          enabled: false
+
+  persistence:
+    data:
+      enabled: true
+      storageClass: longhorn
+      size: 5Gi
+      mountPath: /myspeed/data
+
+  metrics:
+    main:
+      enabled: true
+      type: "servicemonitor"
+      endpoints:
+        - port: main
+          path: /api/prometheus
+      targetSelector: main
+      prometheusRule:
+        enabled: true
