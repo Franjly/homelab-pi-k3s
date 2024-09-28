@@ -3,6 +3,10 @@ romm:
     repository: ghcr.io/rommapp/romm
     tag: 3.5@sha256:d3a0cd1d84a3f85f56d4995a2a29f3efd664e2d040bb09fa00be1aded4349ac4
 
+  mariadbClientImage:
+    repository: franjlytools/mariadb-db-wait-mariadb
+    tag: latest
+
   podOptions:
     nodeSelector:
       kubernetes.io/arch: null
