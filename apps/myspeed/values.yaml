@@ -55,4 +55,4 @@ myspeed:
           path: /api/prometheus/metrics
       targetSelector: main
       prometheusRule:
-        enabled: true
+        enabled: false
