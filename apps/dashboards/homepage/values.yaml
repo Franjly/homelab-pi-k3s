@@ -247,10 +247,21 @@ homepage:
             longhorn:
               url: http://longhorn-frontend.longhorn-system.svc.cluster.local:80
 
+          useEqualHeights: false
+
           layout:
+            Network:
+            K8s Tools:
+            IoT:
+            Monitoring:
+            Downloads:
+            Media:
             Arr:
               style: row
               columns: 2
+            NAS:
+            Games:
+            Misc:
 
         widgets.yaml: |
           ---
