@@ -246,6 +246,12 @@ homepage:
             weatherapi: weatherapiapikey
             longhorn:
               url: http://longhorn-frontend.longhorn-system.svc.cluster.local:80
+
+          layout:
+            Arr:
+              style: row
+              columns: 2
+
         widgets.yaml: |
           ---
           # For configuration options and examples, please see:
@@ -460,7 +466,7 @@ homepage:
                     showEpisodeNumber: true
                     expandOneStreamToTwoRows: true
 
-          - Arr0:
+          - Arr:
               - Radarr:
                   icon: radarr.png
                   href: https://radarr.local.tecno-fly.com/
@@ -491,8 +497,6 @@ homepage:
                     type: lidarr
                     url: http://lidarr.arr.svc.cluster.local:8686
                     key: <path:pi-k3s/data/apps/arr/lidarr#apikey>
-
-          - Arr1:
               - Readarr:
                   icon: readarr.png
                   href: https://readarr.local.tecno-fly.com/
