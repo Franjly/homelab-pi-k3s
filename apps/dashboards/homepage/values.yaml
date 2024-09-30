@@ -605,19 +605,27 @@ homepage:
           - Developer:
               - Github:
                   - abbr: GH
+                    icon: https://github.com/fluidicon.png
                     href: https://github.com/Franjly
+              - Cloudflare:
+                  - abbr: CF
+                    icon: https://t2.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://cloudflare.com&size=32
+                    href: https://dash.cloudflare.com
 
           - Social:
               - Reddit:
                   - abbr: RE
+                    icon: https://t2.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://reddit.com&size=32
                     href: https://reddit.com/
 
           - Entertainment:
               - Twitch:
                   - abbr: TW
+                    icon: https://t2.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://twitch.tv&size=32
                     href: https://twitch.tv/
               - YouTube:
                   - abbr: YT
+                    icon: https://t2.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://youtube.com&size=32
                     href: https://youtube.com/
 
           - TrueCharts:
