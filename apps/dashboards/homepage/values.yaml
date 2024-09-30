@@ -251,9 +251,17 @@ homepage:
 
           layout:
             Network:
+              style: row
+              columns: 2
             K8s Tools:
+              style: row
+              columns: 2
             IoT:
+              style: row
+              columns: 1
             Monitoring:
+              style: row
+              columns: 2
             Downloads:
             Media:
             Arr:
