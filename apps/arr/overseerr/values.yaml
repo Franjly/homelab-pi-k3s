@@ -3,19 +3,29 @@ overseerr:
     repository: ghcr.io/hotio/overseerr
     tag: release-1.33.2
 
-  env:
-    TZ: Europe/Madrid
-    LOG_LEVEL: info
+  podOptions:
+    hostUsers: false
+    nodeSelector:
+      kubernetes.io/arch: null
+
+  TZ: Europe/Madrid
+
+  service:
+    main:
+      ports:
+        main:
+          port: 5055
+          targetPort: 5055
 
   ingress:
     main:
       enabled: true
 
       annotations:
-        cert-manager.io/cluster-issuer: letsencrypt-staging
+        cert-manager.io/cluster-issuer: letsencrypt-prod
         # kubernetes.io/tls-acme: "true"
         hajimari.io/appName: Overseerr
-        hajimari.io/icon: record-circle
+        hajimari.io/icon: filmstrip
         hajimari.io/group: Downloads
         hajimari.io/targetBlank: 'false'
 
@@ -30,12 +40,16 @@ overseerr:
                 name: overseerr
                 port: 5055
       tls:
-       - secretName: overseerr-tls
-         hosts:
-           - overseerr.local.tecno-fly.com
+        - secretName: overseerr-tls
+          hosts:
+            - overseerr.local.tecno-fly.com
+      integrations:
+        traefik:
+          enabled: false
 
   persistence:
     config:
-      enabled: false
+      enabled: true
       storageClass: longhorn
-      mountPath: /app/config
+      size: 5Gi
+      mountPath: "/app/config"
