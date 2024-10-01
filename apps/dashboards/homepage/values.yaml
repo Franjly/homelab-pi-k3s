@@ -278,7 +278,7 @@ homepage:
               tab: Admin
             Games:
               tab: Media
-            Misc:
+            Pod-Info:
               tab: Misc
 
         widgets.yaml: |
@@ -603,7 +603,7 @@ homepage:
                     password: <path:pi-k3s/data/apps/romm#pass>
                     fields: ["platforms", "totalRoms", "saves", "states"]
 
-          - Misc:
+          - Pod-Info:
               - Pod-Info - Local:
                   href: https://pod-info.local.tecno-fly.com/
                   description: Go microservice template for Kubernetes
