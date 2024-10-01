@@ -247,29 +247,39 @@ homepage:
             longhorn:
               url: http://longhorn-frontend.longhorn-system.svc.cluster.local:80
 
-          useEqualHeights: false
+          useEqualHeights: true
 
           layout:
             Network:
+              tab: Admin
               style: row
               columns: 2
             K8s Tools:
+              tab: Admin
               style: row
               columns: 2
             IoT:
+              tab: Admin
               style: row
               columns: 1
             Monitoring:
+              tab: Admin
               style: row
               columns: 2
             Downloads:
+              tab: Media
             Media:
+              tab: Media
             Arr:
+              tab: Media
               style: row
               columns: 2
             NAS:
+              tab: Admin
             Games:
+              tab: Media
             Misc:
+              tab: Misc
 
         widgets.yaml: |
           ---
