@@ -59,12 +59,12 @@ overseerr:
 
   securityContext:
     container:
-      PUID: 1000
-      PGID: 1000
+      PUID: 0
+      PGID: 0
       UMASK: "002"
       runAsNonRoot: false
-      runAsUser: 1000
-      runAsGroup: 1000
+      runAsUser: 0
+      runAsGroup: 0
       readOnlyRootFilesystem: false
       allowPrivilegeEscalation: false
       privileged: false
