@@ -58,5 +58,24 @@ overseerr:
       mountPath: "/app/config"
 
   securityContext:
+    container:
+      PUID: 1000
+      PGID: 1000
+      UMASK: "002"
+      runAsNonRoot: false
+      runAsUser: 1000
+      runAsGroup: 1000
+      readOnlyRootFilesystem: false
+      allowPrivilegeEscalation: false
+      privileged: false
+      seccompProfile:
+        type: RuntimeDefault
+      capabilities:
+        add: []
+        drop:
+          - ALL
     pod:
       fsGroup: 0
+      fsGroupChangePolicy: OnRootMismatch
+      supplementalGroups: []
+      sysctls: []
