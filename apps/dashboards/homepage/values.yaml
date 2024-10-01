@@ -556,6 +556,16 @@ homepage:
                     type: bazarr
                     url: http://bazarr.arr.svc.cluster.local:6767
                     key: <path:pi-k3s/data/apps/arr/bazarr#apikey>
+              - Overseerr:
+                  icon: overseerr.png
+                  href: https://overseerr.local.tecno-fly.com/
+                  description: Request management and media discovery tool
+                  namespace: arr
+                  app: overseerr
+                  widget:
+                    type: overseerr
+                    url: http://overseerr.arr.svc.cluster.local:5055
+                    key: <path:pi-k3s/data/apps/media/plex#device-token>
               - Requestrr:
                   icon: requestrr.png
                   href: https://requestrr.local.tecno-fly.com/
