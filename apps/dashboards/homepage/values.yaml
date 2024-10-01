@@ -565,7 +565,7 @@ homepage:
                   widget:
                     type: overseerr
                     url: http://overseerr.arr.svc.cluster.local:5055
-                    key: <path:pi-k3s/data/apps/media/plex#device-token>
+                    key: <path:pi-k3s/data/apps/arr/overseerr#apikey>
               - Requestrr:
                   icon: requestrr.png
                   href: https://requestrr.local.tecno-fly.com/
