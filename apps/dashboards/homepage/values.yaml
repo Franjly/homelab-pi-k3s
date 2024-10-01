@@ -259,7 +259,7 @@ homepage:
               style: row
               columns: 2
             IoT:
-              tab: Admin
+              tab: Network
               style: row
               columns: 1
             Monitoring:
@@ -275,7 +275,7 @@ homepage:
               style: row
               columns: 2
             NAS:
-              tab: Admin
+              tab: Network
             Games:
               tab: Media
             Pod-Info:
