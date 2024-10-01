@@ -1,7 +1,10 @@
 overseerr:
+  # image:
+  #   repository: ghcr.io/sct/overseerr
+  #   tag: 1.33.2
   image:
-    repository: ghcr.io/sct/overseerr
-    tag: 1.33.2
+    repository: ghcr.io/hotio/overseerr
+    tag: release-1.33.2
 
   podOptions:
     hostUsers: false
@@ -53,3 +56,25 @@ overseerr:
       storageClass: longhorn
       size: 5Gi
       mountPath: "/app/config"
+
+  securityContext:
+    container:
+      PUID: 568
+      UMASK: "002"
+      runAsNonRoot: true
+      runAsUser: 568
+      runAsGroup: 568
+      readOnlyRootFilesystem: false
+      allowPrivilegeEscalation: false
+      privileged: false
+      seccompProfile:
+        type: RuntimeDefault
+      capabilities:
+        add: []
+        drop:
+          - ALL
+    pod:
+      fsGroup: 568
+      fsGroupChangePolicy: OnRootMismatch
+      supplementalGroups: []
+      sysctls: []
