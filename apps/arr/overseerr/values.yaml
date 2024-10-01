@@ -1,7 +1,7 @@
 overseerr:
   image:
-    repository: ghcr.io/hotio/overseerr
-    tag: release-1.33.2
+    repository: ghcr.io/sct/overseerr
+    tag: 1.33.2
 
   podOptions:
     hostUsers: false
@@ -53,12 +53,3 @@ overseerr:
       storageClass: longhorn
       size: 5Gi
       mountPath: "/app/config"
-
-  securityContext:
-    container:
-      PUID: 1000
-      runAsUser: 1000
-      runAsGroup: 1000
-    pod:
-      fsGroup: 1000
-      
