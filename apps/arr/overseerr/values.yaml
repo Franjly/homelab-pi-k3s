@@ -53,3 +53,12 @@ overseerr:
       storageClass: longhorn
       size: 5Gi
       mountPath: "/app/config"
+
+  securityContext:
+    container:
+      PUID: 1000
+      runAsUser: 1000
+      runAsGroup: 1000
+    pod:
+      fsGroup: 1000
+      
