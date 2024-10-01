@@ -247,7 +247,7 @@ homepage:
             longhorn:
               url: http://longhorn-frontend.longhorn-system.svc.cluster.local:80
 
-          useEqualHeights: true
+          useEqualHeights: false
 
           layout:
             Network:
