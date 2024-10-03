@@ -7,6 +7,9 @@ homer:
     TZ: Europe/Madrid
     IPV6_DISABLE: 1
 
+  nodeSelector:
+    kubernetes.io/hostname: pi-kube-master-0
+
   ingress:
     main:
       enabled: true
