@@ -532,7 +532,7 @@ argo-cd:
     name: repo-server
 
     # -- The number of repo server pods to run
-    replicas: 1
+    replicas: 2
 
     # -- envFrom to pass to repo server
     # @default -- `[]` (See [values.yaml])
