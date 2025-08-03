@@ -363,7 +363,7 @@ homepage:
 
           - K8s Tools:
               - ArgoCD:
-                  icon: argocd.png
+                  icon: argo-cd.png
                   href: https://argocd.local.tecno-fly.com/
                   description: Declarative GitOps CD for Kubernetes
                   namespace: argocd
@@ -679,3 +679,4 @@ homepage:
                   description: "TrueCharts Discord"
 
   forceConfigFromValues: true
+
