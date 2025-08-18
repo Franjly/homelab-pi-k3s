@@ -348,7 +348,7 @@ homepage:
                     type: pihole
                     url: https://pi-hole-0.local.tecno-fly.com
                     version: 6
-                    key: <path:pi-k3s/data/apps/pi-hole#apiToken>
+                    key: <path:pi-k3s/data/apps/pi-hole#pi-hole-0-app-password>
               - Pi-hole - TrueNAS:
                   icon: pi-hole.png
                   href: https://pi-hole-truenas.local.tecno-fly.com/admin
