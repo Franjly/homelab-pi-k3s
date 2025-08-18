@@ -47,10 +47,11 @@ spec:
           service:
             name: pi-hole-0-service
             port:
-              number: 80
+              number: 8080
         path: /
         pathType: Prefix
   tls:
   - hosts:
     - pi-hole-0.local.tecno-fly.com
     secretName: pi-hole-tls
+
