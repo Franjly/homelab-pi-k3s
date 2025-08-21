@@ -358,8 +358,8 @@ homepage:
                   widget:
                     type: pihole
                     url: https://pi-hole-truenas.local.tecno-fly.com
-                    version: 5
-                    key: <path:pi-k3s/data/apps/pi-hole#apiToken>
+                    version: 6
+                    key: <path:pi-k3s/data/apps/pi-hole#pi-hole-truenas-app-password>
 
           - K8s Tools:
               - ArgoCD:
@@ -679,4 +679,5 @@ homepage:
                   description: "TrueCharts Discord"
 
   forceConfigFromValues: true
+
 
