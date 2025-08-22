@@ -68,8 +68,8 @@ tigera-operator:
   # Image and registry configuration for the tigera/operator pod.
   tigeraOperator:
     image: tigera/operator
-    version: release-v1.35
+    version: master
     registry: quay.io
   calicoctl:
-    image: docker.io/calico/ctl
-    tag: release-v3.28
+    image: quay.io/calico/ctl
+    tag: master
