@@ -53,5 +53,5 @@ spec:
   tls:
   - hosts:
     - pi-hole-0.local.tecno-fly.com
-    secretName: pi-hole-tls
+    secretName: pi-hole-0-tls
 
