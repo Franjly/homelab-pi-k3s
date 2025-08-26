@@ -64,12 +64,3 @@ tigera-operator:
 
   # Custom labels for the tigera/operator pod.
   podLabels: {}
-
-  # Image and registry configuration for the tigera/operator pod.
-  tigeraOperator:
-    image: tigera/operator
-    version: release-v1.35
-    registry: quay.io
-  calicoctl:
-    image: docker.io/calico/ctl
-    tag: release-v3.28
