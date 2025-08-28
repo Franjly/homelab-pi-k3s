@@ -14,6 +14,10 @@ homepage:
     main:
       podSpec:
         automountServiceAccountToken: true
+        containers:
+          main:
+            env:
+              HOMEPAGE_ALLOWED_HOSTS: "homepage.local.tecno-fly.com"
         initContainers:
           init-config:
             enabled: true
