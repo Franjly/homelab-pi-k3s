@@ -70,6 +70,7 @@ argo-cd:
 
       accounts.fly: apiKey, login, exec
       accounts.argocd: apiKey, login, exec
+      accounts.readonly: apiKey
 
       resource.customizations: |
         argoproj.io/Application:
@@ -154,6 +155,7 @@ argo-cd:
         p, role:argocd, repositories, *, *, allow
         g, fly, role:admin
         g, argocd, role:argocd
+        g, readonly, role:readonly
 
     # SSH known hosts for Git repositories
     ## Ref: https://argo-cd.readthedocs.io/en/stable/operator-manual/declarative-setup/#ssh-known-host-public-keys
