@@ -596,6 +596,11 @@ homepage:
                   description: Web File Browser
                   siteMonitor: http://192.168.40.250:30044/
                   statusStyle: 'basic'
+                  widget:
+                    type: filebrowser
+                    url: https://truenas-browser.local.tecno-fly.com
+                    username: <path:pi-k3s/data/apps/dashboards/homepage#filebrowser-truenas-username>
+                    password: <path:pi-k3s/data/apps/dashboards/homepage#filebrowser-truenas-password>
               - MinIO:
                   icon: minio.png
                   href: https://minio.local.tecno-fly.com/
