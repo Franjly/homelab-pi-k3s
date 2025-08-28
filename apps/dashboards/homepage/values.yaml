@@ -372,6 +372,10 @@ homepage:
                   description: Declarative GitOps CD for Kubernetes
                   namespace: argocd
                   app: argocd-server
+                  widget:
+                    type: argocd
+                    url: https://argocd.local.tecno-fly.com
+                    key: <path:pi-k3s/data/apps/dashboards/homepage#argocd-readonly-apikey>
               - Longhorn:
                   icon: longhorn.png
                   href: https://longhorn.local.tecno-fly.com/
