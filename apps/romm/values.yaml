@@ -1,4 +1,8 @@
 romm:
+  image:
+    repository: ghcr.io/rommapp/romm
+    tag: 4.1@sha256:fe68b32b2765c61a696012709e7ad638faba9c4776d936bf23a35fb576a66eea
+
   mariadbClientImage:
     repository: franjlytools/mariadb-db-wait-mariadb
     tag: latest
