@@ -1,15 +1,11 @@
 romm:
-  image:
-    repository: ghcr.io/rommapp/romm
-    tag: 4.1@sha256:fe68b32b2765c61a696012709e7ad638faba9c4776d936bf23a35fb576a66eea
-
   mariadbClientImage:
     repository: franjlytools/mariadb-db-wait-mariadb
-    tag: latest
+    tag: 20250822112945
 
   redisClientImage:
     repository: franjlytools/redis-db-wait-redis
-    tag: latest
+    tag: 20250822113534
 
   podOptions:
     nodeSelector:
@@ -122,6 +118,11 @@ romm:
   mariadb:
     enabled: true
     includeCommon: true
+
+    image:
+      repository: bitnami/mariadb
+      tag: 11.8.3
+    
     mariadbUsername: <path:pi-k3s/data/apps/romm#mariadbUsername>
     mariadbDatabase: romm
 
@@ -139,6 +140,10 @@ romm:
   redis:
     enabled: true
     includeCommon: true
+
+    image:
+      repository: bitnami/mariadb
+      tag: 8.2.1
 
     podOptions:
       nodeSelector:
