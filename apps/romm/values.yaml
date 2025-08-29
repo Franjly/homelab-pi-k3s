@@ -1,11 +1,11 @@
 romm:
   mariadbClientImage:
     repository: franjlytools/mariadb-db-wait-mariadb
-    tag: 20250822112945
+    tag: "20250822112945"
 
   redisClientImage:
     repository: franjlytools/redis-db-wait-redis
-    tag: 20250822113534
+    tag: "20250822113534"
 
   podOptions:
     nodeSelector:
