@@ -142,7 +142,7 @@ romm:
     includeCommon: true
 
     image:
-      repository: bitnami/mariadb
+      repository: bitnami/redis
       tag: 8.2.1
 
     podOptions:
