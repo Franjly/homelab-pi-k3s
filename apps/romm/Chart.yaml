@@ -3,5 +3,5 @@ name: romm
 version: 0.0.0
 dependencies:
   - name: romm
-    version: 10.8.12
+    version: 13.6.3
     repository: oci://tccr.io/truecharts

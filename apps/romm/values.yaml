@@ -1,8 +1,4 @@
 romm:
-  image:
-    repository: ghcr.io/rommapp/romm
-    tag: 3.5@sha256:d3a0cd1d84a3f85f56d4995a2a29f3efd664e2d040bb09fa00be1aded4349ac4
-
   mariadbClientImage:
     repository: franjlytools/mariadb-db-wait-mariadb
     tag: latest
@@ -69,8 +65,8 @@ romm:
             env:
               ROMM_BASE_PATH: /romm
               ROMM_DB_DRIVER: mariadb
-              CLIENT_ID: <path:pi-k3s/data/apps/romm#igdb-clientId>
-              CLIENT_SECRET: <path:pi-k3s/data/apps/romm#igdb-clientSecret>
+              IGDB_CLIENT_ID: <path:pi-k3s/data/apps/romm#igdb-clientId>
+              IGDB_CLIENT_SECRET: <path:pi-k3s/data/apps/romm#igdb-clientSecret>
               STEAMGRIDDB_API_KEY: <path:pi-k3s/data/apps/romm#steamgriddb-apikey>
               DB_PORT: 3306
               DB_NAME: "{{ .Values.mariadb.mariadbDatabase }}"
