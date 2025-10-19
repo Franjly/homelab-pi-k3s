@@ -1,7 +1,7 @@
 radarr:
   image:
     repository: ghcr.io/hotio/radarr
-    tag: release-5.9.1.9070
+    tag: release-5.28.0.10274
 
   env:
     TZ: Europe/Madrid
