@@ -121,7 +121,7 @@ romm:
 
     image:
       repository: bitnami/mariadb
-      tag: 11.8.3
+      tag: latest # only option for an arm64 image without subscription
     
     mariadbUsername: <path:pi-k3s/data/apps/romm#mariadbUsername>
     mariadbDatabase: romm
@@ -143,7 +143,7 @@ romm:
 
     image:
       repository: bitnami/redis
-      tag: 8.2.1
+      tag: latest # only option for an arm64 image without subscription
 
     podOptions:
       nodeSelector:
