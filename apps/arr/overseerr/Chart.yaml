@@ -4,4 +4,4 @@ version: 0.0.0
 dependencies:
   - name: overseerr
     version: 15.1.6
-    repository: oci://tccr.io/truecharts
+    repository: oci://oci.trueforge.org/truecharts
