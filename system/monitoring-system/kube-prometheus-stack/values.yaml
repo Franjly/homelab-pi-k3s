@@ -183,7 +183,7 @@ kube-prometheus-stack:
       - '/etc/alertmanager/config/*.tmpl'
 
     ## Alertmanager configuration directives (as string type, preferred over the config hash map)
-    ## stringConfig will be used only, if tplConfig is true
+    ## stringConfig will be used only if tplConfig is true
     ## ref: https://prometheus.io/docs/alerting/configuration/#configuration-file
     ##      https://prometheus.io/webtools/alerting/routing-tree-editor/
     ##
@@ -268,7 +268,7 @@ kube-prometheus-stack:
       selfMonitor: true
 
     ## Settings affecting alertmanagerSpec
-    ## ref: https://github.com/prometheus-operator/prometheus-operator/blob/main/Documentation/api.md#alertmanagerspec
+    ## ref: https://github.com/prometheus-operator/prometheus-operator/blob/main/Documentation/api-reference/api.md#alertmanagerspec
     ##
     alertmanagerSpec:
 
@@ -290,7 +290,7 @@ kube-prometheus-stack:
       retention: 120h
 
       ## Storage is the definition of how storage will be used by the Alertmanager instances.
-      ## ref: https://github.com/prometheus-operator/prometheus-operator/blob/main/Documentation/user-guides/storage.md
+      ## ref: https://github.com/prometheus-operator/prometheus-operator/blob/main/Documentation/platform/storage.md
       ##
       storage:
         volumeClaimTemplate:
@@ -301,7 +301,7 @@ kube-prometheus-stack:
                 storage: 5Gi
 
       ## Define which Nodes the Pods are scheduled on.
-      ## ref: https://kubernetes.io/docs/user-guide/node-selection/
+      ## ref: https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#nodeselector
       ##
       nodeSelector: {}
 
@@ -428,8 +428,9 @@ kube-prometheus-stack:
         # url: http://prometheus-stack-prometheus:9090/
 
         ## Create datasource for each Pod of Prometheus StatefulSet;
-        ## this uses headless service `prometheus-operated` which is
-        ## created by Prometheus Operator
+        ## this uses by default the headless service `prometheus-operated` which is
+        ## created by Prometheus Operator. In case you deployed your own Service for your
+        ## Prometheus instance, you can specify it with the field `prometheusServiceName`
         ## ref: https://github.com/prometheus-operator/prometheus-operator/blob/0fee93e12dc7c2ea1218f19ae25ec6b893460590/pkg/prometheus/statefulset.go#L255-L286
         createPrometheusReplicasDatasources: false
         label: grafana_datasource
@@ -452,7 +453,7 @@ kube-prometheus-stack:
     #   orgId: 1
 
     ## Configure additional grafana datasources (passed through tpl)
-    ## ref: http://docs.grafana.org/administration/provisioning/#datasources
+    ## ref: https://grafana.com/docs/grafana/latest/administration/provisioning/#datasources
     additionalDataSources:
       - name: Loki
         type: loki
@@ -636,12 +637,12 @@ kube-prometheus-stack:
 
     # Flag to mark provisioned data sources for deletion if they are no longer configured.
     # It takes no effect if data sources are already listed in the deleteDatasources section.
-    # ref: https://grafana.com/docs/grafana/latest/administration/provisioning/#example-data-source-config-file
+    # ref: https://grafana.com/docs/grafana/latest/administration/provisioning/#example-data-source-configuration-fil
     prune: false
 
     serviceMonitor:
       # If true, a ServiceMonitor CRD is created for a prometheus operator
-      # https://github.com/coreos/prometheus-operator
+      # https://github.com/prometheus-operator/prometheus-operator
       #
       enabled: true
 
@@ -874,11 +875,6 @@ kube-prometheus-stack:
   ##
   nodeExporter:
     enabled: true
-    operatingSystems:
-      linux:
-        enabled: true
-      darwin:
-        enabled: true
 
     ## ForceDeployDashboard Create dashboard configmap even if nodeExporter deployment has been disabled
     ##
@@ -889,15 +885,12 @@ kube-prometheus-stack:
   prometheus-node-exporter:
 
     podLabels:
-      ## Add the 'node-exporter' label to be used by serviceMonitor to match standard common usage in rules and grafana dashboards
+      ## Add the 'node-exporter' label to be used by serviceMonitor and podMonitor to match standard common usage in rules and grafana dashboards
       ##
       jobLabel: node-exporter
     
     releaseLabel: true
     
-    extraArgs:
-      - --collector.filesystem.mount-points-exclude=^/(dev|proc|sys|var/lib/docker/.+|var/lib/kubelet/.+)($|/)
-      - --collector.filesystem.fs-types-exclude=^(autofs|binfmt_misc|bpf|cgroup2?|configfs|debugfs|devpts|devtmpfs|fusectl|hugetlbfs|iso9660|mqueue|nsfs|overlay|proc|procfs|pstore|rpc_pipefs|securityfs|selinuxfs|squashfs|sysfs|tracefs)$
     
     service:
       portName: http-metrics
@@ -915,7 +908,7 @@ kube-prometheus-stack:
     ##
     tls:
       enabled: true
-      # Value must match version names from https://golang.org/pkg/crypto/tls/#pkg-constants
+      # Value must match version names from https://pkg.go.dev/crypto/tls#pkg-constants
       tlsMinVersion: VersionTLS13
       # The default webhook port is 10250 in order to work out-of-the-box in GKE private clusters and avoid adding firewall rules.
       internalPort: 10250
@@ -994,7 +987,7 @@ kube-prometheus-stack:
       GOGC: "30"
 
     ## Define which Nodes the Pods are scheduled on.
-    ## ref: https://kubernetes.io/docs/user-guide/node-selection/
+    ## ref: https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#nodeselector
     ##
     nodeSelector: {}
 
@@ -1083,7 +1076,7 @@ kube-prometheus-stack:
       selfMonitor: true
 
     ## Settings affecting prometheusSpec
-    ## ref: https://github.com/prometheus-operator/prometheus-operator/blob/main/Documentation/api.md#prometheusspec
+    ## ref: https://github.com/prometheus-operator/prometheus-operator/blob/main/Documentation/api-reference/api.md#prometheusspec
     ##
     prometheusSpec:
       ## EnableAdminAPI enables Prometheus the administrative HTTP API which includes functionality such as deleting time series.
@@ -1093,12 +1086,12 @@ kube-prometheus-stack:
       enableAdminAPI: false
 
       # EnableFeatures API enables access to Prometheus disabled features.
-      # ref: https://prometheus.io/docs/prometheus/latest/disabled_features/
+      # ref: https://prometheus.io/docs/prometheus/latest/feature_flags/
       enableFeatures: []
       # - exemplar-storage
 
       ## Define which Nodes the Pods are scheduled on.
-      ## ref: https://kubernetes.io/docs/user-guide/node-selection/
+      ## ref: https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#nodeselector
       ##
       nodeSelector: {}
 
@@ -1205,6 +1198,9 @@ kube-prometheus-stack:
       ## prometheus resource to be created with selectors based on values in the helm deployment,
       ## which will also match the scrapeConfigs created
       ##
+      ## If null and scrapeConfigSelector is also null, exclude field from the prometheusSpec
+      ## (keeping downward compatibility with older versions of CRD)
+      ##
       scrapeConfigSelectorNilUsesHelmValues: false
 
       ## scrapeConfigs to be selected for target discovery.
@@ -1217,6 +1213,7 @@ kube-prometheus-stack:
       #     prometheus: somelabel
 
       ## If nil, select own namespace. Namespaces to be selected for scrapeConfig discovery.
+      ## If null, exclude the field from the prometheusSpec (keeping downward compatibility with older versions of CRD)
       scrapeConfigNamespaceSelector: {}
       ## Example which selects scrapeConfig in namespaces with label "prometheus" set to "somelabel"
       # scrapeConfigNamespaceSelector:
@@ -1228,7 +1225,7 @@ kube-prometheus-stack:
       retention: 10d
 
       ## Maximum size of metrics
-      ##
+      ## Unit format should be in the form of "50GiB"
       retentionSize: ""
 
       ## Number of replicas of each shard to deploy for a Prometheus deployment.
@@ -1245,7 +1242,7 @@ kube-prometheus-stack:
       logFormat: logfmt
 
       ## Prometheus StorageSpec for persistent data
-      ## ref: https://github.com/prometheus-operator/prometheus-operator/blob/main/Documentation/user-guides/storage.md
+      ## ref: https://github.com/prometheus-operator/prometheus-operator/blob/main/Documentation/platform/storage.md
       ##
       storageSpec:
         volumeClaimTemplate:
@@ -1302,8 +1299,10 @@ kube-prometheus-stack:
   ##
   cleanPrometheusOperatorObjectNames: false
 
-  ## Extra manifests to deploy as an array
-  extraManifests: []
+  ## Extra manifests to deploy.  Can be of type dict or list.
+  ## If dict, keys are ignored and only values are used.
+  ## Items contained within extraObjects can be defined as dict or string and are passed through tpl.
+  extraManifests: null
     # - apiVersion: v1
     #   kind: ConfigMap
     #   metadata:
