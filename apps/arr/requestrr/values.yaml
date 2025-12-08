@@ -45,6 +45,6 @@ requestrr:
       enabled: true
       storageClass: longhorn
       size: 5Gi
-      mountPath: "/root/config"
+      mountPath: "/config"
     varrun:
       enabled: true
