@@ -9,7 +9,7 @@ longhorn:
     # -- Setting that allows you to specify the default Longhorn StorageClass.
     defaultClass: true
     # -- Replica count of the default Longhorn StorageClass.
-    defaultClassReplicaCount: 2
+    defaultClassReplicaCount: 3
     # -- Reclaim policy that provides instructions for handling of a volume after its claim is released. (Options: "Retain", "Delete")
     reclaimPolicy: Retain
     # -- Setting that allows you to enable live migration of a Longhorn volume from one node to another.
