@@ -91,75 +91,16 @@ This should:
 - migrate `values.yaml` when required
 - regenerate derived manifests such as `resources/all.yaml`
 - attempt Helm and Kustomize validation
+- run `post-upgrade-reviewer`
+- stop if the upgrade is not ready for PR creation
+- run `pr-preparer`
+- run `pr-creator`
+- create a branch, commit, and Pull Request by default for single-app upgrades
+- return PR status and URL when available
 
 ---
 
-## Step 2 — Review the diff
-
-Run:
-
-- `post-upgrade-reviewer`
-
-This agent evaluates:
-
-- whether the diff is scoped to the target application
-- whether sensitive configuration changed unexpectedly
-- whether the change looks like a normal upgrade
-- whether the diff is small and reviewable
-
----
-
-## Step 3 — Decision
-
-The reviewer will return one of three states:
-
-### ready for PR creation
-
-Continue normally.
-
-### ready with manual review
-
-Proceed but clearly mark the PR as requiring manual review.
-
-### not ready for PR creation
-
-Stop automatic processing for this application.
-
-Report the issue and skip packaging the PR.
-
----
-
-## Step 4 — Prepare PR metadata
-
-Run:
-
-- `pr-preparer`
-
-This generates:
-
-- branch name
-- commit message
-- Pull Request title
-- Pull Request description
-
----
-
-## Step 5 — Create PR
-
-Run:
-
-- `pr-creator`
-
-This agent should:
-
-- create a branch
-- stage only files related to the upgraded application
-- create a commit
-- create the Pull Request when supported by the environment
-
----
-
-## Step 6 — Continue batch
+## Step 2 — Continue batch
 
 Continue to the next candidate **only if the previous upgrade completed safely**.
 
@@ -215,6 +156,7 @@ If validation fails:
 - do not automatically create a Pull Request
 - report the validation failure
 - leave the upgrade for manual review
+- rely on `upgrade-orchestrator` to stop before PR packaging
 
 ---
 

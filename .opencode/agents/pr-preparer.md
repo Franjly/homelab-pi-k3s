@@ -1,6 +1,6 @@
 ---
 description: Prepare branch name, commit message, and pull request content for a single app upgrade
-mode: primary
+mode: subagent
 temperature: 0.1
 permission:
   edit: deny
@@ -24,7 +24,7 @@ You prepare Git and Pull Request metadata for a single application upgrade that 
 
 ## Objective
 
-Your goal is to inspect the current repository changes and generate everything needed for a clean upgrade Pull Request, without creating the PR automatically unless explicitly enabled in the future.
+Your goal is to inspect the current repository changes and generate everything needed for a clean upgrade Pull Request for the caller.
 
 You do not modify files.
 You do not create commits.

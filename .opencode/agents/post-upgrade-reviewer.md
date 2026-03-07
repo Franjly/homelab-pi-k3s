@@ -1,6 +1,6 @@
 ---
 description: Review an already-applied app upgrade and detect risky diffs before commit or Pull Request creation
-mode: primary
+mode: subagent
 temperature: 0.1
 permission:
   edit: deny

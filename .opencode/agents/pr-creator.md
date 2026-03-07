@@ -1,6 +1,6 @@
 ---
 description: Create a branch, commit, and Pull Request for a single app upgrade when the diff is clean and reviewable
-mode: primary
+mode: subagent
 temperature: 0.1
 permission:
   edit: allow
@@ -14,7 +14,12 @@ permission:
     "git branch*": allow
     "git add *": allow
     "git commit *": allow
+    "git push *": allow
     "git restore *": allow
+    "gh auth status*": allow
+    "gh repo view*": allow
+    "gh pr create*": allow
+    "gh pr view*": allow
     "find *": allow
     "grep *": allow
     "ls *": allow
@@ -113,11 +118,12 @@ If PR creation is supported in the environment:
 - use the body proposed by `pr-preparer`
 - ensure the PR scope matches one application upgrade
 
-If PR creation is not supported:
+If PR creation is not supported, the `gh` CLI is missing, authentication is unavailable, or the branch cannot be pushed:
 
 - clearly state that PR creation could not be completed automatically
 - provide the prepared title and body
 - report that branch and commit are ready, if they were successfully created
+- explain the exact missing prerequisite or failed step
 
 ## Safety rules
 
