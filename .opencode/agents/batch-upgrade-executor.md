@@ -29,9 +29,6 @@ permission:
   task:
     "batch-upgrade-planner": allow
     "upgrade-orchestrator": allow
-    "post-upgrade-reviewer": allow
-    "pr-preparer": allow
-    "pr-creator": allow
 ---
 
 You execute a limited batch of safe Helm chart upgrades for applications in this repository.

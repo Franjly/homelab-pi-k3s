@@ -24,6 +24,9 @@ permission:
     "values-migrator": allow
     "change-applier": allow
     "report-writer": allow
+    "post-upgrade-reviewer": allow
+    "pr-preparer": allow
+    "pr-creator": allow
 ---
 
 You coordinate Helm chart upgrade tasks for this repository.
