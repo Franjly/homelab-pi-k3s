@@ -4,7 +4,9 @@ mode: subagent
 temperature: 0.1
 permission:
   edit: deny
-  bash: deny
+  bash:
+    "helm show *": allow
+    "*": ask
   webfetch: allow
 ---
 
