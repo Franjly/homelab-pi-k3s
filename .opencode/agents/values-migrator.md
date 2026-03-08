@@ -17,6 +17,11 @@ permission:
     "helm pull *": allow
     "ls *": allow
     "rg *": allow
+    "gh api *": allow
+    "gh release list *": allow
+    "printf *": allow
+    "rg *": allow
+    "/tmp/*": allow
     "*": ask
   webfetch: allow
 ---
