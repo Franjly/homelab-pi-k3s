@@ -27,11 +27,13 @@ longhorn:
     # -- Setting that allows Longhorn to perform upgrade version checks after starting the Longhorn Manager DaemonSet Pods. Disabling this setting also disables `preUpgradeChecker.jobEnabled`. Longhorn recommends keeping this setting enabled.
     upgradeVersionCheck: true
 
-  defaultSettings:
+  defaultBackupStore:
     # -- Endpoint used to access the backupstore. (Options: "NFS", "CIFS", "AWS", "GCP", "AZURE")
     backupTarget: s3://longhorn-backups@us-east-1/
     # -- Name of the Kubernetes secret associated with the backup target.
     backupTargetCredentialSecret: longhorn-backup-target-credential-secret
+
+  defaultSettings:
     # -- Setting that allows Longhorn to automatically attach a volume and create snapshots or backups when recurring jobs are run.
     allowRecurringJobWhileVolumeDetached: ~
     # -- Default path for storing data on a host. The default value is "/var/lib/longhorn/".
