@@ -4,7 +4,10 @@ mode: subagent
 temperature: 0.1
 permission:
   edit: deny
-  bash: deny
+  bash:
+    "gh release list *": allow
+    "gh repo view *": allow
+    "*": ask
   webfetch: allow
 ---
 
