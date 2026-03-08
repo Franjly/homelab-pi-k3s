@@ -5,8 +5,8 @@ temperature: 0.1
 permission:
   edit: deny
   bash:
-    "git status*": allow
-    "git diff*": allow
+    "git status *": allow
+    "git diff *": allow
     "git diff --name-only*": allow
     "find *": allow
     "grep *": allow

@@ -10,6 +10,13 @@ permission:
     "helm show *": allow
     "python *": allow
     "python3 *": allow
+    "helm repo *": allow
+    "true *": allow
+    "helm search *": allow
+    "mktemp *": allow
+    "helm pull *": allow
+    "ls *": allow
+    "rg *": allow
     "*": ask
   webfetch: allow
 ---

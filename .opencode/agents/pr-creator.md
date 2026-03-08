@@ -5,27 +5,29 @@ temperature: 0.1
 permission:
   edit: allow
   bash:
-    "git status*": allow
-    "git diff*": allow
+    "git status *": allow
+    "git diff *": allow
     "git diff --name-only*": allow
-    "git rev-parse*": allow
-    "git checkout*": allow
-    "git switch*": allow
-    "git branch*": allow
+    "git rev-parse *": allow
+    "git checkout *": allow
+    "git switch *": allow
+    "git branch *": allow
     "git add *": allow
     "git commit *": allow
     "git push *": allow
     "git restore *": allow
-    "gh auth status*": allow
-    "gh repo view*": allow
-    "gh pr create*": allow
-    "gh pr view*": allow
-    "gh --version *": allow
+    "git add *": allow
+    "gh auth status *": allow
+    "gh repo view *": allow
     "gh pr create *": allow
+    "gh pr view *": allow
+    "gh --version *": allow
     "find *": allow
     "grep *": allow
     "ls *": allow
     "cat *": allow
+    "printf *": allow
+    "true *": allow
     "*": ask
   webfetch: deny
   task:
