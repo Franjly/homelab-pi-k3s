@@ -5,6 +5,7 @@ temperature: 0.1
 permission:
   edit: deny
   bash:
+    "helm show *": allow
     "gh release list *": allow
     "gh repo view *": allow
     "*": ask

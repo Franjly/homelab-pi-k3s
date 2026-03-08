@@ -16,6 +16,19 @@ permission:
     "helm lint *": allow
     "helm template *": allow
     "kustomize build *": allow
+    "helm show *": allow
+    "python *": allow
+    "python3 *": allow
+    "/tmp/*": allow
+    "helm dependency *": allow
+    "helm lint *": allow
+    "helm template *": allow
+    "mktemp *": allow
+    "cp *": allow
+    "kustomize build *": allow
+    "kubectl apply *": allow
+    "kubectl kustomize *": allow
+    "printf *": allow
     "*": ask
   webfetch: allow
   task:

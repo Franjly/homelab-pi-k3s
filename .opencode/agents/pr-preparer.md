@@ -9,6 +9,11 @@ permission:
     "git diff*": allow
     "git diff --name-only*": allow
     "git branch*": allow
+    "git rev-parse *": allow
+    "git log *": allow
+    "git show-ref *": allow
+    "git ls-remote *": allow
+    "printf *": allow
     "find *": allow
     "grep *": allow
     "ls *": allow

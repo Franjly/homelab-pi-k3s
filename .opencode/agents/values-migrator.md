@@ -7,6 +7,9 @@ permission:
   bash:
     "cat *": allow
     "grep *": allow
+    "helm show *": allow
+    "python *": allow
+    "python3 *": allow
     "*": ask
   webfetch: allow
 ---

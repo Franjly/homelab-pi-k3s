@@ -20,6 +20,8 @@ permission:
     "gh repo view*": allow
     "gh pr create*": allow
     "gh pr view*": allow
+    "gh --version *": allow
+    "gh pr create *": allow
     "find *": allow
     "grep *": allow
     "ls *": allow
