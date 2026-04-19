@@ -59,8 +59,8 @@ velero:
 
   kubectl:
     image:
-      repository: docker.io/bitnamilegacy/kubectl
-      tag: 1.33.4
+      repository: registry.k8s.io/kubectl
+      tag: v1.33.4
 
   # This job upgrades the CRDs.
   upgradeCRDs: true
