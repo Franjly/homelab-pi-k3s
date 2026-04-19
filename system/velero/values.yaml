@@ -60,9 +60,7 @@ velero:
   kubectl:
     image:
       repository: registry.k8s.io/kubectl
-      # TODO: BREAKING CHANGE — repo moved from docker.io/bitnamilegacy/kubectl to registry.k8s.io/kubectl (velero-12.0.0).
-      # Verify tag format: registry.k8s.io/kubectl uses v-prefixed tags (e.g. v1.33.4). Update if image pull fails.
-      tag: 1.33.4
+      tag: v1.33.4
 
   # This job upgrades the CRDs.
   upgradeCRDs: true
