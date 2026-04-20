@@ -859,6 +859,7 @@ kube-prometheus-stack:
   ## Configuration for kube-state-metrics subchart
   ##
   kube-state-metrics:
+    # TODO: BREAKING CHANGE — rbac.create removed from kube-prometheus-stack defaults in 83.x; verify kube-state-metrics subchart still honours this key
     rbac:
       create: true
 
@@ -868,6 +869,7 @@ kube-prometheus-stack:
       monitor:
         enabled: true
 
+    # TODO: BREAKING CHANGE — selfMonitor.enabled removed from kube-prometheus-stack defaults in 83.x; verify kube-state-metrics subchart still honours this key
     selfMonitor:
       enabled: false
 
