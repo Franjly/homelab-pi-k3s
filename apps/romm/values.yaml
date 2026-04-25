@@ -119,14 +119,6 @@ romm:
     enabled: true
     includeCommon: true
 
-    workload:
-      main:
-        podSpec:
-          containers:
-            main:
-              env:
-                ALLOW_EMPTY_PASSWORD: "yes"
-
     image:
       repository: bitnami/mariadb
       tag: latest # only option for an arm64 image without subscription
@@ -148,6 +140,14 @@ romm:
   redis:
     enabled: true
     includeCommon: true
+
+    workload:
+      main:
+        podSpec:
+          containers:
+            main:
+              env:
+                ALLOW_EMPTY_PASSWORD: "yes"
 
     image:
       repository: bitnami/redis
