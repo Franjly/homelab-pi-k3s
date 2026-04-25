@@ -30,6 +30,10 @@ tigera-operator:
         - "192.168.40.0/24"
         - "192.168.60.0/24"
     typhaMetricsPort: 9093
+    
+    # Path to the kubelet volume plugin directory used by the Calico CSI driver.
+    # Set to "None" to disable the CSI driver. If unset, defaults to /var/lib/kubelet (CSI enabled).
+    kubeletVolumePluginPath: "None"
 
   apiServer:
     enabled: true
