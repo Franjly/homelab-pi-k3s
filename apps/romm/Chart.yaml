@@ -3,5 +3,5 @@ name: romm
 version: 0.0.0
 dependencies:
   - name: romm
-    version: 14.20.3
+    version: 17.2.3
     repository: oci://oci.trueforge.org/truecharts
