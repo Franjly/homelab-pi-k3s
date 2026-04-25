@@ -3,5 +3,5 @@ name: myspeed
 version: 0.0.0
 dependencies:
   - name: myspeed
-    version: 1.11.1
+    version: 2.1.1
     repository: oci://oci.trueforge.org/truecharts
