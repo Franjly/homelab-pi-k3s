@@ -150,10 +150,8 @@ romm:
                 ALLOW_EMPTY_PASSWORD: "yes"
 
     image:
-      # repository: bitnami/redis
-      # tag: latest # only option for an arm64 image without subscription
-      repository: cgr.dev/chainguard/redis
-      tag: latest
+      repository: docker.io/bitnamisecure/redis
+      tag: latest # only option for an arm64 image without subscription
 
     podOptions:
       nodeSelector:
