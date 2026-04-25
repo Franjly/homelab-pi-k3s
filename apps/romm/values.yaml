@@ -141,16 +141,8 @@ romm:
     enabled: true
     includeCommon: true
 
-    workload:
-      main:
-        podSpec:
-          containers:
-            main:
-              env:
-                ALLOW_EMPTY_PASSWORD: "yes"
-
     image:
-      repository: docker.io/bitnamisecure/redis
+      repository: docker.io/bitnamisecure/valkey
       tag: latest # only option for an arm64 image without subscription
 
     podOptions:
