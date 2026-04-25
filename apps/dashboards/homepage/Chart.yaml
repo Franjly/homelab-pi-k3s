@@ -3,5 +3,5 @@ name: homepage
 version: 0.0.0
 dependencies:
   - name: homepage
-    version: 11.12.1
+    version: 12.2.1
     repository: oci://oci.trueforge.org/truecharts
