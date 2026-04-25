@@ -859,17 +859,11 @@ kube-prometheus-stack:
   ## Configuration for kube-state-metrics subchart
   ##
   kube-state-metrics:
-    rbac:
-      create: true
-
     releaseLabel: true
 
     prometheus:
       monitor:
         enabled: true
-
-    selfMonitor:
-      enabled: false
 
   ## Deploy node exporter as a daemonset to all nodes
   ##
