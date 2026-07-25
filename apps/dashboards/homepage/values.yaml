@@ -652,6 +652,18 @@ homepage:
                   - abbr: CF
                     icon: https://t2.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://cloudflare.com&size=32
                     href: https://dash.cloudflare.com
+              - Claude:
+                  - abbr: CLAUDE
+                    icon: https://raw.githubusercontent.com/homarr-labs/dashboard-icons/refs/heads/main/png/claude-ai-light.png
+                    href: https://claude.ai
+              - ChatGPT:
+                  - abbr: CGPT
+                    icon: https://raw.githubusercontent.com/homarr-labs/dashboard-icons/refs/heads/main/png/chatgpt.png
+                    href: https://chatgpt.com
+              - Notebook LM:
+                  - abbr: NLM
+                    icon: https://notebooklm.google.com/_/static/branding/v6/light_mode/favicon/favicon-32x32.png
+                    href: https://dash.cloudflare.com
 
           - Social:
               - Reddit:
