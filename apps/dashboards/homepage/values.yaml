@@ -445,7 +445,7 @@ homepage:
                   namespace: monitoring-system
                   app: alertmanager
               - MySpeed:
-                  icon: https://docs.myspeed.dev/assets/images/logo.png
+                  icon: https://raw.githubusercontent.com/gnmyt/MySpeed/refs/heads/development/docs/assets/images/logo.png
                   href: https://myspeed.local.tecno-fly.com/
                   description: Speed test analysis software
                   namespace: myspeed
@@ -672,7 +672,7 @@ homepage:
           - TrueCharts:
               - TrueCharts:
                 - abbr: TC
-                  icon: https://truecharts.org/svg/favicon.svg
+                  icon: https://truecharts.org/logo.svg
                   href: https://truecharts.org
                   description: "TrueCharts Website"
               - Github:
