@@ -594,6 +594,19 @@ homepage:
                     key: <path:pi-k3s/data/apps/dashboards/homepage#truenas-apikey>
                     enablePools: true
                     nasType: scale
+              - Peanut:
+                  icon: peanut.png
+                  href: https://peanut.local.tecno-fly.com/
+                  description: UPS Dashboard (Network UPS Tools)
+                  namespace: peanut
+                  app: peanut
+                  widget:
+                    type: peanut
+                    url: http://peanut.peanut.svc.cluster.local:10688
+                    key: ups
+                    username: <path:pi-k3s/data/apps/peanut#user>
+                    password: <path:pi-k3s/data/apps/peanut#pass>
+                    fields: ["battery_charge", "ups_status"]
               - File Browser:
                   icon: filebrowser.png
                   href: https://truenas-browser.local.tecno-fly.com/
@@ -611,18 +624,6 @@ homepage:
                   description: Kubernetes Native Object Storage
                   siteMonitor: https://192.168.40.250:9002/
                   statusStyle: 'basic'
-              - Peanut:
-                  icon: peanut.png
-                  href: https://peanut.local.tecno-fly.com/
-                  description: UPS Dashboard (Network UPS Tools)
-                  namespace: peanut
-                  app: peanut
-                  widget:
-                    type: peanut
-                    url: http://peanut.peanut.svc.cluster.local:10688
-                    key: ups
-                    username: <path:pi-k3s/data/apps/peanut#user>
-                    password: <path:pi-k3s/data/apps/peanut#pass>
 
           - Games:
               - Romm:
