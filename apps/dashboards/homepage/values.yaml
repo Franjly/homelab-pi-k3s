@@ -617,6 +617,12 @@ homepage:
                   description: UPS Dashboard (Network UPS Tools)
                   namespace: peanut
                   app: peanut
+                  widget:
+                    type: peanut
+                    url: http://peanut.peanut.svc.cluster.local:10688
+                    key: ups
+                    username: <path:pi-k3s/data/apps/peanut#user>
+                    password: <path:pi-k3s/data/apps/peanut#pass>
 
           - Games:
               - Romm:
