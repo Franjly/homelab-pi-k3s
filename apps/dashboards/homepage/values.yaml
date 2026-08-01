@@ -611,6 +611,12 @@ homepage:
                   description: Kubernetes Native Object Storage
                   siteMonitor: https://192.168.40.250:9002/
                   statusStyle: 'basic'
+              - Peanut:
+                  icon: peanut.png
+                  href: https://peanut.local.tecno-fly.com/
+                  description: UPS Dashboard (Network UPS Tools)
+                  namespace: peanut
+                  app: peanut
 
           - Games:
               - Romm:

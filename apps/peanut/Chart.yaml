@@ -1,0 +1,7 @@
+apiVersion: v2
+name: peanut
+version: 0.0.0
+dependencies:
+  - name: peanut
+    version: 10.5.0
+    repository: oci://oci.trueforge.org/truecharts
