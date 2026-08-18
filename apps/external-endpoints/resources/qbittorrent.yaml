@@ -13,18 +13,21 @@ spec:
   clusterIP: None
   type: ClusterIP
 ---
-apiVersion: v1
-kind: Endpoints
+apiVersion: discovery.k8s.io/v1
+kind: EndpointSlice
 metadata:
   name: qbittorrent-external-service
   namespace: external-endpoints
-subsets:
+  labels:
+    kubernetes.io/service-name: qbittorrent-external-service
+addressType: IPv4
+ports:
+- name: http
+  port: 10095
+  protocol: TCP
+endpoints:
 - addresses:
-  - ip: 192.168.40.250
-  ports:
-  - name: http
-    port: 10095
-    protocol: TCP
+  - 192.168.40.250
 ---
 apiVersion: networking.k8s.io/v1
 kind: Ingress
